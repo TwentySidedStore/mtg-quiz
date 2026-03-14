@@ -56,6 +56,79 @@ namespace :db do
   end
 end
 
+namespace :questions do
+  desc "Import questions from a JSON file into SQLite as pending"
+  task :import, [:filepath] do |_t, args|
+    filepath = args[:filepath]
+
+    if filepath.nil? || filepath.empty?
+      abort "Usage: rake questions:import[path/to/file.json]"
+    end
+
+    unless File.exist?(filepath)
+      abort "File not found: #{filepath}"
+    end
+
+    json = File.read(filepath)
+    questions = begin
+      JSON.parse(json)
+    rescue JSON::ParserError => e
+      abort "Invalid JSON: #{e.message}"
+    end
+
+    unless questions.is_a?(Array)
+      abort "Expected a JSON array of question objects"
+    end
+
+    required_fields = %w[difficulty question answer explanation]
+
+    # Validate all questions before inserting any
+    questions.each_with_index do |q, i|
+      required_fields.each do |field|
+        if q[field].nil? || q[field].to_s.strip.empty?
+          abort "Question #{i + 1}: missing required field '#{field}'"
+        end
+      end
+
+      unless DIFFICULTY_LEVELS.include?(q["difficulty"])
+        abort "Question #{i + 1}: unknown difficulty '#{q["difficulty"]}'. Must be one of: #{DIFFICULTY_LEVELS.join(", ")}"
+      end
+    end
+
+    # Ensure the database exists
+    Rake::Task["db:setup"].invoke
+
+    db = SQLite3::Database.new(QUESTIONS_SQLITE)
+    inserted_ids = []
+    difficulty_counts = Hash.new(0)
+
+    questions.each do |q|
+      db.execute(
+        "INSERT INTO questions (difficulty, question, answer, explanation, rule_refs, cards_ref, tags) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        [
+          q["difficulty"],
+          q["question"],
+          q["answer"],
+          q["explanation"],
+          q["rule_refs"]&.then { |r| r.is_a?(Array) ? JSON.generate(r) : r },
+          q["cards_ref"]&.then { |r| r.is_a?(Array) ? JSON.generate(r) : r },
+          q["tags"]&.then { |r| r.is_a?(Array) ? JSON.generate(r) : r }
+        ]
+      )
+      inserted_ids << db.last_insert_row_id
+      difficulty_counts[q["difficulty"]] += 1
+    end
+
+    db.close
+
+    id_range = "#{inserted_ids.first}-#{inserted_ids.last}"
+    puts "Imported #{questions.length} questions (IDs #{id_range})"
+    difficulty_counts.sort.each do |level, count|
+      puts "  #{level}: #{count}"
+    end
+  end
+end
+
 task :test do
   Dir.glob("test/test_*.rb").each { |f| require_relative f }
 end

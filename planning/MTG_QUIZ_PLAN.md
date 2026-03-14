@@ -339,54 +339,39 @@ git push
 
 ## Implementation Stages
 
-### Stage 1 — Skeleton + Data
+### Stage 1 — Skeleton + Data ✓
 ```
-[ ] Directory structure: docs/, planning/, pipeline/, review/, data/, test/
-[ ] .gitignore (data/, *.sqlite, *.db, .env, .DS_Store)
-[ ] .ruby-version (3.4.4)
-[ ] Gemfile at project root (sqlite3 + minitest)
-[ ] bundle install
-[ ] Rakefile at project root
-    [ ] rake data:update
-        [ ] Create data/ if missing
-        [ ] If AllPrintings.sqlite exists: query meta table for local version
-        [ ] Fetch remote Meta.json, compare to local version
-        [ ] If newer or first run: stream-download AllPrintings.sqlite (~400MB)
-            [ ] Follow redirects, show progress, 10min timeout
-            [ ] Verify SHA256 hash
-        [ ] If current: print "MTGJSON up to date (version X)"
-        [ ] Prompt for CR .txt URL
-        [ ] Download CR to data/comprehensive_rules.txt
-    [ ] rake db:setup
-        [ ] Create data/questions.sqlite
-        [ ] CREATE TABLE IF NOT EXISTS questions (integer autoincrement PK)
+[x] Directory structure: docs/, planning/, pipeline/, review/, data/, test/
+[x] .gitignore (data/, *.sqlite, *.db, .env, .DS_Store)
+[x] .ruby-version (3.4.4)
+[x] Gemfile at project root (rake + sqlite3 + minitest)
+[x] bundle install
+[x] Rakefile at project root
+    [x] rake data:update (version check via meta table, stream download, SHA256, CR URL prompt)
+    [x] rake db:setup (creates questions table with integer autoincrement PK)
 [x] MTGJSON schema verified — see Data Sources section for confirmed table/column details
-[ ] Tests: test/test_db_setup.rb
-    [ ] db:setup creates table with correct columns
+[x] Tests: test/test_db_setup.rb (5 tests passing)
 ```
 
-### Stage 2 — Question Generation
+### Stage 2 — Question Generation Tooling ✓
 ```
-[ ] Claude Code skill: .claude/commands/mtg-lookup.md
-    [ ] Query card by name (oracle text + rulings)
-    [ ] Search cards by keyword/mechanic
-    [ ] Find cards with most rulings (filterable by format legality)
-    [ ] Built against verified schema from Stage 1
-[ ] rake questions:import[path/to/file.json]
-    [ ] Accept file path as argument
-    [ ] Validate required fields + difficulty values
-    [ ] Insert as pending, auto-generate IDs
-    [ ] Print import summary
-[ ] Document generation workflow in planning/generation_prompt.md
-    [ ] How to prompt Claude Code (with examples)
-    [ ] Expected JSON output format
-    [ ] Tips: use /mtg-lookup for exact oracle text
-    [ ] Tips: work backwards from rulings
-[ ] Dry run: generate 2-3 throwaway test questions, import, verify pipeline works
-[ ] Tests: test/test_import.rb
-    [ ] Imports valid JSON correctly
-    [ ] Rejects JSON missing required fields
-    [ ] Rejects unknown difficulty values
+[x] Claude Code skill: .claude/commands/mtg-lookup.md
+    [x] Query card by name (oracle text + rulings)
+    [x] Search cards by keyword/mechanic
+    [x] Find cards with most rulings (filterable by format legality)
+    [x] Built against verified schema from Stage 1
+[x] rake questions:import[path/to/file.json]
+    [x] Accept file path as argument
+    [x] Validate required fields + difficulty values
+    [x] Insert as pending, auto-generate IDs
+    [x] Print import summary with ID range and difficulty breakdown
+[x] Document generation workflow in planning/generation_prompt.md
+    [x] How to prompt Claude Code (with examples)
+    [x] Expected JSON output format
+    [x] Tips: use /mtg-lookup for exact oracle text
+    [x] Tips: work backwards from rulings
+[x] Dry run: generated 2 test questions, imported, verified pipeline, cleaned up
+[x] Tests: test/test_import.rb (8 tests passing)
 ```
 
 ### Stage 2b — Generate First Batch (separate session)
