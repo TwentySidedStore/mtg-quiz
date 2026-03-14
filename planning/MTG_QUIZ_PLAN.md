@@ -169,7 +169,7 @@ Cards with many Gatherer rulings are literally the cards people ask questions ab
 - **Precision**: Magic rulings are deterministic. Every question must have one unambiguously correct answer. Use exact oracle text from MTGJSON, not approximations.
 
 ### Target volume
-~250 per level, ~1500 total. Human review required — LLM output will have errors on edge cases.
+~250 per level for most levels, ~50 for `2hg`. Human review required — LLM output will have errors on edge cases.
 
 ### Prompt documentation
 Detailed generation prompts and examples live in `planning/generation_prompt.md`.
@@ -181,18 +181,16 @@ Detailed generation prompts and examples live in `planning/generation_prompt.md`
 All tasks run from the project root.
 
 ```
-rake data:update           # download MTGJSON (auto version check) + CR (prompts for URL)
-rake data:card[name]       # look up a card's oracle text + rulings from MTGJSON
-rake db:setup              # create questions table in data/questions.sqlite
-rake questions:import      # import JSON into SQLite as pending (file arg or stdin)
-rake review:start          # WEBrick at localhost:4567
-rake export                # approved rows → docs/questions.json
-rake test                  # run minitest suite
+rake data:update                        # download MTGJSON (auto version check) + CR (prompts for URL)
+rake db:setup                           # create questions table in data/questions.sqlite
+rake questions:import[path/to/file]     # import JSON file into SQLite as pending
+rake review:start                       # WEBrick at localhost:4567
+rake export                             # approved rows → docs/questions.json
+rake test                               # run minitest suite
 ```
 
 ### `rake questions:import` details
-- Accepts file path as argument: `rake questions:import[path/to/batch.json]`
-- Also reads from stdin: `cat batch.json | rake questions:import`
+- Accepts file path as argument: `rake questions:import[data/batches/fundamentals_01.json]`
 - Validates required fields: `difficulty`, `question`, `answer`, `explanation`
 - Validates `difficulty` is one of the 6 known values
 - Auto-generates integer IDs (autoincrement)
@@ -341,7 +339,7 @@ git push
 ### Stage 1 — Skeleton + Data
 ```
 [ ] Directory structure: docs/, planning/, pipeline/, review/, data/, test/
-[ ] .gitignore (data/, *.sqlite, *.db, .env)
+[ ] .gitignore (data/, *.sqlite, *.db, .env, .DS_Store)
 [ ] .ruby-version (3.4.4)
 [ ] Gemfile at project root (sqlite3 + minitest)
 [ ] bundle install
@@ -359,10 +357,11 @@ git push
     [ ] rake db:setup
         [ ] Create data/questions.sqlite
         [ ] CREATE TABLE IF NOT EXISTS questions (integer autoincrement PK)
-    [ ] rake data:card[name]
-        [ ] Query AllPrintings for card name
-        [ ] Print oracle text, type line, rulings
-[ ] Verify MTGJSON schema after first download (confirm actual table/column names)
+[ ] After first download: verify MTGJSON schema
+    [ ] Run .tables and .schema against AllPrintings.sqlite
+    [ ] Confirm how rulings are stored (JSON column vs separate table?)
+    [ ] Confirm column names for oracle text, legalities
+    [ ] Document findings — these feed into the /mtg-lookup skill in Stage 2
 [ ] Tests: test/test_db_setup.rb
     [ ] db:setup creates table with correct columns
 ```
@@ -373,8 +372,9 @@ git push
     [ ] Query card by name (oracle text + rulings)
     [ ] Search cards by keyword/mechanic
     [ ] Find cards with most rulings (filterable by format legality)
-[ ] rake questions:import
-    [ ] Accept file path argument OR stdin
+    [ ] Built against verified schema from Stage 1
+[ ] rake questions:import[path/to/file.json]
+    [ ] Accept file path as argument
     [ ] Validate required fields + difficulty values
     [ ] Insert as pending, auto-generate IDs
     [ ] Print import summary
@@ -385,13 +385,12 @@ git push
     [ ] Tips: work backwards from rulings
 [ ] Generate first batch (fundamentals, ~25 questions)
     [ ] Read CR into context
-    [ ] Query MTGJSON for relevant cards + rulings
+    [ ] Use /mtg-lookup for relevant cards + rulings
     [ ] Generate, save as JSON, import, spot-check rule_refs
 [ ] Tests: test/test_import.rb
     [ ] Imports valid JSON correctly
     [ ] Rejects JSON missing required fields
     [ ] Rejects unknown difficulty values
-    [ ] Handles stdin and file path
 ```
 
 ### Stage 3 — Review UI + Export
