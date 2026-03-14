@@ -218,25 +218,23 @@ The review UI is purely local. It will never be deployed. WEBrick is stdlib — 
 
 **Audience**: you (the developer/manager), on a laptop. Utilitarian, functional.
 
-**Server**: WEBrick with JSON API endpoints
+**Server**: WEBrick with JSON API endpoints (bound to `127.0.0.1:4567`)
 - `GET /` — serve `review/index.html`
 - `GET /api/questions?status=pending` — list questions, filterable by status
+- `POST /api/questions` with `{id, ...fields}` — update any field (POST not PATCH — WEBrick limitation)
 - `GET /api/stats` — `{pending: N, approved: N, rejected: N}`
-- `PATCH /api/questions/:id` — update any field (status, text, difficulty, etc.)
 
 **Layout**:
-- Bulma CDN, vanilla JS, semantic HTML
-- `<nav>` — Bulma tabs for status filtering: Pending | Approved | Rejected
-- `<header>` — stats bar showing counts per status (Bulma `level` or `tags`)
+- Bulma CDN, vanilla JS, semantic HTML. Desktop only.
+- `<nav>` — Bulma navbar with title + stats tags (pending/approved/rejected counts)
+- Bulma tabs for status filtering: Pending | Approved | Rejected
+- Jump-to dropdown with question ID + truncated preview text
 - `<main>` — single question displayed as a Bulma `card`
-  - Question ID and position ("Question 3 of 26")
   - Difficulty dropdown (`<select>`) — editable
   - Question, answer, explanation — `<textarea>` elements with `<label>`s
   - Rule refs, cards, tags — text inputs, comma-separated, with `<label>`s
-  - All fields editable inline
-- `<footer>` — action buttons and navigation
-  - Prev / Next buttons (Bulma `button`)
-  - Reject (Bulma `is-danger`) / Approve (Bulma `is-success`)
+  - All fields editable inline — edits saved when approving/rejecting
+- Action buttons: Prev / Next + Reject (`is-danger`) / Approve (`is-success`)
 - WCAG: visible focus states, `<label>` on every field, logical tab order
 
 ---
@@ -366,13 +364,14 @@ source "https://rubygems.org"
 
 gem "rake"
 gem "sqlite3"
+gem "webrick"
 
 group :test do
   gem "minitest"
 end
 ```
 
-Two production gems (`rake` + `sqlite3`). WEBrick is stdlib. Downloads use `Net::HTTP` (stdlib).
+Three production gems (`rake` + `sqlite3` + `webrick`). Downloads use `Net::HTTP` (stdlib). WEBrick was removed from stdlib in Ruby 3.4.
 
 ### .ruby-version
 ```
@@ -392,7 +391,7 @@ Minitest. Tests live in `test/`. Run with `rake test`.
 - `rake export` only includes approved questions
 - `rake export` output matches expected JSON shape (no status/timestamps)
 - Review server API endpoints return correct responses
-- `PATCH` updates fields correctly
+- `POST` updates fields correctly (WEBrick doesn't support PATCH)
 
 ### What we don't test
 - Frontend UI — manual testing by clicking through is sufficient
@@ -462,39 +461,27 @@ git push
     [x] Topics: turn structure, priority, casting, combat, stack basics, card types
 ```
 
-### Stage 3 — Review UI + Export
+### Stage 3 — Review UI + Export ✓
 ```
-[ ] pipeline/review_server.rb (WEBrick)
-    [ ] GET / — serve review/index.html
-    [ ] GET /api/questions?status=X — filterable by status
-    [ ] GET /api/stats — {pending: N, approved: N, rejected: N}
-    [ ] PATCH /api/questions/:id — update any field
-    [ ] Bind to 127.0.0.1 explicitly (no LAN exposure)
-[ ] review/index.html
-    [ ] Bulma CDN, vanilla JS, semantic HTML
-    [ ] Nav: Bulma tabs for status filtering (Pending / Approved / Rejected)
-    [ ] Header: stats bar with counts per status
-    [ ] Main: single question as Bulma card
-        [ ] Question ID + position ("Question 3 of 26")
-        [ ] Difficulty dropdown (editable)
-        [ ] Question, answer, explanation as labeled textareas
-        [ ] Rule refs, cards, tags as labeled text inputs (comma-separated)
-    [ ] Footer: Prev/Next + Reject (is-danger) / Approve (is-success)
-    [ ] WCAG: labels on all fields, visible focus states, logical tab order
-[ ] rake review:start — WEBrick on localhost:4567
-[ ] rake export
-    [ ] Ensure docs/ directory exists
-    [ ] Query approved questions
-    [ ] Strip status, created_at, reviewed_at
-    [ ] Write docs/questions.json (pretty-printed)
-    [ ] Print summary, warn if empty
-[ ] Tests: test/test_export.rb
-    [ ] Only exports approved
-    [ ] Correct JSON shape
-    [ ] Strips internal fields
-[ ] Tests: test/test_review_server.rb
-    [ ] API endpoints return correct responses
-    [ ] PATCH updates fields
+[x] pipeline/review_server.rb (WEBrick, bound to 127.0.0.1:4567)
+    [x] GET /api/questions?status=X — list/filter questions
+    [x] POST /api/questions {id, ...fields} — update any field (POST not PATCH — WEBrick limitation)
+    [x] GET /api/stats — {pending: N, approved: N, rejected: N}
+[x] review/index.html
+    [x] Bulma CDN, vanilla JS, semantic HTML
+    [x] Nav: Bulma tabs for status filtering (Pending / Approved / Rejected)
+    [x] Header: stats bar with counts per status
+    [x] Jump-to dropdown with question ID + preview text
+    [x] All fields editable: difficulty dropdown, textareas, comma-separated inputs
+    [x] Approve (is-success) / Reject (is-danger) saves edits + changes status
+    [x] Prev/Next navigation
+    [x] Labels on all fields
+[x] rake review:start — WEBrick on localhost:4567
+[x] rake export — approved → docs/questions.json (pretty-printed, strips internal fields)
+[x] webrick gem added to Gemfile (removed from stdlib in Ruby 3.4)
+[x] Tests: test/test_export.rb (7 tests)
+[x] Tests: test/test_review_server.rb (6 tests)
+[x] Note: WEBrick query params return FormData objects — must .to_s.encode("UTF-8") for SQLite
 ```
 
 ### Stage 4 — Frontend Quiz

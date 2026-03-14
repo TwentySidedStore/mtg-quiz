@@ -14,7 +14,7 @@ Local only. Audience: you (developer/manager) on a laptop.
 │  Pending  │  Approved │  Rejected                   │  ← Bulma tabs, filter by status
 ├───────────┴───────────┴─────────────────────────────┤
 │                                                     │
-│  ID: 5                        Question 3 of 26      │
+│  Jump to: [#5 — Can a player cast an instant d... ▼]│  ← dropdown with all questions
 │                                                     │
 │  Difficulty: [fundamentals ▼]                       │
 │                                                     │
