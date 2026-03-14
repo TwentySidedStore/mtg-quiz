@@ -43,15 +43,11 @@
     <div class="container">
       <article class="card" id="question-card">
         <div class="card-content">
-          <div class="level mb-4">
-            <div class="level-left">
-              <div class="level-item">
-                <span class="has-text-grey" id="question-id">ID: —</span>
-              </div>
-            </div>
-            <div class="level-right">
-              <div class="level-item">
-                <span class="has-text-grey" id="question-position">— of —</span>
+          <div class="field mb-4">
+            <label class="label" for="question-selector">Jump to</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="question-selector"></select>
               </div>
             </div>
           </div>
@@ -187,9 +183,19 @@
 
       const q = state.questions[state.currentIndex];
 
-      document.getElementById('question-id').textContent = `ID: ${q.id}`;
-      document.getElementById('question-position').textContent =
-        `${state.currentIndex + 1} of ${state.questions.length}`;
+      // Populate jump-to dropdown
+      const selector = document.getElementById('question-selector');
+      if (selector.options.length !== state.questions.length) {
+        selector.innerHTML = '';
+        state.questions.forEach((sq, i) => {
+          const opt = document.createElement('option');
+          opt.value = i;
+          const preview = sq.question.length > 80 ? sq.question.slice(0, 80) + '...' : sq.question;
+          opt.textContent = `#${sq.id} — ${preview}`;
+          selector.appendChild(opt);
+        });
+      }
+      selector.value = state.currentIndex;
 
       document.getElementById('field-difficulty').value = q.difficulty;
       document.getElementById('field-question').value = q.question;
@@ -253,6 +259,11 @@
         state.currentIndex++;
         renderQuestion();
       }
+    });
+
+    document.getElementById('question-selector').addEventListener('change', (e) => {
+      state.currentIndex = parseInt(e.target.value, 10);
+      renderQuestion();
     });
 
     document.getElementById('btn-approve').addEventListener('click', () => saveAndSetStatus('approved'));
