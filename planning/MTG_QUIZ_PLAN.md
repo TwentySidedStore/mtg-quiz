@@ -382,14 +382,22 @@ git push
     [ ] Expected JSON output format
     [ ] Tips: use /mtg-lookup for exact oracle text
     [ ] Tips: work backwards from rulings
-[ ] Generate first batch (fundamentals, ~25 questions)
-    [ ] Read CR into context
-    [ ] Use /mtg-lookup for relevant cards + rulings
-    [ ] Generate, save as JSON, import, spot-check rule_refs
+[ ] Dry run: generate 2-3 throwaway test questions, import, verify pipeline works
 [ ] Tests: test/test_import.rb
     [ ] Imports valid JSON correctly
     [ ] Rejects JSON missing required fields
     [ ] Rejects unknown difficulty values
+```
+
+### Stage 2b — Generate First Batch (separate session)
+```
+[ ] Generate fundamentals batch (~25 questions)
+    [ ] Fresh Claude Code session with full context budget
+    [ ] Read CR into context
+    [ ] Use /mtg-lookup for exact oracle text + rulings
+    [ ] Generate, save to data/batches/fundamentals_01.json
+    [ ] rake questions:import[data/batches/fundamentals_01.json]
+    [ ] Spot-check: do rule_refs cite real CR sections?
 ```
 
 ### Stage 3 — Review UI + Export
