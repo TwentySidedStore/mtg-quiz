@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MTG Quiz Review</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <style>
+    textarea { min-height: 80px; }
+    .stats-bar .tag { font-size: 0.9rem; }
+    .action-buttons { gap: 0.5rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <span class="navbar-item has-text-weight-bold">MTG Quiz Review</span>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="tags stats-bar" id="stats">
+          <span class="tag is-warning" id="stat-pending">Pending: 0</span>
+          <span class="tag is-success" id="stat-approved">Approved: 0</span>
+          <span class="tag is-danger" id="stat-rejected">Rejected: 0</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section pt-4 pb-2">
+    <div class="container">
+      <div class="tabs is-boxed">
+        <ul id="status-tabs" role="tablist">
+          <li class="is-active" role="tab"><a data-status="pending">Pending</a></li>
+          <li role="tab"><a data-status="approved">Approved</a></li>
+          <li role="tab"><a data-status="rejected">Rejected</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <main class="section pt-2">
+    <div class="container">
+      <article class="card" id="question-card">
+        <div class="card-content">
+          <div class="level mb-4">
+            <div class="level-left">
+              <div class="level-item">
+                <span class="has-text-grey" id="question-id">ID: —</span>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <span class="has-text-grey" id="question-position">— of —</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="field-difficulty">Difficulty</label>
+            <div class="control">
+              <div class="select">
+                <select id="field-difficulty">
+                  <option value="fundamentals">fundamentals</option>
+                  <option value="multiplayer">multiplayer</option>
+                  <option value="2hg">2hg</option>
+                  <option value="stack_triggers">stack_triggers</option>
+                  <option value="interactions">interactions</option>
+                  <option value="edge_cases">edge_cases</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="field-question">Question</label>
+            <div class="control">
+              <textarea class="textarea" id="field-question"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="field-answer">Answer</label>
+            <div class="control">
+              <textarea class="textarea" id="field-answer"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="field-explanation">Explanation</label>
+            <div class="control">
+              <textarea class="textarea" id="field-explanation"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="field-rule-refs">Rule Refs (comma-separated)</label>
+            <div class="control">
+              <input class="input" type="text" id="field-rule-refs">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="field-cards-ref">Cards (comma-separated)</label>
+            <div class="control">
+              <input class="input" type="text" id="field-cards-ref">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="field-tags">Tags (comma-separated)</label>
+            <div class="control">
+              <input class="input" type="text" id="field-tags">
+            </div>
+          </div>
+        </div>
+
+        <footer class="card-footer">
+          <div class="card-footer-item">
+            <div class="buttons action-buttons is-flex is-justify-content-space-between" style="width: 100%;">
+              <button class="button" id="btn-prev" aria-label="Previous question">&larr; Prev</button>
+              <div class="buttons">
+                <button class="button is-danger" id="btn-reject">Reject</button>
+                <button class="button is-success" id="btn-approve">Approve</button>
+              </div>
+              <button class="button" id="btn-next" aria-label="Next question">Next &rarr;</button>
+            </div>
+          </div>
+        </footer>
+      </article>
+
+      <div class="notification is-info is-light mt-4 is-hidden" id="empty-state">
+        <p>No questions match this filter.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const state = {
+      questions: [],
+      currentIndex: 0,
+      statusFilter: 'pending'
+    };
+
+    // --- API ---
+
+    async function fetchQuestions(status) {
+      const url = status ? `/api/questions?status=${status}` : '/api/questions';
+      const res = await fetch(url);
+      return res.json();
+    }
+
+    async function fetchStats() {
+      const res = await fetch('/api/stats');
+      return res.json();
+    }
+
+    async function updateQuestion(id, fields) {
+      const res = await fetch('/api/questions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, ...fields })
+      });
+      return res.json();
+    }
+
+    // --- Rendering ---
+
+    function renderStats(stats) {
+      document.getElementById('stat-pending').textContent = `Pending: ${stats.pending || 0}`;
+      document.getElementById('stat-approved').textContent = `Approved: ${stats.approved || 0}`;
+      document.getElementById('stat-rejected').textContent = `Rejected: ${stats.rejected || 0}`;
+    }
+
+    function renderQuestion() {
+      const card = document.getElementById('question-card');
+      const empty = document.getElementById('empty-state');
+
+      if (state.questions.length === 0) {
+        card.classList.add('is-hidden');
+        empty.classList.remove('is-hidden');
+        return;
+      }
+
+      card.classList.remove('is-hidden');
+      empty.classList.add('is-hidden');
+
+      const q = state.questions[state.currentIndex];
+
+      document.getElementById('question-id').textContent = `ID: ${q.id}`;
+      document.getElementById('question-position').textContent =
+        `${state.currentIndex + 1} of ${state.questions.length}`;
+
+      document.getElementById('field-difficulty').value = q.difficulty;
+      document.getElementById('field-question').value = q.question;
+      document.getElementById('field-answer').value = q.answer;
+      document.getElementById('field-explanation').value = q.explanation;
+      document.getElementById('field-rule-refs').value = (q.rule_refs || []).join(', ');
+      document.getElementById('field-cards-ref').value = (q.cards_ref || []).join(', ');
+      document.getElementById('field-tags').value = (q.tags || []).join(', ');
+
+      document.getElementById('btn-prev').disabled = state.currentIndex === 0;
+      document.getElementById('btn-next').disabled = state.currentIndex >= state.questions.length - 1;
+    }
+
+    function getEditedFields() {
+      const parseCSV = (val) => val.split(',').map(s => s.trim()).filter(s => s.length > 0);
+
+      return {
+        difficulty: document.getElementById('field-difficulty').value,
+        question: document.getElementById('field-question').value,
+        answer: document.getElementById('field-answer').value,
+        explanation: document.getElementById('field-explanation').value,
+        rule_refs: parseCSV(document.getElementById('field-rule-refs').value),
+        cards_ref: parseCSV(document.getElementById('field-cards-ref').value),
+        tags: parseCSV(document.getElementById('field-tags').value)
+      };
+    }
+
+    // --- Actions ---
+
+    async function loadQuestions() {
+      state.questions = await fetchQuestions(state.statusFilter);
+      state.currentIndex = 0;
+      renderQuestion();
+
+      const stats = await fetchStats();
+      renderStats(stats);
+    }
+
+    async function saveAndSetStatus(newStatus) {
+      const q = state.questions[state.currentIndex];
+      if (!q) return;
+
+      const fields = getEditedFields();
+      fields.status = newStatus;
+
+      await updateQuestion(q.id, fields);
+      await loadQuestions();
+    }
+
+    // --- Event listeners ---
+
+    document.getElementById('btn-prev').addEventListener('click', () => {
+      if (state.currentIndex > 0) {
+        state.currentIndex--;
+        renderQuestion();
+      }
+    });
+
+    document.getElementById('btn-next').addEventListener('click', () => {
+      if (state.currentIndex < state.questions.length - 1) {
+        state.currentIndex++;
+        renderQuestion();
+      }
+    });
+
+    document.getElementById('btn-approve').addEventListener('click', () => saveAndSetStatus('approved'));
+    document.getElementById('btn-reject').addEventListener('click', () => saveAndSetStatus('rejected'));
+
+    document.querySelectorAll('#status-tabs a').forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('#status-tabs li').forEach(li => li.classList.remove('is-active'));
+        tab.parentElement.classList.add('is-active');
+        state.statusFilter = tab.dataset.status;
+        loadQuestions();
+      });
+    });
+
+    // --- Init ---
+    loadQuestions();
+  </script>
+</body>
+</html>

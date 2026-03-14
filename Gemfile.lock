@@ -17,6 +17,7 @@ GEM
     sqlite3 (2.9.1-x86_64-darwin)
     sqlite3 (2.9.1-x86_64-linux-gnu)
     sqlite3 (2.9.1-x86_64-linux-musl)
+    webrick (1.9.2)
 
 PLATFORMS
   aarch64-linux-gnu
@@ -34,6 +35,7 @@ DEPENDENCIES
   minitest
   rake
   sqlite3
+  webrick
 
 BUNDLED WITH
    2.6.7

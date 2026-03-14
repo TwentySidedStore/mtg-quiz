@@ -129,6 +129,48 @@ namespace :questions do
   end
 end
 
+desc "Export approved questions to docs/questions.json"
+task :export do
+  unless File.exist?(QUESTIONS_SQLITE)
+    abort "No questions database found. Run `rake db:setup` first."
+  end
+
+  FileUtils.mkdir_p(DOCS_DIR)
+
+  db = SQLite3::Database.new(QUESTIONS_SQLITE)
+  db.results_as_hash = true
+  rows = db.execute("SELECT * FROM questions WHERE status = 'approved' ORDER BY id")
+  db.close
+
+  if rows.empty?
+    puts "Warning: no approved questions to export."
+  end
+
+  exported = rows.map do |row|
+    {
+      "id" => row["id"],
+      "difficulty" => row["difficulty"],
+      "question" => row["question"],
+      "answer" => row["answer"],
+      "explanation" => row["explanation"],
+      "rule_refs" => row["rule_refs"] ? JSON.parse(row["rule_refs"]) : [],
+      "cards_ref" => row["cards_ref"] ? JSON.parse(row["cards_ref"]) : [],
+      "tags" => row["tags"] ? JSON.parse(row["tags"]) : []
+    }
+  end
+
+  output_path = File.join(DOCS_DIR, "questions.json")
+  File.write(output_path, JSON.pretty_generate(exported))
+  puts "Exported #{exported.length} questions to #{output_path}"
+end
+
+namespace :review do
+  desc "Start the review server on localhost:4567"
+  task :start do
+    require_relative "pipeline/review_server"
+  end
+end
+
 task :test do
   Dir.glob("test/test_*.rb").each { |f| require_relative f }
 end
