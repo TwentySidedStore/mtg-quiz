@@ -215,18 +215,29 @@ rake test                               # run minitest suite
 The review UI is purely local. It will never be deployed. WEBrick is stdlib — no extra gems.
 
 ### Review UI details
-- **Server**: WEBrick with JSON API endpoints
-  - `GET /` — serve `review/index.html`
-  - `GET /api/questions?status=pending` — list questions, filterable by status
-  - `GET /api/stats` — `{pending: N, approved: N, rejected: N}`
-  - `PATCH /api/questions/:id` — update any field (status, text, difficulty, etc.)
-- **UI**: vanilla HTML/JS, Bulma CDN
-  - Shows one pending question at a time
-  - Displays all fields
-  - Approve / Reject buttons
-  - All fields editable inline (text inputs for short fields, textareas for long ones, comma-separated for JSON arrays, dropdown for difficulty)
-  - Navigation: next/prev, count of remaining pending
-  - Stats bar: N pending / N approved / N rejected
+
+**Audience**: you (the developer/manager), on a laptop. Utilitarian, functional.
+
+**Server**: WEBrick with JSON API endpoints
+- `GET /` — serve `review/index.html`
+- `GET /api/questions?status=pending` — list questions, filterable by status
+- `GET /api/stats` — `{pending: N, approved: N, rejected: N}`
+- `PATCH /api/questions/:id` — update any field (status, text, difficulty, etc.)
+
+**Layout**:
+- Bulma CDN, vanilla JS, semantic HTML
+- `<nav>` — Bulma tabs for status filtering: Pending | Approved | Rejected
+- `<header>` — stats bar showing counts per status (Bulma `level` or `tags`)
+- `<main>` — single question displayed as a Bulma `card`
+  - Question ID and position ("Question 3 of 26")
+  - Difficulty dropdown (`<select>`) — editable
+  - Question, answer, explanation — `<textarea>` elements with `<label>`s
+  - Rule refs, cards, tags — text inputs, comma-separated, with `<label>`s
+  - All fields editable inline
+- `<footer>` — action buttons and navigation
+  - Prev / Next buttons (Bulma `button`)
+  - Reject (Bulma `is-danger`) / Approve (Bulma `is-success`)
+- WCAG: visible focus states, `<label>` on every field, logical tab order
 
 ---
 
@@ -234,30 +245,94 @@ The review UI is purely local. It will never be deployed. WEBrick is stdlib — 
 
 Single self-contained HTML file. Loads `questions.json` at startup.
 
+**Audience**: event floor staff (Jill, etc.) on their phone during break. Friendly and good with people, but not rules experts. The manager assigns them a topic to study.
+
 ### Stack
 - Vanilla JavaScript — no frameworks, no build step
-- Bulma CSS via CDN (pin a specific version)
+- Bulma CSS via CDN (pinned version)
 - No external JS dependencies
 
-### UX flow
-1. Select a difficulty level (or "all") — tabs or dropdown
-2. 10 random questions from that pool, shuffled
-3. Flashcard: shows question, tap/click to reveal answer + explanation + rule refs + card refs
-4. "Got it" / "Missed it" buttons after reveal → next card
-5. After 10 (or fewer if pool is small): score screen ("7/10")
-6. Options: "Go again" (new random 10) or "Review missed" (replay the ones you got wrong)
+### Tab labels (human-readable)
+
+| Key | Tab Label |
+|---|---|
+| `fundamentals` | Basics |
+| `multiplayer` | Multiplayer |
+| `2hg` | Two-Headed Giant |
+| `stack_triggers` | Stack & Priority |
+| `interactions` | Advanced Interactions |
+| `edge_cases` | Edge Cases |
+
+### App modes
+
+The UI has four modes, driven by a single `mode` variable in JS:
+
+**`select` mode** (landing state):
+- Tabs at top for each difficulty level, defaulting to Basics
+- Short description of the selected topic below the tabs
+- "Start Quiz" button
+- This is what staff see when they first open the page
+
+**`quiz` mode** (answering questions):
+- Bulma `card` component as the flashcard, dominant element
+- Shows question text in large readable font
+- "Reveal Answer" button (or tap the card)
+- After reveal: answer, explanation, rule refs, card refs appear below
+- "Got it" / "Missed it" buttons — large, thumb-friendly, at bottom
+- Bulma `progress` bar showing round progress (e.g., 3/10)
+- Question counter: "Question 3 of 10"
+
+**`score` mode** (after 10 questions):
+- Score display: "7 out of 10" with brief encouragement
+- Encouraging tone regardless of score — this is learning, not grading
+- Three options:
+  - "Review Missed" — only appears if they missed any
+  - "Try Again" — new random 10 from same topic
+  - "Pick Another Topic" — back to select mode
+
+**`review` mode** (browsing missed questions):
+- Shows only the questions they got wrong
+- Both question and answer visible (no reveal step)
+- Navigate with Next/Prev
+- "Back to Results" or "Try Again" button
+- This is where the actual learning happens
+
+### State tracking (in-memory only)
+
+```js
+let state = {
+  mode: 'select',       // select | quiz | score | review
+  topic: 'fundamentals',
+  questions: [],         // current round (up to 10, shuffled)
+  currentIndex: 0,
+  results: [],           // [{question, got_it: bool}, ...]
+  revealed: false
+}
+```
+
+All in-memory. Nothing persisted. Refresh = start over.
+
+### Layout
+- Mobile-first, single column
+- `<nav>` — Bulma scrollable tabs for topic selection (6 tabs won't fit on phone)
+- `<main>` — card area, centered, max-width for readability on desktop
+- `<article>` for each flashcard
+- Action buttons at bottom, large tap targets
+- `aria-live="polite"` on the card area so screen readers announce new questions
+- Visible focus states on all interactive elements
+- Semantic HTML: `<main>`, `<nav>`, `<article>`, `<button>`, `<progress>`
+- WCAG AA contrast on all text
 
 ### What it does NOT do
+- No "All" tab — staff study one topic at a time
 - No persistent tracking — every session starts fresh, no localStorage
-- No user accounts
-- No cross-device sync
-- No leaderboard
-- No backend whatsoever
+- No user accounts, no cross-device sync, no leaderboard, no backend
 
 ### Edge cases
-- Empty or missing `questions.json` → show friendly "No questions available" message
-- Fewer than 10 questions in selected difficulty → use however many exist
-- Mobile responsive (Bulma handles most of this)
+- Empty or missing `questions.json` → friendly "No questions available" message
+- Fewer than 10 questions in selected topic → use however many exist
+- Topic with zero questions → disable the Start button, show a note
+- Mobile responsive (Bulma handles most of this, we go single-column)
 
 ---
 
@@ -289,11 +364,15 @@ data/
 ```ruby
 source "https://rubygems.org"
 
+gem "rake"
 gem "sqlite3"
-gem "minitest", group: :test
+
+group :test do
+  gem "minitest"
+end
 ```
 
-One production gem. WEBrick is stdlib. Downloads use `Net::HTTP` (stdlib).
+Two production gems (`rake` + `sqlite3`). WEBrick is stdlib. Downloads use `Net::HTTP` (stdlib).
 
 ### .ruby-version
 ```
@@ -309,8 +388,7 @@ Minitest. Tests live in `test/`. Run with `rake test`.
 ### What we test
 - `rake db:setup` creates the table with correct schema
 - `rake questions:import` parses valid JSON, inserts rows, generates IDs
-- `rake questions:import` rejects JSON with missing required fields
-- `rake questions:import` handles both file path and stdin
+- `rake questions:import` rejects JSON with missing required fields or invalid difficulty
 - `rake export` only includes approved questions
 - `rake export` output matches expected JSON shape (no status/timestamps)
 - Review server API endpoints return correct responses
@@ -374,35 +452,38 @@ git push
 [x] Tests: test/test_import.rb (8 tests passing)
 ```
 
-### Stage 2b — Generate First Batch (separate session)
+### Stage 2b — Generate First Batch ✓
 ```
-[ ] Generate fundamentals batch (~25 questions)
-    [ ] Fresh Claude Code session with full context budget
-    [ ] Read CR into context
-    [ ] Use /mtg-lookup for exact oracle text + rulings
-    [ ] Generate, save to data/batches/fundamentals_01.json
-    [ ] rake questions:import[data/batches/fundamentals_01.json]
-    [ ] Spot-check: do rule_refs cite real CR sections?
+[x] Generated 26 fundamentals questions
+    [x] Read CR sections 500-514 (turn structure), 601 (casting), 117 (priority) into context
+    [x] Used MTGJSON for exact oracle text (Lightning Bolt, Giant Growth, Fog, etc.)
+    [x] Saved to data/batches/fundamentals_01.json
+    [x] Imported: rake questions:import[data/batches/fundamentals_01.json] → IDs 1-26
+    [x] Topics: turn structure, priority, casting, combat, stack basics, card types
 ```
 
 ### Stage 3 — Review UI + Export
 ```
 [ ] pipeline/review_server.rb (WEBrick)
     [ ] GET / — serve review/index.html
-    [ ] GET /api/questions?status=X
-    [ ] GET /api/stats
+    [ ] GET /api/questions?status=X — filterable by status
+    [ ] GET /api/stats — {pending: N, approved: N, rejected: N}
     [ ] PATCH /api/questions/:id — update any field
+    [ ] Bind to 127.0.0.1 explicitly (no LAN exposure)
 [ ] review/index.html
-    [ ] Bulma CDN
-    [ ] One pending question at a time
-    [ ] All fields displayed and editable
-    [ ] Approve / Reject buttons
-    [ ] Difficulty dropdown
-    [ ] Comma-separated editing for JSON array fields
-    [ ] Next/prev navigation, remaining count
-    [ ] Stats bar
+    [ ] Bulma CDN, vanilla JS, semantic HTML
+    [ ] Nav: Bulma tabs for status filtering (Pending / Approved / Rejected)
+    [ ] Header: stats bar with counts per status
+    [ ] Main: single question as Bulma card
+        [ ] Question ID + position ("Question 3 of 26")
+        [ ] Difficulty dropdown (editable)
+        [ ] Question, answer, explanation as labeled textareas
+        [ ] Rule refs, cards, tags as labeled text inputs (comma-separated)
+    [ ] Footer: Prev/Next + Reject (is-danger) / Approve (is-success)
+    [ ] WCAG: labels on all fields, visible focus states, logical tab order
 [ ] rake review:start — WEBrick on localhost:4567
 [ ] rake export
+    [ ] Ensure docs/ directory exists
     [ ] Query approved questions
     [ ] Strip status, created_at, reviewed_at
     [ ] Write docs/questions.json (pretty-printed)
@@ -419,16 +500,32 @@ git push
 ### Stage 4 — Frontend Quiz
 ```
 [ ] docs/index.html
-    [ ] Bulma CDN (pinned version)
-    [ ] Fetch questions.json on load
-    [ ] Difficulty filter (tabs or dropdown)
-    [ ] Shuffle, serve rounds of 10
-    [ ] Flashcard: question front, answer/explanation/refs back
-    [ ] Got it / Missed it → next card
-    [ ] Score screen after round (7/10)
-    [ ] "Go again" / "Review missed" options
-    [ ] Empty state message
-    [ ] Mobile responsive
+    [ ] Bulma CDN (pinned version), vanilla JS, semantic HTML
+    [ ] Mobile-first, single column layout
+    [ ] Fetch questions.json on load (relative path)
+    [ ] Select mode (landing state)
+        [ ] Bulma scrollable tabs for topic selection (human-readable labels)
+        [ ] Default to Basics tab selected
+        [ ] Short topic description below tabs
+        [ ] "Start Quiz" button (disabled if topic has no questions)
+    [ ] Quiz mode
+        [ ] Bulma card as flashcard — large readable text
+        [ ] "Reveal Answer" button (or tap card)
+        [ ] After reveal: answer, explanation, rule refs, card refs
+        [ ] "Got it" / "Missed it" — large thumb-friendly buttons at bottom
+        [ ] Progress bar + question counter ("Question 3 of 10")
+    [ ] Score mode
+        [ ] Score display with encouraging tone ("7 out of 10 — nice work!")
+        [ ] "Review Missed" button (only if they missed any)
+        [ ] "Try Again" — new random 10, same topic
+        [ ] "Pick Another Topic" — back to select mode
+    [ ] Review mode
+        [ ] Shows only missed questions, question + answer both visible
+        [ ] Navigate with Next/Prev
+        [ ] "Back to Results" or "Try Again" button
+    [ ] State: all in-memory (mode, topic, questions, currentIndex, results, revealed)
+    [ ] WCAG: aria-live on card area, visible focus states, AA contrast
+    [ ] Edge cases: empty questions.json, <10 questions, zero questions in topic
 [ ] Test with real exported questions
 ```
 
