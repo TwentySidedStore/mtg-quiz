@@ -37,8 +37,7 @@ mtg-quiz/
 ├── data/                          # GITIGNORED — large, local only
 │   ├── AllPrintings.sqlite        # from MTGJSON (~400MB)
 │   ├── comprehensive_rules.txt    # plain text from Wizards
-│   ├── questions.sqlite           # generated questions live here
-│   └── .mtgjson_version           # tracks last downloaded version
+│   └── questions.sqlite           # generated questions live here
 ├── review/                        # local-only review UI assets
 │   └── index.html                 # approve/reject/edit interface
 ├── test/                          # minitest tests for pipeline logic
@@ -59,7 +58,11 @@ mtg-quiz/
 - **Download**: `https://mtgjson.com/api/v5/AllPrintings.sqlite`
 - **Version check**: `https://mtgjson.com/api/v5/Meta.json` — returns `{"date": "...", "version": "5.3.0+20260314"}`
 - **Integrity**: SHA256 hash at `https://mtgjson.com/api/v5/AllPrintings.sqlite.sha256`
-- **Schema**: Single `cards` table. `text` (oracle text), `rulings` (JSON in TEXT column), `legalities` (JSON in TEXT column). Not normalized — JSON fields, not join tables.
+- **Schema** (verified):
+  - `cards` — `name`, `text` (oracle text), `type`, `manaCost`, `keywords` (comma-separated), `uuid` (unique per printing). Cards have multiple rows across printings — query by name, pick any.
+  - `cardRulings` — `uuid`, `date`, `text`. Join on `cards.uuid`. Separate table, not a JSON column.
+  - `cardLegalities` — `uuid`, plus one column per format (`commander`, `modern`, `standard`, `legacy`, etc.). Values: "Legal", "Banned", "Restricted", etc. Separate table, not JSON.
+  - `meta` — `date`, `version`. Exists inside the SQLite itself.
 - **Updates**: Rebuilds daily at 9 AM EST
 - **Purpose**: Reference tool for accurate oracle text and Gatherer rulings during question generation and review. Not a direct generation input — Claude Code queries it as needed via the `/mtg-lookup` skill.
 
@@ -73,8 +76,8 @@ mtg-quiz/
 
 ### How `rake data:update` works
 1. Create `data/` directory if missing
-2. Fetch `Meta.json`, compare version to `data/.mtgjson_version`
-3. If newer (or first run): stream-download `AllPrintings.sqlite` (~400MB), verify SHA256 hash, save version
+2. If `AllPrintings.sqlite` exists: query its `meta` table for local version. Fetch remote `Meta.json` and compare.
+3. If newer (or first run / no local file): stream-download `AllPrintings.sqlite` (~400MB), verify SHA256 hash
 4. If current: print "MTGJSON is up to date (version X)"
 5. Prompt user: "Paste the Comprehensive Rules .txt URL from magic.wizards.com/en/rules:"
 6. Download the .txt file to `data/comprehensive_rules.txt`
@@ -346,22 +349,18 @@ git push
 [ ] Rakefile at project root
     [ ] rake data:update
         [ ] Create data/ if missing
-        [ ] Fetch Meta.json, compare to data/.mtgjson_version
-        [ ] If newer: stream-download AllPrintings.sqlite (~400MB)
+        [ ] If AllPrintings.sqlite exists: query meta table for local version
+        [ ] Fetch remote Meta.json, compare to local version
+        [ ] If newer or first run: stream-download AllPrintings.sqlite (~400MB)
             [ ] Follow redirects, show progress, 10min timeout
             [ ] Verify SHA256 hash
-            [ ] Save version to data/.mtgjson_version
-        [ ] If current: print "MTGJSON up to date"
+        [ ] If current: print "MTGJSON up to date (version X)"
         [ ] Prompt for CR .txt URL
         [ ] Download CR to data/comprehensive_rules.txt
     [ ] rake db:setup
         [ ] Create data/questions.sqlite
         [ ] CREATE TABLE IF NOT EXISTS questions (integer autoincrement PK)
-[ ] After first download: verify MTGJSON schema
-    [ ] Run .tables and .schema against AllPrintings.sqlite
-    [ ] Confirm how rulings are stored (JSON column vs separate table?)
-    [ ] Confirm column names for oracle text, legalities
-    [ ] Document findings — these feed into the /mtg-lookup skill in Stage 2
+[x] MTGJSON schema verified — see Data Sources section for confirmed table/column details
 [ ] Tests: test/test_db_setup.rb
     [ ] db:setup creates table with correct columns
 ```
