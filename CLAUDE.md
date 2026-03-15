@@ -3,12 +3,17 @@
 Flashcard quiz for MTG event staff. Pipeline generates questions locally, frontend is static on GitHub Pages.
 
 ## Layout
-- `docs/` — GitHub Pages root (`index.html` + `questions.json`). Nothing else goes here.
+- `docs/` — GitHub Pages root (`index.html` + `questions.json` + `preview.png`). Nothing else goes here.
 - `planning/` — project plans, dev docs
 - `pipeline/` — review server, export logic (Ruby source files)
 - `review/` — local-only review UI
 - `data/` — gitignored. MTGJSON sqlite, comprehensive rules text, questions sqlite.
+- `data/batches/` — gitignored. Generated question JSON files.
+- `.claude/commands/` — Claude Code skills (`generate-mtg-questions`, `mtg-lookup`)
 - `Rakefile` + `Gemfile` — project root
+
+## Difficulty levels
+`fundamentals`, `event_procedures`, `multiplayer`, `2hg`, `stack_triggers`, `interactions`, `edge_cases`
 
 ## Conventions
 - Ruby 3.4.4+ with Rake. Gems: `sqlite3` + `webrick` + `minitest`. Everything else is stdlib.
