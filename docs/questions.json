@@ -6288,5 +6288,2473 @@
       "forced-payment",
       "combo"
     ]
+  },
+  {
+    "id": 362,
+    "difficulty": "edge_cases",
+    "question": "In a four-player Commander game, Player A uses Zedruu the Greathearted (\"{U}{R}{W}: Target opponent gains control of target permanent you control.\") to donate a permanent to Player B. Later, Player B is eliminated from the game. What happens to the donated permanent?",
+    "answer": "The permanent returns to Player A's control. When a player you gave a permanent to via Zedruu leaves the game, the permanent returns to your control.",
+    "explanation": "Per the Zedruu rulings, if an opponent leaves the game, all permanents you gave them courtesy of Zedruu will return to your control. Rule 800.4a says when a player leaves, objects they own leave too — but the donated permanent is owned by Player A, so it doesn't leave. The control-changing effect from Zedruu ends and it reverts to its owner's control (rule 800.4c).",
+    "rule_refs": [
+      "800.4c"
+    ],
+    "cards_ref": [
+      "Zedruu the Greathearted"
+    ],
+    "tags": [
+      "player-leaving",
+      "control-change",
+      "commander",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 363,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A uses Harmless Offering (\"Target opponent gains control of target permanent you control.\") to give Player B an enchantment with a negative effect. Player A then leaves the game. What happens to the enchantment?",
+    "answer": "The enchantment is exiled. When a player leaves the game, all objects they OWN leave the game (rule 800.4a). Player A owns the enchantment even though Player B controls it. The enchantment leaves with Player A.",
+    "explanation": "Rule 800.4a states that when a player leaves a multiplayer game, all objects owned by that player leave the game. Ownership doesn't change when control changes — the original player still owns the card. So when Player A leaves, the enchantment is exiled regardless of who controls it.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Harmless Offering"
+    ],
+    "tags": [
+      "player-leaving",
+      "ownership",
+      "control-change",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 365,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A casts Bribery (\"Search target opponent's library for a creature card and put that card onto the battlefield under your control.\") and takes a creature from Player B's deck. Player B is later eliminated. What happens to the Bribery creature?",
+    "answer": "The creature leaves the game with Player B. Player B OWNS the creature card (it came from their deck). When Player B leaves, all objects they own leave the game — even those controlled by other players.",
+    "explanation": "Rule 800.4a states that when a player leaves, all objects owned by that player leave the game. The creature came from Player B's library, so Player B owns it. Even though Player A controls it, it leaves with Player B. Player A loses the creature.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Bribery"
+    ],
+    "tags": [
+      "player-leaving",
+      "ownership",
+      "stolen-creatures",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 366,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A casts Gonti, Lord of Luxury (\"When Gonti enters, look at the top four cards of target opponent's library, exile one of them face down... You may cast that card for as long as it remains exiled.\") and exiles a card from Player B's library. Player B is then eliminated. Can Player A still cast the exiled card?",
+    "answer": "No. When Player B leaves the game, all objects they own leave the game — including cards exiled face down from their library. The exiled card is removed from the game with Player B.",
+    "explanation": "Rule 800.4a removes all objects owned by a leaving player. The card exiled by Gonti is owned by Player B (it came from their library). When Player B leaves, the card leaves too. Player A can no longer cast it. Per the Gonti rulings, if you leave the game, the card remains exiled indefinitely — but here Player B (the card's owner) is the one leaving.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Gonti",
+      "Lord of Luxury"
+    ],
+    "tags": [
+      "player-leaving",
+      "exile",
+      "ownership",
+      "face-down"
+    ]
+  },
+  {
+    "id": 367,
+    "difficulty": "edge_cases",
+    "question": "In a four-player Commander game, Player A casts Gather Specimens (\"If a creature would enter the battlefield under an opponent's control this turn, it enters under your control instead.\"). Later that turn, Player B casts a creature spell. Under whose control does it enter?",
+    "answer": "Under Player A's control. Gather Specimens' replacement effect redirects creatures that would enter under an opponent's control to enter under Player A's control instead.",
+    "explanation": "Per the Gather Specimens rulings, the replacement effect applies to creatures entering under any opponent's control this turn. Player B's creature spell resolves, but instead of entering under Player B's control, it enters under Player A's control. Player A makes any 'as this enters' choices. The creature is owned by Player B but controlled by Player A.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Gather Specimens"
+    ],
+    "tags": [
+      "replacement-effects",
+      "control-change",
+      "multiplayer",
+      "steal"
+    ]
+  },
+  {
+    "id": 368,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, two opponents each cast Gather Specimens (\"If a creature would enter the battlefield under an opponent's control this turn, it enters under your control instead.\") during the same turn. Player C then casts a creature. Under whose control does it enter?",
+    "answer": "Player C (the creature's would-be controller) chooses which Gather Specimens effect to apply. Then the new would-be controller repeats the process with remaining effects. In a two-Gather-Specimens scenario, the effects cancel out and the creature enters under Player C's control.",
+    "explanation": "Per the Gather Specimens rulings, if two opposing players have each cast it, the creature's would-be controller chooses one effect. The new controller then checks the remaining effect. Each replacement can only apply once. With two opposing effects, they cancel out and the creature enters under its original controller.",
+    "rule_refs": [
+      "616.1",
+      "614.5"
+    ],
+    "cards_ref": [
+      "Gather Specimens"
+    ],
+    "tags": [
+      "replacement-effects",
+      "competing-effects",
+      "multiplayer",
+      "cancel-out"
+    ]
+  },
+  {
+    "id": 369,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Homeward Path (\"{T}: Each player gains control of all creatures they own.\") and another player has stolen several of Player A's creatures via various effects. Player A taps Homeward Path. What happens?",
+    "answer": "Each player gains control of all creatures they OWN (not just the ones they started controlling). All stolen creatures return to their owner's control. This overrides all control-changing effects on creatures.",
+    "explanation": "Homeward Path's effect causes each player to gain control of all creatures they own. Per the rulings, the owner of a card is the player who started the game with it in their deck. This is a powerful anti-theft effect in Commander that undoes all creature-stealing effects at once.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Homeward Path"
+    ],
+    "tags": [
+      "ownership",
+      "control-change",
+      "anti-theft",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 370,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A activates Obeka, Brute Chronologist (\"{T}: The player whose turn it is may end the turn.\") during their turn after casting a spell that creates a temporary creature token with 'Exile this token at the beginning of the next end step.' If they end the turn before the end step, what happens to the token?",
+    "answer": "The token survives this turn. The 'at the beginning of the next end step' trigger was skipped because the end step was skipped. However, it will trigger at the beginning of the NEXT turn's end step and the token will be exiled then.",
+    "explanation": "Per the Obeka/Sundial rulings, if the turn ends before the end step, any 'at the beginning of the next end step' abilities won't trigger that turn because the end step is skipped. Those abilities will trigger next turn at the beginning of that end step. The token gets one extra turn of use.",
+    "rule_refs": [
+      "514.1"
+    ],
+    "cards_ref": [
+      "Obeka",
+      "Brute Chronologist"
+    ],
+    "tags": [
+      "end-the-turn",
+      "delayed-triggers",
+      "tokens",
+      "skipped-step"
+    ]
+  },
+  {
+    "id": 371,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A activates Sundial of the Infinite (\"{1}, {T}: End the turn.\") with several spells and abilities on the stack. What happens to those spells and abilities?",
+    "answer": "All spells and abilities on the stack are exiled — including ones that 'can't be countered.' They don't resolve. They're not countered either; they're simply exiled.",
+    "explanation": "Per the Sundial rulings, ending the turn causes all spells and abilities on the stack to be exiled. This includes spells and abilities that can't be countered. They are not 'countered' — they are exiled, which is different. Then the game skips straight to the cleanup step.",
+    "rule_refs": [
+      "514.1"
+    ],
+    "cards_ref": [
+      "Sundial of the Infinite"
+    ],
+    "tags": [
+      "end-the-turn",
+      "exile-stack",
+      "cant-be-countered"
+    ]
+  },
+  {
+    "id": 372,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Uba Mask (\"If a player would draw a card, that player exiles that card face up instead. Each player may play lands and cast spells from among cards they exiled with this artifact this turn.\"). During their draw step, Player A exiles their top card instead of drawing. Can they play that card on a later turn?",
+    "answer": "No. You can only play cards exiled by Uba Mask during the turn they were exiled. On later turns, those cards remain in exile but can no longer be played.",
+    "explanation": "Per the Uba Mask rulings, you can't play cards you exiled with Uba Mask on previous turns. Any cards you don't play just remain exiled when the turn ends. They are effectively gone forever unless another effect allows you to play them from exile.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Uba Mask"
+    ],
+    "tags": [
+      "replacement-effects",
+      "draw-replacement",
+      "exile",
+      "timing-restriction"
+    ]
+  },
+  {
+    "id": 373,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Trinisphere (\"As long as this artifact is untapped, each spell that would cost less than three mana to cast costs three mana to cast.\") and Player B controls their commander which normally costs {1}{B}. Player B casts their commander from the command zone for the third time (commander tax +{4}). Does Trinisphere increase the cost?",
+    "answer": "No. The total cost is {1}{B} + {4} commander tax = {5}{B}, which is more than three mana. Trinisphere only increases costs that would be LESS than three mana total. Since {5}{B} exceeds three, Trinisphere doesn't apply.",
+    "explanation": "Per the Trinisphere rulings, to determine total cost: start with mana cost or alternative cost, add cost increases (like commander tax), apply cost reductions, then Trinisphere only applies if the mana component is still less than three. Commander tax pushes the cost well above three, so Trinisphere is irrelevant.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Trinisphere"
+    ],
+    "tags": [
+      "cost-modification",
+      "commander-tax",
+      "trinisphere",
+      "commander"
+    ]
+  },
+  {
+    "id": 374,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A casts Sudden Spoiling (\"Split second. Until end of turn, creatures target player controls lose all abilities and have base power and toughness 0/2.\") targeting Player B. Player B controls a 5/5 creature with three +1/+1 counters. What are the creature's power and toughness?",
+    "answer": "3/5. Sudden Spoiling sets base P/T to 0/2 (layer 7b), then the three +1/+1 counters add +3/+3 (layer 7c), resulting in 3/5.",
+    "explanation": "Per the Sudden Spoiling rulings, it overwrites effects that set P/T, but existing counters that modify P/T continue to apply. In the layer system, setting base P/T (layer 7b) happens before counter modifications (layer 7c). So 0/2 base + three +1/+1 counters = 3/5.",
+    "rule_refs": [
+      "613.4b",
+      "613.4c"
+    ],
+    "cards_ref": [
+      "Sudden Spoiling"
+    ],
+    "tags": [
+      "layers",
+      "power-toughness",
+      "counters",
+      "split-second"
+    ]
+  },
+  {
+    "id": 375,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Oblivion Sower (\"When you cast this spell, target opponent exiles the top four cards of their library, then you may put any number of land cards that player owns from exile onto the battlefield under your control.\"). Can Player A take lands that were exiled by OTHER effects earlier in the game (not just the four from Oblivion Sower's ability)?",
+    "answer": "Yes. Oblivion Sower lets you put any number of land cards that player owns from exile onto the battlefield — not just the four it just exiled. Any previously exiled land cards owned by that player are fair game.",
+    "explanation": "Per the Oblivion Sower rulings, its ability allows you to put any land cards the player owns from exile onto the battlefield, regardless of how those cards were exiled. This can include lands exiled by Path to Exile, other Oblivion Sowers, or any other effect. However, face-down exiled cards have no characteristics and can't be identified as lands.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Oblivion Sower"
+    ],
+    "tags": [
+      "exile",
+      "lands",
+      "ownership",
+      "all-exile-zone"
+    ]
+  },
+  {
+    "id": 376,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A casts Cyclonic Rift (\"Return target nonland permanent you don't control to its owner's hand. Overload {6}{U}\") for its overload cost. Player B has their commander among the permanents being bounced. Can Player B put their commander into the command zone instead of their hand?",
+    "answer": "Yes. Rule 903.9b says if a commander would be put into its owner's hand or library, its owner may put it into the command zone instead. Player B can choose to put their commander in the command zone rather than their hand.",
+    "explanation": "Rule 903.9b provides a replacement effect: if a commander would be put into its owner's hand or library from anywhere, its owner may choose to put it into the command zone instead. This is optional — Player B might actually want the commander in hand to avoid paying commander tax. The choice is theirs.",
+    "rule_refs": [
+      "903.9b"
+    ],
+    "cards_ref": [
+      "Cyclonic Rift"
+    ],
+    "tags": [
+      "commander",
+      "command-zone",
+      "bounce",
+      "optional-replacement"
+    ]
+  },
+  {
+    "id": 377,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls City of Solitude (\"Players can cast spells and activate abilities only during their own turns.\"). During Player B's turn, can Player C cast an instant?",
+    "answer": "No. City of Solitude restricts ALL players to casting spells and activating abilities only during their own turns. Player C can only act during Player C's turn. This shuts down instant-speed interaction from everyone.",
+    "explanation": "City of Solitude is a symmetrical lockdown — it doesn't just affect opponents. Every player can only cast and activate during their own turn. This prevents all responses, counterspells, and instant-speed interaction from other players. The controlling player is also locked out during other turns.",
+    "rule_refs": [
+      "604.2"
+    ],
+    "cards_ref": [
+      "City of Solitude"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "symmetrical",
+      "no-interaction",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 378,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Stasis (\"Players skip their untap steps. At the beginning of your upkeep, sacrifice this enchantment unless you pay {U}.\"). All players' permanents are tapped. No one can untap. What happens?",
+    "answer": "Players skip their untap steps, so permanents stay tapped. Player A must pay {U} each upkeep or sacrifice Stasis. If Player A can keep paying (e.g., with an untapped land or mana-producing artifact), the lock continues indefinitely. If they can't pay, Stasis is sacrificed and everyone untaps next turn.",
+    "explanation": "Stasis creates a hard lock where no one untaps. The key is that Player A must find a way to pay {U} each upkeep despite skipping their own untap step. Common solutions include Frozen Aether effects, Teferi planeswalker abilities, or permanents that untap themselves. Without such a solution, Stasis eventually sacrifices itself.",
+    "rule_refs": [
+      "502.1"
+    ],
+    "cards_ref": [
+      "Stasis"
+    ],
+    "tags": [
+      "skip-untap",
+      "lock",
+      "upkeep-cost",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 379,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A casts Commandeer (\"You may exile two blue cards from your hand rather than pay this spell's mana cost. Gain control of target noncreature spell.\") targeting Player B's sorcery that says 'Destroy all creatures an opponent controls.' Player A now controls the spell. Who are 'opponents' from the spell's perspective?",
+    "answer": "Player A's opponents. After gaining control of the spell, 'you' refers to Player A, and 'opponent' refers to Player A's opponents. The spell now destroys creatures controlled by Player A's opponents (which includes Player B).",
+    "explanation": "Per the Commandeer rulings, after you gain control of the spell, any instance of 'you' refers to you (Player A), and 'an opponent' refers to one of your opponents. This can turn a spell meant to hurt Player A into one that hurts everyone else, including the original caster.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Commandeer"
+    ],
+    "tags": [
+      "spell-control",
+      "you-reference",
+      "opponent-reference",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 380,
+    "difficulty": "multiplayer",
+    "question": "In a four-player Commander game, Player A casts a spell, and three players want to respond. In what order do they get to respond?",
+    "answer": "After Player A casts a spell, Player A gets priority first (rule 117.3c — the caster receives priority after casting). If Player A passes, priority passes to the next player in turn order, and so on. Each player decides whether to act or pass when they receive priority.",
+    "explanation": "Rule 117.3c states that if a player has priority when they cast a spell, they receive priority afterward. Then priority passes in turn order (117.3d). Each player can hold priority to cast more spells, or pass to the next player. All players must pass in succession for the top spell to resolve (rule 117.4).",
+    "rule_refs": [
+      "117.3c",
+      "117.3d",
+      "117.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "turn-order",
+      "multiplayer",
+      "responding"
+    ]
+  },
+  {
+    "id": 381,
+    "difficulty": "multiplayer",
+    "question": "In a Commander game, multiple players each want to respond to the same spell. Player B casts a counterspell, then Player C also wants to respond. After Player B's counterspell is cast, who gets priority next?",
+    "answer": "Player B gets priority first (the player who just cast a spell receives priority afterward). If Player B passes, priority goes to the next player in turn order — not back to the original caster or to Player C specifically.",
+    "explanation": "Rule 117.3c says if a player has priority when they cast a spell, they receive priority afterward. So after Player B casts the counterspell, Player B gets priority first. Then priority passes in turn order (Player C may or may not be next depending on seating). All players must pass in succession for the counterspell to resolve.",
+    "rule_refs": [
+      "117.3c",
+      "117.3d"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "counterspell-wars",
+      "multiplayer",
+      "turn-order"
+    ]
+  },
+  {
+    "id": 382,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Godhead of Awe (\"Other creatures have base power and toughness 1/1.\") and Player B controls Elesh Norn, Grand Cenobite (\"Other creatures you control get +2/+2. Creatures your opponents control get -2/-2.\"). What is the P/T of a vanilla 4/4 creature Player C controls?",
+    "answer": "-1/-1 — it dies immediately. Godhead of Awe sets base P/T to 1/1 (layer 7b), then Elesh Norn gives it -2/-2 (layer 7c), making it -1/-1. It's put into the graveyard as a state-based action.",
+    "explanation": "Layer 7b: Godhead of Awe sets all other creatures' base P/T to 1/1. Layer 7c: Elesh Norn modifies by -2/-2 for opponents' creatures. So 1/1 base - 2/-2 = -1/-1. Rule 704.5f puts creatures with 0 or less toughness into the graveyard. Godhead doesn't remove abilities (per its rulings), only sets P/T.",
+    "rule_refs": [
+      "613.4b",
+      "613.4c",
+      "704.5f"
+    ],
+    "cards_ref": [
+      "Godhead of Awe",
+      "Elesh Norn",
+      "Grand Cenobite"
+    ],
+    "tags": [
+      "layers",
+      "power-toughness",
+      "multiplayer",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 383,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Overwhelming Splendor (\"Enchant player. Creatures enchanted player controls lose all abilities and have base power and toughness 1/1.\") enchanting Player B. Player B controls a creature with three +1/+1 counters. What are its P/T and abilities?",
+    "answer": "4/4 with no abilities. Overwhelming Splendor sets base P/T to 1/1 and removes abilities (layers 6 and 7b), but +1/+1 counters still apply in layer 7c: 1/1 + 3 counters = 4/4.",
+    "explanation": "Per the Overwhelming Splendor rulings, effects that modify a creature's power/toughness (such as counters) apply no matter when they started. Counters are applied in layer 7c, after the base is set to 1/1 in layer 7b. So a creature with three +1/+1 counters becomes a 4/4 with no abilities.",
+    "rule_refs": [
+      "613.4b",
+      "613.4c",
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Overwhelming Splendor"
+    ],
+    "tags": [
+      "layers",
+      "ability-removal",
+      "counters",
+      "power-toughness"
+    ]
+  },
+  {
+    "id": 384,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Humility (\"All creatures lose all abilities and have base power and toughness 1/1.\") and Player B controls Overwhelming Splendor enchanting Player C. Both set creatures to 1/1 with no abilities. Player C's creature has a +1/+1 counter. What happens if Humility and Overwhelming Splendor entered on different turns?",
+    "answer": "Either way, Player C's creature is a 2/2 with no abilities. Both effects set base P/T to 1/1 (layer 7b), and the +1/+1 counter adds +1/+1 in layer 7c. Since both effects produce the same result in layer 7b, timestamp doesn't matter here.",
+    "explanation": "Both Humility and Overwhelming Splendor set base P/T to 1/1 in layer 7b. The +1/+1 counter applies in layer 7c regardless, making it 2/2. Both remove abilities in layer 6. When multiple effects do the same thing, timestamp doesn't change the outcome.",
+    "rule_refs": [
+      "613.4b",
+      "613.4c",
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Humility",
+      "Overwhelming Splendor"
+    ],
+    "tags": [
+      "layers",
+      "redundant-effects",
+      "counters",
+      "power-toughness"
+    ]
+  },
+  {
+    "id": 385,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Notion Thief (\"If an opponent would draw a card except the first one they draw in each of their draw steps, instead that player skips that draw and you draw a card.\") and Player B controls Alms Collector (\"If an opponent would draw two or more cards, instead you and that player each draw a card.\"). Player C casts a spell that says 'Draw three cards.' Both replacement effects want to modify Player C's draw. What happens?",
+    "answer": "Player C (the affected player) chooses which replacement effect to apply first. If Alms Collector is chosen first, it changes 'draw 3' to 'Player C draws 1 and Player B draws 1.' Then Notion Thief has nothing additional to modify. If Notion Thief is chosen first for draws 2 and 3, those draws go to Player A instead.",
+    "explanation": "Rule 616.1 says the affected player chooses the order of competing replacement effects. Alms Collector operates on the whole 'draw 3' event as one replacement, while Notion Thief replaces individual extra draws. The order matters: Alms Collector first reduces to 1+1, or Notion Thief first steals draws 2 and 3. Player C chooses strategically.",
+    "rule_refs": [
+      "616.1",
+      "614.5"
+    ],
+    "cards_ref": [
+      "Notion Thief",
+      "Alms Collector"
+    ],
+    "tags": [
+      "replacement-effects",
+      "competing-effects",
+      "draw",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 386,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Underrealm Lich (\"If you would draw a card, instead look at the top three cards of your library, then put one into your hand and the rest into your graveyard.\") and Player B controls Narset, Parter of Veils (\"Each opponent can't draw more than one card each turn.\"). Player A has already drawn one card this turn. Player A would draw another card. What happens?",
+    "answer": "Narset prevents the draw entirely — it can't happen. Underrealm Lich's replacement effect can't replace a draw that's been prohibited. Player A doesn't draw and doesn't use Underrealm Lich's ability.",
+    "explanation": "Narset's 'can't draw' is a prohibition, not a replacement effect. Per rule 614.17c, if an event can't happen, it can only be replaced by a self-replacement effect. Underrealm Lich is not a self-replacement effect, so it can't override Narset's prohibition. The draw simply doesn't happen.",
+    "rule_refs": [
+      "614.17",
+      "614.17c"
+    ],
+    "cards_ref": [
+      "Underrealm Lich",
+      "Narset",
+      "Parter of Veils"
+    ],
+    "tags": [
+      "cant-effects",
+      "replacement-effects",
+      "draw-restriction",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 387,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Underrealm Lich (\"If you would draw a card, instead look at the top three cards of your library, then put one into your hand and the rest into your graveyard.\") and their library has only 1 card left. They would draw a card. What happens?",
+    "answer": "Underrealm Lich replaces the draw. Player A looks at as many cards as they can (just 1), puts it into their hand, and puts zero cards into the graveyard. They don't lose for drawing from an empty library because no draw actually occurred — it was replaced.",
+    "explanation": "Per the Underrealm Lich rulings, even if you have fewer than three cards in your library, the ability applies. The draw is replaced, so you never actually 'draw from an empty library.' This makes Underrealm Lich a safety valve — you can't deck yourself while it's in play.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Underrealm Lich"
+    ],
+    "tags": [
+      "replacement-effects",
+      "empty-library",
+      "draw-replacement",
+      "protection"
+    ]
+  },
+  {
+    "id": 388,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Abundance (\"If you would draw a card, you may instead choose land or nonland and reveal cards from the top of your library until you reveal a card of the chosen kind.\") and their library is empty. They would draw a card. What happens?",
+    "answer": "Player A can choose to apply Abundance's replacement effect. Since no cards are found (the library is empty), Player A gets nothing, but they don't lose the game because the draw was replaced. They survive.",
+    "explanation": "Per the Abundance rulings, if your library is empty, Abundance can prevent you from losing the game for being unable to draw. The draw is replaced, so you never actually 'draw a card from a library with no cards in it.' If no card of the chosen type is found, you don't get a card, but you don't lose either.",
+    "rule_refs": [
+      "614.1a",
+      "704.5b"
+    ],
+    "cards_ref": [
+      "Abundance"
+    ],
+    "tags": [
+      "replacement-effects",
+      "empty-library",
+      "draw-replacement",
+      "survival"
+    ]
+  },
+  {
+    "id": 390,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Chromatic Lantern (\"Lands you control have '{T}: Add one mana of any color.'\") and Player B controls Blood Moon (\"Nonbasic lands are Mountains.\"). Can Player A's nonbasic lands tap for any color?",
+    "answer": "Yes. Blood Moon makes nonbasic lands Mountains in layer 4 (removing abilities). But Chromatic Lantern adds '{T}: Add one mana of any color' to all your lands in layer 6 (ability-adding). Since layer 6 is applied after layer 4, the land gains the mana ability from Chromatic Lantern after Blood Moon strips its original abilities.",
+    "explanation": "Blood Moon operates in layer 4 (type-changing, which also strips abilities from those lands). Chromatic Lantern operates in layer 6 (ability-adding). Layer 6 comes after layer 4, so Chromatic Lantern successfully grants the any-color ability to the Mountain. The nonbasic land can tap for {R} (intrinsic) or any color (Lantern).",
+    "rule_refs": [
+      "613.1d",
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Chromatic Lantern",
+      "Blood Moon"
+    ],
+    "tags": [
+      "layers",
+      "type-changing",
+      "ability-adding",
+      "mana-abilities"
+    ]
+  },
+  {
+    "id": 391,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A casts Mirrorweave (\"Each other creature becomes a copy of target nonlegendary creature until end of turn.\") targeting a 2/2 Bear token. Player B controls a creature with three +1/+1 counters. What happens to Player B's creature?",
+    "answer": "Player B's creature becomes a copy of the 2/2 Bear (losing its original characteristics and abilities), but it KEEPS its +1/+1 counters. It's a 5/5 Bear (2/2 base + 3 counters).",
+    "explanation": "Per the Mirrorweave rulings, each creature copies the printed values of the target but won't copy counters on the target — they just retain their own counters. Noncopy effects that already applied (like counters) continue. In layers: layer 1 (copy to 2/2 Bear), then layer 7c (counters add +3/+3) = 5/5.",
+    "rule_refs": [
+      "707.2",
+      "613.4c"
+    ],
+    "cards_ref": [
+      "Mirrorweave"
+    ],
+    "tags": [
+      "copying",
+      "counters",
+      "layers",
+      "power-toughness"
+    ]
+  },
+  {
+    "id": 392,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A casts Polymorphist's Jest (\"Until end of turn, each creature target player controls loses all abilities and becomes a blue Frog with base power and toughness 1/1.\") targeting Player B. Player B controls a Theros God (like Purphoros) with devotion less than five — so Purphoros isn't a creature. Is Purphoros affected?",
+    "answer": "Yes and no. The God's type-changing ability (that makes it not a creature when devotion is low) is applied in layer 4 before Polymorphist's Jest removes it in layer 6. So the God isn't a creature at the time Jest applies. Since Jest says 'each creature target player controls,' and the God isn't a creature, Jest doesn't affect it.",
+    "explanation": "Per the Polymorphist's Jest rulings, for Theros Gods, the type-changing ability (applied in layer 4) is checked before the ability-removing effect (layer 6). The God's 'not a creature' effect wins because it's determined in an earlier layer. The God remains an enchantment, keeps its abilities, and is unaffected by Jest.",
+    "rule_refs": [
+      "613.1d",
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Polymorphist's Jest"
+    ],
+    "tags": [
+      "layers",
+      "type-changing",
+      "gods",
+      "ability-removal"
+    ]
+  },
+  {
+    "id": 393,
+    "difficulty": "interactions",
+    "question": "Player A controls Yixlid Jailer (\"Cards in graveyards lose all abilities.\"). Player B has a creature card with flashback in their graveyard. Can Player B cast it using flashback?",
+    "answer": "No. Yixlid Jailer removes all abilities from cards in graveyards, including flashback. Without the flashback ability, the card can't be cast from the graveyard using flashback.",
+    "explanation": "Per the Yixlid Jailer rulings, if a card's own ability allows you to cast it from your graveyard (such as flashback), Yixlid Jailer stops that ability. The flashback ability doesn't exist while the card is in the graveyard. However, if a separate spell or ability (not the card's own) lets you cast it from the graveyard, that still works.",
+    "rule_refs": [
+      "604.2"
+    ],
+    "cards_ref": [
+      "Yixlid Jailer"
+    ],
+    "tags": [
+      "ability-removal",
+      "graveyard",
+      "flashback"
+    ]
+  },
+  {
+    "id": 394,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Strict Proctor (\"Whenever a permanent entering causes a triggered ability to trigger, counter that ability unless its controller pays {2}.\") and Player B controls Panharmonicon (\"If an artifact or creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\"). Player B casts a creature with an ETB trigger. What happens?",
+    "answer": "The ETB triggers twice (Panharmonicon doubles it). Then Strict Proctor triggers twice as well — once for each triggered ability. Player B must pay {2} for EACH trigger or it's countered. Total cost to keep both: {4}.",
+    "explanation": "Panharmonicon causes the ETB to trigger an additional time (two triggers total). Strict Proctor triggers whenever a permanent entering causes a triggered ability to trigger — so it fires for each instance. Per the Strict Proctor rulings, its ability always resolves before the trigger it's countering. Player B pays {2} per trigger they want to keep.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Strict Proctor",
+      "Panharmonicon"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "doubling",
+      "taxing",
+      "etb"
+    ]
+  },
+  {
+    "id": 395,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Tergrid, God of Fright (whose relevant text includes: \"Whenever an opponent sacrifices a nontoken permanent or discards a permanent card, you may put that card from a graveyard onto the battlefield under your control.\") and Player B controls Rest in Peace (\"If a card or token would be put into a graveyard from anywhere, exile it instead.\"). Player C sacrifices a creature. Does Tergrid get it?",
+    "answer": "No. Rest in Peace exiles the sacrificed creature instead of it going to the graveyard. Tergrid's ability triggers (the sacrifice happened), but when it resolves and tries to put 'that card from a graveyard' onto the battlefield, the card is in exile, not a graveyard. The ability does nothing.",
+    "explanation": "Tergrid's ability triggers on the sacrifice event, but it expects to find the card in a graveyard when it resolves. Rest in Peace's replacement effect sends the card to exile instead. When Tergrid's trigger resolves, it can't find the card in any graveyard, so it fails to do anything.",
+    "rule_refs": [
+      "614.6",
+      "608.2"
+    ],
+    "cards_ref": [
+      "Tergrid",
+      "God of Fright",
+      "Rest in Peace"
+    ],
+    "tags": [
+      "replacement-effects",
+      "triggered-abilities",
+      "exile-instead",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 396,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Opposition Agent (\"You control your opponents while they're searching their libraries. While an opponent is searching their library, they exile each card they find. You may play those cards for as long as they remain exiled.\") and Player B controls Stranglehold (\"Your opponents can't search libraries.\"). Player C casts a spell that would search their library. What happens?",
+    "answer": "Player C can't search their library at all. Stranglehold prevents the search entirely. Opposition Agent never activates because no search occurs. The search portion of the spell simply does nothing.",
+    "explanation": "Stranglehold's prohibition ('can't search') takes priority — it prevents the event from happening. Opposition Agent's effects require a player to actually be searching a library. Since the search is prevented, Opposition Agent has nothing to control or exile. 'Can't' overrides 'can' per rule 101.2.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Opposition Agent",
+      "Stranglehold"
+    ],
+    "tags": [
+      "cant-effects",
+      "search-restriction",
+      "multiplayer",
+      "competing-effects"
+    ]
+  },
+  {
+    "id": 397,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Smothering Tithe (\"Whenever an opponent draws a card, that player may pay {2}. If the player doesn't, you create a Treasure token.\") and Player B controls Notion Thief (\"If an opponent would draw a card except the first one they draw in each of their draw steps, instead that player skips that draw and you draw a card.\"). Player C would draw their second card this turn. What happens?",
+    "answer": "Notion Thief replaces Player C's draw — Player C skips the draw and Player B draws instead. Smothering Tithe doesn't trigger because Player C never actually drew a card. However, when Player B draws, Player A's Smothering Tithe triggers for that draw (since Player B is also an opponent).",
+    "explanation": "Notion Thief replaces the draw event entirely — Player C's draw is skipped and Player B draws instead. Since Player C never drew, Smothering Tithe doesn't trigger for Player C. But Player B drawing triggers Smothering Tithe for Player B's draw (assuming Player B is Player A's opponent). The Tithe follows the actual draw.",
+    "rule_refs": [
+      "614.6",
+      "603.2"
+    ],
+    "cards_ref": [
+      "Smothering Tithe",
+      "Notion Thief"
+    ],
+    "tags": [
+      "replacement-effects",
+      "triggered-abilities",
+      "draw",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 398,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Consecrated Sphinx (\"Whenever an opponent draws a card, you may draw two cards.\") and Player B controls Smothering Tithe (\"Whenever an opponent draws a card, that player may pay {2}. If the player doesn't, you create a Treasure token.\"). Player C draws a card during their draw step. What triggers?",
+    "answer": "Both trigger simultaneously — Player A's Consecrated Sphinx triggers (opponent C drew a card) and Player B's Smothering Tithe triggers (opponent C drew a card). When Player A draws two cards from Consecrated Sphinx, Smothering Tithe triggers twice more (for each of Player A's draws), and Consecrated Sphinx does NOT trigger from its own controller's draws.",
+    "explanation": "Consecrated Sphinx triggers on opponents drawing, so Player C's draw triggers it. Smothering Tithe also triggers on opponents drawing. When Player A draws 2 from the Sphinx, that triggers Player B's Smothering Tithe twice more (Player A is Player B's opponent). Consecrated Sphinx doesn't trigger from its own controller's draws — only opponents'.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Consecrated Sphinx",
+      "Smothering Tithe"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "draw-chains",
+      "multiplayer",
+      "treasure"
+    ]
+  },
+  {
+    "id": 399,
+    "difficulty": "interactions",
+    "question": "In a Commander game, Player A casts Lignify (\"Enchant creature. Enchanted creature is a Treefolk with base power and toughness 0/4 and loses all abilities.\") on Player B's commander. Later, Player C casts Giant Growth (\"Target creature gets +3/+3 until end of turn.\") on the Lignified commander. What are the commander's characteristics?",
+    "answer": "It's a 3/7 Treefolk with no abilities (except it gained +3/+3 from Giant Growth). Lignify sets base P/T to 0/4 (layer 7b) and removes abilities (layer 6). Giant Growth adds +3/+3 (layer 7c). The creature is still a commander but has no native abilities.",
+    "explanation": "Per the Lignify rulings, it overwrites base P/T (layer 7b) and removes abilities (layer 6). But Giant Growth's +3/+3 is applied in layer 7c, after the base is set. 0/4 + 3/+3 = 3/7. Per the rulings, abilities gained AFTER Lignify entered work normally. It keeps supertypes (legendary) and remains a commander.",
+    "rule_refs": [
+      "613.4b",
+      "613.4c",
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Lignify"
+    ],
+    "tags": [
+      "layers",
+      "power-toughness",
+      "ability-removal",
+      "commander"
+    ]
+  },
+  {
+    "id": 400,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Darksteel Mutation (\"Enchanted creature is an Insect artifact creature with base power and toughness 0/1 and has indestructible, and it loses all other abilities.\") on Player B's creature. Player C then casts Polymorphist's Jest (\"Until end of turn, each creature target player controls loses all abilities and becomes a blue Frog with base power and toughness 1/1.\") targeting Player B. What is the mutated creature now?",
+    "answer": "A 1/1 blue Frog with no abilities (not even indestructible). Polymorphist's Jest has a later timestamp than Darksteel Mutation, so in layer 4 (types), layer 5 (color), layer 6 (abilities), and layer 7b (P/T), Jest's effects override Mutation's effects in each applicable layer.",
+    "explanation": "Both effects operate in layers 4, 5, 6, and 7b. Polymorphist's Jest has a later timestamp (cast this turn, after Darksteel Mutation was already attached). Within each layer, later timestamp wins. The creature becomes a blue Frog (not Insect), 1/1 (not 0/1), and loses ALL abilities including the indestructible that Mutation granted.",
+    "rule_refs": [
+      "613.1d",
+      "613.1e",
+      "613.1f",
+      "613.4b",
+      "613.7"
+    ],
+    "cards_ref": [
+      "Darksteel Mutation",
+      "Polymorphist's Jest"
+    ],
+    "tags": [
+      "layers",
+      "timestamp",
+      "type-changing",
+      "ability-removal",
+      "override"
+    ]
+  },
+  {
+    "id": 401,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, Player A controls Night of Souls' Betrayal (\"All creatures get -1/-1.\") and Player B controls Glorious Anthem (\"Creatures you control get +1/+1.\"). Player B controls a 1/1 creature. What happens if Night of Souls' Betrayal and Glorious Anthem are on the battlefield simultaneously?",
+    "answer": "Player B's 1/1 is still 1/1. It gets +1/+1 from Glorious Anthem and -1/-1 from Night of Souls' Betrayal, which cancel out. However, if Player B's creature is a 1/1 token without the Anthem bonus, it would be 0/0 and die.",
+    "explanation": "Both effects apply in layer 7c (modifying P/T). The order doesn't matter since they're additive. A 1/1 creature Player B controls gets +1/+1 (Anthem) and -1/-1 (Night), netting 1/1. But creatures OTHER players control only get -1/-1. A 1/1 creature under any other player's control becomes 0/0 and dies.",
+    "rule_refs": [
+      "613.4c",
+      "704.5f"
+    ],
+    "cards_ref": [
+      "Night of Souls' Betrayal",
+      "Glorious Anthem"
+    ],
+    "tags": [
+      "layers",
+      "power-toughness",
+      "additive-effects",
+      "multiplayer"
+    ]
+  },
+  {
+    "id": 402,
+    "difficulty": "fundamentals",
+    "question": "What is a player's starting life total in a standard two-player game of Magic?",
+    "answer": "20 life.",
+    "explanation": "In a standard two-player game, each player begins with 20 life. Commander games use 40 life, and Two-Headed Giant teams start at 30 shared life. But the default starting life total for a normal game is 20.",
+    "rule_refs": [
+      "103.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "starting-life",
+      "game-start"
+    ]
+  },
+  {
+    "id": 403,
+    "difficulty": "fundamentals",
+    "question": "How many cards does each player draw for their starting hand?",
+    "answer": "Seven cards.",
+    "explanation": "Each player draws a hand of seven cards at the start of the game. If a player isn't satisfied with their hand, they may mulligan — shuffling their hand back and drawing seven new cards, then putting one card on the bottom of their library for each mulligan taken.",
+    "rule_refs": [
+      "103.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "starting-hand",
+      "game-start"
+    ]
+  },
+  {
+    "id": 404,
+    "difficulty": "fundamentals",
+    "question": "When a player takes a mulligan, how does it work? They draw seven cards, then what?",
+    "answer": "After drawing seven new cards, the player puts a number of cards from their hand on the bottom of their library equal to the number of times they have mulliganed. For example, after one mulligan, they put one card back (ending with six).",
+    "explanation": "This is the 'London mulligan' system. Each mulligan draws a full seven, but the player puts back cards equal to their mulligan count. First mulligan: draw 7, put 1 back (keep 6). Second mulligan: draw 7, put 2 back (keep 5). And so on.",
+    "rule_refs": [
+      "103.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "mulligan",
+      "game-start"
+    ]
+  },
+  {
+    "id": 406,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between hexproof and shroud? A player controls Swiftfoot Boots (\"Equipped creature has hexproof and haste.\") and Lightning Greaves (\"Equipped creature has haste and shroud.\"). Which one lets the creature's controller still target it?",
+    "answer": "Hexproof (Swiftfoot Boots). Hexproof means the creature can't be targeted by spells or abilities OPPONENTS control, but its controller can still target it. Shroud (Lightning Greaves) means NO player can target it — not even the controller.",
+    "explanation": "Hexproof protects from opponents' targeting only. Shroud protects from all targeting, including the controller's own spells and abilities. This is why Lightning Greaves can create problems — once equipped, you can't target the creature with your own Auras or pump spells unless you move the Greaves to another creature first.",
+    "rule_refs": [
+      "702.11",
+      "702.18"
+    ],
+    "cards_ref": [
+      "Swiftfoot Boots",
+      "Lightning Greaves"
+    ],
+    "tags": [
+      "hexproof",
+      "shroud",
+      "keywords",
+      "targeting"
+    ]
+  },
+  {
+    "id": 407,
+    "difficulty": "fundamentals",
+    "question": "A player equips Lightning Greaves (\"Equipped creature has haste and shroud.\") to their only creature. They want to also equip Sword of Fire and Ice to that creature. Can they?",
+    "answer": "No. Equip targets a creature you control, and shroud prevents the creature from being targeted by anyone, including its controller. The player would need another creature to move the Greaves to first, freeing the original creature from shroud.",
+    "explanation": "Per the Lightning Greaves rulings, you can't simply unequip Equipment from a creature. If Lightning Greaves is attached to the only creature you control, you won't be able to attach other equipment to it (or target it with anything else) until you have another creature to move the Greaves to.",
+    "rule_refs": [
+      "702.18",
+      "301.5"
+    ],
+    "cards_ref": [
+      "Lightning Greaves",
+      "Sword of Fire and Ice"
+    ],
+    "tags": [
+      "shroud",
+      "equipment",
+      "targeting",
+      "equip"
+    ]
+  },
+  {
+    "id": 408,
+    "difficulty": "fundamentals",
+    "question": "How does Equipment work? When you cast an Equipment spell, does it immediately attach to a creature?",
+    "answer": "No. An Equipment enters the battlefield unattached. You must then pay its equip cost (which is an activated ability usable only at sorcery speed) to attach it to a creature you control.",
+    "explanation": "Equipment is an artifact subtype. It enters the battlefield as a standalone artifact. The equip ability costs mana and can only be activated at sorcery speed (during your main phase when the stack is empty). If the equipped creature leaves the battlefield, the Equipment stays on the battlefield unattached.",
+    "rule_refs": [
+      "301.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "equipment",
+      "equip",
+      "artifacts",
+      "sorcery-speed"
+    ]
+  },
+  {
+    "id": 409,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between an Aura enchantment and a non-Aura enchantment (like Glorious Anthem: \"Creatures you control get +1/+1.\")?",
+    "answer": "An Aura is cast targeting a specific object or player and attaches to it. If the enchanted object leaves, the Aura goes to the graveyard. A non-Aura enchantment (global enchantment) just sits on the battlefield and affects the game without being attached to anything.",
+    "explanation": "Auras have 'Enchant [something]' and must be attached to a legal object or player. If what they're attached to becomes illegal or leaves, the Aura goes to the graveyard (rule 704.5m). Non-Aura enchantments like Glorious Anthem simply exist on the battlefield with static effects.",
+    "rule_refs": [
+      "303.4",
+      "704.5m"
+    ],
+    "cards_ref": [
+      "Glorious Anthem"
+    ],
+    "tags": [
+      "enchantments",
+      "auras",
+      "card-types",
+      "attachment"
+    ]
+  },
+  {
+    "id": 410,
+    "difficulty": "fundamentals",
+    "question": "How do planeswalkers work? Can you activate more than one loyalty ability per turn?",
+    "answer": "No. You may activate only ONE loyalty ability of each planeswalker you control per turn, and only during your main phase when you have priority and the stack is empty (sorcery speed).",
+    "explanation": "Planeswalkers enter with a set number of loyalty counters. Loyalty abilities cost loyalty (adding or removing counters). You can activate one per turn per planeswalker, at sorcery speed. Planeswalkers can be attacked by creatures, and damage dealt to them removes loyalty counters. At 0 loyalty, they go to the graveyard (rule 704.5i).",
+    "rule_refs": [
+      "306.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "planeswalkers",
+      "loyalty",
+      "activated-abilities",
+      "sorcery-speed"
+    ]
+  },
+  {
+    "id": 411,
+    "difficulty": "fundamentals",
+    "question": "Can a player attack an opponent's planeswalker with their creatures?",
+    "answer": "Yes. When declaring attackers, a player can choose to attack an opponent or a planeswalker that opponent controls. Combat damage dealt to a planeswalker removes that many loyalty counters from it.",
+    "explanation": "Rule 508.1a says the active player chooses which player, planeswalker, or battle each attacking creature is attacking. Damage to a planeswalker removes loyalty counters (rule 306.7). If a planeswalker reaches 0 loyalty, it's put into the graveyard as a state-based action.",
+    "rule_refs": [
+      "508.1a",
+      "306.7"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "planeswalkers",
+      "combat",
+      "attacking",
+      "loyalty"
+    ]
+  },
+  {
+    "id": 412,
+    "difficulty": "fundamentals",
+    "question": "A player loses the game when which of these conditions are met? (Name at least three ways to lose.)",
+    "answer": "1) Life total reaches 0 or less. 2) Attempting to draw from an empty library. 3) Accumulating 10 or more poison counters. 4) An effect that says 'you lose the game.' 5) In Commander, being dealt 21+ combat damage by the same commander.",
+    "explanation": "Rules 704.5a (0 life), 704.5b (empty library draw), and 704.5c (10 poison) are the three main state-based action loss conditions. Cards can also directly cause a player to lose. In Commander, rule 704.6c adds the 21 commander combat damage threshold.",
+    "rule_refs": [
+      "704.5a",
+      "704.5b",
+      "704.5c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "losing",
+      "state-based-actions",
+      "game-end"
+    ]
+  },
+  {
+    "id": 413,
+    "difficulty": "fundamentals",
+    "question": "What happens when a player tries to draw a card but their library is empty?",
+    "answer": "The player loses the game the next time state-based actions are checked. They don't lose immediately at the moment the draw would happen — the loss occurs as a state-based action.",
+    "explanation": "Rule 704.5b says if a player attempted to draw a card from a library with no cards in it since the last time state-based actions were checked, that player loses the game. The draw attempt itself doesn't end the game; the state-based action does, before any player receives priority.",
+    "rule_refs": [
+      "704.5b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "losing",
+      "empty-library",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 414,
+    "difficulty": "fundamentals",
+    "question": "What are the five colors of Magic, and what basic land produces mana of each color?",
+    "answer": "White (Plains), Blue (Island), Black (Swamp), Red (Mountain), Green (Forest).",
+    "explanation": "Each color has a corresponding basic land type that produces mana of that color. The basic lands are Plains ({W}), Island ({U}), Swamp ({B}), Mountain ({R}), and Forest ({G}). These are the only basic land types, and any land with a basic land type has the intrinsic ability to tap for that color.",
+    "rule_refs": [
+      "305.6"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "colors",
+      "basic-lands",
+      "mana",
+      "definition"
+    ]
+  },
+  {
+    "id": 415,
+    "difficulty": "fundamentals",
+    "question": "What is 'mana value' (formerly called 'converted mana cost')? What is the mana value of a spell that costs {2}{R}{R}?",
+    "answer": "4. Mana value is the total amount of mana in a card's mana cost, regardless of color. {2}{R}{R} = 2 generic + 1 red + 1 red = 4 total mana value.",
+    "explanation": "Mana value (rule 202.3) is determined by adding up the mana cost. Each colored symbol counts as 1, and the generic number counts as that number. {2}{R}{R} has a mana value of 2 + 1 + 1 = 4. Mana value is always a single number and doesn't change based on what you actually pay.",
+    "rule_refs": [
+      "202.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "mana-value",
+      "mana-cost",
+      "definition"
+    ]
+  },
+  {
+    "id": 416,
+    "difficulty": "fundamentals",
+    "question": "What are the six main game zones in Magic?",
+    "answer": "Library, hand, battlefield, graveyard, stack, and exile. (The command zone also exists in some formats.)",
+    "explanation": "Rule 400.1 lists the zones. Library is your deck (face down). Hand is cards you've drawn. Battlefield is where permanents exist. Graveyard is the discard pile (face up). Stack is where spells and abilities wait to resolve. Exile is a removed-from-game zone. Each zone has its own rules.",
+    "rule_refs": [
+      "400.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "zones",
+      "definition",
+      "game-structure"
+    ]
+  },
+  {
+    "id": 417,
+    "difficulty": "fundamentals",
+    "question": "A player casts Wrath of God (\"Destroy all creatures. They can't be regenerated.\"). Does this affect the caster's own creatures?",
+    "answer": "Yes. 'All creatures' means every creature on the battlefield, including the caster's own. Wrath of God is symmetrical — it destroys everything.",
+    "explanation": "When a card says 'all creatures' without further qualification (like 'your opponents control'), it means all creatures on the battlefield. The caster's creatures are destroyed along with everyone else's. This is why board wipes are powerful — they reset the board for everyone.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Wrath of God"
+    ],
+    "tags": [
+      "board-wipe",
+      "symmetrical",
+      "all-creatures"
+    ]
+  },
+  {
+    "id": 418,
+    "difficulty": "fundamentals",
+    "question": "A player casts Heroic Intervention (\"Permanents you control gain hexproof and indestructible until end of turn.\") in response to an opponent's Wrath of God (\"Destroy all creatures.\"). Do the player's creatures survive?",
+    "answer": "Yes. Heroic Intervention resolves first (it was cast in response, so it's on top of the stack). All the player's permanents gain indestructible. Then Wrath of God resolves and tries to destroy all creatures, but indestructible creatures can't be destroyed.",
+    "explanation": "Heroic Intervention is on the stack above Wrath of God, so it resolves first, granting hexproof and indestructible. When Wrath resolves, 'destroy' has no effect on indestructible creatures. The player's creatures survive while opponents' creatures die.",
+    "rule_refs": [
+      "117.7",
+      "702.12"
+    ],
+    "cards_ref": [
+      "Heroic Intervention",
+      "Wrath of God"
+    ],
+    "tags": [
+      "indestructible",
+      "board-wipe",
+      "in-response",
+      "stack"
+    ]
+  },
+  {
+    "id": 419,
+    "difficulty": "fundamentals",
+    "question": "A player controls a planeswalker. An opponent casts Lightning Bolt (\"Lightning Bolt deals 3 damage to any target.\"). Can the opponent target the planeswalker directly with Lightning Bolt?",
+    "answer": "Yes. Lightning Bolt says 'any target,' which includes players, creatures, planeswalkers, and battles. The opponent can target the planeswalker directly, dealing 3 damage to it (removing 3 loyalty counters).",
+    "explanation": "'Any target' means any legal target — a player, creature, planeswalker, or battle. Damage dealt to a planeswalker removes that many loyalty counters. If the planeswalker reaches 0 loyalty, it's put into the graveyard. Older cards that said 'target creature or player' have been updated to 'any target.'",
+    "rule_refs": [
+      "306.7"
+    ],
+    "cards_ref": [
+      "Lightning Bolt"
+    ],
+    "tags": [
+      "planeswalkers",
+      "targeting",
+      "damage",
+      "any-target"
+    ]
+  },
+  {
+    "id": 420,
+    "difficulty": "fundamentals",
+    "question": "What does 'protection from red' mean? Name the four things protection prevents.",
+    "answer": "Protection from red prevents four things (remembered by DEBT): Damage from red sources, Enchanting/Equipping by red objects, Blocking by red creatures, and Targeting by red spells or abilities.",
+    "explanation": "Protection from a quality prevents: (D) all damage from sources with that quality, (E) being enchanted or equipped by objects with that quality, (B) being blocked by creatures with that quality, and (T) being targeted by spells or abilities with that quality. It does NOT prevent non-targeted effects like board wipes.",
+    "rule_refs": [
+      "702.16"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "protection",
+      "keywords",
+      "DEBT",
+      "definition"
+    ]
+  },
+  {
+    "id": 421,
+    "difficulty": "fundamentals",
+    "question": "A player controls a creature with 'protection from white.' An opponent casts Wrath of God (\"Destroy all creatures.\"), which is a white spell. Is the creature with protection from white destroyed?",
+    "answer": "Yes. Wrath of God doesn't target — it says 'all creatures.' Protection only prevents Damage, Enchanting/Equipping, Blocking, and Targeting. Since Wrath doesn't target, protection doesn't help.",
+    "explanation": "Protection prevents DEBT (Damage, Enchanting/Equipping, Blocking, Targeting). Wrath of God doesn't do any of those four things to the creature — it's an untargeted 'destroy all' effect. Protection from white doesn't prevent destruction from a non-targeting white spell.",
+    "rule_refs": [
+      "702.16"
+    ],
+    "cards_ref": [
+      "Wrath of God"
+    ],
+    "tags": [
+      "protection",
+      "board-wipe",
+      "non-targeting",
+      "common-mistake"
+    ]
+  },
+  {
+    "id": 422,
+    "difficulty": "fundamentals",
+    "question": "What does the keyword 'reach' do? How does it interact with flying?",
+    "answer": "Reach allows a creature to block creatures with flying. Normally, only creatures with flying can block other flyers — reach provides an exception. A creature with reach but without flying can still be blocked by any creature (reach doesn't grant evasion).",
+    "explanation": "Flying says a creature can only be blocked by creatures with flying or reach (rule 702.9). Reach (rule 702.17) simply means the creature can block flyers. Importantly, reach is NOT an evasion ability — a creature with reach can be blocked by anything. It only matters on defense.",
+    "rule_refs": [
+      "702.17",
+      "702.9"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "reach",
+      "flying",
+      "blocking",
+      "keywords"
+    ]
+  },
+  {
+    "id": 423,
+    "difficulty": "fundamentals",
+    "question": "A creature is dealt 2 damage but has 4 toughness. Is its toughness now 2? When does the damage go away?",
+    "answer": "No — its toughness is still 4. Damage doesn't reduce toughness. Instead, 2 damage is 'marked' on the creature. If total damage marked equals or exceeds its toughness, it's destroyed. All damage marked on a creature is removed during the cleanup step.",
+    "explanation": "Rule 120.3 says damage dealt to a creature is marked on it. It doesn't change the creature's toughness. Rule 302.7 says if total damage marked is >= toughness, the creature has lethal damage and is destroyed as a state-based action. Rule 514.2 says all damage is removed during the cleanup step.",
+    "rule_refs": [
+      "302.7",
+      "514.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "damage-marking",
+      "toughness",
+      "cleanup-step",
+      "common-mistake"
+    ]
+  },
+  {
+    "id": 424,
+    "difficulty": "fundamentals",
+    "question": "A 4/4 creature is dealt 3 damage. Later in the same turn, it's dealt 1 more damage from a different source. Is it destroyed?",
+    "answer": "Yes. Damage accumulates during a turn. The creature has 4 total damage marked on it (3 + 1), which equals its toughness of 4. It's destroyed as a state-based action.",
+    "explanation": "Damage from different sources accumulates. All damage stays marked on a creature until the cleanup step. When the total damage marked reaches or exceeds the creature's toughness, it's destroyed (rule 704.5g). It doesn't matter that the damage came from multiple sources at different times.",
+    "rule_refs": [
+      "302.7",
+      "704.5g"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "damage-marking",
+      "accumulated-damage",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 425,
+    "difficulty": "fundamentals",
+    "question": "What does 'dies' mean in Magic rules? For example, a card says 'When this creature dies, draw a card.' What event triggers this?",
+    "answer": "'Dies' means the creature is put into a graveyard from the battlefield. It's shorthand for 'is put into a graveyard from the battlefield.' If a creature is exiled or returned to hand, it doesn't 'die.'",
+    "explanation": "Rule 700.4 defines 'dies' as being put into a graveyard from the battlefield. This only applies to creatures and planeswalkers. If a creature is exiled instead of going to the graveyard (e.g., by Swords to Plowshares), it doesn't die and death triggers won't fire.",
+    "rule_refs": [
+      "700.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "dies",
+      "definition",
+      "zones",
+      "graveyard"
+    ]
+  },
+  {
+    "id": 426,
+    "difficulty": "fundamentals",
+    "question": "A creature 'leaves the battlefield' when bounced to hand. Does 'leaves the battlefield' include dying?",
+    "answer": "Yes. 'Leaves the battlefield' includes ANY way a permanent leaves — dying (going to graveyard), being exiled, being returned to hand, or being put into the library. Dying is one specific type of leaving.",
+    "explanation": "A Thragtusk-style trigger ('When this creature leaves the battlefield') fires regardless of where the creature goes — graveyard, exile, hand, or library. 'Dies' is a subset of 'leaves the battlefield' that specifically means 'goes to the graveyard from the battlefield.'",
+    "rule_refs": [
+      "700.4"
+    ],
+    "cards_ref": [
+      "Thragtusk"
+    ],
+    "tags": [
+      "leaves-the-battlefield",
+      "dies",
+      "zones",
+      "definition"
+    ]
+  },
+  {
+    "id": 427,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between 'sacrifice' and 'destroy'? A player controls an indestructible creature. An opponent casts a spell that says 'Target player sacrifices a creature.' Does the indestructible creature survive?",
+    "answer": "No — the creature is sacrificed. Sacrifice is not 'destroying.' Indestructible prevents destruction only. Sacrifice is a separate game action that puts the permanent directly into the graveyard. Indestructible does not prevent sacrifice.",
+    "explanation": "Sacrifice (rule 701.17) means putting a permanent into its owner's graveyard. This is not destruction. Indestructible (rule 702.12) only prevents destruction — it has no effect on sacrifice, exile, bounce, or -X/-X effects. Players commonly confuse this.",
+    "rule_refs": [
+      "701.17",
+      "702.12"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "sacrifice",
+      "destroy",
+      "indestructible",
+      "common-mistake"
+    ]
+  },
+  {
+    "id": 428,
+    "difficulty": "fundamentals",
+    "question": "A player controls Fleshbag Marauder (\"When this creature enters, each player sacrifices a creature of their choice.\"). It's their only creature. What happens?",
+    "answer": "The player must sacrifice Fleshbag Marauder itself, since it's their only creature. Each other player also sacrifices a creature of their choice.",
+    "explanation": "Per the Fleshbag Marauder rulings, you may sacrifice Fleshbag Marauder itself when its ability resolves. If you control no other creatures, you'll have to sacrifice it. The ability says 'each player,' which includes its controller.",
+    "rule_refs": [
+      "701.17"
+    ],
+    "cards_ref": [
+      "Fleshbag Marauder"
+    ],
+    "tags": [
+      "sacrifice",
+      "enters-the-battlefield",
+      "self-sacrifice"
+    ]
+  },
+  {
+    "id": 429,
+    "difficulty": "fundamentals",
+    "question": "An opponent casts Diabolic Edict (\"Target player sacrifices a creature of their choice.\") targeting you. You control an indestructible creature and a 1/1 token. Can you sacrifice the indestructible creature?",
+    "answer": "Yes. You choose which creature to sacrifice. You can sacrifice any creature you control, including the indestructible one. Sacrifice ignores indestructible. Of course, most players would choose to sacrifice the 1/1 token instead.",
+    "explanation": "Sacrifice doesn't care about indestructible — any creature can be sacrificed. The targeted player chooses which creature to sacrifice. Since the choice is yours, you can strategically pick the least valuable creature.",
+    "rule_refs": [
+      "701.17"
+    ],
+    "cards_ref": [
+      "Diabolic Edict"
+    ],
+    "tags": [
+      "sacrifice",
+      "player-choice",
+      "indestructible"
+    ]
+  },
+  {
+    "id": 430,
+    "difficulty": "fundamentals",
+    "question": "What is a token? How is it different from a card?",
+    "answer": "A token is a permanent that isn't represented by a card. Tokens are created by spells or abilities. They exist on the battlefield but aren't 'cards' — if a token leaves the battlefield (goes to hand, graveyard, exile, etc.), it ceases to exist as a state-based action.",
+    "explanation": "Tokens function like any other permanent while on the battlefield — they can attack, block, be targeted, etc. The key difference is rule 704.5d: a token in a zone other than the battlefield ceases to exist. You can't 'draw' a token or find one in your library. Token creatures still 'die' (briefly go to graveyard before ceasing to exist), triggering death abilities.",
+    "rule_refs": [
+      "111.1",
+      "704.5d"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "tokens",
+      "definition",
+      "cards-vs-tokens"
+    ]
+  },
+  {
+    "id": 431,
+    "difficulty": "fundamentals",
+    "question": "A spell creates three 1/1 Soldier creature tokens. Are these tokens 'cards'? Can effects that say 'return target creature card from your graveyard to your hand' return a dead token?",
+    "answer": "No. Tokens are not cards. When a token dies, it briefly hits the graveyard (triggering death abilities) then ceases to exist. An effect that targets a 'creature card' can't target or return a token.",
+    "explanation": "Rule 111.1 says tokens are permanents but aren't cards. Rule 704.5d says tokens in zones other than the battlefield cease to exist. Effects that reference 'cards' don't affect tokens. However, tokens do trigger 'dies' abilities because they do briefly go to the graveyard.",
+    "rule_refs": [
+      "111.1",
+      "704.5d"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "tokens",
+      "cards-vs-tokens",
+      "graveyard",
+      "dies"
+    ]
+  },
+  {
+    "id": 432,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between a card's 'owner' and its 'controller'? If Player A steals Player B's creature with a control-changing effect, who is the owner and who is the controller?",
+    "answer": "Player B is the owner (they started the game with the card in their deck). Player A is the controller (they currently control the permanent). Ownership never changes. When the creature dies, it goes to Player B's graveyard (the owner's).",
+    "explanation": "A card's owner is the player who started with it in their deck (or the player who created a token). Control can change via effects, but ownership never does. Rule 110.2 says a permanent's controller is usually the player who put it on the battlefield, unless a control-changing effect applies. Cards always go to their owner's graveyard, hand, or library.",
+    "rule_refs": [
+      "108.3",
+      "110.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "owner",
+      "controller",
+      "definition",
+      "control-change"
+    ]
+  },
+  {
+    "id": 433,
+    "difficulty": "fundamentals",
+    "question": "Player A controls Player B's creature (via a theft effect). The creature dies. Whose graveyard does it go to?",
+    "answer": "Player B's graveyard — the owner's. A card always goes to its owner's graveyard, hand, or library, regardless of who controlled it.",
+    "explanation": "Ownership never changes. The creature was controlled by Player A, but owned by Player B. When it dies, it goes to Player B's (the owner's) graveyard. Similarly, if it were bounced to hand, it would go to Player B's hand.",
+    "rule_refs": [
+      "108.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "owner",
+      "controller",
+      "graveyard",
+      "death"
+    ]
+  },
+  {
+    "id": 434,
+    "difficulty": "fundamentals",
+    "question": "A spell has {X} in its mana cost, like Blaze (\"Blaze deals X damage to any target.\"). A player casts it with X=5. What is the spell's mana value while on the stack? What is the card's mana value in the graveyard?",
+    "answer": "On the stack, the mana value is 6 ({5} for X + {R} = 6). In the graveyard (or any other zone), X is 0, so the mana value is 1 ({0} + {R} = 1).",
+    "explanation": "Rule 202.3 says if X is not defined, it's 0. On the stack, X has the value chosen by the caster. Everywhere else (hand, graveyard, library, exile), X is 0. So Blaze has mana value 6 on the stack when X=5, but mana value 1 everywhere else.",
+    "rule_refs": [
+      "202.3"
+    ],
+    "cards_ref": [
+      "Blaze"
+    ],
+    "tags": [
+      "X-spells",
+      "mana-value",
+      "stack-vs-other-zones"
+    ]
+  },
+  {
+    "id": 435,
+    "difficulty": "fundamentals",
+    "question": "A player casts Walking Ballista (\"This creature enters with X +1/+1 counters on it.\") with a mana cost of {X}{X}. If they want X to be 3, how much mana do they pay?",
+    "answer": "{6} — the cost is {X}{X}, so you pay X twice. If X=3, you pay 3+3 = 6 mana. Walking Ballista enters with 3 +1/+1 counters.",
+    "explanation": "Per the Walking Ballista rulings, a casting cost of {X}{X} means you pay twice X. If you want X to be 3, you pay {6}. The mana value on the stack is 6. In other zones, X is 0 so the mana value is 0.",
+    "rule_refs": [
+      "202.3"
+    ],
+    "cards_ref": [
+      "Walking Ballista"
+    ],
+    "tags": [
+      "X-spells",
+      "mana-cost",
+      "double-X"
+    ]
+  },
+  {
+    "id": 436,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between 'target' and 'each'? A spell says 'Each opponent loses 3 life.' Is this targeting?",
+    "answer": "No. 'Each opponent' does not target. Only spells and abilities that use the word 'target' actually target. 'Each opponent' simply affects all opponents without targeting, so hexproof, shroud, and protection don't help.",
+    "explanation": "A spell or ability targets only if it uses the word 'target' (rule 115.10). 'Each opponent,' 'all creatures,' 'each player,' etc. are not targeting — they affect everyone matching the description. This means hexproof and protection are irrelevant against non-targeting effects.",
+    "rule_refs": [
+      "115.10"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "targeting",
+      "each-vs-target",
+      "hexproof",
+      "common-mistake"
+    ]
+  },
+  {
+    "id": 437,
+    "difficulty": "fundamentals",
+    "question": "An opponent controls a creature with hexproof. Can you cast a spell that says 'Destroy all creatures' to destroy it?",
+    "answer": "Yes. 'Destroy all creatures' doesn't target anything. Hexproof only prevents targeting by opponents' spells and abilities. Non-targeted effects like board wipes, 'each opponent' effects, and sacrifice effects bypass hexproof entirely.",
+    "explanation": "Hexproof (rule 702.11) prevents the permanent from being targeted by opponents' spells and abilities. 'Destroy all creatures' doesn't target — it simply affects all creatures. Similarly, 'each player sacrifices a creature' bypasses hexproof because it doesn't target.",
+    "rule_refs": [
+      "702.11",
+      "115.10"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "hexproof",
+      "targeting",
+      "non-targeting",
+      "board-wipe"
+    ]
+  },
+  {
+    "id": 438,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between 'damage' and 'loss of life'?",
+    "answer": "Damage causes loss of life, but not all loss of life is damage. 'Loses 3 life' is not damage — it's a direct life total change.",
+    "explanation": "Damage dealt to a player causes that player to lose that much life. But 'lose life' effects are not damage. Abilities that care about damage (lifelink, deathtouch, infect, prevention effects) don't interact with direct life loss. Similarly, 'prevent damage' effects can't prevent life loss.",
+    "rule_refs": [
+      "120.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "damage-vs-life-loss",
+      "lifelink",
+      "definition"
+    ]
+  },
+  {
+    "id": 439,
+    "difficulty": "fundamentals",
+    "question": "A player controls a creature with lifelink that deals 4 combat damage to an opponent. The player gains 4 life. Is this life gain preventable?",
+    "answer": "The life gain from lifelink happens simultaneously with the damage — it's not a triggered ability. Effects that say 'players can't gain life' would prevent it. But the life gain can't be responded to because it happens at the same time as the damage, not on the stack.\n\nAlso note that if an effect prevents life gain, a creature with lifelink still deals damage, the creature's controller does not gain life.",
+    "explanation": "Lifelink (rule 702.15) causes the creature's controller to gain life equal to damage dealt, simultaneously with the damage. This is a static ability, not a triggered ability — it doesn't use the stack. 'Can't gain life' effects prevent it, but there's no window to respond between the damage and the life gain.",
+    "rule_refs": [
+      "702.15"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lifelink",
+      "life-gain",
+      "simultaneous",
+      "static-ability"
+    ]
+  },
+  {
+    "id": 440,
+    "difficulty": "fundamentals",
+    "question": "What is colorless mana? Is it the same as generic mana? A card costs {2}{C}. Can a player pay the {C} with mana from a basic Forest?",
+    "answer": "No. {C} is colorless mana — a specific type of mana. A Forest produces {G} (green mana), not colorless. Generic mana ({1}, {2}, etc.) in costs can be paid with any type of mana, but {C} requires specifically colorless mana (from sources like Sol Ring or Wastes).",
+    "explanation": "Colorless mana ({C}) and generic mana ({1}, {2}) are different. Generic mana in a cost means 'any mana will do.' {C} in a cost means 'colorless mana specifically.' Sources that produce colorless mana include Sol Ring, Wastes, and many artifacts. Colored mana from basic lands cannot pay for {C}.",
+    "rule_refs": [
+      "107.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "colorless-mana",
+      "generic-mana",
+      "mana-types",
+      "common-mistake"
+    ]
+  },
+  {
+    "id": 441,
+    "difficulty": "fundamentals",
+    "question": "Sol Ring (\"{T}: Add {C}{C}.\") produces two colorless mana. Can a player use Sol Ring's mana to pay for a spell that costs {1}{G}?",
+    "answer": "Yes — but only the {1} part. Sol Ring produces {C}{C}, which is colorless mana. Colorless mana can pay for generic costs like {1}, but cannot pay for colored costs like {G}. The player still needs a source of green mana for the {G}.",
+    "explanation": "Generic mana in a cost ({1}) can be paid with any type of mana, including colorless. But colored mana symbols ({G}, {R}, etc.) must be paid with that specific color. Sol Ring's two colorless can pay for up to {2} of generic costs, but never for colored requirements.",
+    "rule_refs": [
+      "107.4"
+    ],
+    "cards_ref": [
+      "Sol Ring"
+    ],
+    "tags": [
+      "colorless-mana",
+      "generic-mana",
+      "mana-payment"
+    ]
+  },
+  {
+    "id": 442,
+    "difficulty": "fundamentals",
+    "question": "What is a modal spell? A player casts Austere Command (\"Choose two — Destroy all artifacts. / Destroy all enchantments. / Destroy all creatures with mana value 3 or less. / Destroy all creatures with mana value 4 or greater.\"). When do they choose the modes?",
+    "answer": "Modes are chosen as the spell is cast — before opponents can respond. Once the spell is on the stack, the modes are locked in and can't be changed.",
+    "explanation": "Rule 601.2b says modes are chosen as part of casting the spell, before targets, costs, and responses. Opponents know which modes were chosen but can't change them. They can still respond to the spell (e.g., by countering it), but the mode choice is final once the spell is on the stack.",
+    "rule_refs": [
+      "601.2b"
+    ],
+    "cards_ref": [
+      "Austere Command"
+    ],
+    "tags": [
+      "modal-spells",
+      "casting",
+      "modes",
+      "timing"
+    ]
+  },
+  {
+    "id": 443,
+    "difficulty": "fundamentals",
+    "question": "A player casts Generous Gift (\"Destroy target permanent. Its controller creates a 3/3 green Elephant creature token.\") targeting an indestructible permanent. The permanent isn't destroyed. Does the controller still get the Elephant token?",
+    "answer": "Yes. The spell resolves and does as much as it can. The 'destroy' part fails (indestructible prevents it), but the controller still creates the 3/3 Elephant token.",
+    "explanation": "Per the Generous Gift rulings, if the target is legal but not destroyed (most likely because it has indestructible), its controller does create an Elephant. Spells do as much as they can — failing to destroy doesn't prevent other parts of the effect from happening.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Generous Gift"
+    ],
+    "tags": [
+      "partial-resolution",
+      "indestructible",
+      "tokens"
+    ]
+  },
+  {
+    "id": 444,
+    "difficulty": "fundamentals",
+    "question": "What is an emblem? A planeswalker's ultimate ability says 'You get an emblem with...' Can an emblem be destroyed or removed?",
+    "answer": "No. An emblem is an object in the command zone that can't be destroyed, exiled, bounced, or interacted with in any way. It lasts for the rest of the game. Nothing in the normal rules can remove an emblem.",
+    "explanation": "Emblems exist in the command zone and have no characteristics other than the abilities they grant. They aren't permanents, they have no mana cost, and no game effects can remove them. Once created, they persist for the rest of the game regardless of what happens to the planeswalker that created them.",
+    "rule_refs": [
+      "114.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "emblems",
+      "definition",
+      "command-zone",
+      "permanent"
+    ]
+  },
+  {
+    "id": 445,
+    "difficulty": "fundamentals",
+    "question": "A player activates Elspeth, Sun's Champion's ultimate ability (\"You get an emblem with 'Creatures you control get +2/+2 and have flying.'\"). Elspeth is then destroyed. Does the emblem stay?",
+    "answer": "Yes. The emblem exists independently in the command zone. Destroying, exiling, or bouncing the planeswalker that created it has no effect on the emblem. The player's creatures continue to get +2/+2 and flying for the rest of the game.",
+    "explanation": "Emblems are created and placed in the command zone. They are not connected to the planeswalker after creation. The emblem persists even if the planeswalker is destroyed, exiled, or the player loses and regains it.",
+    "rule_refs": [
+      "114.1"
+    ],
+    "cards_ref": [
+      "Elspeth",
+      "Sun's Champion"
+    ],
+    "tags": [
+      "emblems",
+      "planeswalkers",
+      "persistence"
+    ]
+  },
+  {
+    "id": 446,
+    "difficulty": "fundamentals",
+    "question": "What is the legend rule? A player controls two legendary creatures both named 'Kroxa, Titan of Death's Hunger.' What happens?",
+    "answer": "The player must immediately choose one to keep and put the other into their graveyard. This is a state-based action — it happens before anyone can respond. The player picks which copy survives.",
+    "explanation": "Rule 704.5j states that if a player controls two or more legendary permanents with the same name, that player chooses one, and the rest are put into their owners' graveyards. This is called the 'legend rule.' It applies to all permanent types with the legendary supertype, not just creatures. It's a state-based action, not sacrifice or destruction.",
+    "rule_refs": [
+      "704.5j"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "legend-rule",
+      "legendary",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 447,
+    "difficulty": "fundamentals",
+    "question": "The legend rule puts a legendary permanent into the graveyard. Is this 'destroying' it? Can indestructible prevent it?",
+    "answer": "No. The legend rule puts the permanent into the graveyard as a state-based action — it's not destruction. Indestructible doesn't prevent it. Neither does regeneration or protection.",
+    "explanation": "The legend rule (704.5j) is a state-based action that puts the permanent directly into the graveyard. It doesn't use the word 'destroy,' so indestructible doesn't apply. It's not sacrifice either. The only ways to avoid it are effects that bypass the legend rule entirely (like Sakashima or Mirror Gallery).",
+    "rule_refs": [
+      "704.5j",
+      "702.12"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "legend-rule",
+      "indestructible",
+      "state-based-actions",
+      "not-destruction"
+    ]
+  },
+  {
+    "id": 448,
+    "difficulty": "fundamentals",
+    "question": "What is 'ward'? A creature has 'Ward {2}' and an opponent targets it with a removal spell. What happens?",
+    "answer": "Ward triggers: 'Whenever this creature becomes the target of a spell or ability an opponent controls, counter that spell or ability unless its controller pays {2}.' The opponent must pay {2} extra or their spell is countered.",
+    "explanation": "Ward is a triggered ability (rule 702.21) that triggers when the permanent becomes the target of an opponent's spell or ability. The opponent must pay the ward cost or the spell/ability is countered. Ward doesn't prevent targeting — it taxes it. The opponent can choose not to pay and lose their spell.",
+    "rule_refs": [
+      "702.21"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "ward",
+      "keywords",
+      "targeting",
+      "taxing"
+    ]
+  },
+  {
+    "id": 449,
+    "difficulty": "fundamentals",
+    "question": "How is ward different from hexproof? Can an opponent still target a creature with ward?",
+    "answer": "Yes — ward allows targeting but taxes it. Hexproof completely prevents targeting by opponents. With ward, the opponent can target the creature but must pay the ward cost or have their spell/ability countered. With hexproof, they can't even choose it as a target.",
+    "explanation": "Hexproof (702.11) makes targeting illegal — you can't even attempt it. Ward (702.21) lets the targeting happen but creates a triggered ability that counters the spell/ability unless a cost is paid. Ward is a 'softer' protection that can be paid through, while hexproof is absolute.",
+    "rule_refs": [
+      "702.21",
+      "702.11"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "ward",
+      "hexproof",
+      "comparison",
+      "targeting"
+    ]
+  },
+  {
+    "id": 450,
+    "difficulty": "fundamentals",
+    "question": "What is kicker? A spell says 'Kicker {2} — When this creature enters, if it was kicked, draw two cards.' Can the player choose to pay the kicker cost?",
+    "answer": "Yes. Kicker is an optional additional cost paid when casting the spell. The player can choose to pay {2} extra on top of the spell's mana cost. If they do, the spell was 'kicked' and the extra effect happens.",
+    "explanation": "Kicker (rule 702.32) is an additional cost you may choose to pay as you cast the spell. If paid, the spell is 'kicked' and gets an enhanced effect. Kicker costs are decided and paid during casting — you can't kick a spell after it's on the stack. Multiple kicker costs can be paid if the card has multikicker.",
+    "rule_refs": [
+      "702.32"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "kicker",
+      "additional-costs",
+      "casting",
+      "keywords"
+    ]
+  },
+  {
+    "id": 451,
+    "difficulty": "fundamentals",
+    "question": "What does 'mill' mean? A spell says 'Target player mills three cards.' What happens?",
+    "answer": "The target player puts the top three cards of their library into their graveyard. 'Mill N' means 'put the top N cards of your library into your graveyard.'",
+    "explanation": "Mill (rule 701.13) is a keyword action meaning to put cards from the top of a library into the graveyard. The player doesn't choose which cards — they're always the top cards. Milling doesn't count as 'drawing' (so it doesn't trigger effects that care about draws), and it doesn't count as 'discarding.'",
+    "rule_refs": [
+      "701.13"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "mill",
+      "keyword-actions",
+      "library",
+      "graveyard"
+    ]
+  },
+  {
+    "id": 452,
+    "difficulty": "fundamentals",
+    "question": "A player casts Reverberate (\"Copy target instant or sorcery spell. You may choose new targets for the copy.\") targeting an opponent's modal spell that says 'Choose one — Destroy target artifact / Destroy target enchantment.' Can the player choose a different mode for the copy?",
+    "answer": "No. The copy has the same mode as the original. You can't choose a different mode. You can only choose new targets.",
+    "explanation": "Per the Reverberate rulings, if the spell is modal (says 'Choose one —' or similar), the copy will have the same mode. You can't choose a different one. Modes are locked in when the original spell is cast and are part of the copiable values.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Reverberate"
+    ],
+    "tags": [
+      "copying",
+      "modal-spells",
+      "modes",
+      "spell-copy"
+    ]
+  },
+  {
+    "id": 453,
+    "difficulty": "fundamentals",
+    "question": "A player casts Reverberate (\"Copy target instant or sorcery spell. You may choose new targets for the copy.\") targeting an opponent's spell that has X=5. What is X for the copy?",
+    "answer": "X is also 5. The copy retains the same value of X that was chosen for the original spell.",
+    "explanation": "Per the Reverberate rulings, if the spell has an X whose value was determined as it was cast, the copy has the same value of X. You don't choose a new X. The copy is free — you don't pay any mana for it — but X remains whatever the original caster chose.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Reverberate"
+    ],
+    "tags": [
+      "copying",
+      "X-spells",
+      "spell-copy"
+    ]
+  },
+  {
+    "id": 454,
+    "difficulty": "fundamentals",
+    "question": "A player copies an opponent's instant spell with Reverberate (\"Copy target instant or sorcery spell. You may choose new targets for the copy.\"). The original spell says 'you draw two cards.' Who draws — the original caster or the copier?",
+    "answer": "The copier draws. You control the copy, so 'you' on the copy refers to you (the copy's controller), not the original caster.",
+    "explanation": "Per the Reverberate rulings, if the copy says 'you,' it affects the controller of the copy, not the controller of the original spell. Similarly, if the copy says 'opponent,' it means an opponent of the copy's controller. This is a common source of confusion at events.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Reverberate"
+    ],
+    "tags": [
+      "copying",
+      "you-reference",
+      "spell-copy",
+      "controller"
+    ]
+  },
+  {
+    "id": 455,
+    "difficulty": "fundamentals",
+    "question": "A copy of a spell is created by Reverberate (\"Copy target instant or sorcery spell. You may choose new targets for the copy.\"). Is the copy 'cast'? Does it trigger abilities that say 'whenever a player casts a spell'?",
+    "answer": "No. The copy is created on the stack — it's not 'cast.' Abilities that trigger when a player casts a spell won't trigger from the copy.",
+    "explanation": "Per the Reverberate rulings, the copy is created on the stack, so it's not 'cast.' This means cards like Guttersnipe ('whenever you cast an instant or sorcery') won't trigger. The copy resolves like a normal spell, but it was never cast.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Reverberate"
+    ],
+    "tags": [
+      "copying",
+      "cast-vs-copy",
+      "triggered-abilities",
+      "spell-copy"
+    ]
+  },
+  {
+    "id": 456,
+    "difficulty": "fundamentals",
+    "question": "Can a player copy an opponent's spell with additional costs (like kicker) using Reverberate? Does the copy also get the kicker effect?",
+    "answer": "Yes — the copy inherits the effects of additional costs that were paid, even though the copier doesn't pay those costs. If the original was kicked, the copy acts as though it was kicked too.",
+    "explanation": "Per the Reverberate rulings, you can't choose to pay any additional costs for the copy. However, effects based on any additional costs that were paid for the original spell are copied as though those same costs were paid for the copy.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Reverberate"
+    ],
+    "tags": [
+      "copying",
+      "kicker",
+      "additional-costs",
+      "spell-copy"
+    ]
+  },
+  {
+    "id": 457,
+    "difficulty": "fundamentals",
+    "question": "A player casts a creature and says 'it resolves.' The opponent says 'wait, I want to respond.' The creature isn't on the battlefield yet. Who is right?",
+    "answer": "The opponent is right to want to respond. A spell doesn't resolve just because the caster says so. After a spell is cast, the caster gets priority. If they pass, the opponent gets priority and can respond. Both must pass for the spell to resolve.",
+    "explanation": "Rule 117.4 says all players must pass in succession for the top spell to resolve. The caster can't skip this. At events, saying 'it resolves' is shorthand for 'I pass priority,' but the opponent always gets a chance to act before a spell resolves.",
+    "rule_refs": [
+      "117.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "responding",
+      "event-procedure",
+      "common-mistake"
+    ]
+  },
+  {
+    "id": 458,
+    "difficulty": "fundamentals",
+    "question": "A player says 'I'll move to combat' and the opponent says 'OK.' Can the player now go back to their main phase to cast a creature?",
+    "answer": "No. Once both players agree to move to the combat phase, you can't go back. The player has left their main phase. They can still cast instants and activate abilities during combat steps that allow priority, but sorcery-speed actions must wait for the second main phase.",
+    "explanation": "When a player indicates they're moving to a new phase and the opponent agrees (passes priority), the phase changes. You cannot 'undo' a phase change. The player must wait until their postcombat main phase to cast sorcery-speed spells.",
+    "rule_refs": [
+      "500.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "turn-structure",
+      "phase-change",
+      "event-procedure",
+      "no-takebacks"
+    ]
+  },
+  {
+    "id": 459,
+    "difficulty": "fundamentals",
+    "question": "A player says 'go to combat' and immediately starts turning creatures sideways. The opponent says 'hold on, I want to do something during your beginning of combat step.' Is this allowed?",
+    "answer": "Yes. There is a beginning of combat step before the declare attackers step. Players receive priority during this step. The opponent can cast instants or activate abilities before attackers are declared.",
+    "explanation": "Rule 507 defines the beginning of combat step. The active player receives priority here. Both players can act before moving to declare attackers. At events, players should clearly communicate phase transitions to avoid misunderstandings.",
+    "rule_refs": [
+      "507.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "beginning-of-combat",
+      "priority",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 460,
+    "difficulty": "fundamentals",
+    "question": "A player at an event calls a judge because their opponent played two lands in one turn. The opponent says they had an effect allowing extra land plays. How should this be resolved?",
+    "answer": "The opponent must show the effect that allows the extra land play (like Explore or Oracle of Mul Daya). If they can't identify an effect granting an additional land play, only one land per turn is allowed (rule 305.2) and the game state needs to be corrected.",
+    "explanation": "Rule 305.2 says a player can normally play one land per turn; continuous effects may increase this. If a player claims an extra land play, they should be able to point to the card or effect granting it. Effects that 'put' a land onto the battlefield (like Rampant Growth) don't count as a land play.",
+    "rule_refs": [
+      "305.2",
+      "305.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lands",
+      "event-procedure",
+      "judge-calls",
+      "rules-enforcement"
+    ]
+  },
+  {
+    "id": 461,
+    "difficulty": "fundamentals",
+    "question": "A player at an event wants to take back a spell they just cast because they realized it's a bad play. Can they?",
+    "answer": "Generally no. Once a spell is fully cast (costs paid, on the stack), it can't be taken back. At Regular REL (like FNM or Prerelease), judges have some discretion for immediate takebacks before game state has changed, but it's not guaranteed.",
+    "explanation": "Once a spell is cast per rule 601.2, the casting is complete and the spell is on the stack. The caster has paid costs and the game state has changed. At Competitive REL, takebacks are almost never allowed. At Regular REL, a judge may allow it if it was immediate and no information was gained.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "casting",
+      "event-procedure",
+      "takebacks",
+      "rules-enforcement"
+    ]
+  },
+  {
+    "id": 462,
+    "difficulty": "fundamentals",
+    "question": "At an event, a player shuffles their opponent's deck after the opponent presents it. While shuffling, they accidentally see the bottom card. What should happen?",
+    "answer": "This is a minor procedural error. At Regular Rules Enforcement Level (REL), all of our events are run at this level, the deck should be randomized again. At Competitive REL, this may warrant a Warning. The important thing is that the deck is sufficiently randomized and no player has gained an unfair advantage.",
+    "explanation": "When cutting or shuffling an opponent's deck, players should take care not to see any cards. If it happens accidentally, call a judge. The deck should be reshuffled to ensure randomness. This is not cheating unless done intentionally.",
+    "rule_refs": [
+      "103.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "shuffling",
+      "event-procedure",
+      "judge-calls"
+    ]
+  },
+  {
+    "id": 463,
+    "difficulty": "fundamentals",
+    "question": "A creature has vigilance. What does vigilance do? Name a common scenario where vigilance matters.",
+    "answer": "Vigilance means the creature doesn't tap when declared as an attacker. Common scenario: a creature with vigilance can attack and still be available to block during the opponent's combat phase, since it's untapped.",
+    "explanation": "Rule 702.20 defines vigilance. Without vigilance, creatures tap when declared as attackers (rule 508.1f), leaving them unable to block. Vigilance removes this drawback, making the creature useful on both offense and defense in the same turn cycle.",
+    "rule_refs": [
+      "702.20"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "vigilance",
+      "keywords",
+      "combat",
+      "attack-and-block"
+    ]
+  },
+  {
+    "id": 464,
+    "difficulty": "fundamentals",
+    "question": "What does 'haste' do? A creature with haste enters the battlefield. What can it do that a creature without haste can't do this turn?",
+    "answer": "Haste allows a creature to attack and activate tap abilities the turn it enters the battlefield, ignoring summoning sickness. Without haste, a creature must wait until its controller's next turn to attack or use tap abilities.",
+    "explanation": "Rule 702.10 defines haste. It overrides the summoning sickness rule (302.6). A creature with haste can attack and activate abilities with the tap symbol in their cost immediately, even if it just entered the battlefield this turn.",
+    "rule_refs": [
+      "702.10",
+      "302.6"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "haste",
+      "keywords",
+      "summoning-sickness"
+    ]
+  },
+  {
+    "id": 465,
+    "difficulty": "fundamentals",
+    "question": "What is the maximum hand size? A player has 9 cards in hand during at the very end of their turn. What happens?",
+    "answer": "The default maximum hand size is 7. During the cleanup step, a player with more than 7 cards must discard down to 7. The player chooses which cards to discard.",
+    "explanation": "Rule 402.2 says a player's maximum hand size is normally seven. Rule 514.1 says during the cleanup step, the active player discards down to their maximum hand size. The player chooses which cards to discard. Some effects (like Thought Vessel or Reliquary Tower) can change or eliminate the maximum hand size.",
+    "rule_refs": [
+      "402.2",
+      "514.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "hand-size",
+      "discard",
+      "cleanup-step"
+    ]
+  },
+  {
+    "id": 466,
+    "difficulty": "fundamentals",
+    "question": "A spell says 'Search your library for a card.' Can the player choose not to find anything even if there are legal choices?",
+    "answer": "It depends. If the search is for a card with specific qualities (like 'a basic land card'), the player MAY choose to 'fail to find' even if a legal card exists. If the search is for 'a card' (no qualities specified), they must find one if possible.",
+    "explanation": "When searching for a card with stated qualities, the player isn't required to reveal what's in their library, so they can claim they didn't find one. When searching without qualities (just 'a card'), they must find one since the library is a hidden zone but the search has no restrictions that could fail.",
+    "rule_refs": [
+      "701.19"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "search",
+      "fail-to-find",
+      "library"
+    ]
+  },
+  {
+    "id": 467,
+    "difficulty": "fundamentals",
+    "question": "A player casts a spell targeting an opponent's creature. Before the spell resolves, the creature gains hexproof (from another effect). What happens?",
+    "answer": "The spell has an illegal target when it tries to resolve. It doesn't resolve and is put into its owner's graveyard without effect (it's 'countered by the game rules').",
+    "explanation": "Rule 608.2b says if a spell has a single target that is now illegal, the spell doesn't resolve. It's removed from the stack. This isn't the same as being countered by Counterspell — it's countered by the game rules for having no legal targets. No effects of the spell happen.",
+    "rule_refs": [
+      "608.2b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "targeting",
+      "hexproof",
+      "illegal-target",
+      "resolution"
+    ]
+  },
+  {
+    "id": 468,
+    "difficulty": "fundamentals",
+    "question": "A spell has two targets. Before it resolves, one target becomes illegal but the other is still legal. Does the spell resolve?",
+    "answer": "Yes — the spell resolves and does as much as it can. The illegal target is unaffected, but the spell's effect still applies to the remaining legal target.",
+    "explanation": "Rule 608.2b says if at least one target is still legal when the spell tries to resolve, the spell resolves. It ignores the illegal target(s) and does as much as possible with the legal target(s). A spell is only fully countered by game rules if ALL targets are illegal.",
+    "rule_refs": [
+      "608.2b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "targeting",
+      "partial-resolution",
+      "illegal-target",
+      "multiple-targets"
+    ]
+  },
+  {
+    "id": 469,
+    "difficulty": "fundamentals",
+    "question": "A player casts Decimate (\"Destroy target artifact, target creature, target enchantment, and target land.\"). There are no artifacts on the battlefield. Can the player cast Decimate?",
+    "answer": "No. Decimate requires a legal target for each of its four targets. If any target type has no legal choice, the spell can't be cast at all.",
+    "explanation": "Per the Decimate rulings, you must choose a legal target for each target required. You can't cast Decimate unless you have legal choices for all four targets. However, if a permanent has multiple types (like an artifact creature), it can be chosen for more than one target.",
+    "rule_refs": [
+      "601.2c"
+    ],
+    "cards_ref": [
+      "Decimate"
+    ],
+    "tags": [
+      "targeting",
+      "multiple-targets",
+      "casting-requirements"
+    ]
+  },
+  {
+    "id": 470,
+    "difficulty": "fundamentals",
+    "question": "A player controls a creature that's been enchanted with an opponent's Aura. If the creature dies, where does the Aura go?",
+    "answer": "The Aura goes to its OWNER's graveyard — the opponent who cast it. The creature goes to its owner's graveyard. Each card always goes to its owner's graveyard, regardless of who controlled it.",
+    "explanation": "When the enchanted creature leaves the battlefield, the Aura becomes unattached and is put into its owner's graveyard as a state-based action (rule 704.5m). Ownership never changes — the Aura returns to the graveyard of the player who cast it.",
+    "rule_refs": [
+      "704.5m",
+      "108.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "auras",
+      "owner",
+      "graveyard",
+      "attachment"
+    ]
+  },
+  {
+    "id": 471,
+    "difficulty": "fundamentals",
+    "question": "Can a player activate an ability of an artifact, like Sol Ring (\"{T}: Add {C}{C}.\"), on the same turn it enters the battlefield?",
+    "answer": "Yes — artifacts (that aren't creatures) don't have summoning sickness. Summoning sickness only applies to creatures. An artifact like Sol Ring can be tapped for mana the turn it enters.",
+    "explanation": "Rule 302.6 says summoning sickness only affects creatures — specifically, their ability to attack and use activated abilities with the tap symbol. Non-creature artifacts, enchantments, and other permanents are not affected. Sol Ring can tap immediately. However, if Sol Ring became a creature, it WOULD have summoning sickness.",
+    "rule_refs": [
+      "302.6"
+    ],
+    "cards_ref": [
+      "Sol Ring"
+    ],
+    "tags": [
+      "summoning-sickness",
+      "artifacts",
+      "activated-abilities"
+    ]
+  },
+  {
+    "id": 472,
+    "difficulty": "fundamentals",
+    "question": "What happens if a spell is cast but its only target becomes illegal before it resolves? Is the spell 'countered'?",
+    "answer": "The spell doesn't resolve — it's removed from the stack and put into the graveyard. It's said to be 'countered by game rules.' This is different from being countered by a counterspell, but the end result is similar — the spell has no effect.",
+    "explanation": "Rule 608.2b says the spell checks targets on resolution. If all targets are illegal, it doesn't resolve. This is informally called being 'fizzled' or 'countered by game rules.' It's distinct from counterspells — effects that say 'this spell can't be countered' can still fizzle from illegal targets.",
+    "rule_refs": [
+      "608.2b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "targeting",
+      "illegal-target",
+      "fizzle",
+      "countered-by-rules"
+    ]
+  },
+  {
+    "id": 473,
+    "difficulty": "fundamentals",
+    "question": "A player controls Chaos Warp (\"The owner of target permanent shuffles it into their library, then reveals the top card of their library.\") and targets a creature token. What happens?",
+    "answer": "The token is shuffled into its owner's library (the controller who created it). Since tokens cease to exist in zones other than the battlefield, it effectively vanishes inside the library. The player then reveals the top card — potentially getting a permanent for free.",
+    "explanation": "Per the Chaos Warp rulings, the owner of a token is the player under whose control the token was put onto the battlefield. The token is shuffled into that player's library, then that player reveals the top card. The token ceases to exist inside the library, but the player still gets to potentially flip a permanent.",
+    "rule_refs": [
+      "704.5d"
+    ],
+    "cards_ref": [
+      "Chaos Warp"
+    ],
+    "tags": [
+      "tokens",
+      "library",
+      "shuffle",
+      "removal"
+    ]
+  },
+  {
+    "id": 474,
+    "difficulty": "fundamentals",
+    "question": "At an event, a player draws their card for the turn before untapping their permanents. What should happen?",
+    "answer": "This is drawing out of order — the untap step happens before the draw step. At Regular REL, the game state should be corrected: untap the permanents and proceed. At Competitive REL, this may warrant a penalty. The drawn card is kept (you can't 'unsee' it).",
+    "explanation": "The beginning phase goes: untap step, upkeep step, then draw step (rules 502-504). Drawing before untapping is a procedural error. At events, judges correct the game state when possible. The player should untap and continue. This is a common mistake with newer players.",
+    "rule_refs": [
+      "502.1",
+      "504.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "turn-structure",
+      "event-procedure",
+      "out-of-order",
+      "judge-calls"
+    ]
+  },
+  {
+    "id": 475,
+    "difficulty": "fundamentals",
+    "question": "A creature has 'When this creature deals combat damage to a player, draw a card.' The creature deals combat damage to a planeswalker. Does the trigger fire?",
+    "answer": "No. A planeswalker is not a player. 'Deals combat damage to a player' means exactly that — damage to an actual player. Damage to a planeswalker doesn't trigger abilities that care about damage to players.",
+    "explanation": "Planeswalkers and players are different game objects. Abilities that trigger on damage to a 'player' don't trigger from damage to planeswalkers. Similarly, abilities that trigger on damage to 'any target' distinguish between players, creatures, planeswalkers, and battles.",
+    "rule_refs": [
+      "306.7"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "planeswalkers",
+      "players",
+      "triggered-abilities",
+      "combat-damage"
+    ]
+  },
+  {
+    "id": 476,
+    "difficulty": "fundamentals",
+    "question": "A player casts Narset's Reversal (\"Copy target instant or sorcery spell, then return it to its owner's hand. You may choose new targets for the copy.\") targeting an opponent's sorcery. What happens?",
+    "answer": "The original sorcery is returned to the opponent's hand (it doesn't resolve). A copy of it is created on the stack under the Narset's Reversal caster's control. The copy resolves normally. The opponent still has their sorcery card in hand to cast again later.",
+    "explanation": "Per the Narset's Reversal rulings, the original spell is returned to its owner's hand — it's removed from the stack and won't resolve. The copy resolves instead. The original spell isn't 'countered,' it's returned, which works even on uncounterable spells. The opponent keeps their card.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Narset's Reversal"
+    ],
+    "tags": [
+      "copying",
+      "spell-copy",
+      "bounce-spell",
+      "uncounterable"
+    ]
+  },
+  {
+    "id": 477,
+    "difficulty": "fundamentals",
+    "question": "What is 'combat damage'? Is it different from regular damage?",
+    "answer": "Combat damage is damage dealt by creatures during the combat damage step. It's different from other damage (like Lightning Bolt) because specific rules and abilities care about it — lifelink applies to all damage, but abilities like 'whenever this deals combat damage to a player' only trigger from combat damage.",
+    "explanation": "Combat damage is dealt during the combat damage step (rule 510). All damage dealt by attacking and blocking creatures during this step is combat damage. Damage dealt at other times (like from an ability or spell) is noncombat damage. Some abilities specifically trigger on combat damage, commander damage only counts combat damage, and first strike/double strike modify when combat damage is dealt.",
+    "rule_refs": [
+      "510.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat-damage",
+      "non-combat-damage",
+      "definition"
+    ]
+  },
+  {
+    "id": 478,
+    "difficulty": "fundamentals",
+    "question": "A player is at 3 life. They attack with a 5/5 creature with lifelink. The opponent blocks with a 3/3 creature. How much life does the attacking player gain?",
+    "answer": "5 life. The 5/5 deals 5 combat damage total (all assigned to the 3/3 blocker), and lifelink gains life equal to the damage dealt. The attacking player goes from 3 life to 8 life.",
+    "explanation": "Lifelink causes the controller to gain life equal to ALL damage the creature deals, not just excess damage or damage to the player. The 5/5 deals 5 damage to the 3/3 blocker, so the controller gains 5 life. The blocker dies (5 >= 3 toughness).",
+    "rule_refs": [
+      "702.15",
+      "510.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lifelink",
+      "combat-damage",
+      "life-gain",
+      "blocking"
+    ]
+  },
+  {
+    "id": 479,
+    "difficulty": "fundamentals",
+    "question": "A player says 'I'll attack with everything.' Then they realize one of their creatures has defender. What happens?",
+    "answer": "The creature with defender can't be declared as an attacker (rule 702.3). At Regular REL, the player can correct this — the defender creature simply doesn't attack. The other creatures still attack as declared.",
+    "explanation": "Defender (rule 702.3) means a creature can't attack. If a player accidentally includes a defender in their attackers, it's corrected: the defender doesn't attack. At Competitive REL, this could be a more serious issue. Players should check their creatures before declaring attackers.",
+    "rule_refs": [
+      "702.3",
+      "508.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "defender",
+      "combat",
+      "event-procedure",
+      "illegal-attack"
+    ]
+  },
+  {
+    "id": 480,
+    "difficulty": "fundamentals",
+    "question": "In a game, a player taps a land to add mana, then realizes they don't want to cast anything. The mana sits unused. What happens to the unused mana?",
+    "answer": "Unused mana empties from a player's mana pool at the end of each step and phase. So the mana is lost when the current step/phase ends. The player also gets a warning-like reminder that they have unspent mana ('mana burn' no longer exists — they don't lose life).",
+    "explanation": "Rule 500.5 says any unspent mana in a player's mana pool empties at the end of each step and phase. In older versions of Magic, players lost life for unspent mana ('mana burn'), but this rule was removed. Now it simply goes away with no penalty.",
+    "rule_refs": [
+      "500.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "mana",
+      "mana-pool",
+      "unspent-mana",
+      "no-mana-burn"
+    ]
+  },
+  {
+    "id": 481,
+    "difficulty": "fundamentals",
+    "question": "A player asks 'does my spell resolve?' and the opponent says 'sure.' Then the opponent says 'wait, I want to respond.' Is the opponent allowed to take it back?",
+    "answer": "Generally no — once the opponent explicitly passes priority (by saying 'sure' or 'OK' or similar), the spell resolves. At Regular REL, a judge may allow some flexibility if no game actions have been taken since, but at Competitive REL, once priority is passed, it's passed.",
+    "explanation": "When a player says 'sure' or 'OK' to a spell resolving, they are passing priority. Rule 117.4 says once all players pass in succession, the top spell resolves. Clear communication is critical at events. Players should be attentive during opponents' turns.",
+    "rule_refs": [
+      "117.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "event-procedure",
+      "communication",
+      "takebacks"
+    ]
+  },
+  {
+    "id": 482,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event (like FNM or Prerelease), a player forgets a triggered ability that says 'may' — for example, 'When this creature enters, you may draw a card.' The trigger was missed. What should staff do?",
+    "answer": "Assume the player chose not to perform it. Since the ability says 'may,' a missed trigger is treated as the player opting not to use it. Do not put it on the stack retroactively.\n\nHowever, players may both agree to it. If no other game actions have happened it is easy to correct. If multiple game actions have happened (or it is the next turn) I would advise against putting it onto the stack, unless both players strongly agree to it.",
+    "explanation": "At Regular REL, if a triggered ability with 'may' is missed, assume the player chose not to perform it. This is because 'may' abilities are optional, and the player missed their window. The game continues as-is. No penalty is given — just educate the player to remember their triggers.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "missed-triggers",
+      "may-abilities",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 483,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player forgets a mandatory triggered ability (no 'may') — for example, 'When this creature enters, each player draws a card.' It's been a full turn since it should have triggered. Should staff put it on the stack now?",
+    "answer": "Use judgment. Put it on the stack unless it would be too disruptive — don't add it if significant decisions have been made based on the effect not happening. If it's been too long and backing up would cause chaos, leave the game state as-is.",
+    "explanation": "At Regular REL, mandatory missed triggers should go on the stack unless doing so would be too disruptive. If significant game decisions were made without the trigger (attacks, blocks, spells cast), adding it retroactively could unfairly change the game. The priority is education — remind the player to watch their triggers.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "missed-triggers",
+      "mandatory",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 484,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, is a player required to point out their opponent's missed triggered ability?",
+    "answer": "No. Unlike other illegal actions (which must be pointed out), players may choose whether or not to point out their opponent's missed triggers. It's not cheating to stay silent about an opponent's trigger.",
+    "explanation": "At Regular REL, missed triggers are the responsibility of the player who controls them. Opponents are not obligated to remind them. However, players MUST point out other illegal actions (like playing two lands). Not pointing out an opponent's missed trigger is acceptable strategy.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "missed-triggers",
+      "opponent-responsibility",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 485,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player accidentally draws an extra card (they drew two cards during their draw step instead of one). They immediately call a judge. Neither player saw the identity of the extra card. What should happen?",
+    "answer": "Take one card at random from the player's hand and place it on top of their library. Do NOT shuffle the library afterward.",
+    "explanation": "At Regular REL, when a player has drawn extra cards and the identity isn't known to all players, determine how many extra cards were drawn, take that many at random from the hand, and place them on top of the library. Don't shuffle — this preserves any known information about the library order.",
+    "rule_refs": [
+      "120.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "extra-cards",
+      "draw-error",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 486,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, during opening hands, a player accidentally draws 8 cards instead of 7. What should happen?",
+    "answer": "Shuffle the extra card back into the deck (not on top) and allow the player to continue making mulligan decisions with the remaining 7 cards.",
+    "explanation": "At Regular REL, if extra cards are drawn while drawing an opening hand, shuffle the extra cards back into the deck and let the player continue deciding on mulligans with the correct number of cards. This is different from the in-game fix where you put cards on top of the library.",
+    "rule_refs": [
+      "103.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "extra-cards",
+      "opening-hand",
+      "mulligan",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 487,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, while shuffling an opponent's deck, a player accidentally sees a card in the library they shouldn't have. What should staff do?",
+    "answer": "Shuffle the seen card into the unknown portion of the library. If any player legally knows the position of any cards in the library (e.g., from a scry), ensure the fix preserves those positions.",
+    "explanation": "The fix is to shuffle the seen card into the unknown part of the library. If the opponent had scryed a card to the top, that card's position should be preserved — only shuffle the seen card among the other unknown cards. Educate the player on careful shuffling.",
+    "rule_refs": [
+      "103.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "seen-card",
+      "library",
+      "shuffling",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 488,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player's deck has 59 cards instead of 60 (they forgot to add a card back after sideboarding). What should staff do?",
+    "answer": "The player adds a basic land of their choice to bring the deck up to the minimum size (60). The added card is shuffled directly into the library. Encourage the player to count their deck before each game.",
+    "explanation": "At Regular REL, if a deck is below the minimum size, add basic lands of the player's choice until it meets the minimum. Shuffle the new cards into the library. If the error is discovered during a draw effect, have the player complete the draw after the fix. Emphasize counting decks and presenting sideboards.",
+    "rule_refs": [
+      "100.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "deck-error",
+      "insufficient-cards",
+      "sideboarding",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 489,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player discovers one of their opponent's cards got mixed into their deck during the previous round. What should staff do?",
+    "answer": "Remove the card that shouldn't be there and return it to its owner. If the deck is now below the format's minimum size, add a basic land of the player's choice and shuffle it in. Encourage both players to count their decks.",
+    "explanation": "At Regular REL, remove cards that shouldn't be in the deck, put back any that should be, and add basic lands if needed to meet the minimum deck size. Cards added are shuffled into the library. This is a common issue at events — educate players to verify their decks between rounds.",
+    "rule_refs": [
+      "100.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "deck-error",
+      "wrong-cards",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 490,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player is taking an extremely long time to sideboard between games. What should staff do?",
+    "answer": "Remind the player that taking unreasonable amounts of time is not acceptable. The priority is to educate. If the behavior continues, a Game Loss can be issued. Intentional slow play to gain advantage is a Serious Problem.",
+    "explanation": "At Regular REL, slow play (whether during sideboarding or gameplay) is an unwanted behavior. The first step is always education — explain the issue and ask the player to pick up the pace. If it continues despite the warning, reinforce with a Game Loss. If it's intentional, it becomes a Serious Problem requiring removal.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "slow-play",
+      "unwanted-behavior",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 491,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a spectator is giving strategic advice to a player during their match ('you should attack with that creature'). What should staff do?",
+    "answer": "Stop the behavior immediately and educate both the spectator and the player. Asking for or providing strategic advice during a match is an unwanted behavior. Spectators should watch silently. If it continues, a Game Loss can reinforce the lesson.",
+    "explanation": "At Regular REL, asking for or providing strategic advice during a match or draft is listed as an unwanted behavior. Educate first. If the behavior persists, a Game Loss may be warranted. If a player intentionally arranged the advice knowing it's against the rules, it's a Serious Problem.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "outside-assistance",
+      "spectators",
+      "unwanted-behavior",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 492,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player offers their opponent a prize split: 'I'll give you half my prize if you concede.' Is this allowed?",
+    "answer": "No. Determining match outcomes by incentives, coercion, or outside-the-game methods is an unwanted behavior. Offering prizes or other incentives to get an opponent to concede is not allowed.\n\nPlayers may agree to an intentional draw, but not concessions for compensation.",
+    "explanation": "At Regular REL, bribery and match-fixing are unwanted behaviors. Players can't offer money, prizes, or other incentives to influence match outcomes. They CAN agree to intentional draws (both players draw). Intentionally doing this while knowing it's against the rules is a Serious Problem that warrants Disqualification.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "bribery",
+      "match-fixing",
+      "unwanted-behavior",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 493,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player is more than 10 minutes late to their match. What happens?",
+    "answer": "The late player has forfeited the match. They should be dropped from the tournament at the end of the round if they're still absent.",
+    "explanation": "At Regular REL, tardiness beyond 10 minutes results in a match forfeit. The player should be dropped from the tournament if they haven't returned. If they arrive after the 10-minute mark, they've already lost the match. This ensures the tournament runs on time for all other participants.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "tardiness",
+      "forfeit",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 494,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player calls you over and says their opponent has been deliberately lying about card abilities to gain advantage. What should happen?",
+    "answer": "This is a Serious Problem. Knowingly breaking or lying about game rules to gain advantage requires removing the player from the event (Disqualification). Educate the player on why it's unacceptable, inform them the decision is final.",
+    "explanation": "At Regular REL, Serious Problems include knowingly breaking rules or lying to gain advantage. The player must be removed from the event. Always try to educate on why the behavior is unacceptable. The player should know the decision is final but that Wizards wants to hear their account. DQs must be reported to Wizards.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "cheating",
+      "disqualification",
+      "serious-problem",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 495,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player is verbally abusive toward their opponent after losing a game, including personal insults. What should happen?",
+    "answer": "This is a Serious Problem requiring Disqualification. Aggressive, violent, harassing, or abusive behavior (physical or verbal) must result in removal from the event. At the organizer's discretion, the player may also be removed from the venue entirely.",
+    "explanation": "At Regular REL, abusive behavior (including insults based on race, color, religion, national origin, age, gender, disability, sexual orientation, or intentional misgendering) is a Serious Problem. The player must be removed. Educate on why it's unacceptable, inform them the decision is final, and report the DQ to Wizards.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "abusive-behavior",
+      "disqualification",
+      "serious-problem",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 496,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, what is the difference between an 'unwanted behavior' and a 'Serious Problem'?",
+    "answer": "Unwanted behaviors (slow play, outside assistance, inadequate shuffling, tardiness, bribery) are handled with education first, then a Game Loss if they continue. Serious Problems (cheating, harassment, theft) require immediate Disqualification — the player is removed from the event.",
+    "explanation": "The key distinction: unwanted behaviors are correctable with education and escalating penalties. Serious Problems are zero-tolerance — the player must be removed immediately. However, even with Serious Problems, staff should educate the player on why the behavior is unacceptable. Intentionally committing an unwanted behavior while knowing it's against the rules elevates it to a Serious Problem.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "unwanted-vs-serious",
+      "penalties",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 497,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, you suspect a player replaced a card in their draft deck with one from their personal binder. What should you do?",
+    "answer": "This is theft — a Serious Problem. The player must be Disqualified and removed from the event. Investigate carefully, educate the player on why it's unacceptable, and report the Disqualification to Wizards of the Coast including the player's Wizards Account email.",
+    "explanation": "Theft (including replacing cards during a draft) is one of the three Serious Problems that require mandatory Disqualification. Even at Regular REL, this behavior has zero tolerance. The DQ must be reported to Wizards with the disqualified player's and opponent's Wizards Account email addresses.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "theft",
+      "draft",
+      "disqualification",
+      "serious-problem",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 498,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player is 'bluffing' — they say 'I have a counterspell' when they actually don't, trying to discourage their opponent from casting a spell. Is this a Serious Problem?",
+    "answer": "No. Bluffing about cards opponents can't normally see (like cards in your hand) is explicitly permitted. This is a legal part of gameplay strategy. Only lying about public information (like board state, life totals, or card text) is a problem.",
+    "explanation": "The rules explicitly allow 'bluffing' about cards opponents can't normally see. Saying 'I have an answer' or 'I wouldn't cast that if I were you' is legal strategy. However, lying about visible/public information (misrepresenting what a card does, lying about life totals, etc.) is not allowed.",
+    "rule_refs": [],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "bluffing",
+      "hidden-information",
+      "legal-strategy",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 499,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, an in-game error occurred (a player forgot to discard during cleanup two turns ago). The error is just now discovered. What should staff do?",
+    "answer": "Have the player discard now to fix the illegal game state. Since it involves forgetting to discard, have them perform the action now. Don't try to rewind multiple turns — too many decisions have been made. Fix the current illegal state and move forward.",
+    "explanation": "At Regular REL, for general in-game errors, the least disruptive option is usually to leave the game as-is after fixing anything currently illegal. If the error involved forgetting to draw or discard, have them perform it now. Only back up if the error was caught quickly and rewinding is easy. Don't try to undo multiple turns of play.",
+    "rule_refs": [
+      "514.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "in-game-error",
+      "discard",
+      "fix-forward",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 500,
+    "difficulty": "fundamentals",
+    "question": "At a Regular REL event, a player made an illegal play three turns ago (they attached an Aura to an illegal target). It's just been noticed. Staff should back up three turns to fix this, right?",
+    "answer": "No. Don't back up three turns — too many decisions have been made. Instead, fix the current illegal state: the Aura enchanting an illegal permanent is put into its owner's graveyard as a state-based action. The game continues from there.",
+    "explanation": "At Regular REL, backing up is only appropriate if the error was caught quickly and rewinding is relatively easy. Three turns of decisions, card draws, and combat can't reasonably be undone. Fix what's currently illegal (the Aura goes to the graveyard) and continue. Educate the players to catch errors early.",
+    "rule_refs": [
+      "704.5m"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "regular-REL",
+      "in-game-error",
+      "no-rewind",
+      "fix-current-state",
+      "event-procedure"
+    ]
   }
 ]
