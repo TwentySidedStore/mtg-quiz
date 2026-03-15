@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MTG Rules Quiz</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <style>
+    body { min-height: 100vh; background: #f5f5f5; }
+    .quiz-container { max-width: 800px; margin: 0 auto; }
+    .flashcard { min-height: 200px; }
+    .flashcard .content { font-size: 1.1rem; line-height: 1.6; }
+    .answer-section { border-top: 2px solid #dbdbdb; padding-top: 1rem; margin-top: 1rem; }
+    .action-btn { min-height: 3rem; font-size: 1.1rem; }
+    .score-number { font-size: 3rem; font-weight: bold; }
+    .rule-tag { font-family: monospace; cursor: pointer; }
+    .rule-tag:hover { background-color: #3273dc; color: white; }
+    .tally { font-size: 0.95rem; }
+    .tally-correct { color: #48c78e; }
+    .tally-wrong { color: #f14668; }
+  </style>
+</head>
+<body>
+
+  <section class="section">
+    <div class="quiz-container">
+
+      <!-- Select Mode -->
+      <div id="view-select">
+        <h1 class="title has-text-centered">MTG Rules Quiz</h1>
+
+        <div class="box has-text-centered">
+          <div class="field mb-5">
+            <label class="label has-text-left" for="topic-select">Choose a topic</label>
+            <div class="control">
+              <div class="select is-fullwidth is-medium">
+                <select id="topic-select"></select>
+              </div>
+            </div>
+          </div>
+          <p class="mb-4" id="topic-description"></p>
+          <p class="has-text-grey mb-4" id="topic-count"></p>
+          <button class="button is-primary is-large" id="btn-start">Start Quiz</button>
+        </div>
+      </div>
+
+      <!-- Quiz Mode -->
+      <div id="view-quiz" class="is-hidden">
+        <header class="mb-4">
+          <div class="level is-mobile">
+            <div class="level-left">
+              <button class="button is-small is-light" id="btn-quit">&larr; Quit</button>
+              <span class="has-text-weight-semibold ml-3" id="quiz-topic-label"></span>
+            </div>
+            <div class="level-right">
+              <span class="tally" id="quiz-tally"></span>
+              <span class="has-text-grey ml-3" id="quiz-counter"></span>
+            </div>
+          </div>
+          <progress class="progress is-primary" id="quiz-progress" value="0" max="10"></progress>
+        </header>
+
+        <article class="card flashcard" aria-live="polite">
+          <div class="card-content">
+            <div class="content" id="quiz-question"></div>
+            <div id="quiz-answer-section" class="is-hidden answer-section">
+              <p class="mb-2"><strong>Answer:</strong></p>
+              <div class="content mb-3" id="quiz-answer"></div>
+              <p class="mb-2"><strong>Explanation:</strong></p>
+              <div class="content mb-3" id="quiz-explanation"></div>
+              <div id="quiz-refs"></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="mt-4" id="quiz-actions">
+          <button class="button is-large is-fullwidth is-info action-btn" id="btn-reveal">Reveal Answer</button>
+          <div class="columns is-mobile mt-2 is-hidden" id="quiz-judge-buttons">
+            <div class="column">
+              <button class="button is-large is-fullwidth is-danger is-light action-btn" id="btn-missed">Missed it</button>
+            </div>
+            <div class="column">
+              <button class="button is-large is-fullwidth is-success is-light action-btn" id="btn-got-it">Got it</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score Mode -->
+      <div id="view-score" class="is-hidden">
+        <div class="box has-text-centered py-6">
+          <p class="score-number" id="score-display"></p>
+          <p class="subtitle" id="score-message"></p>
+        </div>
+
+        <div class="buttons is-centered mt-5" id="score-actions">
+          <button class="button is-medium is-warning is-hidden" id="btn-review-missed">Review Missed</button>
+          <button class="button is-medium is-primary" id="btn-try-again">Try Again</button>
+          <button class="button is-medium" id="btn-pick-topic">Pick Another Topic</button>
+        </div>
+      </div>
+
+      <!-- Review Mode -->
+      <div id="view-review" class="is-hidden">
+        <header class="mb-4">
+          <div class="level is-mobile">
+            <div class="level-left">
+              <span class="has-text-weight-semibold">Reviewing Missed</span>
+            </div>
+            <div class="level-right">
+              <span class="has-text-grey" id="review-counter"></span>
+            </div>
+          </div>
+        </header>
+
+        <article class="card" aria-live="polite">
+          <div class="card-content">
+            <div class="content mb-3" id="review-question"></div>
+            <div class="answer-section">
+              <p class="mb-2"><strong>Answer:</strong></p>
+              <div class="content mb-3" id="review-answer"></div>
+              <p class="mb-2"><strong>Explanation:</strong></p>
+              <div class="content mb-3" id="review-explanation"></div>
+              <div id="review-refs"></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="buttons is-centered mt-4">
+          <button class="button is-medium" id="btn-review-prev" disabled>&larr; Prev</button>
+          <button class="button is-medium" id="btn-review-next">Next &rarr;</button>
+        </div>
+        <div class="buttons is-centered">
+          <button class="button" id="btn-back-to-results">Back to Results</button>
+          <button class="button is-primary" id="btn-review-try-again">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="view-empty" class="is-hidden">
+        <div class="notification is-warning has-text-centered">
+          <p class="title is-5">No questions available</p>
+          <p>Questions haven't been added yet. Check back later!</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const TOPICS = {
+      fundamentals: { label: 'Basics', description: 'Turn structure, casting spells, card types, combat, and draft/sealed basics.' },
+      multiplayer:  { label: 'Multiplayer', description: 'Rules unique to multiplayer formats.' },
+      '2hg':        { label: 'Two-Headed Giant', description: 'Two-Headed Giant specific rules.' },
+      stack_triggers: { label: 'Stack & Priority', description: 'Stack ordering, priority, triggered vs activated abilities, ETBs.' },
+      interactions: { label: 'Advanced Interactions', description: 'Replacement effects, state-based actions, layers, commander rules.' },
+      edge_cases:   { label: 'Edge Cases', description: 'Blood Moon, Urborg, timestamps, dependency, obscure corner cases.' }
+    };
+
+    const YAWGATOG_BASE = 'https://yawgatog.com/resources/magic-rules/';
+
+    const ENCOURAGEMENT = [
+      { min: 0, msg: "Keep studying — you'll get there!" },
+      { min: 4, msg: "Getting there!" },
+      { min: 6, msg: "Solid work!" },
+      { min: 8, msg: "Nice work!" },
+      { min: 10, msg: "Perfect score!" }
+    ];
+
+    let allQuestions = [];
+
+    const state = {
+      mode: 'select',
+      topic: 'fundamentals',
+      questions: [],
+      currentIndex: 0,
+      results: [],
+      revealed: false,
+      reviewIndex: 0
+    };
+
+    // --- Utils ---
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function questionsForTopic(topic) {
+      return allQuestions.filter(q => q.difficulty === topic);
+    }
+
+    function showView(name) {
+      ['select', 'quiz', 'score', 'review', 'empty'].forEach(v => {
+        document.getElementById(`view-${v}`).classList.toggle('is-hidden', v !== name);
+      });
+    }
+
+    function ruleRefToUrl(ref) {
+      // Yawgatog anchors: 502.4 → #R5024, 117.3c → #R1173c
+      const anchor = 'R' + ref.replace(/\./g, '');
+      return YAWGATOG_BASE + '#' + anchor;
+    }
+
+    function renderRefs(container, question) {
+      container.innerHTML = '';
+      if (question.rule_refs && question.rule_refs.length > 0) {
+        const p = document.createElement('p');
+        p.className = 'mb-1';
+        const label = document.createElement('strong');
+        label.textContent = 'Rules: ';
+        p.appendChild(label);
+        question.rule_refs.forEach((ref, i) => {
+          if (i > 0) p.appendChild(document.createTextNode(' '));
+          const a = document.createElement('a');
+          a.href = ruleRefToUrl(ref);
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.className = 'tag rule-tag';
+          a.textContent = ref;
+          a.title = `View rule ${ref} on Yawgatog`;
+          p.appendChild(a);
+        });
+        container.appendChild(p);
+      }
+      if (question.cards_ref && question.cards_ref.length > 0) {
+        const p = document.createElement('p');
+        p.innerHTML = '<strong>Cards:</strong> ' +
+          question.cards_ref.map(c => `<span class="tag">${c}</span>`).join(' ');
+        container.appendChild(p);
+      }
+    }
+
+    function renderTally() {
+      const correct = state.results.filter(r => r.got_it).length;
+      const wrong = state.results.filter(r => !r.got_it).length;
+      const el = document.getElementById('quiz-tally');
+      if (state.results.length === 0) {
+        el.innerHTML = '';
+      } else {
+        el.innerHTML = `<span class="tally-correct">&check; ${correct}</span> &nbsp;<span class="tally-wrong">&cross; ${wrong}</span>`;
+      }
+    }
+
+    // --- Select Mode ---
+
+    function renderSelect() {
+      showView('select');
+      const select = document.getElementById('topic-select');
+
+      // Only populate options once
+      if (select.options.length === 0) {
+        for (const [key, info] of Object.entries(TOPICS)) {
+          const opt = document.createElement('option');
+          opt.value = key;
+          opt.textContent = info.label;
+          select.appendChild(opt);
+        }
+        select.addEventListener('change', () => {
+          state.topic = select.value;
+          updateTopicInfo();
+        });
+      }
+
+      select.value = state.topic;
+      updateTopicInfo();
+    }
+
+    function updateTopicInfo() {
+      const info = TOPICS[state.topic];
+      const count = questionsForTopic(state.topic).length;
+      document.getElementById('topic-description').textContent = info.description;
+      document.getElementById('topic-count').textContent =
+        count === 1 ? '1 question available' : `${count} questions available`;
+
+      const btn = document.getElementById('btn-start');
+      btn.disabled = count === 0;
+      btn.textContent = count === 0 ? 'No questions yet' : 'Start Quiz';
+    }
+
+    // --- Quiz Mode ---
+
+    function startQuiz() {
+      const pool = questionsForTopic(state.topic);
+      state.questions = shuffle(pool).slice(0, 10);
+      state.currentIndex = 0;
+      state.results = [];
+      state.revealed = false;
+      renderQuiz();
+    }
+
+    function renderQuiz() {
+      showView('quiz');
+      const q = state.questions[state.currentIndex];
+      const total = state.questions.length;
+
+      document.getElementById('quiz-topic-label').textContent = TOPICS[state.topic].label;
+      document.getElementById('quiz-counter').textContent = `${state.currentIndex + 1} / ${total}`;
+      document.getElementById('quiz-progress').value = state.currentIndex;
+      document.getElementById('quiz-progress').max = total;
+      renderTally();
+
+      document.getElementById('quiz-question').textContent = q.question;
+      document.getElementById('quiz-answer').textContent = q.answer;
+      document.getElementById('quiz-explanation').textContent = q.explanation;
+      renderRefs(document.getElementById('quiz-refs'), q);
+
+      document.getElementById('quiz-answer-section').classList.toggle('is-hidden', !state.revealed);
+      document.getElementById('btn-reveal').classList.toggle('is-hidden', state.revealed);
+      document.getElementById('quiz-judge-buttons').classList.toggle('is-hidden', !state.revealed);
+    }
+
+    function revealAnswer() {
+      state.revealed = true;
+      renderQuiz();
+    }
+
+    function judgeAnswer(gotIt) {
+      state.results.push({ question: state.questions[state.currentIndex], got_it: gotIt });
+      state.currentIndex++;
+      state.revealed = false;
+
+      if (state.currentIndex >= state.questions.length) {
+        renderScore();
+      } else {
+        renderQuiz();
+      }
+    }
+
+    // --- Score Mode ---
+
+    function renderScore() {
+      showView('score');
+      const correct = state.results.filter(r => r.got_it).length;
+      const total = state.results.length;
+      const missed = total - correct;
+
+      document.getElementById('score-display').textContent = `${correct} out of ${total}`;
+
+      let msg = ENCOURAGEMENT[0].msg;
+      for (const e of ENCOURAGEMENT) {
+        if (correct >= e.min) msg = e.msg;
+      }
+      document.getElementById('score-message').textContent = msg;
+
+      const reviewBtn = document.getElementById('btn-review-missed');
+      if (missed > 0) {
+        reviewBtn.classList.remove('is-hidden');
+        reviewBtn.textContent = `Review Missed (${missed})`;
+      } else {
+        reviewBtn.classList.add('is-hidden');
+      }
+    }
+
+    // --- Review Mode ---
+
+    function startReview() {
+      state.reviewIndex = 0;
+      renderReview();
+    }
+
+    function renderReview() {
+      showView('review');
+      const missed = state.results.filter(r => !r.got_it);
+      const q = missed[state.reviewIndex].question;
+      const total = missed.length;
+
+      document.getElementById('review-counter').textContent = `${state.reviewIndex + 1} of ${total}`;
+      document.getElementById('review-question').textContent = q.question;
+      document.getElementById('review-answer').textContent = q.answer;
+      document.getElementById('review-explanation').textContent = q.explanation;
+      renderRefs(document.getElementById('review-refs'), q);
+
+      document.getElementById('btn-review-prev').disabled = state.reviewIndex === 0;
+      document.getElementById('btn-review-next').disabled = state.reviewIndex >= total - 1;
+    }
+
+    // --- Event Listeners ---
+
+    document.getElementById('btn-start').addEventListener('click', startQuiz);
+    document.getElementById('btn-reveal').addEventListener('click', revealAnswer);
+    document.getElementById('btn-got-it').addEventListener('click', () => judgeAnswer(true));
+    document.getElementById('btn-missed').addEventListener('click', () => judgeAnswer(false));
+
+    document.getElementById('btn-review-missed').addEventListener('click', startReview);
+    document.getElementById('btn-try-again').addEventListener('click', startQuiz);
+    document.getElementById('btn-review-try-again').addEventListener('click', startQuiz);
+
+    document.getElementById('btn-quit').addEventListener('click', renderSelect);
+    document.getElementById('btn-pick-topic').addEventListener('click', renderSelect);
+    document.getElementById('btn-back-to-results').addEventListener('click', renderScore);
+
+    document.getElementById('btn-review-prev').addEventListener('click', () => {
+      if (state.reviewIndex > 0) { state.reviewIndex--; renderReview(); }
+    });
+    document.getElementById('btn-review-next').addEventListener('click', () => {
+      const missed = state.results.filter(r => !r.got_it);
+      if (state.reviewIndex < missed.length - 1) { state.reviewIndex++; renderReview(); }
+    });
+
+    // --- Init ---
+
+    fetch('./questions.json')
+      .then(r => r.ok ? r.json() : [])
+      .then(data => {
+        allQuestions = data;
+        if (allQuestions.length === 0) {
+          showView('empty');
+        } else {
+          renderSelect();
+        }
+      })
+      .catch(() => {
+        showView('empty');
+      });
+  </script>
+</body>
+</html>

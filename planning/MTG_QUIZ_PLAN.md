@@ -250,9 +250,9 @@ Single self-contained HTML file. Loads `questions.json` at startup.
 - Bulma CSS via CDN (pinned version)
 - No external JS dependencies
 
-### Tab labels (human-readable)
+### Topic labels (human-readable)
 
-| Key | Tab Label |
+| Key | Dropdown Label |
 |---|---|
 | `fundamentals` | Basics |
 | `multiplayer` | Multiplayer |
@@ -266,34 +266,35 @@ Single self-contained HTML file. Loads `questions.json` at startup.
 The UI has four modes, driven by a single `mode` variable in JS:
 
 **`select` mode** (landing state):
-- Tabs at top for each difficulty level, defaulting to Basics
-- Short description of the selected topic below the tabs
-- "Start Quiz" button
+- Dropdown (`<select>`) for topic selection, defaults to Basics
+- Topic description + question count updates on selection
+- "Start Quiz" button (disabled with "No questions yet" if topic has 0 questions)
 - This is what staff see when they first open the page
 
 **`quiz` mode** (answering questions):
-- Bulma `card` component as the flashcard, dominant element
-- Shows question text in large readable font
-- "Reveal Answer" button (or tap the card)
-- After reveal: answer, explanation, rule refs, card refs appear below
-- "Got it" / "Missed it" buttons — large, thumb-friendly, at bottom
-- Bulma `progress` bar showing round progress (e.g., 3/10)
-- Question counter: "Question 3 of 10"
+- Header: "← Quit" button (small, light) | topic label | running tally (✓ N  ✗ N) | counter (3/10)
+- Progress bar below header
+- Bulma `card` as flashcard with large readable text
+- "Reveal Answer" button
+- After reveal: answer, explanation, rule refs (clickable → Yawgatog), card refs
+- "Got it" / "Missed it" — large fullwidth buttons at bottom
 
 **`score` mode** (after 10 questions):
-- Score display: "7 out of 10" with brief encouragement
-- Encouraging tone regardless of score — this is learning, not grading
+- Score display: "7 out of 10" with tiered encouragement messages
 - Three options:
-  - "Review Missed" — only appears if they missed any
+  - "Review Missed (N)" — only appears if they missed any
   - "Try Again" — new random 10 from same topic
   - "Pick Another Topic" — back to select mode
 
 **`review` mode** (browsing missed questions):
 - Shows only the questions they got wrong
 - Both question and answer visible (no reveal step)
-- Navigate with Next/Prev
+- Navigate with Prev/Next
 - "Back to Results" or "Try Again" button
-- This is where the actual learning happens
+
+### Rule references
+- Rule ref tags are clickable links to Yawgatog's hyperlinked CR: `yawgatog.com/resources/magic-rules/#RXXXX`
+- Opens in new tab. If Yawgatog ever goes down, quiz still works — links just go nowhere.
 
 ### State tracking (in-memory only)
 
@@ -304,43 +305,70 @@ let state = {
   questions: [],         // current round (up to 10, shuffled)
   currentIndex: 0,
   results: [],           // [{question, got_it: bool}, ...]
-  revealed: false
+  revealed: false,
+  reviewIndex: 0
 }
 ```
 
 All in-memory. Nothing persisted. Refresh = start over.
 
 ### Layout
-- Mobile-first, single column
-- `<nav>` — Bulma scrollable tabs for topic selection (6 tabs won't fit on phone)
-- `<main>` — card area, centered, max-width for readability on desktop
-- `<article>` for each flashcard
+- Single column, max-width 800px, centered
+- `<article>` for each flashcard with `aria-live="polite"`
 - Action buttons at bottom, large tap targets
-- `aria-live="polite"` on the card area so screen readers announce new questions
-- Visible focus states on all interactive elements
-- Semantic HTML: `<main>`, `<nav>`, `<article>`, `<button>`, `<progress>`
-- WCAG AA contrast on all text
+- Semantic HTML: `<section>`, `<article>`, `<button>`, `<progress>`, `<select>`
 
 ### What it does NOT do
-- No "All" tab — staff study one topic at a time
+- No topic tabs — dropdown instead (tabs don't fit 6 long labels on any screen)
 - No persistent tracking — every session starts fresh, no localStorage
 - No user accounts, no cross-device sync, no leaderboard, no backend
 
 ### Edge cases
 - Empty or missing `questions.json` → friendly "No questions available" message
 - Fewer than 10 questions in selected topic → use however many exist
-- Topic with zero questions → disable the Start button, show a note
-- Mobile responsive (Bulma handles most of this, we go single-column)
+- Topic with zero questions → disable the Start button, show "No questions yet"
 
 ---
 
 ## GitHub Pages Setup
 
-- Repo lives in a GitHub organization that already has a domain-pointed `orgname.github.io` site (separate repo)
-- This repo is a **project site** — served at `https://orgname.github.io/mtg-quiz/`
+- Repo: `github.com/TwentySidedStore/mtg-quiz`
+- This repo is a **project site** — served at `https://twentysidedstore.github.io/mtg-quiz/`
+  (or `yourdomain.com/mtg-quiz/` if the org has a custom domain pointed at `twentysidedstore.github.io`)
 - Pages source: **`main` branch, `/docs` folder** (zero-config, no GitHub Actions needed)
 - Only `docs/` is ever deployed. The pipeline, data, and review UI exist only on your machine.
 - **Important**: because the site lives at a subpath (`/mtg-quiz/`), all asset references in `index.html` must use relative paths (`./questions.json`, not `/questions.json`)
+
+### First-time deployment
+
+1. Commit `docs/index.html` and `docs/questions.json` to `main`:
+   ```
+   git add docs/index.html docs/questions.json
+   git commit -m "Add quiz UI and initial questions"
+   git push origin main
+   ```
+2. Go to repo Settings → Pages → Source
+3. Select: **Deploy from a branch**
+4. Branch: `main`, Folder: `/docs`
+5. Click Save
+6. Wait ~60 seconds. Site will be live at the URL above.
+
+### Subsequent updates
+
+After reviewing and exporting new questions:
+```
+rake export
+git add docs/questions.json
+git commit -m "Update approved questions"
+git push origin main
+```
+GitHub Pages auto-deploys on push to `main`. No manual step needed after the first-time setup.
+
+### Verifying deployment
+
+- Check the Actions tab — GitHub runs a `pages-build-deployment` workflow automatically
+- Visit the live URL to confirm questions loaded
+- If the site shows "No questions available", the `questions.json` path may be wrong — verify it's `./questions.json` (relative) in `index.html`
 
 ---
 
@@ -484,36 +512,38 @@ git push
 [x] Note: WEBrick query params return FormData objects — must .to_s.encode("UTF-8") for SQLite
 ```
 
-### Stage 4 — Frontend Quiz
+### Stage 4 — Frontend Quiz ✓
 ```
-[ ] docs/index.html
-    [ ] Bulma CDN (pinned version), vanilla JS, semantic HTML
-    [ ] Mobile-first, single column layout
-    [ ] Fetch questions.json on load (relative path)
-    [ ] Select mode (landing state)
-        [ ] Bulma scrollable tabs for topic selection (human-readable labels)
-        [ ] Default to Basics tab selected
-        [ ] Short topic description below tabs
-        [ ] "Start Quiz" button (disabled if topic has no questions)
-    [ ] Quiz mode
-        [ ] Bulma card as flashcard — large readable text
-        [ ] "Reveal Answer" button (or tap card)
-        [ ] After reveal: answer, explanation, rule refs, card refs
-        [ ] "Got it" / "Missed it" — large thumb-friendly buttons at bottom
-        [ ] Progress bar + question counter ("Question 3 of 10")
-    [ ] Score mode
-        [ ] Score display with encouraging tone ("7 out of 10 — nice work!")
-        [ ] "Review Missed" button (only if they missed any)
-        [ ] "Try Again" — new random 10, same topic
-        [ ] "Pick Another Topic" — back to select mode
-    [ ] Review mode
-        [ ] Shows only missed questions, question + answer both visible
-        [ ] Navigate with Next/Prev
-        [ ] "Back to Results" or "Try Again" button
-    [ ] State: all in-memory (mode, topic, questions, currentIndex, results, revealed)
-    [ ] WCAG: aria-live on card area, visible focus states, AA contrast
-    [ ] Edge cases: empty questions.json, <10 questions, zero questions in topic
-[ ] Test with real exported questions
+[x] docs/index.html — Bulma 1.0.4 CDN, vanilla JS, semantic HTML
+[x] Single column layout, max-width 800px
+[x] Fetch questions.json on load (relative path for GitHub Pages subpath)
+[x] Select mode (landing state)
+    [x] Dropdown (<select>) for topic selection (human-readable labels)
+    [x] Defaults to Basics
+    [x] Topic description + question count updates on selection
+    [x] "Start Quiz" button (disabled + "No questions yet" if topic empty)
+[x] Quiz mode
+    [x] "← Quit" button (is-small is-light) top-left to exit to topic select
+    [x] Running tally: ✓ correct / ✗ wrong in header, updates after each answer
+    [x] Progress bar + counter (3/10)
+    [x] Bulma card as flashcard
+    [x] "Reveal Answer" button
+    [x] After reveal: answer, explanation, rule refs (clickable → Yawgatog), card refs
+    [x] "Got it" / "Missed it" — large fullwidth buttons
+[x] Score mode
+    [x] Score display with encouraging tone (tiered messages)
+    [x] "Review Missed (N)" button (only if missed any)
+    [x] "Try Again" — new random 10, same topic
+    [x] "Pick Another Topic" — back to select mode
+[x] Review mode
+    [x] Shows only missed questions, question + answer both visible
+    [x] Prev/Next navigation
+    [x] "Back to Results" / "Try Again"
+[x] Rule refs link to Yawgatog (yawgatog.com/resources/magic-rules/#RXXXX)
+[x] State: all in-memory, no localStorage
+[x] WCAG: aria-live on card area
+[x] Edge cases: empty/missing questions.json, <10 questions, zero questions in topic
+[x] Tested with 26 exported fundamentals questions
 ```
 
 ### Stage 5 — Polish

@@ -87,11 +87,9 @@ Deployed via GitHub Pages. Audience: event floor staff on their phone.
 ```
 ┌─────────────────────────────────────────────┐
 │  MTG Rules Quiz                             │
-├────────┬────────┬────────┬────────┬────────┤
-│ Basics │ Multi  │  2HG   │ Stack  │  ...   │  ← Bulma scrollable tabs
-├────────┴────────┴────────┴────────┴────────┤
 │                                             │
-│  Basics                                     │
+│  Choose a topic                             │
+│  [Basics                                 ▼] │  ← <select> dropdown
 │                                             │
 │  Turn structure, casting spells,            │
 │  card types, combat, and draft/sealed       │
@@ -110,7 +108,7 @@ Deployed via GitHub Pages. Audience: event floor staff on their phone.
 
 ```
 ┌─────────────────────────────────────────────┐
-│  Basics                    Question 3 of 10 │
+│ [← Quit]  Basics    ✓ 2 ✗ 0          3/10  │
 │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30%        │  ← progress bar
 ├─────────────────────────────────────────────┤
 │                                             │
@@ -134,7 +132,7 @@ Deployed via GitHub Pages. Audience: event floor staff on their phone.
 
 ```
 ┌─────────────────────────────────────────────┐
-│  Basics                    Question 3 of 10 │
+│ [← Quit]  Basics    ✓ 2 ✗ 0          3/10  │
 │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30%        │
 ├─────────────────────────────────────────────┤
 │                                             │
@@ -234,20 +232,23 @@ Deployed via GitHub Pages. Audience: event floor staff on their phone.
 
 ```html
 <body>
-  <nav>           <!-- Bulma tabs: topic selection (select mode only) -->
-  <header>        <!-- topic name + question counter + progress bar -->
-  <main>
-    <article>     <!-- Bulma card: flashcard content -->
-  </main>
-  <footer>        <!-- action buttons (reveal, got it/missed it, etc.) -->
+  <section>
+    <div>          <!-- quiz-container, max-width 800px -->
+      <select>     <!-- topic dropdown (select mode) -->
+      <header>     <!-- quit button + topic label + tally + counter + progress -->
+      <article>    <!-- Bulma card: flashcard content -->
+      <div>        <!-- action buttons -->
+    </div>
+  </section>
 </body>
 ```
 
 ### Bulma components used
-- `tabs is-toggle is-centered` — topic selection (scrollable on mobile)
+- `select is-fullwidth is-medium` — topic selection dropdown
 - `card` — flashcard container
 - `progress` — round progress bar
 - `button is-large is-fullwidth` — action buttons (thumb-friendly)
-- `notification` or `hero` — score display
+- `button is-small is-light` — quit button
+- `box` — score display + select mode container
 - `content` — text formatting inside cards
-- `tag` — rule refs display
+- `tag` — rule refs (clickable links to Yawgatog)

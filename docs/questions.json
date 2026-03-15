@@ -1,1 +1,420 @@
-[]
+[
+  {
+    "id": 1,
+    "difficulty": "fundamentals",
+    "question": "Name the five phases of a turn in order.",
+    "answer": "Beginning, precombat main, combat, postcombat main, and ending.",
+    "explanation": "Every turn has exactly these five phases in this order, even if nothing happens during some of them. The beginning and ending phases are further divided into steps.",
+    "rule_refs": [
+      "500.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "turn_structure"
+    ]
+  },
+  {
+    "id": 2,
+    "difficulty": "fundamentals",
+    "question": "What are the three steps of the beginning phase, in order?",
+    "answer": "Untap, upkeep, and draw.",
+    "explanation": "The beginning phase always has these three steps in this order. No player receives priority during the untap step.",
+    "rule_refs": [
+      "501.1",
+      "502.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "turn_structure"
+    ]
+  },
+  {
+    "id": 3,
+    "difficulty": "fundamentals",
+    "question": "Can a player cast an instant during the untap step?",
+    "answer": "No. No player receives priority during the untap step, so no spells can be cast and no abilities can be activated.",
+    "explanation": "The untap step is one of only two steps where players don't receive priority (the other being the cleanup step, normally). Any abilities that trigger during the untap step wait until the upkeep step to be put on the stack.",
+    "rule_refs": [
+      "502.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "turn_structure",
+      "priority"
+    ]
+  },
+  {
+    "id": 4,
+    "difficulty": "fundamentals",
+    "question": "A player wants to cast a creature spell during their opponent's turn. Can they do this?",
+    "answer": "No, unless the creature has flash or an effect allows it. Creature spells can normally only be cast during the controller's own main phase when the stack is empty.",
+    "explanation": "Artifact, creature, enchantment, planeswalker, and sorcery spells can normally only be cast during the active player's main phase when the stack is empty and they have priority. Instants and spells with flash can be cast any time a player has priority.",
+    "rule_refs": [
+      "505.6a",
+      "117.1a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "casting",
+      "priority"
+    ]
+  },
+  {
+    "id": 5,
+    "difficulty": "fundamentals",
+    "question": "A player casts a sorcery spell during their first main phase. Can they play a land after it resolves?",
+    "answer": "Yes, as long as they haven't already played a land this turn. Playing a land requires the stack to be empty, priority, and not having used the land play for the turn.",
+    "explanation": "A player may play one land per turn during either main phase, provided the stack is empty and they have priority. Casting a sorcery doesn't use up the land play. These are independent actions.",
+    "rule_refs": [
+      "505.6b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "casting",
+      "lands"
+    ]
+  },
+  {
+    "id": 6,
+    "difficulty": "fundamentals",
+    "question": "When a player casts a spell, can their opponent respond before it resolves?",
+    "answer": "Yes. After a player casts a spell, they receive priority first, then priority passes to the next player. Each player gets a chance to respond before anything resolves.",
+    "explanation": "When a player casts a spell, they get priority back first. If they pass, priority goes to their opponent. The spell only resolves when all players pass in succession with it on top of the stack.",
+    "rule_refs": [
+      "117.3c",
+      "117.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "stack"
+    ]
+  },
+  {
+    "id": 7,
+    "difficulty": "fundamentals",
+    "question": "A player casts Lightning Bolt (\"Lightning Bolt deals 3 damage to any target.\") targeting their opponent's 3/3 creature. In response, the opponent casts Giant Growth (\"Target creature gets +3/+3 until end of turn.\") on that creature. What happens?",
+    "answer": "Giant Growth resolves first, making the creature a 6/6. Then Lightning Bolt resolves and deals 3 damage to it. The creature survives as a 6/6 with 3 damage marked on it.",
+    "explanation": "The stack resolves last-in, first-out. Giant Growth was cast in response, so it's on top of the stack and resolves first. When Lightning Bolt resolves, the creature is now a 6/6, so 3 damage is not enough to destroy it.",
+    "rule_refs": [
+      "117.7",
+      "608.2c"
+    ],
+    "cards_ref": [
+      "Lightning Bolt",
+      "Giant Growth"
+    ],
+    "tags": [
+      "stack",
+      "combat_tricks"
+    ]
+  },
+  {
+    "id": 8,
+    "difficulty": "fundamentals",
+    "question": "Can a player play a land from their hand in response to a spell or ability?",
+    "answer": "No. Playing a land is a special action that can only be done during the player's main phase when the stack is empty.",
+    "explanation": "Playing a land doesn't use the stack and can't be done in response to anything. It requires the stack to be empty, the player to have priority during their own main phase, and not having played a land yet that turn.",
+    "rule_refs": [
+      "505.6b",
+      "116.2a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lands",
+      "priority"
+    ]
+  },
+  {
+    "id": 9,
+    "difficulty": "fundamentals",
+    "question": "A player controls a creature with vigilance. They declare it as an attacker. Does it tap?",
+    "answer": "No. Vigilance means attacking doesn't cause the creature to tap.",
+    "explanation": "Normally, creatures are tapped as they are declared as attackers. This isn't a cost — it just happens. Vigilance prevents this, so the creature remains untapped and can potentially block on the next player's turn.",
+    "rule_refs": [
+      "508.1f",
+      "702.20"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "keywords"
+    ]
+  },
+  {
+    "id": 10,
+    "difficulty": "fundamentals",
+    "question": "A 2/2 creature with trample is blocked by a 1/1 creature. How much damage is dealt to the defending player?",
+    "answer": "1 damage. The attacking creature must assign at least lethal damage (1) to the blocker, and the remaining 1 damage tramples over to the defending player.",
+    "explanation": "A creature with trample can assign its excess combat damage to the player, planeswalker, or battle it's attacking. It must assign at least lethal damage to each blocker before any can be assigned to the player.",
+    "rule_refs": [
+      "702.19c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "keywords",
+      "trample"
+    ]
+  },
+  {
+    "id": 11,
+    "difficulty": "fundamentals",
+    "question": "A 3/3 creature attacks and is blocked by a 2/2 creature. The attacking player casts Murder (\"Destroy target creature.\") on the blocking creature before combat damage. Does the attacking creature deal damage to the defending player?",
+    "answer": "No. Once a creature is blocked, it remains blocked even if all blockers are removed. It assigns no combat damage unless it has trample.",
+    "explanation": "A creature that becomes blocked stays blocked for the rest of combat. If all creatures blocking it are removed, it remains blocked but assigns no combat damage (unless it has trample). Removing a blocker after blocks are declared doesn't make the attacker unblocked.",
+    "rule_refs": [
+      "509.1h",
+      "510.1c"
+    ],
+    "cards_ref": [
+      "Murder"
+    ],
+    "tags": [
+      "combat",
+      "blocking"
+    ]
+  },
+  {
+    "id": 12,
+    "difficulty": "fundamentals",
+    "question": "If no creatures are declared as attackers, what combat steps are skipped?",
+    "answer": "The declare blockers step and the combat damage step are both skipped.",
+    "explanation": "If no creatures are declared as attackers or put onto the battlefield attacking, the game skips directly from the declare attackers step to the end of combat step. Players still get priority during the beginning of combat step and can cast spells there.",
+    "rule_refs": [
+      "508.8"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "turn_structure"
+    ]
+  },
+  {
+    "id": 13,
+    "difficulty": "fundamentals",
+    "question": "A creature has first strike and attacks. It is blocked by a creature without first strike. How does combat damage work?",
+    "answer": "There are two combat damage steps. The first strike creature deals damage in the first step. If the blocker survives, it deals damage in the second step.",
+    "explanation": "When any attacking or blocking creature has first strike or double strike, there are two combat damage steps. In the first, only creatures with first strike or double strike assign damage. In the second, remaining creatures that didn't have first strike (plus any with double strike) assign damage.",
+    "rule_refs": [
+      "510.4",
+      "702.7"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "keywords",
+      "first_strike"
+    ]
+  },
+  {
+    "id": 14,
+    "difficulty": "fundamentals",
+    "question": "A player has 8 cards in hand at the beginning of their cleanup step. What happens?",
+    "answer": "They must discard down to 7 cards (their maximum hand size). This happens before damage is removed and \"until end of turn\" effects end.",
+    "explanation": "During the cleanup step, the active player first discards down to their maximum hand size (normally 7). Then, simultaneously, all damage is removed from permanents and all \"until end of turn\" and \"this turn\" effects end.",
+    "rule_refs": [
+      "514.1",
+      "514.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "turn_structure",
+      "cleanup"
+    ]
+  },
+  {
+    "id": 15,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between an instant and a sorcery in terms of when they can be cast?",
+    "answer": "An instant can be cast any time a player has priority. A sorcery can only be cast during the controller's main phase when the stack is empty.",
+    "explanation": "This is the fundamental timing difference between the two spell types. Sorceries follow the default timing rule for most spells. Instants have special permission to be cast whenever a player has priority, including during other players' turns and in response to other spells.",
+    "rule_refs": [
+      "117.1a",
+      "304.1",
+      "305.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "casting",
+      "card_types"
+    ]
+  },
+  {
+    "id": 16,
+    "difficulty": "fundamentals",
+    "question": "A player taps a land for mana but doesn't use it immediately. When does the unused mana leave their mana pool?",
+    "answer": "Mana empties from a player's mana pool as each step and phase ends.",
+    "explanation": "Unspent mana doesn't persist across steps or phases. As each step or phase ends, any unused mana in a player's mana pool empties. This is a turn-based action and doesn't use the stack.",
+    "rule_refs": [
+      "500.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "mana",
+      "turn_structure"
+    ]
+  },
+  {
+    "id": 17,
+    "difficulty": "fundamentals",
+    "question": "A player wants to tap Llanowar Elves (\"{T}: Add {G}.\") for mana to help pay for a spell they are casting. They already announced the spell and put it on the stack. Can they still activate the Elves' ability?",
+    "answer": "Yes. Mana abilities can be activated during the casting process, specifically after total costs are determined but before costs are paid.",
+    "explanation": "While casting a spell, after the total cost is determined, the player gets a chance to activate mana abilities before paying costs. Tapping Llanowar Elves for mana is a mana ability and can be activated at this time.",
+    "rule_refs": [
+      "601.2g",
+      "117.1d"
+    ],
+    "cards_ref": [
+      "Llanowar Elves"
+    ],
+    "tags": [
+      "casting",
+      "mana"
+    ]
+  },
+  {
+    "id": 18,
+    "difficulty": "fundamentals",
+    "question": "Can a player cast Counterspell (\"Counter target spell.\") to counter a land being played?",
+    "answer": "No. Playing a land is not casting a spell. Lands are not spells and cannot be countered.",
+    "explanation": "Playing a land is a special action that doesn't use the stack. It's not a spell, so it can't be targeted by Counterspell or any other spell that targets spells. Players also can't respond to a land being played.",
+    "rule_refs": [
+      "505.6b",
+      "112.1"
+    ],
+    "cards_ref": [
+      "Counterspell"
+    ],
+    "tags": [
+      "casting",
+      "lands",
+      "stack"
+    ]
+  },
+  {
+    "id": 19,
+    "difficulty": "fundamentals",
+    "question": "A player attacks with a 4/4 creature. The defending player blocks with two creatures: a 1/1 and a 2/2. How is combat damage assigned?",
+    "answer": "The attacking player chooses how to divide the 4 damage among the two blockers. They can assign it any way they like (e.g., 4 to the 1/1, or 2 to each, or 1 to the 1/1 and 3 to the 2/2).",
+    "explanation": "When a blocked creature is blocked by multiple creatures, the attacking player chooses how to divide the attacking creature's combat damage among the blockers. There is no ordering requirement — the damage can be split however the attacker's controller wishes.",
+    "rule_refs": [
+      "510.1c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "blocking"
+    ]
+  },
+  {
+    "id": 20,
+    "difficulty": "fundamentals",
+    "question": "What happens when a creature with 0 toughness is on the battlefield?",
+    "answer": "It is put into its owner's graveyard as a state-based action.",
+    "explanation": "State-based actions are game rules that are checked whenever a player would receive priority. A creature with toughness 0 or less is put into its owner's graveyard. This doesn't use the stack and can't be responded to.",
+    "rule_refs": [
+      "704.5f"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "state_based_actions"
+    ]
+  },
+  {
+    "id": 21,
+    "difficulty": "fundamentals",
+    "question": "A player casts a creature spell. Before it resolves, the opponent casts Murder (\"Destroy target creature.\"). Can they target the creature spell on the stack?",
+    "answer": "No. Murder targets a creature, which is a permanent on the battlefield. A creature spell on the stack is not yet a creature — it's a creature spell. It would need something that says \"counter target spell.\"",
+    "explanation": "While on the stack, it's a creature spell, not a creature. \"Target creature\" refers to a creature permanent on the battlefield. To interact with it on the stack, you'd need something like Counterspell that targets spells.",
+    "rule_refs": [
+      "112.1",
+      "110.1"
+    ],
+    "cards_ref": [
+      "Murder"
+    ],
+    "tags": [
+      "stack",
+      "card_types"
+    ]
+  },
+  {
+    "id": 22,
+    "difficulty": "fundamentals",
+    "question": "During which step of the combat phase does a player tap their attacking creatures?",
+    "answer": "The declare attackers step. Creatures are tapped as they are declared as attackers.",
+    "explanation": "Tapping an attacking creature happens as part of the declare attackers turn-based action. It's not a cost — attacking simply causes creatures to become tapped (unless they have vigilance).",
+    "rule_refs": [
+      "508.1f"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "turn_structure"
+    ]
+  },
+  {
+    "id": 23,
+    "difficulty": "fundamentals",
+    "question": "A player casts a spell that costs {2}{R}. Their opponent wants to respond. Who gets priority first after the spell is cast?",
+    "answer": "The player who cast the spell gets priority first. If they pass, priority goes to the opponent.",
+    "explanation": "After casting a spell, the caster retains priority. This means they could cast another instant or activate an ability before their opponent gets a chance to respond. Only after they pass does the opponent receive priority.",
+    "rule_refs": [
+      "117.3c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "casting"
+    ]
+  },
+  {
+    "id": 24,
+    "difficulty": "fundamentals",
+    "question": "A player activates an ability that says \"{T}: Draw a card.\" In response, the opponent casts Murder (\"Destroy target creature.\") targeting the creature with that ability. Does the player still draw a card?",
+    "answer": "Yes. The ability is already on the stack, independent of its source. Destroying the creature doesn't counter the ability.",
+    "explanation": "Once an activated ability is on the stack, it exists independently of its source. Destroying, exiling, or otherwise removing the source of an ability doesn't affect the ability on the stack. The ability will still resolve and the player will draw a card.",
+    "rule_refs": [
+      "113.7a"
+    ],
+    "cards_ref": [
+      "Murder"
+    ],
+    "tags": [
+      "stack",
+      "abilities"
+    ]
+  },
+  {
+    "id": 25,
+    "difficulty": "fundamentals",
+    "question": "How many lands can a player normally play per turn?",
+    "answer": "One.",
+    "explanation": "A player may play one land per turn during either of their main phases, provided the stack is empty and they have priority. Some effects can allow a player to play additional lands, but the default is one.",
+    "rule_refs": [
+      "505.6b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lands"
+    ]
+  },
+  {
+    "id": 26,
+    "difficulty": "fundamentals",
+    "question": "A player casts Fog (\"Prevent all combat damage that would be dealt this turn.\") during combat. An opponent attacks with a 5/5 creature that is unblocked. How much damage does the defending player take?",
+    "answer": "Zero. Fog prevents all combat damage for the entire turn, including from unblocked creatures.",
+    "explanation": "Fog creates a prevention effect that applies to all combat damage dealt for the remainder of the turn. It doesn't matter how large the attacking creature is or whether it was blocked — all combat damage is prevented.",
+    "rule_refs": [
+      "615.1"
+    ],
+    "cards_ref": [
+      "Fog"
+    ],
+    "tags": [
+      "combat",
+      "prevention"
+    ]
+  }
+]
