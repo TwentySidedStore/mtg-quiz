@@ -3202,5 +3202,2000 @@
       "stack",
       "resolution"
     ]
+  },
+  {
+    "id": 192,
+    "difficulty": "interactions",
+    "question": "A player controls Rest in Peace (\"When this enchantment enters, exile all graveyards. If a card or token would be put into a graveyard from anywhere, exile it instead.\"). An opponent's creature is destroyed. Does a 'when this creature dies' ability trigger?",
+    "answer": "No. The creature is exiled instead of going to the graveyard, so it never 'dies.' Abilities that trigger on dying won't trigger.",
+    "explanation": "Rest in Peace replaces the event of going to the graveyard with exile. 'Dies' means 'is put into a graveyard from the battlefield' (rule 700.4). Since the creature never reaches the graveyard, it never dies, and death triggers don't fire. Per the rulings, while Rest in Peace is on the battlefield, abilities that trigger whenever a creature dies won't trigger.",
+    "rule_refs": [
+      "614.6",
+      "704.5g"
+    ],
+    "cards_ref": [
+      "Rest in Peace"
+    ],
+    "tags": [
+      "replacement-effects",
+      "dies-trigger",
+      "exile-instead",
+      "graveyard"
+    ]
+  },
+  {
+    "id": 193,
+    "difficulty": "interactions",
+    "question": "A player controls Leyline of the Void (\"If a card would be put into an opponent's graveyard from anywhere, exile it instead.\"). An opponent's nontoken creature would die. Does the creature's controller still get a death trigger if the creature had 'When this creature dies' on it?",
+    "answer": "No. The creature is exiled instead of going to the graveyard, so it doesn't 'die' and the ability doesn't trigger.",
+    "explanation": "Per the Leyline of the Void rulings, while it's on the battlefield, nontoken creatures opponents control won't die — they'll be exiled instead. Abilities that would trigger when those creatures die won't trigger. However, tokens can still die (they'll go to the graveyard momentarily before ceasing to exist, and Leyline doesn't apply to tokens since they aren't cards).",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Leyline of the Void"
+    ],
+    "tags": [
+      "replacement-effects",
+      "dies-trigger",
+      "exile-instead",
+      "tokens-vs-cards"
+    ]
+  },
+  {
+    "id": 194,
+    "difficulty": "interactions",
+    "question": "A player controls Solemnity (\"Players can't get counters. Counters can't be put on artifacts, creatures, enchantments, or lands.\"). An opponent controls a creature with infect that deals damage to the Solemnity controller. What happens?",
+    "answer": "The damage has no practical effect. No poison counters are given to the player (Solemnity prevents it) and no life is lost (infect replaces damage with poison counters). The damage is still 'dealt' for purposes of effects that care about damage (like lifelink).",
+    "explanation": "Per the Solemnity rulings, damage from a source with infect has no effect on players — no poison counters are given and no life is lost. The damage is still dealt for effects that care about damage (such as lifelink), but it produces no visible result. Similarly, infect damage to creatures doesn't put -1/-1 counters on them.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Solemnity"
+    ],
+    "tags": [
+      "cant-effects",
+      "counters",
+      "infect",
+      "damage"
+    ]
+  },
+  {
+    "id": 195,
+    "difficulty": "interactions",
+    "question": "A player controls Solemnity (\"Counters can't be put on artifacts, creatures, enchantments, or lands.\") and casts a planeswalker. Does the planeswalker enter with loyalty counters?",
+    "answer": "Yes. Solemnity prevents counters on artifacts, creatures, enchantments, and lands — but not planeswalkers (planeswalkers are a separate card type). The planeswalker enters with its normal loyalty counters.",
+    "explanation": "Solemnity's text specifically lists artifacts, creatures, enchantments, and lands. Planeswalkers are not in this list, so counters can still be placed on them normally. The planeswalker enters with its starting loyalty as printed.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Solemnity"
+    ],
+    "tags": [
+      "cant-effects",
+      "counters",
+      "planeswalkers",
+      "card-types"
+    ]
+  },
+  {
+    "id": 196,
+    "difficulty": "interactions",
+    "question": "A player controls Doubling Season (\"If an effect would create one or more tokens under your control, it creates twice that many instead. If an effect would put one or more counters on a permanent you control, it puts twice that many instead.\"). They cast a planeswalker that enters with 4 loyalty. How many loyalty counters does it enter with? Can they immediately use the planeswalker's ultimate ability that costs loyalty counters?",
+    "answer": "The planeswalker enters with 8 loyalty counters (doubled by Doubling Season). However, activating a loyalty ability that removes counters is a cost, not an effect, so Doubling Season doesn't halve the cost. The doubled starting loyalty may be enough to immediately use the ultimate.",
+    "explanation": "Per the Doubling Season rulings, planeswalkers enter with double the normal number of loyalty counters because entering with counters is an effect. However, if you activate a loyalty ability whose cost has you put loyalty counters on a planeswalker, the number isn't doubled — those are a cost, not an effect. Removing counters as a cost is also unaffected.",
+    "rule_refs": [
+      "614.16"
+    ],
+    "cards_ref": [
+      "Doubling Season"
+    ],
+    "tags": [
+      "replacement-effects",
+      "counters",
+      "planeswalkers",
+      "cost-vs-effect"
+    ]
+  },
+  {
+    "id": 197,
+    "difficulty": "interactions",
+    "question": "A player controls two Anointed Processions (each reads: \"If an effect would create one or more tokens under your control, it creates twice that many of those tokens instead.\"). A spell creates one token. How many tokens are actually created?",
+    "answer": "Four tokens. Each Anointed Procession doubles the number, so two of them quadruple it (1 x 2 x 2 = 4).",
+    "explanation": "Per the Anointed Procession rulings, if you control two, the number of tokens is four times the original number. Three would create eight times, and so on. Each replacement effect applies multiplicatively, doubling the result of the previous doubling.",
+    "rule_refs": [
+      "614.16"
+    ],
+    "cards_ref": [
+      "Anointed Procession"
+    ],
+    "tags": [
+      "replacement-effects",
+      "tokens",
+      "doubling",
+      "stacking"
+    ]
+  },
+  {
+    "id": 198,
+    "difficulty": "interactions",
+    "question": "A player controls Furnace of Rath (\"If a source would deal damage to a permanent or player, it deals double that damage instead.\"). A source would deal 3 damage to a player who also controls a prevention effect that prevents the next 2 damage. The affected player gets to choose the order. What are their options?",
+    "answer": "Option A: Prevent 2 first, then double the remaining 1 = 2 damage taken. Option B: Double first to 6, then prevent 2 = 4 damage taken. The affected player chooses the order.",
+    "explanation": "Per rule 616.1, when multiple replacement/prevention effects apply to the same event, the affected player chooses the order. Per the Furnace of Rath rulings, preventing first then doubling results in less damage (2), while doubling first then preventing results in more (4). The player will almost always choose the order that minimizes damage.",
+    "rule_refs": [
+      "616.1"
+    ],
+    "cards_ref": [
+      "Furnace of Rath"
+    ],
+    "tags": [
+      "replacement-effects",
+      "prevention-effects",
+      "ordering",
+      "damage-doubling"
+    ]
+  },
+  {
+    "id": 199,
+    "difficulty": "interactions",
+    "question": "A player controls Darksteel Mutation (\"Enchanted creature is an Insect artifact creature with base power and toughness 0/1 and has indestructible, and it loses all other abilities, card types, and creature types.\") on an opponent's legendary creature. Does the creature keep the legendary supertype?",
+    "answer": "Yes. Darksteel Mutation changes card types and creature types but doesn't affect supertypes. The creature remains legendary.",
+    "explanation": "Per the Darksteel Mutation rulings, the creature will keep any supertypes it previously had. Notably, if Darksteel Mutation is enchanting a legendary creature, that creature will continue to be legendary. If it's enchanting a commander, it will continue to be a commander. Darksteel Mutation overrides types and subtypes, but supertypes are separate.",
+    "rule_refs": [
+      "613.1d"
+    ],
+    "cards_ref": [
+      "Darksteel Mutation"
+    ],
+    "tags": [
+      "type-changing",
+      "supertypes",
+      "legendary",
+      "layers"
+    ]
+  },
+  {
+    "id": 200,
+    "difficulty": "interactions",
+    "question": "A player controls Darksteel Mutation (\"Enchanted creature is an Insect artifact creature with base power and toughness 0/1 and has indestructible, and it loses all other abilities.\") on a creature. After Darksteel Mutation is attached, another effect gives the creature flying. Does the creature have flying?",
+    "answer": "Yes. Darksteel Mutation causes the creature to lose all abilities at the time it becomes enchanted. Abilities gained AFTER that point work normally.",
+    "explanation": "Per the Darksteel Mutation rulings, it causes the enchanted creature to lose all abilities except indestructible at the time it becomes enchanted. Any abilities the creature gains after that point will work normally. The timestamp of the new effect is later, so it applies after Darksteel Mutation's effect in layer 6.",
+    "rule_refs": [
+      "613.1f",
+      "613.7"
+    ],
+    "cards_ref": [
+      "Darksteel Mutation"
+    ],
+    "tags": [
+      "ability-removal",
+      "timestamp",
+      "layers"
+    ]
+  },
+  {
+    "id": 201,
+    "difficulty": "interactions",
+    "question": "A player controls Darksteel Mutation on a creature, giving it base power/toughness 0/1. The creature also has two +1/+1 counters on it. What is the creature's power and toughness?",
+    "answer": "2/3. The base P/T is set to 0/1 (layer 7b), then the +1/+1 counters add +2/+2 (layer 7c), resulting in 2/3.",
+    "explanation": "Per the Darksteel Mutation rulings, it does not overwrite effects that modify power/toughness without setting them (like counters or Giant Growth effects). In the layer system, setting base P/T (layer 7b) happens before counters and modifications (layer 7c). So 0/1 base + two +1/+1 counters = 2/3.",
+    "rule_refs": [
+      "613.4b",
+      "613.4c"
+    ],
+    "cards_ref": [
+      "Darksteel Mutation"
+    ],
+    "tags": [
+      "power-toughness",
+      "layers",
+      "counters",
+      "base-pt"
+    ]
+  },
+  {
+    "id": 202,
+    "difficulty": "interactions",
+    "question": "A player controls Elesh Norn, Grand Cenobite (\"Other creatures you control get +2/+2. Creatures your opponents control get -2/-2.\"). An opponent controls a 2/2 creature. What happens?",
+    "answer": "The opponent's 2/2 becomes a 0/0 and is put into its owner's graveyard as a state-based action for having 0 toughness.",
+    "explanation": "Elesh Norn gives all creatures opponents control -2/-2. A 2/2 becomes 0/0. Rule 704.5f says a creature with toughness 0 or less is put into its owner's graveyard as a state-based action. This happens before any player receives priority, so the opponent can't respond.",
+    "rule_refs": [
+      "704.5f",
+      "613.4c"
+    ],
+    "cards_ref": [
+      "Elesh Norn",
+      "Grand Cenobite"
+    ],
+    "tags": [
+      "state-based-actions",
+      "power-toughness",
+      "continuous-effects"
+    ]
+  },
+  {
+    "id": 203,
+    "difficulty": "interactions",
+    "question": "A player controls Pithing Needle (\"As this artifact enters, choose a card name. Activated abilities of sources with the chosen name can't be activated unless they're mana abilities.\") naming Sol Ring. Can an opponent still tap their Sol Ring for mana?",
+    "answer": "Yes. Pithing Needle explicitly excludes mana abilities. Sol Ring's tap-for-mana is a mana ability, so it can still be activated.",
+    "explanation": "Pithing Needle's text says 'can't be activated unless they're mana abilities.' Sol Ring's '{T}: Add {C}{C}' is a mana ability (it doesn't target and could add mana), so it is exempt from Pithing Needle's restriction. If a named card has both a mana ability and another activated ability, only the non-mana ability is shut off.",
+    "rule_refs": [
+      "605.1a"
+    ],
+    "cards_ref": [
+      "Pithing Needle"
+    ],
+    "tags": [
+      "activated-abilities",
+      "mana-abilities",
+      "naming",
+      "restrictions"
+    ]
+  },
+  {
+    "id": 204,
+    "difficulty": "interactions",
+    "question": "A player controls Cursed Totem (\"Activated abilities of creatures can't be activated.\"). Does Cursed Totem prevent players from activating mana abilities of creatures like Llanowar Elves (\"{T}: Add {G}.\")?",
+    "answer": "Yes. Unlike Pithing Needle, Cursed Totem has no exception for mana abilities. It stops ALL activated abilities of creatures, including mana abilities.",
+    "explanation": "Per the Cursed Totem rulings, it stops players from activating mana abilities of creatures. Cursed Totem's text does not include the 'unless they're mana abilities' exception that Pithing Needle has. However, it only affects creatures — activated abilities of noncreature permanents are unaffected. It also doesn't stop creature abilities from being activated in zones other than the battlefield (like cycling).",
+    "rule_refs": [
+      "605.1a"
+    ],
+    "cards_ref": [
+      "Cursed Totem"
+    ],
+    "tags": [
+      "activated-abilities",
+      "mana-abilities",
+      "creatures",
+      "restrictions"
+    ]
+  },
+  {
+    "id": 205,
+    "difficulty": "interactions",
+    "question": "A player controls Grafdigger's Cage (\"Creature cards in graveyards and libraries can't enter the battlefield. Players can't cast spells from graveyards or libraries.\"). An effect would exile a card from the library and let the player cast it from exile. Can they cast it?",
+    "answer": "Yes. Grafdigger's Cage prevents casting from graveyards or libraries. Exile is neither — the spell is cast from exile, which Grafdigger's Cage doesn't restrict.",
+    "explanation": "Per the Grafdigger's Cage rulings, if an effect exiles a card from a library and allows a player to cast it, that player may do so — the spell is cast from exile, not from the library. Grafdigger's Cage only restricts casting from graveyards and libraries specifically.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Grafdigger's Cage"
+    ],
+    "tags": [
+      "cant-effects",
+      "zones",
+      "exile",
+      "casting-restrictions"
+    ]
+  },
+  {
+    "id": 206,
+    "difficulty": "interactions",
+    "question": "What are the seven layers used to determine the interaction of continuous effects? List them in order.",
+    "answer": "Layer 1: Copy effects. Layer 2: Control-changing effects. Layer 3: Text-changing effects. Layer 4: Type-changing effects. Layer 5: Color-changing effects. Layer 6: Ability-adding/removing effects. Layer 7: Power/toughness effects.",
+    "explanation": "Rule 613.1 defines the seven layers. Within each layer, effects are generally applied in timestamp order (rule 613.7), though dependency may alter this (rule 613.8). Layer 7 has sublayers: 7a (characteristic-defining abilities), 7b (setting P/T), 7c (modifying P/T), 7d (switching P/T).",
+    "rule_refs": [
+      "613.1",
+      "613.1a",
+      "613.1b",
+      "613.1c",
+      "613.1d",
+      "613.1e",
+      "613.1f",
+      "613.1g"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "layers",
+      "continuous-effects",
+      "definition"
+    ]
+  },
+  {
+    "id": 207,
+    "difficulty": "interactions",
+    "question": "Within the same layer, how is the order of continuous effects determined?",
+    "answer": "By timestamp — the effect with the earlier timestamp is applied first. An object receives a timestamp when it enters a zone, and Auras/Equipment get new timestamps when they become attached.",
+    "explanation": "Rule 613.7 states that within a layer or sublayer, effects are applied using a timestamp system. Earlier timestamps apply first. Timestamps are assigned when an object enters a zone (613.7d), when an Aura/Equipment becomes attached (613.7e), or when a continuous effect is created by a resolving spell/ability (613.7b). Dependency (rule 613.8) can override timestamp order.",
+    "rule_refs": [
+      "613.7",
+      "613.7d",
+      "613.7e"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "layers",
+      "timestamp",
+      "continuous-effects"
+    ]
+  },
+  {
+    "id": 208,
+    "difficulty": "interactions",
+    "question": "Name at least five common state-based actions that are checked whenever a player would receive priority.",
+    "answer": "1) Player at 0 or less life loses. 2) Player who drew from empty library loses. 3) Creature with toughness 0 or less goes to graveyard. 4) Creature with lethal damage marked is destroyed. 5) Legend rule (duplicate legends). 6) Token in non-battlefield zone ceases to exist. 7) Planeswalker with 0 loyalty goes to graveyard. 8) +1/+1 and -1/-1 counters cancel out.",
+    "explanation": "Rule 704.5 lists all state-based actions. They're checked automatically before any player receives priority and don't use the stack. Players can't respond to them. They repeat until no more apply, then triggered abilities are put on the stack, and the cycle continues until the game state is clean.",
+    "rule_refs": [
+      "704.5",
+      "704.5a",
+      "704.5b",
+      "704.5f",
+      "704.5g",
+      "704.5j",
+      "704.5d",
+      "704.5i",
+      "704.5q"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "state-based-actions",
+      "definition",
+      "list"
+    ]
+  },
+  {
+    "id": 209,
+    "difficulty": "interactions",
+    "question": "A player controls Kenrith's Transformation (\"Enchant creature. Enchanted creature loses all abilities and is a green Elk creature with base power and toughness 3/3.\") on an opponent's commander. The opponent wants to use the commander's ability. Can they?",
+    "answer": "No. Kenrith's Transformation removes all abilities from the enchanted creature. The commander has no abilities to activate while the Transformation is attached.",
+    "explanation": "Kenrith's Transformation causes the enchanted creature to lose all abilities. However, per the rulings, if the creature gains an ability AFTER Kenrith's Transformation becomes attached (from another source with a later timestamp), it would keep that new ability. The creature also loses all card types except creature and all creature types except Elk, but keeps supertypes like legendary.",
+    "rule_refs": [
+      "613.1f",
+      "613.1d"
+    ],
+    "cards_ref": [
+      "Kenrith's Transformation"
+    ],
+    "tags": [
+      "ability-removal",
+      "type-changing",
+      "commander",
+      "layers"
+    ]
+  },
+  {
+    "id": 210,
+    "difficulty": "interactions",
+    "question": "When two or more replacement effects try to modify the same event, who chooses which one applies first?",
+    "answer": "The affected object's controller (or its owner if it has no controller), or the affected player, chooses which replacement effect to apply first. Then the process repeats with any remaining applicable effects.",
+    "explanation": "Rule 616.1 states that when multiple replacement/prevention effects attempt to modify the same event, the affected player or the affected object's controller chooses which to apply. After one is applied, the process repeats — some effects may no longer apply while new ones may become applicable. This continues until no more replacement effects remain.",
+    "rule_refs": [
+      "616.1",
+      "616.1e",
+      "616.1f"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "replacement-effects",
+      "ordering",
+      "player-choice"
+    ]
+  },
+  {
+    "id": 211,
+    "difficulty": "interactions",
+    "question": "A player controls Vorinclex, Monstrous Raider (\"If you would put one or more counters on a permanent or player, put twice that many instead. If an opponent would put one or more counters on a permanent or player, they put half that many instead, rounded down.\"). The player casts a planeswalker with starting loyalty 3. How many loyalty counters does it enter with?",
+    "answer": "6 loyalty counters. The planeswalker entering with counters is the controller putting counters on their own permanent, so Vorinclex doubles it from 3 to 6.",
+    "explanation": "Per the Vorinclex rulings, if a permanent enters the battlefield with counters and the effect doesn't specify which player puts them on, the object's controller puts those counters on it. Since the Vorinclex controller is putting counters on their own permanent, the doubling applies. If an opponent's planeswalker would enter with 3 loyalty, it would enter with 1 instead (half of 3, rounded down).",
+    "rule_refs": [
+      "614.16"
+    ],
+    "cards_ref": [
+      "Vorinclex",
+      "Monstrous Raider"
+    ],
+    "tags": [
+      "replacement-effects",
+      "counters",
+      "doubling",
+      "halving",
+      "planeswalkers"
+    ]
+  },
+  {
+    "id": 212,
+    "difficulty": "fundamentals",
+    "question": "In Commander, a player casts their commander from the command zone for the third time this game. How much additional mana (the 'commander tax') do they pay beyond the commander's normal mana cost?",
+    "answer": "{4} additional mana. The commander tax is {2} for each previous time the player has cast it from the command zone. Third casting means two previous casts, so {2} x 2 = {4}.",
+    "explanation": "Rule 903.8 states that a commander cast from the command zone costs an additional {2} for each previous time the player has cast it from the command zone that game. First cast: +{0}. Second cast: +{2}. Third cast: +{4}. This cost increase applies only when cast from the command zone — not from the hand, graveyard, or exile.",
+    "rule_refs": [
+      "903.8"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "commander",
+      "commander-tax",
+      "casting-cost"
+    ]
+  },
+  {
+    "id": 213,
+    "difficulty": "fundamentals",
+    "question": "In Commander, a player's commander would be put into their hand from the battlefield (e.g., by an Unsummon effect). Can the player put it into the command zone instead?",
+    "answer": "Yes. If a commander would be put into its owner's hand or library from anywhere, its owner may put it into the command zone instead.",
+    "explanation": "Rule 903.9b states that if a commander would be put into its owner's hand or library from anywhere, its owner may put it into the command zone instead. This is a replacement effect. Note that this is optional — the player may choose to let it go to their hand instead. For graveyard and exile, rule 903.9a handles that via a state-based action.",
+    "rule_refs": [
+      "903.9b",
+      "903.9a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "commander",
+      "command-zone",
+      "replacement-effects"
+    ]
+  },
+  {
+    "id": 214,
+    "difficulty": "fundamentals",
+    "question": "In Commander, Player A has been dealt 15 combat damage by Player B's commander and 10 combat damage by Player C's commander. Does Player A lose the game due to commander damage?",
+    "answer": "No. Commander damage is tracked separately for each commander. Player A has taken 15 from one and 10 from another — neither has reached 21. The totals are not combined.",
+    "explanation": "Rule 903.10a states that a player who has been dealt 21 or more combat damage by THE SAME commander loses the game. Each commander's damage is tracked independently. 15 + 10 = 25 total, but since no single commander has dealt 21, the player doesn't lose from this rule.",
+    "rule_refs": [
+      "903.10a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "commander",
+      "commander-damage",
+      "losing"
+    ]
+  },
+  {
+    "id": 215,
+    "difficulty": "fundamentals",
+    "question": "In Commander, does non-combat damage from a commander count toward the 21 commander damage threshold?",
+    "answer": "No. Only COMBAT damage from a commander counts toward the 21 damage threshold. Non-combat damage (such as from an activated ability or triggered ability) does not count.",
+    "explanation": "Rule 903.10a specifies 'combat damage' specifically. If a commander deals damage through an ability (like Niv-Mizzet's triggered ability or Lightning Bolt), that damage does not count toward the 21 commander damage threshold. Only damage dealt during the combat damage step counts.",
+    "rule_refs": [
+      "903.10a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "commander",
+      "commander-damage",
+      "combat-vs-noncombat"
+    ]
+  },
+  {
+    "id": 216,
+    "difficulty": "interactions",
+    "question": "A player controls Torbran, Thane of Red Fell (\"If a red source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.\"). They attack with a 5/5 red creature with trample, and the opponent blocks with a 2/2. How is damage assigned and dealt?",
+    "answer": "Assign unmodified damage first: 2 to the blocker, 3 tramples to the defending player. Then Torbran adds 2 to each: the blocker takes 4, the defending player takes 5.",
+    "explanation": "Per the Torbran rulings, if damage from a source is being divided or assigned among multiple things, divide the original amount before adding 2. The 5/5 assigns 2 to the blocker and 3 to the player (unmodified). Then Torbran's replacement effect adds 2 to each: the blocker receives 4 damage and the player receives 5 damage.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Torbran",
+      "Thane of Red Fell"
+    ],
+    "tags": [
+      "damage-modification",
+      "trample",
+      "replacement-effects",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 217,
+    "difficulty": "interactions",
+    "question": "A player controls Fiery Emancipation (\"If a source you control would deal damage to a permanent or player, it deals triple that damage instead.\"). They attack with a 3/3 creature with trample, blocked by a 2/2. How much trample damage reaches the defending player?",
+    "answer": "3 damage. Assign unmodified damage first: 2 to the blocker, 1 to the player. Then triple each: the blocker takes 6 and the player takes 3.",
+    "explanation": "Per the Fiery Emancipation rulings, if a creature with trample would deal combat damage, assign the unmodified damage first. The 3/3 assigns 2 to the 2/2 blocker and 1 to the player. Then Fiery Emancipation triples each: the blocker takes 6, the player takes 3. You don't triple before assigning.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Fiery Emancipation"
+    ],
+    "tags": [
+      "damage-modification",
+      "trample",
+      "replacement-effects",
+      "tripling"
+    ]
+  },
+  {
+    "id": 218,
+    "difficulty": "interactions",
+    "question": "A player controls Warstorm Surge (\"Whenever a creature you control enters, it deals damage equal to its power to any target.\"). A 5/5 creature enters and the ability targets an opponent's creature. Which permanent is the source of the damage — Warstorm Surge or the entering creature?",
+    "answer": "The entering creature is the source of the damage, not Warstorm Surge. This means the creature's abilities like deathtouch, lifelink, and infect apply to the damage dealt.",
+    "explanation": "Per the Warstorm Surge rulings, Warstorm Surge is the source of the ability, but the creature is the source of the damage. Because the creature is dealing the damage, abilities like lifelink, deathtouch, and infect are taken into account. The ability targets, but the creature deals the damage.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Warstorm Surge"
+    ],
+    "tags": [
+      "damage-source",
+      "triggered-abilities",
+      "deathtouch",
+      "lifelink"
+    ]
+  },
+  {
+    "id": 219,
+    "difficulty": "interactions",
+    "question": "A player controls Skullclamp (\"Equipped creature gets +1/-1. Whenever equipped creature dies, draw two cards.\") equipped to a 1/1 creature. What happens?",
+    "answer": "The 1/1 becomes a 2/0 and immediately dies as a state-based action (0 toughness). Skullclamp's death trigger fires and the player draws two cards.",
+    "explanation": "Skullclamp gives +1/-1, making the 1/1 into a 2/0. Rule 704.5f states a creature with 0 or less toughness is put into its owner's graveyard as a state-based action. The creature dies, triggering Skullclamp's ability to draw two cards. This is why Skullclamp is famously powerful with 1/1 tokens — equipping and immediately drawing 2.",
+    "rule_refs": [
+      "704.5f"
+    ],
+    "cards_ref": [
+      "Skullclamp"
+    ],
+    "tags": [
+      "equipment",
+      "state-based-actions",
+      "toughness",
+      "dies-trigger"
+    ]
+  },
+  {
+    "id": 220,
+    "difficulty": "interactions",
+    "question": "A player controls Massacre Wurm (\"When this creature enters, creatures your opponents control get -2/-2 until end of turn. Whenever a creature an opponent controls dies, that player loses 2 life.\"). It enters the battlefield and the opponent controls four 2/2 creatures. What happens?",
+    "answer": "All four 2/2 creatures become 0/0 and die as state-based actions. Then Massacre Wurm's second ability triggers four times, causing the opponent to lose 8 life total.",
+    "explanation": "Massacre Wurm's ETB gives opponents' creatures -2/-2. Four 2/2 creatures become 0/0 and are put into the graveyard as state-based actions (rule 704.5f). Per the rulings, its death trigger fires for each creature that dies this way, as long as Massacre Wurm is still on the battlefield. Four deaths = 4 triggers = 8 life lost.",
+    "rule_refs": [
+      "704.5f"
+    ],
+    "cards_ref": [
+      "Massacre Wurm"
+    ],
+    "tags": [
+      "state-based-actions",
+      "toughness",
+      "dies-trigger",
+      "life-loss"
+    ]
+  },
+  {
+    "id": 221,
+    "difficulty": "interactions",
+    "question": "A player controls Sigarda, Host of Herons (\"Spells and abilities your opponents control can't cause you to sacrifice permanents.\"). An opponent casts a spell that says \"Each player sacrifices a creature.\" What happens to Sigarda's controller?",
+    "answer": "Sigarda's controller doesn't sacrifice anything. The 'sacrifice' portion that would affect them is simply ignored. Other players still sacrifice as normal.",
+    "explanation": "Per the Sigarda rulings, as a spell or ability an opponent controls resolves, if it would force the Sigarda controller to sacrifice a permanent, they just don't. That part of the effect does nothing. This only applies to opponents' spells/abilities — the player can still sacrifice their own permanents from their own effects.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Sigarda",
+      "Host of Herons"
+    ],
+    "tags": [
+      "cant-effects",
+      "sacrifice",
+      "protection"
+    ]
+  },
+  {
+    "id": 222,
+    "difficulty": "interactions",
+    "question": "A player controls Sigarda, Host of Herons (\"Spells and abilities your opponents control can't cause you to sacrifice permanents.\"). An opponent controls a permanent with an ability that says \"Each opponent sacrifices a creature unless they pay 3 life.\" Can Sigarda's controller choose to sacrifice instead of paying life?",
+    "answer": "No. They can't choose to sacrifice because Sigarda prevents it. However, they aren't forced to pay 3 life either — they simply can't sacrifice, so nothing happens to them if they don't pay.",
+    "explanation": "Per the Sigarda rulings, if a spell or ability an opponent controls instructs you to sacrifice unless you perform an action, you can choose whether to perform the action. If you don't perform the action, nothing happens since you can't sacrifice any permanents. You won't lose life and you won't sacrifice.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Sigarda",
+      "Host of Herons"
+    ],
+    "tags": [
+      "cant-effects",
+      "sacrifice",
+      "unless-clauses"
+    ]
+  },
+  {
+    "id": 223,
+    "difficulty": "interactions",
+    "question": "A player controls Notion Thief (\"If an opponent would draw a card except the first one they draw in each of their draw steps, instead that player skips that draw and you draw a card.\"). An opponent casts a spell that says \"Draw three cards.\" What happens?",
+    "answer": "All three draws are replaced: the opponent draws nothing, and the Notion Thief controller draws three cards.",
+    "explanation": "Notion Thief's replacement effect applies to each card an opponent would draw except the first one drawn in each of that opponent's draw steps. When an opponent casts a spell to draw three cards outside their draw step, none of those draws are 'the first one they draw in their draw step,' so all three are replaced. The opponent skips all three draws and the Notion Thief controller draws three cards instead.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Notion Thief"
+    ],
+    "tags": [
+      "replacement-effects",
+      "draw",
+      "theft"
+    ]
+  },
+  {
+    "id": 224,
+    "difficulty": "interactions",
+    "question": "A player controls Necropotence (\"Skip your draw step. Pay 1 life: Exile the top card of your library face down. Put that card into your hand at the beginning of your next end step.\"). If Necropotence is destroyed during their main phase, do the cards exiled by its ability still go to their hand at the end step?",
+    "answer": "Yes. The delayed triggered ability that puts the cards into your hand still triggers even if Necropotence is removed from the battlefield before the end step.",
+    "explanation": "Per the Necropotence rulings, its last ability creates a delayed triggered ability that will put the exiled card into your hand. That ability still triggers even if Necropotence is removed from the battlefield before your end step. Delayed triggered abilities exist independently once created.",
+    "rule_refs": [
+      "603.7"
+    ],
+    "cards_ref": [
+      "Necropotence"
+    ],
+    "tags": [
+      "delayed-triggers",
+      "exile",
+      "removal-timing"
+    ]
+  },
+  {
+    "id": 225,
+    "difficulty": "interactions",
+    "question": "A player controls Fires of Invention (\"You can cast spells only during your turn and you can cast no more than two spells each turn. You may cast spells with mana value less than or equal to the number of lands you control without paying their mana costs.\"). They cast Fires of Invention as their second spell this turn. Can they cast any more spells?",
+    "answer": "No. Fires of Invention looks at the entire turn — two spells have already been cast (including Fires itself), so no more spells can be cast this turn.",
+    "explanation": "Per the Fires of Invention rulings, it looks at the entire turn to see if you've cast two spells yet, even if Fires wasn't on the battlefield when those spells were cast. Casting Fires as the second spell means the cap is already reached. You can't cast another spell this turn.",
+    "rule_refs": [
+      "604.2"
+    ],
+    "cards_ref": [
+      "Fires of Invention"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "static-abilities",
+      "look-back"
+    ]
+  },
+  {
+    "id": 226,
+    "difficulty": "interactions",
+    "question": "A player controls Horobi, Death's Wail (\"Whenever a creature becomes the target of a spell or ability, destroy that creature.\"). They cast Giant Growth (\"Target creature gets +3/+3 until end of turn.\") targeting their own creature. What happens?",
+    "answer": "Horobi's ability triggers and destroys the creature before Giant Growth resolves. Giant Growth then fails to resolve because its target is no longer legal.",
+    "explanation": "Horobi's triggered ability fires whenever ANY creature becomes the target of a spell or ability — including the controller's own creatures. The trigger goes on the stack above Giant Growth and resolves first, destroying the creature. Giant Growth then has an illegal target and doesn't resolve.",
+    "rule_refs": [
+      "603.2",
+      "608.2b"
+    ],
+    "cards_ref": [
+      "Horobi",
+      "Death's Wail"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "targeting",
+      "destroy",
+      "self-harm"
+    ]
+  },
+  {
+    "id": 227,
+    "difficulty": "interactions",
+    "question": "The legend rule states that if a player controls two legendary permanents with the same name, they choose one to keep. Is this a sacrifice? Can it be prevented by Sigarda, Host of Herons (\"Spells and abilities your opponents control can’t cause you to sacrifice permanents.\")?",
+    "answer": "No, the legend rule is not a sacrifice. The extra legendary permanent is put into the graveyard as a state-based action. Sigarda's anti-sacrifice ability doesn't apply.",
+    "explanation": "Rule 704.5j states that if two or more legendary permanents with the same name are controlled by the same player, that player chooses one and the rest are put into their owners' graveyards. This is a state-based action, not a sacrifice. Per the Sigarda rulings, it only prevents sacrifice — it won't stop a permanent from being put into the graveyard due to the legend rule.",
+    "rule_refs": [
+      "704.5j"
+    ],
+    "cards_ref": [
+      "Sigarda",
+      "Host of Herons"
+    ],
+    "tags": [
+      "legend-rule",
+      "state-based-actions",
+      "sacrifice-distinction"
+    ]
+  },
+  {
+    "id": 228,
+    "difficulty": "interactions",
+    "question": "Two state-based actions happen simultaneously: a player controls Elesh Norn, Grand Cenobite (\"Creatures your opponents control get -2/-2.\") and plays a second copy. What happens?",
+    "answer": "The player chooses one Elesh Norn to keep (legend rule). The other goes to the graveyard at the same time as any opposing creatures with 0 or less toughness from -4/-4. The legend rule and the 0-toughness SBA happen simultaneously.",
+    "explanation": "Per the Elesh Norn ruling, if a second copy enters, the legend rule (rule 704.5j) puts one copy into the graveyard at the same time that opposing creatures with 0 or less toughness are put into their owners' graveyards (rule 704.5f). All state-based actions are performed as a single event.\n\nIf a second Elesh Norn, Grand Cenobite comes under your control, you'll put one into its owner's graveyard due to the “legend rule” at the same time that any of your opponents' creatures getting -4/-4 are put into their owner's graveyard for having 0 or less toughness. ",
+    "rule_refs": [
+      "704.5j",
+      "704.5f"
+    ],
+    "cards_ref": [
+      "Elesh Norn",
+      "Grand Cenobite"
+    ],
+    "tags": [
+      "legend-rule",
+      "state-based-actions",
+      "simultaneous"
+    ]
+  },
+  {
+    "id": 229,
+    "difficulty": "interactions",
+    "question": "A player controls Shadowspear (\"Equipped creature gets +1/+1 and has trample and lifelink. {1}: Permanents your opponents control lose hexproof and indestructible until end of turn.\"). They activate the {1} ability to remove indestructible from opponents' permanents. If a new creature with indestructible enters under an opponent's control later that turn, does it lose indestructible?",
+    "answer": "No. The ability only affects permanents that were on the battlefield when it resolved. New permanents entering afterward still have indestructible.",
+    "explanation": "Per the Shadowspear rulings, if a permanent enters the battlefield under an opponent's control with hexproof or indestructible after Shadowspear's ability resolves, it won't lose that ability unless you activate the ability again. The effect applies to a snapshot of permanents at resolution time, not continuously.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Shadowspear"
+    ],
+    "tags": [
+      "activated-abilities",
+      "indestructible",
+      "hexproof",
+      "snapshot-effects"
+    ]
+  },
+  {
+    "id": 230,
+    "difficulty": "interactions",
+    "question": "A player controls Aluren (\"Any player may cast creature spells with mana value 3 or less without paying their mana costs and as though they had flash.\"). An opponent wants to cast a creature with mana value 2 using Aluren's effect but also pay its mana cost instead. Can they?",
+    "answer": "No. With Aluren, you either cast the creature without paying its mana cost (using Aluren's alternative cost) or cast it normally by paying the mana cost. You can't use Aluren's flash-granting while also paying mana.",
+    "explanation": "Per the Aluren rulings, you can't choose to cast a creature as though it had flash via Aluren and still pay the mana cost. You either use Aluren (free + flash) or cast normally (pay mana, sorcery speed). Aluren provides an alternative cost — you must choose one or the other.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Aluren"
+    ],
+    "tags": [
+      "alternative-costs",
+      "flash",
+      "casting",
+      "free-spells"
+    ]
+  },
+  {
+    "id": 231,
+    "difficulty": "interactions",
+    "question": "+1/+1 counters and -1/-1 counters are both on a creature. What happens?",
+    "answer": "They cancel out as a state-based action. If a permanent has both +1/+1 and -1/-1 counters, pairs are removed until only one type remains.",
+    "explanation": "Rule 704.5q states that if a permanent has both a +1/+1 counter and a -1/-1 counter on it, N +1/+1 and N -1/-1 counters are removed from it, where N is the smaller of the two counts. For example, a creature with three +1/+1 and two -1/-1 counters would have two pairs removed, leaving one +1/+1 counter. This is a state-based action.",
+    "rule_refs": [
+      "704.5q"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "state-based-actions",
+      "counters",
+      "plus-minus-counters"
+    ]
+  },
+  {
+    "id": 232,
+    "difficulty": "interactions",
+    "question": "A player controls Drannith Magistrate (\"Your opponents can't cast spells from anywhere other than their hands.\"). Can an opponent cast their commander from the command zone?",
+    "answer": "No. The command zone is not the hand, so Drannith Magistrate prevents opponents from casting their commander from the command zone.",
+    "explanation": "Per the Drannith Magistrate rulings, if an effect says that an opponent may cast a spell from anywhere other than their hand, Drannith Magistrate's restriction overrules that permission. The command zone is not the hand, so the commander can't be cast. However, opponents can still play lands from other zones and activate abilities of cards in other zones.",
+    "rule_refs": [
+      "614.17",
+      "903.8"
+    ],
+    "cards_ref": [
+      "Drannith Magistrate"
+    ],
+    "tags": [
+      "commander",
+      "casting-restrictions",
+      "hatebears"
+    ]
+  },
+  {
+    "id": 233,
+    "difficulty": "interactions",
+    "question": "A player controls Narset, Parter of Veils (\"Each opponent can't draw more than one card each turn.\"). An opponent casts a spell that says \"Draw three cards.\" How many cards do they draw?",
+    "answer": "One card. Narset restricts each opponent to one card draw per turn. The remaining two draws are simply ignored.",
+    "explanation": "Per the Narset rulings, if an opponent hasn't drawn any cards in a turn and a spell or ability instructs them to draw multiple cards, that player will just draw one card. Subsequent draws during that turn are ignored entirely — they don't go on the stack and can't be replaced by replacement effects.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Narset",
+      "Parter of Veils"
+    ],
+    "tags": [
+      "draw-restriction",
+      "cant-effects",
+      "planeswalkers"
+    ]
+  },
+  {
+    "id": 234,
+    "difficulty": "interactions",
+    "question": "A player controls Narset, Parter of Veils (\"Each opponent can't draw more than one card each turn.\"). An opponent has already drawn their card for the turn. Can a replacement effect (like Underrealm Lich's [\"If you would draw a card, instead look at the top three cards of your library, then put one into your hand and the rest into your graveyard.\"]) replace the next draw that Narset would prevent?",
+    "answer": "No. Replacement effects can't be used to replace draws that Narset disallows. The draw simply doesn't happen, so there's nothing for the replacement effect to apply to.",
+    "explanation": "Per the Narset rulings, replacement effects can't be used to replace draws that Narset disallows. If a draw can't happen, there's no event to replace. However, if the opponent's FIRST draw is replaced by a replacement effect, that draw didn't happen and Narset won't stop the next draw.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Narset",
+      "Parter of Veils"
+    ],
+    "tags": [
+      "draw-restriction",
+      "replacement-effects",
+      "cant-effects"
+    ]
+  },
+  {
+    "id": 235,
+    "difficulty": "interactions",
+    "question": "A player controls Aven Mindcensor (\"If an opponent would search a library, that player searches the top four cards of that library instead.\"). An opponent casts a tutor that says \"Search your library for a card and put it into your hand, then shuffle.\" What happens?",
+    "answer": "The opponent searches only the top 4 cards of their library. If they find the card they want there, they take it. If not, they fail to find. Either way, they shuffle their entire library afterward.",
+    "explanation": "Per the Aven Mindcensor rulings, the search works exactly as normal except the opponent sees only the top four cards. They can't look at other cards. Cards not in the top four can't be found, even if identifiable. After the search is complete, the entire library is shuffled. The search still counts as searching the library for other effects.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Aven Mindcensor"
+    ],
+    "tags": [
+      "search-restriction",
+      "replacement-effects",
+      "hatebears"
+    ]
+  },
+  {
+    "id": 236,
+    "difficulty": "interactions",
+    "question": "A player controls Stranglehold (\"Your opponents can't search libraries.\"). An opponent casts a spell that says \"Search your library for a basic land card, put it onto the battlefield, then shuffle.\" What happens?",
+    "answer": "The opponent can't search. The search portion is simply ignored. They still shuffle their library (if the card says 'then shuffle').",
+    "explanation": "Per the Stranglehold rulings, if an effect says 'Search your library... then shuffle your library,' opponents shuffle their libraries even though they can't search. However, if the effect says 'You may search your library... If you do, shuffle,' opponents can't choose to search, so they won't shuffle.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Stranglehold"
+    ],
+    "tags": [
+      "search-restriction",
+      "cant-effects",
+      "shuffle"
+    ]
+  },
+  {
+    "id": 237,
+    "difficulty": "interactions",
+    "question": "A player controls Gaddock Teeg (\"Noncreature spells with mana value 4 or greater can't be cast. Noncreature spells with {X} in their mana costs can't be cast.\"). Can a player cast a creature spell with mana value 6?",
+    "answer": "Yes. Gaddock Teeg only restricts NONCREATURE spells. Creature spells of any mana value can still be cast normally.",
+    "explanation": "Gaddock Teeg's two abilities both specify 'noncreature spells.' Creature spells are completely unaffected regardless of their mana value or whether they have {X} in their cost. A 6-mana creature, a creature with {X} in its cost — both can be cast freely.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Gaddock Teeg"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "card-types",
+      "hatebears"
+    ]
+  },
+  {
+    "id": 238,
+    "difficulty": "interactions",
+    "question": "A player controls Gaddock Teeg (\"Noncreature spells with mana value 4 or greater can't be cast.\"). Does an alternative cost (like casting a spell 'without paying its mana cost') change whether Gaddock Teeg prevents it?",
+    "answer": "No. Alternative costs don't change a spell's mana value. Mana value is determined solely by the mana cost printed on the card. Gaddock Teeg still prevents it if the printed mana value is 4 or more.",
+    "explanation": "Per the Gaddock Teeg rulings, a spell's mana value is determined only by its mana cost. Alternative costs, additional costs, and cost reductions don't affect a spell's mana value. So a noncreature spell with mana value 5 can't be cast even if an effect would let you cast it for free.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Gaddock Teeg"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "mana-value",
+      "alternative-costs"
+    ]
+  },
+  {
+    "id": 239,
+    "difficulty": "interactions",
+    "question": "A player controls Lavinia, Azorius Renegade (\"Each opponent can't cast noncreature spells with mana value greater than the number of lands that player controls. Whenever an opponent casts a spell, if no mana was spent to cast it, counter that spell.\"). An opponent controls 3 lands and casts a noncreature spell with mana value 5 for free using an effect. What happens?",
+    "answer": "The spell can't be cast at all — Lavinia's first ability prevents casting noncreature spells with mana value greater than the number of lands the opponent controls (5 > 3).",
+    "explanation": "Lavinia's first ability checks mana value against lands controlled. Since the spell's mana value (5) exceeds the opponent's land count (3), it simply can't be cast. Even if it could be cast, the second ability would also counter it since no mana was spent. But the first ability prevents the casting entirely.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Lavinia",
+      "Azorius Renegade"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "mana-value",
+      "lands",
+      "hatebears"
+    ]
+  },
+  {
+    "id": 240,
+    "difficulty": "interactions",
+    "question": "A player controls Nevermore (\"As this enchantment enters, choose a nonland card name. Spells with the chosen name can't be cast.\") naming a creature card. Can that creature still be put onto the battlefield by an effect (like a reanimation spell)?",
+    "answer": "Yes. Nevermore prevents CASTING the named card as a spell. Putting it onto the battlefield through an effect (like reanimation or flicker) bypasses Nevermore entirely.",
+    "explanation": "Per the Nevermore rulings, although the named card can't be cast, it can still be put onto the battlefield by a spell or ability (if it's a permanent card). Nevermore only stops casting — not any other way a card could enter the battlefield.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Nevermore"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "cast-vs-put",
+      "naming"
+    ]
+  },
+  {
+    "id": 241,
+    "difficulty": "interactions",
+    "question": "A player controls March of the Machines (\"Each noncreature artifact is an artifact creature with power and toughness each equal to its mana value.\"). They also control an artifact land (like an artifact dual land with mana value 0). What happens to it?",
+    "answer": "The artifact land becomes a 0/0 artifact creature and is immediately put into the graveyard as a state-based action for having 0 toughness.",
+    "explanation": "Per the March of the Machines rulings, each artifact land has a mana value of 0. March makes them 0/0 creatures, which are put into the graveyard as a state-based action (rule 704.5f). This is a notable danger of playing March of the Machines — it destroys all artifact lands with mana value 0.",
+    "rule_refs": [
+      "704.5f",
+      "613.1d"
+    ],
+    "cards_ref": [
+      "March of the Machines"
+    ],
+    "tags": [
+      "type-changing",
+      "state-based-actions",
+      "artifact-lands",
+      "mana-value"
+    ]
+  },
+  {
+    "id": 242,
+    "difficulty": "interactions",
+    "question": "A player controls March of the Machines (\"Each noncreature artifact is an artifact creature with power and toughness each equal to its mana value.\"). They have an Equipment with mana value 3 currently equipped to a creature. What happens?",
+    "answer": "The Equipment becomes a 3/3 artifact creature. It immediately becomes unattached from the creature it was equipping (Equipment that's a creature can't equip a creature), but remains on the battlefield.",
+    "explanation": "Per the March of the Machines rulings and reminder text, Equipment that's a creature can't equip a creature. If it's currently attached, it becomes unattached but stays on the battlefield as a creature. You can still activate its equip ability, but it won't do anything since the Equipment is a creature.",
+    "rule_refs": [
+      "613.1d",
+      "704.5n"
+    ],
+    "cards_ref": [
+      "March of the Machines"
+    ],
+    "tags": [
+      "type-changing",
+      "equipment",
+      "creatures"
+    ]
+  },
+  {
+    "id": 243,
+    "difficulty": "interactions",
+    "question": "A player controls Oko, Thief of Crowns and uses its +1 ability (\"Target artifact or creature loses all abilities and becomes a green Elk creature with base power and toughness 3/3.\") on an opponent's commander. Is the commander still a commander?",
+    "answer": "Yes. Commander designation is an attribute of the card, not a characteristic. Oko changes the creature's abilities, types, and P/T, but the card is still a commander. It still deals commander damage and the commander tax still applies.",
+    "explanation": "Rule 903.3 states that the commander designation is not a characteristic of the object — it's an attribute of the card itself. The card retains this designation even when it changes zones or has its characteristics changed. Oko removes abilities and changes types, but the card remains a commander.",
+    "rule_refs": [
+      "903.3",
+      "613.1d",
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Oko",
+      "Thief of Crowns"
+    ],
+    "tags": [
+      "commander",
+      "type-changing",
+      "ability-removal",
+      "elk"
+    ]
+  },
+  {
+    "id": 244,
+    "difficulty": "interactions",
+    "question": "A player uses Oko's +1 ability (\"Target artifact or creature loses all abilities and becomes a green Elk creature with base power and toughness 3/3.\") on a creature. Is this effect temporary (until end of turn)?",
+    "answer": "No. The effect lasts indefinitely. It doesn't expire during the cleanup step or ever — it persists until removed by another effect or the permanent leaves the battlefield.",
+    "explanation": "Per the Oko rulings, the effects of Oko's second ability last indefinitely. They don't expire during the cleanup step or if you or Oko leave the game. The creature remains a 3/3 green Elk with no abilities until another effect overrides it or it leaves the battlefield.",
+    "rule_refs": [
+      "613.1d",
+      "613.1f",
+      "613.4b"
+    ],
+    "cards_ref": [
+      "Oko",
+      "Thief of Crowns"
+    ],
+    "tags": [
+      "type-changing",
+      "ability-removal",
+      "indefinite-duration"
+    ]
+  },
+  {
+    "id": 245,
+    "difficulty": "interactions",
+    "question": "A player controls Dauthi Voidwalker (\"If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.\"). An opponent's nontoken creature would die. Does a 'when this creature dies' ability trigger?",
+    "answer": "No. The creature is exiled instead of going to the graveyard, so it doesn't 'die.' Death triggers won't fire.",
+    "explanation": "Per the Dauthi Voidwalker rulings, while it's on the battlefield, nontoken creatures your opponents control won't die — they'll be exiled instead. Abilities that would trigger when those creatures die won't trigger. However, tokens still die normally since they are not cards.",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Dauthi Voidwalker"
+    ],
+    "tags": [
+      "replacement-effects",
+      "dies-trigger",
+      "exile-instead",
+      "tokens-vs-cards"
+    ]
+  },
+  {
+    "id": 246,
+    "difficulty": "interactions",
+    "question": "A player controls Spirit of the Labyrinth (\"Each player can't draw more than one card each turn.\"). An effect instructs the Spirit controller to draw three cards. How many do they draw?",
+    "answer": "One card. Spirit of the Labyrinth restricts ALL players, including its controller. If you've drawn zero cards this turn, you draw one; the other two draws are ignored.",
+    "explanation": "Per the Spirit of the Labyrinth rulings, if you haven't drawn any cards in a turn and a spell or ability would cause you to draw multiple cards, you'll just draw one card. Unlike Narset, Spirit of the Labyrinth affects ALL players including the controller, not just opponents.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Spirit of the Labyrinth"
+    ],
+    "tags": [
+      "draw-restriction",
+      "cant-effects",
+      "symmetrical"
+    ]
+  },
+  {
+    "id": 247,
+    "difficulty": "interactions",
+    "question": "In Commander, can a player include a card with color identity that doesn't match their commander if the card is colorless but produces mana of a color outside the commander's identity?",
+    "answer": "No. A card's color identity includes mana symbols in its rules text. If a card's rules text has mana symbols of colors not in the commander's color identity, it can't be included in the deck. However, cards that produce mana without mana symbols in their text (like 'add one mana of any color') are fine.",
+    "explanation": "Rule 903.4 states that color identity includes mana symbols in the card's mana cost or rules text. A card like Birds of Paradise (which has {T}: Add one mana of any color) has no colored mana symbols in its rules text, so its identity is green (from its mana cost only). But a card with '{T}: Add {R}' in its text has red in its identity.",
+    "rule_refs": [
+      "903.4",
+      "903.5c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "commander",
+      "color-identity",
+      "deck-construction"
+    ]
+  },
+  {
+    "id": 248,
+    "difficulty": "interactions",
+    "question": "In Commander, a player's commander is in the graveyard. When can they move it to the command zone?",
+    "answer": "The next time state-based actions are checked. If a commander is in a graveyard or in exile and was put there since the last SBA check, its owner may put it into the command zone as a state-based action.",
+    "explanation": "Rule 903.9a states that if a commander is in a graveyard or in exile and that object was put into that zone since the last time state-based actions were checked, its owner may put it into the command zone. This is a state-based action — it happens before any player receives priority. The owner can also choose to leave it in the graveyard.",
+    "rule_refs": [
+      "903.9a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "commander",
+      "command-zone",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 249,
+    "difficulty": "interactions",
+    "question": "A player controls Archon of Emeria (\"Each player can't cast more than one spell each turn. Nonbasic lands your opponents control enter tapped.\"). An opponent plays a nonbasic land that normally enters untapped if they reveal a specific card type from their hand. They reveal the correct card. Does the land enter untapped?",
+    "answer": "No. The land still enters tapped. Per Archon of Emeria's ruling, even if the land's condition is met, the Archon's ability overrides it.",
+    "explanation": "Per the Archon of Emeria rulings, if an effect says that a land enters tapped unless a condition is met or a cost is paid, that land enters tapped even if that condition is met or that cost is paid if it's affected by Archon of Emeria's ability. The Archon's 'enters tapped' is absolute for nonbasic lands opponents control.",
+    "rule_refs": [
+      "614.1d"
+    ],
+    "cards_ref": [
+      "Archon of Emeria"
+    ],
+    "tags": [
+      "enters-tapped",
+      "nonbasic-lands",
+      "hatebears",
+      "override"
+    ]
+  },
+  {
+    "id": 250,
+    "difficulty": "interactions",
+    "question": "A player controls Mycosynth Lattice (\"All permanents are artifacts in addition to their other types. All cards that aren't on the battlefield, spells, and permanents are colorless.\") and an opponent casts a spell that says 'Destroy target artifact.' Can they target any permanent with it?",
+    "answer": "Yes. Mycosynth Lattice makes all permanents artifacts in addition to their other types, so every permanent on the battlefield is a legal target for 'destroy target artifact.'",
+    "explanation": "Mycosynth Lattice's first ability makes all permanents artifacts. This means any 'destroy target artifact' or 'exile target artifact' effect can now target any permanent — lands, creatures, enchantments, planeswalkers — everything. This also means effects like Vandalblast or Shatterstorm can destroy all permanents.",
+    "rule_refs": [
+      "613.1d"
+    ],
+    "cards_ref": [
+      "Mycosynth Lattice"
+    ],
+    "tags": [
+      "type-changing",
+      "artifacts",
+      "targeting",
+      "combo"
+    ]
+  },
+  {
+    "id": 251,
+    "difficulty": "interactions",
+    "question": "A player controls Mycosynth Lattice (\"All cards that aren't on the battlefield, spells, and permanents are colorless.\"). Does this change the color identity of cards for Commander deck construction?",
+    "answer": "No. Color identity is established before the game begins and doesn't change during the game. Mycosynth Lattice makes things colorless during the game, but this has no effect on color identity.",
+    "explanation": "Rule 903.4a states that color identity is established before the game begins. If a rule or effect refers to the color identity of an object in the game, it uses the color identity established for that card as the game began. Mycosynth Lattice changes color during the game, but color and color identity are different things.",
+    "rule_refs": [
+      "903.4a"
+    ],
+    "cards_ref": [
+      "Mycosynth Lattice"
+    ],
+    "tags": [
+      "commander",
+      "color-identity",
+      "color-changing",
+      "game-vs-construction"
+    ]
+  },
+  {
+    "id": 252,
+    "difficulty": "interactions",
+    "question": "Player A controls Dauthi Voidwalker (\"If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.\") and Player B controls Leyline of the Void (\"If a card would be put into an opponent's graveyard from anywhere, exile it instead.\"). Player C's creature would die. Both replacement effects want to exile it. Who chooses which applies?",
+    "answer": "Player C (the affected player/object's controller) chooses which replacement effect to apply. They pick whichever exile replacement they prefer.",
+    "explanation": "Rule 616.1 states that when two or more replacement effects try to modify the same event, the affected object's controller chooses which to apply. Player C controls the creature that would die, so Player C chooses. If Dauthi Voidwalker's effect is chosen, the card is exiled with a void counter (Player A can later play it). If Leyline's effect is chosen, it's exiled without a void counter.",
+    "rule_refs": [
+      "616.1",
+      "616.1e"
+    ],
+    "cards_ref": [
+      "Dauthi Voidwalker",
+      "Leyline of the Void"
+    ],
+    "tags": [
+      "replacement-effects",
+      "competing-effects",
+      "multiplayer",
+      "player-choice"
+    ]
+  },
+  {
+    "id": 253,
+    "difficulty": "interactions",
+    "question": "Player A controls Dauthi Voidwalker (\"If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.\"). Player B's nontoken creature would die. Player B also controls Rest in Peace (\"If a card or token would be put into a graveyard from anywhere, exile it instead.\"). Which replacement effect applies?",
+    "answer": "Player B (the dying creature's controller) chooses. They will likely choose Rest in Peace, since it exiles without a void counter — preventing Player A from using Dauthi Voidwalker's activated ability to play the card.",
+    "explanation": "Both effects replace 'goes to graveyard' with 'exile,' but Dauthi Voidwalker adds a void counter. Per rule 616.1, the controller of the affected object (Player B's creature) chooses which replacement effect to apply. Player B would strategically choose Rest in Peace to deny Player A the void counter.",
+    "rule_refs": [
+      "616.1",
+      "616.1e"
+    ],
+    "cards_ref": [
+      "Dauthi Voidwalker",
+      "Rest in Peace"
+    ],
+    "tags": [
+      "replacement-effects",
+      "competing-effects",
+      "strategic-choice"
+    ]
+  },
+  {
+    "id": 254,
+    "difficulty": "interactions",
+    "question": "Player A controls Kalitas, Traitor of Ghet (\"If a nontoken creature an opponent controls would die, instead exile that card and create a 2/2 black Zombie creature token.\") and Player B controls Anafenza, the Foremost (\"If a nontoken creature an opponent owns would die or a creature card not on the battlefield would be put into an opponent's graveyard, exile that card instead.\"). Player C's nontoken creature would die. What happens?",
+    "answer": "Player C chooses which replacement effect to apply. Both exile the card, but Kalitas also creates a Zombie token for Player A. Player C would likely choose Anafenza's effect to deny Player A the Zombie.",
+    "explanation": "Both effects replace the creature dying with exile. Per rule 616.1, the affected object's controller (Player C) chooses. Kalitas exiles AND creates a 2/2 Zombie for Player A, while Anafenza just exiles. Player C will almost certainly pick Anafenza to deny the Zombie token. Either way, the creature is exiled and death triggers don't fire.",
+    "rule_refs": [
+      "616.1",
+      "616.1e"
+    ],
+    "cards_ref": [
+      "Kalitas",
+      "Traitor of Ghet",
+      "Anafenza",
+      "the Foremost"
+    ],
+    "tags": [
+      "replacement-effects",
+      "competing-effects",
+      "multiplayer",
+      "strategic-choice"
+    ]
+  },
+  {
+    "id": 255,
+    "difficulty": "interactions",
+    "question": "Player A controls Leyline of the Void (\"If a card would be put into an opponent's graveyard from anywhere, exile it instead.\"). Player A activates Helm of Obedience (\"Target opponent mills a card, then repeats this process until a creature card or X cards have been put into their graveyard this way.\") with X=1 targeting Player B. What happens?",
+    "answer": "Player B's entire library is exiled. Leyline of the Void exiles each card instead of putting it into the graveyard, so no cards are ever 'put into the graveyard.' Helm's condition to stop is never met, and it continues until the library is empty.",
+    "explanation": "Per the Helm of Obedience ruling, if an effect like Leyline of the Void prevents cards from being put into the opponent's graveyard, the process described by Helm never stops. Each card that would be milled is exiled instead, so neither 'a creature card' nor 'X cards' have been put into the graveyard. The entire library is exiled.",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Leyline of the Void",
+      "Helm of Obedience"
+    ],
+    "tags": [
+      "replacement-effects",
+      "combo",
+      "loop",
+      "exile-instead"
+    ]
+  },
+  {
+    "id": 256,
+    "difficulty": "interactions",
+    "question": "Player A controls Wheel of Sun and Moon (\"Enchant player. If a card would be put into enchanted player's graveyard from anywhere, instead that card is revealed and put on the bottom of that player's library.\") enchanting themselves. Player B controls Dauthi Voidwalker (\"If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.\"). Player A's creature would die. What happens?",
+    "answer": "Player A (the affected player) chooses which replacement effect applies. They will likely choose Wheel of Sun and Moon to put the card on the bottom of their library instead of having it exiled with a void counter.",
+    "explanation": "Both replacement effects want to modify 'Player A's card goes to the graveyard.' Per rule 616.1, the affected player (Player A) chooses the order. Choosing Wheel of Sun and Moon puts the card on the bottom of their library (safe from Voidwalker). Once that effect is applied, the card is no longer going to the graveyard, so Voidwalker's effect no longer applies.",
+    "rule_refs": [
+      "616.1",
+      "616.1e"
+    ],
+    "cards_ref": [
+      "Wheel of Sun and Moon",
+      "Dauthi Voidwalker"
+    ],
+    "tags": [
+      "replacement-effects",
+      "competing-effects",
+      "library",
+      "strategic-choice"
+    ]
+  },
+  {
+    "id": 257,
+    "difficulty": "interactions",
+    "question": "Player A controls Rest in Peace (\"If a card or token would be put into a graveyard from anywhere, exile it instead.\"). Player B controls Mikaeus, the Unhallowed (\"Other non-Human creatures you control get +1/+1 and have undying.\"). Player B's non-Human creature with no +1/+1 counters would die. Does undying return it?",
+    "answer": "No. Rest in Peace exiles the creature instead of putting it into the graveyard. Since the creature never 'dies' (never reaches the graveyard), undying never triggers.",
+    "explanation": "Undying triggers 'when a creature with undying dies.' Dying means going from the battlefield to the graveyard. Rest in Peace replaces this: the creature is exiled instead. Since it never reaches the graveyard, it never dies, and undying doesn't trigger. The creature is simply exiled.",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Rest in Peace",
+      "Mikaeus",
+      "the Unhallowed"
+    ],
+    "tags": [
+      "replacement-effects",
+      "undying",
+      "dies-trigger",
+      "exile-instead"
+    ]
+  },
+  {
+    "id": 258,
+    "difficulty": "interactions",
+    "question": "Player A controls Kalitas, Traitor of Ghet (\"If a nontoken creature an opponent controls would die, instead exile that card and create a 2/2 black Zombie creature token.\"). Player B's creature dies. Does Player B's Blood Artist (\"Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.\") trigger?",
+    "answer": "No. Kalitas exiles the creature instead of it dying. Since the creature is exiled and never goes to the graveyard, it doesn't 'die,' so Blood Artist doesn't trigger for it.",
+    "explanation": "Per the Kalitas rulings, abilities that trigger whenever a creature an opponent controls dies won't trigger unless that creature is a token. Kalitas's replacement effect means the creature is exiled, not put into the graveyard. Since it doesn't die, Blood Artist has no trigger event.",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Kalitas",
+      "Traitor of Ghet",
+      "Blood Artist"
+    ],
+    "tags": [
+      "replacement-effects",
+      "dies-trigger",
+      "exile-instead",
+      "tokens-exception"
+    ]
+  },
+  {
+    "id": 259,
+    "difficulty": "interactions",
+    "question": "Player A controls Kalitas, Traitor of Ghet (\"If a nontoken creature an opponent controls would die, instead exile that card and create a 2/2 black Zombie creature token.\"). An opponent's CREATURE TOKEN would die. Does Kalitas exile it and create a Zombie?",
+    "answer": "No. Kalitas only replaces the death of nontoken creatures. Creature tokens die normally (go to the graveyard briefly, then cease to exist). No Zombie is created for token deaths.",
+    "explanation": "Kalitas's replacement effect specifies 'nontoken creature.' Token creatures are not affected. Per the Kalitas rulings, if a creature token an opponent controls dies, it goes to that player's graveyard as normal before ceasing to exist. Token deaths will trigger abilities that care about creatures dying.",
+    "rule_refs": [
+      "614.6",
+      "704.5d"
+    ],
+    "cards_ref": [
+      "Kalitas",
+      "Traitor of Ghet"
+    ],
+    "tags": [
+      "replacement-effects",
+      "tokens-vs-cards",
+      "dies-trigger"
+    ]
+  },
+  {
+    "id": 260,
+    "difficulty": "interactions",
+    "question": "A player controls Yawgmoth's Will (\"Until end of turn, you may play lands and cast spells from your graveyard. If a card would be put into your graveyard from anywhere this turn, exile that card instead.\") and casts a Lightning Bolt from their graveyard. Where does Lightning Bolt go after it resolves?",
+    "answer": "It is exiled. Yawgmoth's Will has a replacement effect that exiles any card that would be put into your graveyard this turn. When the spell resolves and would go to the graveyard, it's exiled instead.",
+    "explanation": "Yawgmoth's Will's second sentence is a replacement effect: if a card would be put into your graveyard from anywhere this turn, exile it instead. This applies to spells resolving (which would normally go to the graveyard), cards being discarded, creatures dying, etc. Everything that would hit your graveyard this turn gets exiled.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Yawgmoth's Will"
+    ],
+    "tags": [
+      "replacement-effects",
+      "exile-instead",
+      "graveyard-casting"
+    ]
+  },
+  {
+    "id": 262,
+    "difficulty": "interactions",
+    "question": "In a four-player game, Player A controls Dictate of Erebos (\"Whenever a creature you control dies, each opponent sacrifices a creature of their choice.\") and Player B controls It That Betrays (\"Whenever an opponent sacrifices a nontoken permanent, put that card onto the battlefield under your control.\"). Player A's creature dies, forcing Players B, C, and D to each sacrifice a creature. Player B's It That Betrays sees Players C and D sacrificing. What happens?",
+    "answer": "Player B's It That Betrays triggers for each nontoken permanent sacrificed by Players C and D (who are Player B's opponents). Player B gets those creatures. It does NOT trigger for Player B's own sacrifice.",
+    "explanation": "It That Betrays triggers whenever an opponent sacrifices a nontoken permanent. Players C and D are Player B's opponents, so when they sacrifice, Player B's It That Betrays triggers and puts those cards onto the battlefield under Player B's control. Player B's own sacrifice does not trigger it because Player B is not their own opponent.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Dictate of Erebos",
+      "It That Betrays"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "sacrifice",
+      "multiplayer",
+      "opponent-detection"
+    ]
+  },
+  {
+    "id": 264,
+    "difficulty": "interactions",
+    "question": "A player controls Planar Void (\"Whenever another card is put into a graveyard from anywhere, exile that card.\") and Rest in Peace (\"If a card or token would be put into a graveyard from anywhere, exile it instead.\"). A card would go to the graveyard. How do these interact?",
+    "answer": "Rest in Peace's replacement effect applies first — the card is exiled instead of going to the graveyard. Planar Void never triggers because the card never actually reaches the graveyard.",
+    "explanation": "Rest in Peace is a replacement effect ('instead'), which modifies the event before it happens. Planar Void is a triggered ability ('whenever') that triggers after the event occurs. Since Rest in Peace prevents the card from ever reaching the graveyard, Planar Void's trigger condition is never met. Replacement effects apply before triggered abilities can see the event.",
+    "rule_refs": [
+      "614.1a",
+      "603.2"
+    ],
+    "cards_ref": [
+      "Rest in Peace",
+      "Planar Void"
+    ],
+    "tags": [
+      "replacement-vs-triggered",
+      "exile-instead",
+      "graveyard"
+    ]
+  },
+  {
+    "id": 265,
+    "difficulty": "interactions",
+    "question": "A player controls Planar Void (\"Whenever another card is put into a graveyard from anywhere, exile that card.\"). A creature dies. Does the creature briefly exist in the graveyard?",
+    "answer": "Yes. Planar Void is a triggered ability, not a replacement effect. The card goes to the graveyard, which triggers Planar Void, and then the card is exiled when the trigger resolves. Abilities that trigger on the creature dying (going to the graveyard) WILL trigger.",
+    "explanation": "Per the Planar Void rulings, the card does go to the graveyard before it is exiled, so other triggered abilities will trigger on the card going to the graveyard. Compare this to Rest in Peace/Leyline of the Void, which are replacement effects that prevent the card from ever reaching the graveyard.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Planar Void"
+    ],
+    "tags": [
+      "triggered-vs-replacement",
+      "graveyard",
+      "dies-trigger"
+    ]
+  },
+  {
+    "id": 266,
+    "difficulty": "interactions",
+    "question": "Player A controls Samurai of the Pale Curtain (\"If a permanent would be put into a graveyard, exile it instead.\"). Player A also controls Zulaport Cutthroat (\"Whenever this creature or another creature you control dies, each opponent loses 1 life and you gain 1 life.\"). Player A's creature is destroyed. Does Zulaport Cutthroat trigger?",
+    "answer": "No. Samurai of the Pale Curtain exiles the creature instead of it going to the graveyard. Since the creature doesn't 'die' (doesn't go from battlefield to graveyard), Zulaport Cutthroat doesn't trigger.",
+    "explanation": "Samurai of the Pale Curtain's replacement effect applies to ALL permanents, including your own. The creature is exiled instead of dying. 'Dies' means 'goes to the graveyard from the battlefield,' and since the creature never reaches the graveyard, it doesn't die. This hurts the Samurai controller's own death triggers.",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Samurai of the Pale Curtain",
+      "Zulaport Cutthroat"
+    ],
+    "tags": [
+      "replacement-effects",
+      "dies-trigger",
+      "self-harm",
+      "exile-instead"
+    ]
+  },
+  {
+    "id": 267,
+    "difficulty": "interactions",
+    "question": "A player controls Marchesa, the Black Rose (\"Whenever a creature you control with a +1/+1 counter on it dies, return that card to the battlefield under your control at the beginning of the next end step.\") and an opponent controls Anafenza, the Foremost (\"If a nontoken creature an opponent owns would die, exile that card instead.\"). A creature the Marchesa player controls with a +1/+1 counter on it would die. What happens?",
+    "answer": "The creature is exiled by Anafenza's replacement effect instead of dying. Since it never dies, Marchesa's ability doesn't trigger and the creature is not returned to the battlefield.",
+    "explanation": "Anafenza's replacement effect changes 'goes to the graveyard' to 'exiled instead.' The creature never dies (never reaches the graveyard from the battlefield), so Marchesa's triggered ability — which requires the creature to die — never triggers. The creature stays in exile permanently.",
+    "rule_refs": [
+      "614.6",
+      "603.2"
+    ],
+    "cards_ref": [
+      "Marchesa",
+      "the Black Rose",
+      "Anafenza",
+      "the Foremost"
+    ],
+    "tags": [
+      "replacement-effects",
+      "dies-trigger",
+      "exile-instead",
+      "return-to-battlefield"
+    ]
+  },
+  {
+    "id": 268,
+    "difficulty": "interactions",
+    "question": "Player A controls Mikaeus, the Unhallowed (\"Other non-Human creatures you control get +1/+1 and have undying.\") and Solemnity (\"Counters can't be put on artifacts, creatures, enchantments, or lands.\"). Player A's non-Human creature with no +1/+1 counters dies. What happens?",
+    "answer": "The creature dies, undying triggers and returns it to the battlefield. Solemnity prevents the +1/+1 counter from being placed on it. The creature has undying and no +1/+1 counter. \n\nIf it dies again, undying triggers again — potentially creating an infinite loop of dying and returning.",
+    "explanation": "Undying returns a creature that died without +1/+1 counters. Solemnity prevents the +1/+1 counter from being placed on it when it returns. So the creature always has no +1/+1 counters, meaning undying triggers every time it dies. Combined with a sacrifice outlet, this creates an infinite loop.",
+    "rule_refs": [
+      "614.17",
+      "603.2"
+    ],
+    "cards_ref": [
+      "Mikaeus",
+      "the Unhallowed",
+      "Solemnity"
+    ],
+    "tags": [
+      "undying",
+      "cant-effects",
+      "infinite-combo",
+      "counters"
+    ]
+  },
+  {
+    "id": 269,
+    "difficulty": "interactions",
+    "question": "In a multiplayer game, two players (A and B) each control a Dauthi Voidwalker (\"If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.\"). Player C discards a card. Both Voidwalkers want to exile it. Who decides?",
+    "answer": "Player C (the affected player) chooses which Dauthi Voidwalker's replacement effect applies. The card is exiled with a void counter either way, but the choice matters because the void counter determines which player can later play the exiled card.",
+    "explanation": "Rule 616.1 states the affected player chooses when multiple replacement effects compete. Player C chooses which Voidwalker's effect applies, which determines who gets the void counter and thus who can sacrifice their Voidwalker to play the card. Player C would strategically pick the less threatening opponent.",
+    "rule_refs": [
+      "616.1",
+      "616.1e"
+    ],
+    "cards_ref": [
+      "Dauthi Voidwalker"
+    ],
+    "tags": [
+      "replacement-effects",
+      "competing-effects",
+      "multiplayer",
+      "strategic-choice"
+    ]
+  },
+  {
+    "id": 271,
+    "difficulty": "interactions",
+    "question": "In a multiplayer game, Player A controls Rest in Peace (\"If a card or token would be put into a graveyard from anywhere, exile it instead.\"). Player B controls Erebos, Bleak-Hearted (\"Whenever another creature you control dies, you may pay 2 life. If you do, draw a card.\"). Player B's creature is destroyed. Does Player B get to draw?",
+    "answer": "No. Rest in Peace exiles the creature instead of it going to the graveyard. The creature never 'dies,' so Erebos's triggered ability doesn't trigger and Player B can't draw a card.",
+    "explanation": "Rest in Peace's replacement effect applies to all cards and tokens, regardless of who controls them. Player B's creature is exiled instead of going to the graveyard. Since it doesn't die (doesn't go to graveyard from battlefield), Erebos's 'whenever another creature you control dies' ability has no trigger event.",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Rest in Peace",
+      "Erebos",
+      "Bleak-Hearted"
+    ],
+    "tags": [
+      "replacement-effects",
+      "dies-trigger",
+      "exile-instead",
+      "symmetrical"
+    ]
+  },
+  {
+    "id": 272,
+    "difficulty": "2hg",
+    "question": "In a Two-Headed Giant game, what is each team's starting life total?",
+    "answer": "30 life. Each team shares a single life total that starts at 30.",
+    "explanation": "Rule 810.4 states that each team has a shared life total, which starts at 30 life. This is lower than two individual starting totals added together (20 + 20 = 40 in normal multiplayer). Both players on a team share this single number.",
+    "rule_refs": [
+      "810.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "life-total",
+      "starting-life",
+      "shared"
+    ]
+  },
+  {
+    "id": 273,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, does the team that goes first skip their draw step on the first turn?",
+    "answer": "Yes. In a Two-Headed Giant game, the team who plays first skips the draw step of their first turn.",
+    "explanation": "Rule 810.6 states that the team who plays first skips the draw step of its first turn. This is different from other multiplayer formats where the starting player does NOT skip their draw step (rule 800.7).",
+    "rule_refs": [
+      "810.6",
+      "800.7"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draw-step",
+      "first-turn",
+      "team"
+    ]
+  },
+  {
+    "id": 274,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, if an effect needs to know an individual player's life total (for example, a card that says 'you gain life equal to your life total'), what value does it use?",
+    "answer": "It uses the team's shared life total. If a cost or effect needs to know an individual player's life total, it uses the team's life total instead.",
+    "explanation": "Rule 810.9a states that if a cost or effect needs to know the value of an individual player's life total, that cost or effect uses the team's life total instead. So if the team has 25 life, each individual player is considered to have 25 life for any card that checks.",
+    "rule_refs": [
+      "810.9a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "life-total",
+      "shared",
+      "individual-check"
+    ]
+  },
+  {
+    "id": 275,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, Player A controls Serra Ascendant (\"As long as you have 30 or more life, this creature gets +5/+5 and has flying.\"). The team's life total is 28. Does Serra Ascendant get the bonus?",
+    "answer": "No. The team's life total is 28, which is less than 30. Serra Ascendant checks the team's shared life total, so it doesn't get the bonus.",
+    "explanation": "Per the Serra Ascendant rulings, in a Two-Headed Giant game, anything that cares about your life total checks your team's life total. Since the team's life total is 28, which is less than 30, Serra Ascendant doesn't get +5/+5 or flying. At the start of the game with 30 life, however, it would immediately be a 6/6 flyer.",
+    "rule_refs": [
+      "810.9a"
+    ],
+    "cards_ref": [
+      "Serra Ascendant"
+    ],
+    "tags": [
+      "life-total",
+      "threshold",
+      "team-life"
+    ]
+  },
+  {
+    "id": 276,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, Player A controls Felidar Sovereign (\"At the beginning of your upkeep, if you have 40 or more life, you win the game.\"). The team's life total is 42. Does the team win?",
+    "answer": "Yes. Felidar Sovereign checks the team's shared life total, and 42 is 40 or more, so the win condition is met. If either player on a team wins, the entire team wins.",
+    "explanation": "Per the Felidar Sovereign rulings, in a Two-Headed Giant game, your life total is the same as your team's life total. The team has 42 life, so the condition is met. Rule 810.8a states that if either player on a team wins the game, the entire team wins.",
+    "rule_refs": [
+      "810.9a",
+      "810.8a"
+    ],
+    "cards_ref": [
+      "Felidar Sovereign"
+    ],
+    "tags": [
+      "life-total",
+      "win-condition",
+      "team-life"
+    ]
+  },
+  {
+    "id": 277,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, an effect would set a single player's life total to 10. For example, Sorin Markov's ability (\"Target opponent's life total becomes 10.\") targets one opponent. What happens to the team's life total?",
+    "answer": "The targeted player gains or loses the necessary amount of life, and the team's life total is adjusted by that amount. For example, if the team has 26 life, the player 'loses 16 life' and the team goes to 10.",
+    "explanation": "Rule 810.9c states that if an effect sets a single player's life total to a specific number, the player gains or loses the necessary amount of life. The team's life total is adjusted by that amount. Per the Sorin Markov rulings, in 2HG this basically causes the team's life total to become 10, but only the targeted player is considered to have gained or lost life.",
+    "rule_refs": [
+      "810.9c"
+    ],
+    "cards_ref": [
+      "Sorin Markov"
+    ],
+    "tags": [
+      "life-total",
+      "life-setting",
+      "team-life"
+    ]
+  },
+  {
+    "id": 278,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, Magister Sphinx (\"When this creature enters, target player's life total becomes 10.\") enters the battlefield and targets an opponent. The opposing team's life total is 24. What happens?",
+    "answer": "The targeted player 'loses 14 life' and the team's life total goes from 24 to 10. Only the targeted player is considered to have lost life, not their teammate.",
+    "explanation": "Per the Magister Sphinx rulings, in a Two-Headed Giant game, this ability basically causes the team's life total to become 10, but only the targeted player is considered to have actually gained or lost life. The team goes from 24 to 10 (a loss of 14), and only the targeted player is tracked as having lost that life.",
+    "rule_refs": [
+      "810.9c"
+    ],
+    "cards_ref": [
+      "Magister Sphinx"
+    ],
+    "tags": [
+      "life-total",
+      "life-setting",
+      "team-life"
+    ]
+  },
+  {
+    "id": 279,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, if both members of a team would have their life totals set to a number simultaneously (for example, by a Biorhythm-like effect), what happens?",
+    "answer": "The team chooses one of its members to be affected. Only that player's life change applies to the team's life total.",
+    "explanation": "Rule 810.9d states that if an effect would set the life total of each player on a team to a number, that team chooses one of its members. On that team, only that player is affected. The team would choose the member whose life change is most favorable.",
+    "rule_refs": [
+      "810.9d"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "life-total",
+      "life-setting",
+      "team-choice"
+    ]
+  },
+  {
+    "id": 280,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, can a player exchange life totals with their teammate?",
+    "answer": "No. A player can't exchange life totals with their teammate. If an effect would cause this to happen, the exchange simply doesn't occur.",
+    "explanation": "Rule 810.9e states that a player can't exchange life totals with their teammate. If an effect would cause that to occur, the exchange won't happen. Since both players share the same life total, an exchange between them would be meaningless, so the rules simply prohibit it.",
+    "rule_refs": [
+      "810.9e"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "life-total",
+      "exchange",
+      "teammate"
+    ]
+  },
+  {
+    "id": 281,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, if an effect says a player 'can't gain life,' what happens to their teammate?",
+    "answer": "Neither player on the team can gain life. If an effect says that a player can't gain life, no player on that player's team can gain life.",
+    "explanation": "Rule 810.9g states that if an effect says that a player can't gain life, no player on that player's team can gain life. This applies to both the affected player and their teammate — the entire team is prevented from gaining life.",
+    "rule_refs": [
+      "810.9g"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "life-gain",
+      "cant-effects",
+      "team-wide"
+    ]
+  },
+  {
+    "id": 282,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, how many poison counters does a team need to lose the game?",
+    "answer": "15 poison counters. In 2HG, poison counters are shared by the team, and the team loses at 15 (not the normal 10).",
+    "explanation": "Rule 810.8d states that if a team has fifteen or more poison counters, that team loses the game. This is higher than the normal 10-counter threshold because the team shares poison counters (rule 810.10). The normal rule of losing at 10 is replaced by rule 704.6b for 2HG.",
+    "rule_refs": [
+      "810.8d",
+      "810.10"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "poison",
+      "losing",
+      "team-shared"
+    ]
+  },
+  {
+    "id": 283,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, teams take turns rather than individual players. During a team's turn, how many lands can each player on the team play?",
+    "answer": "Each player may play one land during their team's turn. Both teammates can each play a land.",
+    "explanation": "Rule 805.4c states that each player on a team may play a land during each of that team's turns. So both players get their normal land drop during the shared turn — the team doesn't share a single land play.",
+    "rule_refs": [
+      "805.4c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "shared-turns",
+      "lands",
+      "team"
+    ]
+  },
+  {
+    "id": 284,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, during the team's draw step, how many cards does each player draw?",
+    "answer": "Each player on the team draws one card. Both teammates draw during the same draw step.",
+    "explanation": "Rule 805.4b states that each player on a team draws a card during that team's draw step. This means the team draws two cards total (one per player) during the draw step.",
+    "rule_refs": [
+      "805.4b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "shared-turns",
+      "draw",
+      "team"
+    ]
+  },
+  {
+    "id": 285,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, if teammates disagree about a game choice (like which creatures to attack with), who makes the decision?",
+    "answer": "The primary player (the player seated in the rightmost seat from the team's perspective) makes the decision. Teammates may discuss, but the primary player has final say.",
+    "explanation": "Rule 805.2 states that within each team, the player seated in the rightmost seat from that team's perspective is the primary player. If the players on a team can't agree on a choice, the primary player makes that choice.",
+    "rule_refs": [
+      "805.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "shared-turns",
+      "decision-making",
+      "primary-player"
+    ]
+  },
+  {
+    "id": 286,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, a player controls Ghostly Prison (\"Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.\"). How much must the opposing team pay to attack that player with one creature?",
+    "answer": "{2} — you pay only once per creature, not once per player. In the Two-Headed Giant format, you still only have to pay once per creature.",
+    "explanation": "Per the Ghostly Prison rulings, in the Two-Headed Giant format, you still only have to pay once per creature. The attacking team pays {2} for each creature attacking that specific player, not {2} per player on the defending team.",
+    "rule_refs": [
+      "805.10"
+    ],
+    "cards_ref": [
+      "Ghostly Prison"
+    ],
+    "tags": [
+      "attack-costs",
+      "2hg-specific",
+      "combat"
+    ]
+  },
+  {
+    "id": 287,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, Player A controls Grave Pact (\"Whenever a creature you control dies, each other player sacrifices a creature of their choice.\"). A creature Player A controls dies. Does Player A's teammate have to sacrifice a creature?",
+    "answer": "Yes. Grave Pact says 'each other player,' which includes your teammate. Your teammate must sacrifice a creature along with both opponents.",
+    "explanation": "Per the Grave Pact rulings, in a Two-Headed Giant game, when a creature you control dies, Grave Pact's triggered ability will cause each other player, including your teammate, to sacrifice a creature. Grave Pact doesn't say 'each opponent' — it says 'each other player,' which includes allies.",
+    "rule_refs": [
+      "805.4"
+    ],
+    "cards_ref": [
+      "Grave Pact"
+    ],
+    "tags": [
+      "sacrifice",
+      "teammate",
+      "each-other-player"
+    ]
+  },
+  {
+    "id": 288,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, Player A controls Quietus Spike (\"Whenever equipped creature deals combat damage to a player, that player loses half their life, rounded up.\") on a creature that deals combat damage to an opponent. The opposing team's life total is 19. How much life does the team lose?",
+    "answer": "10 life. Quietus Spike looks at the player's life total (which is the team's life total of 19), and the team loses half rounded up: 10. The team goes from 19 to 9.",
+    "explanation": "Per the Quietus Spike rulings, in 2HG, the Spike looks at that player's life total (which equals the team's life total) when determining loss. Half of 19 rounded up is 10. The team loses 10 life, going from 19 to 9. This makes Quietus Spike devastating in 2HG since it works off the full team life total.",
+    "rule_refs": [
+      "810.9a"
+    ],
+    "cards_ref": [
+      "Quietus Spike"
+    ],
+    "tags": [
+      "life-loss",
+      "halving",
+      "team-life"
+    ]
+  },
+  {
+    "id": 289,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, how does combat work? Can creatures controlled by different players on the defending team block the same attacker?",
+    "answer": "Yes. The defending team has one combined block — creatures controlled by any defending player can block any attacker. The defending team declares all blocks together.",
+    "explanation": "Rule 805.10d states that as the declare blockers step begins, the defending team declares blockers. Creatures controlled by the defending players can block creatures attacking any player on the defending team. The defending team has one combined block, and the set of blocking creatures must be legal as a whole.",
+    "rule_refs": [
+      "805.10d"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "blocking",
+      "shared-turns",
+      "team"
+    ]
+  },
+  {
+    "id": 290,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, the active team declares attackers. When declaring attackers, each attacking creature must be assigned to attack a specific defending player. Can both teammates be attacked simultaneously?",
+    "answer": "Yes. Different creatures can be assigned to attack different defending players, planeswalkers, or battles. The active team has one combined attack.",
+    "explanation": "Rule 805.10b states that as the declare attackers step begins, the active team declares attackers. For each attacking creature, the attacking team announces which defending player, planeswalker, or battle that creature is attacking. The active team has one combined attack — different creatures can target different defending players.",
+    "rule_refs": [
+      "805.10b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "attacking",
+      "shared-turns",
+      "team"
+    ]
+  },
+  {
+    "id": 291,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, if either player on a team loses the game (for example, from a card that says 'you lose the game'), what happens?",
+    "answer": "The entire team loses the game. If either player on a team loses, the team loses. Similarly, if either player wins, the team wins.",
+    "explanation": "Rule 810.8a states that players win and lose the game only as a team, not as individuals. If either player on a team loses the game, the team loses the game. If either player on a team wins the game, the entire team wins. If an effect says a player can't win, that player's team can't win. If an effect says a player can't lose, that player's team can't lose.",
+    "rule_refs": [
+      "810.8a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "winning",
+      "losing",
+      "team",
+      "individual-effects"
+    ]
+  },
+  {
+    "id": 292,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, who has priority — individual players or teams?",
+    "answer": "Teams have priority, not individual players. However, any player on the team that has priority may cast spells, activate abilities, or take special actions.",
+    "explanation": "Rule 805.5 states that teams have priority, not individual players. Rule 805.5a clarifies that a player may cast a spell, activate an ability, or take a special action when their team has priority. Either teammate can act when the team has priority — they don't take turns.",
+    "rule_refs": [
+      "805.5",
+      "805.5a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "team",
+      "shared-turns"
+    ]
+  },
+  {
+    "id": 293,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, how does 'passing' work? If one player on the active team wants to pass but their teammate wants to cast a spell, does the team pass?",
+    "answer": "No. The team only passes when NO player on the team wishes to do anything. If either teammate wants to act, the team hasn't passed.",
+    "explanation": "Rule 805.5b states that if a team has priority and no player on that team wishes to do anything, that team passes. Both players must agree to pass — if either wants to act, the team retains priority. If all teams pass in succession, the top stack object resolves or the phase/step ends.",
+    "rule_refs": [
+      "805.5b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "passing",
+      "team",
+      "shared-turns"
+    ]
+  },
+  {
+    "id": 294,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, both teammates want to cast instants during the opponent's combat phase. Can they both cast spells before the team passes priority?",
+    "answer": "Yes. When a team has priority, any player on that team can cast spells or activate abilities. Multiple players can act in sequence before the team passes. After each spell is cast, the team receives priority again.",
+    "explanation": "Rule 805.5a says a player may cast a spell when their team has priority. Rule 117.3c says the player receives priority after casting. In 2HG, this means the team gets priority back. Either teammate can then act again. The team only passes when both players are done.",
+    "rule_refs": [
+      "805.5a",
+      "117.3c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "casting",
+      "team",
+      "multiple-actions"
+    ]
+  },
+  {
+    "id": 295,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, multiple triggered abilities from both teammates trigger simultaneously. Who chooses the order they go on the stack?",
+    "answer": "The members of the active team put all triggered abilities any of them controls on the stack in any order they choose. Then the nonactive team does the same.",
+    "explanation": "Rule 805.7 states that if multiple triggered abilities have triggered since the last time a team received priority, the members of the active team put all triggered abilities any of them controls on the stack in any order they choose, then the members of each nonactive team in turn order do the same. Teammates collaborate on ordering.",
+    "rule_refs": [
+      "805.7"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered-abilities",
+      "stack-order",
+      "team",
+      "ordering"
+    ]
+  },
+  {
+    "id": 296,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, an ability says 'At the beginning of each player's upkeep, that player loses 1 life.' The active team's turn begins. How many times does this trigger?",
+    "answer": "Twice — once for each player on the active team. The ability triggers separately for each player.",
+    "explanation": "Rule 805.4d states that an ability that triggers at the beginning of a step or phase may trigger multiple times if it triggers at the beginning of 'each player's' step or phase. These abilities trigger once for each appropriate player if the ability's trigger condition, effect, or intervening 'if' clause refers to 'that player' or similar.",
+    "rule_refs": [
+      "805.4d"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered-abilities",
+      "each-player",
+      "shared-turns",
+      "upkeep"
+    ]
+  },
+  {
+    "id": 297,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, an ability says 'At the beginning of your upkeep, draw a card.' Only one player on the team controls this permanent. Does the ability trigger once or twice?",
+    "answer": "Once. The ability says 'your upkeep,' not 'each player's upkeep.' There is one shared upkeep, so it triggers once.",
+    "explanation": "Rule 805.4d applies to abilities that trigger at the beginning of 'each player's' step or phase, causing them to trigger multiple times. An ability that says 'your upkeep' or 'the upkeep' triggers only once during the shared upkeep step because there is only one upkeep per team turn.",
+    "rule_refs": [
+      "805.4d"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered-abilities",
+      "your-vs-each",
+      "shared-turns",
+      "upkeep"
+    ]
+  },
+  {
+    "id": 298,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, an ability refers to 'the active player.' Both players on the active team are active. Which one does the ability refer to?",
+    "answer": "The ability's controller chooses which one the ability refers to at the time its effect is applied.",
+    "explanation": "Rule 805.9 states that any ability that refers to the 'active player' refers to one specific active player, not to all of the active players. The ability's controller chooses which one the ability refers to at the time its effect is applied.",
+    "rule_refs": [
+      "805.9"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "active-player",
+      "shared-turns",
+      "choice"
+    ]
+  },
+  {
+    "id": 299,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, if multiple players are instructed to draw cards simultaneously (for example, from a spell that says 'each player draws two cards'), in what order do the draws happen?",
+    "answer": "First each player on the active team performs their draws (in whatever order the team likes), then each player on the nonactive team does the same.",
+    "explanation": "Rule 805.6a states that if more than one player is instructed to draw cards in a game using the shared team turns option, first each player on the active team, in whatever order that team likes, performs their draws, then each player on each nonactive team in turn order does the same.",
+    "rule_refs": [
+      "805.6a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draw",
+      "simultaneous",
+      "team-order",
+      "shared-turns"
+    ]
+  },
+  {
+    "id": 300,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, can teammates look at each other's hands and discuss strategy openly?",
+    "answer": "Yes. Teammates may review each other's hands and discuss strategies at any time. However, teammates can't manipulate each other's cards or permanents.",
+    "explanation": "Rule 810.5 states that with the exception of life total and poison counters, a team's resources (cards in hand, mana, and so on) are not shared. However, teammates may review each other's hands and discuss strategies at any time. They can't manipulate each other's cards or permanents — each player controls their own.",
+    "rule_refs": [
+      "810.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "communication",
+      "hands",
+      "team",
+      "resources"
+    ]
+  },
+  {
+    "id": 301,
+    "difficulty": "2hg",
+    "question": "In Two-Headed Giant, can a player on the active team tap their teammate's creature to pay a cost (like crewing a Vehicle or convoke)?",
+    "answer": "No. Teammates can't manipulate each other's cards or permanents. Each player controls only their own permanents — you can't tap, sacrifice, or otherwise use your teammate's permanents to pay your costs.",
+    "explanation": "Rule 810.5 states that teammates can't manipulate each other's cards or permanents. While teammates share a life total and can discuss strategy, each player's mana, cards, and permanents are separate. You can only use permanents you control to pay costs.",
+    "rule_refs": [
+      "810.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "resources",
+      "team",
+      "manipulation",
+      "costs"
+    ]
   }
 ]
