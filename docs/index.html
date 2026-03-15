@@ -271,8 +271,20 @@
       }
       if (question.cards_ref && question.cards_ref.length > 0) {
         const p = document.createElement('p');
-        p.innerHTML = '<strong>Cards:</strong> ' +
-          question.cards_ref.map(c => `<span class="tag">${c}</span>`).join(' ');
+        const label = document.createElement('strong');
+        label.textContent = 'Cards: ';
+        p.appendChild(label);
+        question.cards_ref.forEach((c, i) => {
+          if (i > 0) p.appendChild(document.createTextNode(' '));
+          const a = document.createElement('a');
+          a.href = 'https://scryfall.com/search?q=!' + encodeURIComponent('"' + c + '"');
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.className = 'tag rule-tag';
+          a.textContent = c;
+          a.title = 'View ' + c + ' on Scryfall';
+          p.appendChild(a);
+        });
         container.appendChild(p);
       }
     }
