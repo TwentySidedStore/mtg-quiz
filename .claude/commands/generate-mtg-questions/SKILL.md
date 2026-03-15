@@ -6,7 +6,7 @@ description: Generate MTG rules quiz questions for a specified difficulty level.
 Generate Magic: The Gathering rules quiz questions for the specified difficulty level.
 
 Usage: /generate-mtg-questions [level] [count]
-- level: fundamentals, multiplayer, 2hg, stack_triggers, interactions, edge_cases
+- level: fundamentals, multiplayer, 2hg, stack_triggers, interactions, edge_cases, event_procedures
 - count: number of questions to generate (default 25)
 
 The user's input is: $ARGUMENTS
@@ -15,7 +15,7 @@ The user's input is: $ARGUMENTS
 
 Parse the arguments. First argument is the difficulty level, second (optional) is the count (default 25). If the level is missing or invalid, ask the user which level they want.
 
-Valid levels: fundamentals, multiplayer, 2hg, stack_triggers, interactions, edge_cases
+Valid levels: fundamentals, multiplayer, 2hg, stack_triggers, interactions, edge_cases, event_procedures
 
 ## Step 2: Read the relevant CR sections
 
@@ -29,6 +29,7 @@ Read the Comprehensive Rules from `data/comprehensive_rules.txt`. Use Grep to fi
 | `stack_triggers` | 603-605 (triggered abilities, static abilities, mana abilities), 117 (timing/priority), 608 (resolving) |
 | `interactions` | 613-616 (interaction of continuous effects, replacement effects), 704 (state-based actions), 903 (commander) |
 | `edge_cases` | 613 (layers), 614 (replacement effects), 706 (copying), 305.7 (Blood Moon type interactions) |
+| `event_procedures` | No CR sections needed. Questions are about Regular REL event procedures: missed triggers, game errors, extra cards drawn, deck problems, unwanted behaviors, serious problems, and judge calls. Reference the JAR (Judging at Regular) document for guidance. |
 
 ## Step 3: Query MTGJSON for relevant cards
 

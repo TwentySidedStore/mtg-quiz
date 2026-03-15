@@ -16,7 +16,7 @@ MTGJSON_META_URL = "https://mtgjson.com/api/v5/Meta.json"
 MTGJSON_SQLITE_URL = "https://mtgjson.com/api/v5/AllPrintings.sqlite"
 MTGJSON_SHA256_URL = "https://mtgjson.com/api/v5/AllPrintings.sqlite.sha256"
 
-DIFFICULTY_LEVELS = %w[fundamentals multiplayer 2hg stack_triggers interactions edge_cases].freeze
+DIFFICULTY_LEVELS = %w[fundamentals multiplayer 2hg stack_triggers interactions edge_cases event_procedures].freeze
 
 namespace :data do
   desc "Download MTGJSON (auto version check) + Comprehensive Rules (prompts for URL)"

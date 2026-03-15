@@ -6,7 +6,7 @@ QUESTIONS_DB = File.expand_path("../data/questions.sqlite", __dir__)
 REVIEW_DIR = File.expand_path("../review", __dir__)
 
 VALID_STATUSES = %w[pending approved rejected].freeze
-VALID_DIFFICULTIES = %w[fundamentals multiplayer 2hg stack_triggers interactions edge_cases].freeze
+VALID_DIFFICULTIES = %w[fundamentals multiplayer 2hg stack_triggers interactions edge_cases event_procedures].freeze
 
 def open_db
   db = SQLite3::Database.new(QUESTIONS_DB)

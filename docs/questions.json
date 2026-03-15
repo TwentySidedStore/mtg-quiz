@@ -8009,7 +8009,7 @@
   },
   {
     "id": 457,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "A player casts a creature and says 'it resolves.' The opponent says 'wait, I want to respond.' The creature isn't on the battlefield yet. Who is right?",
     "answer": "The opponent is right to want to respond. A spell doesn't resolve just because the caster says so. After a spell is cast, the caster gets priority. If they pass, the opponent gets priority and can respond. Both must pass for the spell to resolve.",
     "explanation": "Rule 117.4 says all players must pass in succession for the top spell to resolve. The caster can't skip this. At events, saying 'it resolves' is shorthand for 'I pass priority,' but the opponent always gets a chance to act before a spell resolves.",
@@ -8026,7 +8026,7 @@
   },
   {
     "id": 458,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "A player says 'I'll move to combat' and the opponent says 'OK.' Can the player now go back to their main phase to cast a creature?",
     "answer": "No. Once both players agree to move to the combat phase, you can't go back. The player has left their main phase. They can still cast instants and activate abilities during combat steps that allow priority, but sorcery-speed actions must wait for the second main phase.",
     "explanation": "When a player indicates they're moving to a new phase and the opponent agrees (passes priority), the phase changes. You cannot 'undo' a phase change. The player must wait until their postcombat main phase to cast sorcery-speed spells.",
@@ -8043,7 +8043,7 @@
   },
   {
     "id": 459,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "A player says 'go to combat' and immediately starts turning creatures sideways. The opponent says 'hold on, I want to do something during your beginning of combat step.' Is this allowed?",
     "answer": "Yes. There is a beginning of combat step before the declare attackers step. Players receive priority during this step. The opponent can cast instants or activate abilities before attackers are declared.",
     "explanation": "Rule 507 defines the beginning of combat step. The active player receives priority here. Both players can act before moving to declare attackers. At events, players should clearly communicate phase transitions to avoid misunderstandings.",
@@ -8060,7 +8060,7 @@
   },
   {
     "id": 460,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "A player at an event calls a judge because their opponent played two lands in one turn. The opponent says they had an effect allowing extra land plays. How should this be resolved?",
     "answer": "The opponent must show the effect that allows the extra land play (like Explore or Oracle of Mul Daya). If they can't identify an effect granting an additional land play, only one land per turn is allowed (rule 305.2) and the game state needs to be corrected.",
     "explanation": "Rule 305.2 says a player can normally play one land per turn; continuous effects may increase this. If a player claims an extra land play, they should be able to point to the card or effect granting it. Effects that 'put' a land onto the battlefield (like Rampant Growth) don't count as a land play.",
@@ -8078,7 +8078,7 @@
   },
   {
     "id": 461,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "A player at an event wants to take back a spell they just cast because they realized it's a bad play. Can they?",
     "answer": "Generally no. Once a spell is fully cast (costs paid, on the stack), it can't be taken back. At Regular REL (like FNM or Prerelease), judges have some discretion for immediate takebacks before game state has changed, but it's not guaranteed.",
     "explanation": "Once a spell is cast per rule 601.2, the casting is complete and the spell is on the stack. The caster has paid costs and the game state has changed. At Competitive REL, takebacks are almost never allowed. At Regular REL, a judge may allow it if it was immediate and no information was gained.",
@@ -8095,7 +8095,7 @@
   },
   {
     "id": 462,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At an event, a player shuffles their opponent's deck after the opponent presents it. While shuffling, they accidentally see the bottom card. What should happen?",
     "answer": "This is a minor procedural error. At Regular Rules Enforcement Level (REL), all of our events are run at this level, the deck should be randomized again. At Competitive REL, this may warrant a Warning. The important thing is that the deck is sufficiently randomized and no player has gained an unfair advantage.",
     "explanation": "When cutting or shuffling an opponent's deck, players should take care not to see any cards. If it happens accidentally, call a judge. The deck should be reshuffled to ensure randomness. This is not cheating unless done intentionally.",
@@ -8302,7 +8302,7 @@
   },
   {
     "id": 474,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At an event, a player draws their card for the turn before untapping their permanents. What should happen?",
     "answer": "This is drawing out of order — the untap step happens before the draw step. At Regular REL, the game state should be corrected: untap the permanents and proceed. At Competitive REL, this may warrant a penalty. The drawn card is kept (you can't 'unsee' it).",
     "explanation": "The beginning phase goes: untap step, upkeep step, then draw step (rules 502-504). Drawing before untapping is a procedural error. At events, judges correct the game state when possible. The player should untap and continue. This is a common mistake with newer players.",
@@ -8390,7 +8390,7 @@
   },
   {
     "id": 479,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "A player says 'I'll attack with everything.' Then they realize one of their creatures has defender. What happens?",
     "answer": "The creature with defender can't be declared as an attacker (rule 702.3). At Regular REL, the player can correct this — the defender creature simply doesn't attack. The other creatures still attack as declared.",
     "explanation": "Defender (rule 702.3) means a creature can't attack. If a player accidentally includes a defender in their attackers, it's corrected: the defender doesn't attack. At Competitive REL, this could be a more serious issue. Players should check their creatures before declaring attackers.",
@@ -8425,7 +8425,7 @@
   },
   {
     "id": 481,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "A player asks 'does my spell resolve?' and the opponent says 'sure.' Then the opponent says 'wait, I want to respond.' Is the opponent allowed to take it back?",
     "answer": "Generally no — once the opponent explicitly passes priority (by saying 'sure' or 'OK' or similar), the spell resolves. At Regular REL, a judge may allow some flexibility if no game actions have been taken since, but at Competitive REL, once priority is passed, it's passed.",
     "explanation": "When a player says 'sure' or 'OK' to a spell resolving, they are passing priority. Rule 117.4 says once all players pass in succession, the top spell resolves. Clear communication is critical at events. Players should be attentive during opponents' turns.",
@@ -8442,7 +8442,7 @@
   },
   {
     "id": 482,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event (like FNM or Prerelease), a player forgets a triggered ability that says 'may' — for example, 'When this creature enters, you may draw a card.' The trigger was missed. What should staff do?",
     "answer": "Assume the player chose not to perform it. Since the ability says 'may,' a missed trigger is treated as the player opting not to use it. Do not put it on the stack retroactively.\n\nHowever, players may both agree to it. If no other game actions have happened it is easy to correct. If multiple game actions have happened (or it is the next turn) I would advise against putting it onto the stack, unless both players strongly agree to it.",
     "explanation": "At Regular REL, if a triggered ability with 'may' is missed, assume the player chose not to perform it. This is because 'may' abilities are optional, and the player missed their window. The game continues as-is. No penalty is given — just educate the player to remember their triggers.",
@@ -8459,7 +8459,7 @@
   },
   {
     "id": 483,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player forgets a mandatory triggered ability (no 'may') — for example, 'When this creature enters, each player draws a card.' It's been a full turn since it should have triggered. Should staff put it on the stack now?",
     "answer": "Use judgment. Put it on the stack unless it would be too disruptive — don't add it if significant decisions have been made based on the effect not happening. If it's been too long and backing up would cause chaos, leave the game state as-is.",
     "explanation": "At Regular REL, mandatory missed triggers should go on the stack unless doing so would be too disruptive. If significant game decisions were made without the trigger (attacks, blocks, spells cast), adding it retroactively could unfairly change the game. The priority is education — remind the player to watch their triggers.",
@@ -8476,7 +8476,7 @@
   },
   {
     "id": 484,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, is a player required to point out their opponent's missed triggered ability?",
     "answer": "No. Unlike other illegal actions (which must be pointed out), players may choose whether or not to point out their opponent's missed triggers. It's not cheating to stay silent about an opponent's trigger.",
     "explanation": "At Regular REL, missed triggers are the responsibility of the player who controls them. Opponents are not obligated to remind them. However, players MUST point out other illegal actions (like playing two lands). Not pointing out an opponent's missed trigger is acceptable strategy.",
@@ -8493,7 +8493,7 @@
   },
   {
     "id": 485,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player accidentally draws an extra card (they drew two cards during their draw step instead of one). They immediately call a judge. Neither player saw the identity of the extra card. What should happen?",
     "answer": "Take one card at random from the player's hand and place it on top of their library. Do NOT shuffle the library afterward.",
     "explanation": "At Regular REL, when a player has drawn extra cards and the identity isn't known to all players, determine how many extra cards were drawn, take that many at random from the hand, and place them on top of the library. Don't shuffle — this preserves any known information about the library order.",
@@ -8510,7 +8510,7 @@
   },
   {
     "id": 486,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, during opening hands, a player accidentally draws 8 cards instead of 7. What should happen?",
     "answer": "Shuffle the extra card back into the deck (not on top) and allow the player to continue making mulligan decisions with the remaining 7 cards.",
     "explanation": "At Regular REL, if extra cards are drawn while drawing an opening hand, shuffle the extra cards back into the deck and let the player continue deciding on mulligans with the correct number of cards. This is different from the in-game fix where you put cards on top of the library.",
@@ -8528,7 +8528,7 @@
   },
   {
     "id": 487,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, while shuffling an opponent's deck, a player accidentally sees a card in the library they shouldn't have. What should staff do?",
     "answer": "Shuffle the seen card into the unknown portion of the library. If any player legally knows the position of any cards in the library (e.g., from a scry), ensure the fix preserves those positions.",
     "explanation": "The fix is to shuffle the seen card into the unknown part of the library. If the opponent had scryed a card to the top, that card's position should be preserved — only shuffle the seen card among the other unknown cards. Educate the player on careful shuffling.",
@@ -8546,7 +8546,7 @@
   },
   {
     "id": 488,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player's deck has 59 cards instead of 60 (they forgot to add a card back after sideboarding). What should staff do?",
     "answer": "The player adds a basic land of their choice to bring the deck up to the minimum size (60). The added card is shuffled directly into the library. Encourage the player to count their deck before each game.",
     "explanation": "At Regular REL, if a deck is below the minimum size, add basic lands of the player's choice until it meets the minimum. Shuffle the new cards into the library. If the error is discovered during a draw effect, have the player complete the draw after the fix. Emphasize counting decks and presenting sideboards.",
@@ -8564,7 +8564,7 @@
   },
   {
     "id": 489,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player discovers one of their opponent's cards got mixed into their deck during the previous round. What should staff do?",
     "answer": "Remove the card that shouldn't be there and return it to its owner. If the deck is now below the format's minimum size, add a basic land of the player's choice and shuffle it in. Encourage both players to count their decks.",
     "explanation": "At Regular REL, remove cards that shouldn't be in the deck, put back any that should be, and add basic lands if needed to meet the minimum deck size. Cards added are shuffled into the library. This is a common issue at events — educate players to verify their decks between rounds.",
@@ -8581,7 +8581,7 @@
   },
   {
     "id": 490,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player is taking an extremely long time to sideboard between games. What should staff do?",
     "answer": "Remind the player that taking unreasonable amounts of time is not acceptable. The priority is to educate. If the behavior continues, a Game Loss can be issued. Intentional slow play to gain advantage is a Serious Problem.",
     "explanation": "At Regular REL, slow play (whether during sideboarding or gameplay) is an unwanted behavior. The first step is always education — explain the issue and ask the player to pick up the pace. If it continues despite the warning, reinforce with a Game Loss. If it's intentional, it becomes a Serious Problem requiring removal.",
@@ -8596,7 +8596,7 @@
   },
   {
     "id": 491,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a spectator is giving strategic advice to a player during their match ('you should attack with that creature'). What should staff do?",
     "answer": "Stop the behavior immediately and educate both the spectator and the player. Asking for or providing strategic advice during a match is an unwanted behavior. Spectators should watch silently. If it continues, a Game Loss can reinforce the lesson.",
     "explanation": "At Regular REL, asking for or providing strategic advice during a match or draft is listed as an unwanted behavior. Educate first. If the behavior persists, a Game Loss may be warranted. If a player intentionally arranged the advice knowing it's against the rules, it's a Serious Problem.",
@@ -8612,7 +8612,7 @@
   },
   {
     "id": 492,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player offers their opponent a prize split: 'I'll give you half my prize if you concede.' Is this allowed?",
     "answer": "No. Determining match outcomes by incentives, coercion, or outside-the-game methods is an unwanted behavior. Offering prizes or other incentives to get an opponent to concede is not allowed.\n\nPlayers may agree to an intentional draw, but not concessions for compensation.",
     "explanation": "At Regular REL, bribery and match-fixing are unwanted behaviors. Players can't offer money, prizes, or other incentives to influence match outcomes. They CAN agree to intentional draws (both players draw). Intentionally doing this while knowing it's against the rules is a Serious Problem that warrants Disqualification.",
@@ -8628,7 +8628,7 @@
   },
   {
     "id": 493,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player is more than 10 minutes late to their match. What happens?",
     "answer": "The late player has forfeited the match. They should be dropped from the tournament at the end of the round if they're still absent.",
     "explanation": "At Regular REL, tardiness beyond 10 minutes results in a match forfeit. The player should be dropped from the tournament if they haven't returned. If they arrive after the 10-minute mark, they've already lost the match. This ensures the tournament runs on time for all other participants.",
@@ -8643,7 +8643,7 @@
   },
   {
     "id": 494,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player calls you over and says their opponent has been deliberately lying about card abilities to gain advantage. What should happen?",
     "answer": "This is a Serious Problem. Knowingly breaking or lying about game rules to gain advantage requires removing the player from the event (Disqualification). Educate the player on why it's unacceptable, inform them the decision is final.",
     "explanation": "At Regular REL, Serious Problems include knowingly breaking rules or lying to gain advantage. The player must be removed from the event. Always try to educate on why the behavior is unacceptable. The player should know the decision is final but that Wizards wants to hear their account. DQs must be reported to Wizards.",
@@ -8659,7 +8659,7 @@
   },
   {
     "id": 495,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player is verbally abusive toward their opponent after losing a game, including personal insults. What should happen?",
     "answer": "This is a Serious Problem requiring Disqualification. Aggressive, violent, harassing, or abusive behavior (physical or verbal) must result in removal from the event. At the organizer's discretion, the player may also be removed from the venue entirely.",
     "explanation": "At Regular REL, abusive behavior (including insults based on race, color, religion, national origin, age, gender, disability, sexual orientation, or intentional misgendering) is a Serious Problem. The player must be removed. Educate on why it's unacceptable, inform them the decision is final, and report the DQ to Wizards.",
@@ -8675,7 +8675,7 @@
   },
   {
     "id": 496,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, what is the difference between an 'unwanted behavior' and a 'Serious Problem'?",
     "answer": "Unwanted behaviors (slow play, outside assistance, inadequate shuffling, tardiness, bribery) are handled with education first, then a Game Loss if they continue. Serious Problems (cheating, harassment, theft) require immediate Disqualification — the player is removed from the event.",
     "explanation": "The key distinction: unwanted behaviors are correctable with education and escalating penalties. Serious Problems are zero-tolerance — the player must be removed immediately. However, even with Serious Problems, staff should educate the player on why the behavior is unacceptable. Intentionally committing an unwanted behavior while knowing it's against the rules elevates it to a Serious Problem.",
@@ -8690,7 +8690,7 @@
   },
   {
     "id": 497,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, you suspect a player replaced a card in their draft deck with one from their personal binder. What should you do?",
     "answer": "This is theft — a Serious Problem. The player must be Disqualified and removed from the event. Investigate carefully, educate the player on why it's unacceptable, and report the Disqualification to Wizards of the Coast including the player's Wizards Account email.",
     "explanation": "Theft (including replacing cards during a draft) is one of the three Serious Problems that require mandatory Disqualification. Even at Regular REL, this behavior has zero tolerance. The DQ must be reported to Wizards with the disqualified player's and opponent's Wizards Account email addresses.",
@@ -8707,7 +8707,7 @@
   },
   {
     "id": 498,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player is 'bluffing' — they say 'I have a counterspell' when they actually don't, trying to discourage their opponent from casting a spell. Is this a Serious Problem?",
     "answer": "No. Bluffing about cards opponents can't normally see (like cards in your hand) is explicitly permitted. This is a legal part of gameplay strategy. Only lying about public information (like board state, life totals, or card text) is a problem.",
     "explanation": "The rules explicitly allow 'bluffing' about cards opponents can't normally see. Saying 'I have an answer' or 'I wouldn't cast that if I were you' is legal strategy. However, lying about visible/public information (misrepresenting what a card does, lying about life totals, etc.) is not allowed.",
@@ -8723,7 +8723,7 @@
   },
   {
     "id": 499,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, an in-game error occurred (a player forgot to discard during cleanup two turns ago). The error is just now discovered. What should staff do?",
     "answer": "Have the player discard now to fix the illegal game state. Since it involves forgetting to discard, have them perform the action now. Don't try to rewind multiple turns — too many decisions have been made. Fix the current illegal state and move forward.",
     "explanation": "At Regular REL, for general in-game errors, the least disruptive option is usually to leave the game as-is after fixing anything currently illegal. If the error involved forgetting to draw or discard, have them perform it now. Only back up if the error was caught quickly and rewinding is easy. Don't try to undo multiple turns of play.",
@@ -8741,7 +8741,7 @@
   },
   {
     "id": 500,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "At a Regular REL event, a player made an illegal play three turns ago (they attached an Aura to an illegal target). It's just been noticed. Staff should back up three turns to fix this, right?",
     "answer": "No. Don't back up three turns — too many decisions have been made. Instead, fix the current illegal state: the Aura enchanting an illegal permanent is put into its owner's graveyard as a state-based action. The game continues from there.",
     "explanation": "At Regular REL, backing up is only appropriate if the error was caught quickly and rewinding is relatively easy. Three turns of decisions, card draws, and combat can't reasonably be undone. Fix what's currently illegal (the Aura goes to the graveyard) and continue. Educate the players to catch errors early.",

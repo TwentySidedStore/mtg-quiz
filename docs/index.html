@@ -41,6 +41,7 @@
       <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end" id="topic-tabs">
           <a class="navbar-item" data-topic="fundamentals">Basics</a>
+          <a class="navbar-item" data-topic="event_procedures">Procedures</a>
           <a class="navbar-item" data-topic="multiplayer">Multiplayer</a>
           <a class="navbar-item" data-topic="2hg">2HG</a>
           <a class="navbar-item" data-topic="stack_triggers">Stack</a>
@@ -189,12 +190,13 @@
 
   <script>
     const TOPICS = {
-      fundamentals:   { label: 'Basics',         description: 'Turn structure, casting spells, card types, combat, and draft/sealed basics.' },
-      multiplayer:    { label: 'Multiplayer',     description: 'Rules unique to multiplayer formats.' },
-      '2hg':          { label: '2HG',             description: 'Two-Headed Giant specific rules.' },
-      stack_triggers: { label: 'Stack',           description: 'Stack ordering, priority, triggered vs activated abilities, ETBs.' },
-      interactions:   { label: 'Interactions',    description: 'Replacement effects, state-based actions, layers, commander rules.' },
-      edge_cases:     { label: 'Edge Cases',      description: 'Blood Moon, Urborg, timestamps, dependency, obscure corner cases.' }
+      fundamentals:     { label: 'Basics',        description: 'Turn structure, casting spells, card types, combat, and draft/sealed basics.' },
+      event_procedures: { label: 'Procedures',   description: 'Regular REL event procedures: missed triggers, game errors, penalties, and judge calls.' },
+      multiplayer:      { label: 'Multiplayer',   description: 'Rules unique to multiplayer formats.' },
+      '2hg':            { label: '2HG',           description: 'Two-Headed Giant specific rules.' },
+      stack_triggers:   { label: 'Stack',         description: 'Stack ordering, priority, triggered vs activated abilities, ETBs.' },
+      interactions:     { label: 'Interactions',  description: 'Replacement effects, state-based actions, layers, commander rules.' },
+      edge_cases:       { label: 'Edge Cases',    description: 'Blood Moon, Urborg, timestamps, dependency, obscure corner cases.' }
     };
 
     const YAWGATOG_BASE = 'https://yawgatog.com/resources/magic-rules/';
