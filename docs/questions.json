@@ -5197,5 +5197,1096 @@
       "manipulation",
       "costs"
     ]
+  },
+  {
+    "id": 302,
+    "difficulty": "edge_cases",
+    "question": "A player controls Blood Moon (\"Nonbasic lands are Mountains.\") and Urborg, Tomb of Yawgmoth (\"Each land is a Swamp in addition to its other land types.\"). Both are on the battlefield. Is Urborg affected by Blood Moon, and does Urborg's ability function?",
+    "answer": "Yes, Blood Moon affects Urborg (it's a nonbasic land, so it becomes a Mountain and loses its abilities). Since Urborg has no abilities, no lands become Swamps. All nonbasic lands are just Mountains.",
+    "explanation": "Blood Moon and Urborg both apply in layer 4 (type-changing effects). Blood Moon makes nonbasic lands Mountains (removing other land types and abilities). Urborg is itself a nonbasic land, so Blood Moon removes its ability. Per the Urborg rulings, if an effect causes Urborg to lose its abilities by setting it to a basic land type, it won't turn lands into Swamps. Timestamp doesn't matter here due to dependency — Urborg's effect depends on Blood Moon.",
+    "rule_refs": [
+      "613.1d",
+      "613.8"
+    ],
+    "cards_ref": [
+      "Blood Moon",
+      "Urborg",
+      "Tomb of Yawgmoth"
+    ],
+    "tags": [
+      "layers",
+      "dependency",
+      "type-changing",
+      "land-types"
+    ]
+  },
+  {
+    "id": 303,
+    "difficulty": "edge_cases",
+    "question": "A player controls Blood Moon (\"Nonbasic lands are Mountains.\"). They also control a nonbasic land that normally enters tapped. If a new copy of that land enters the battlefield, does it enter tapped?",
+    "answer": "No. Blood Moon removes the 'enters tapped' ability before it can apply. The land enters untapped as a Mountain.",
+    "explanation": "Per the Blood Moon rulings, if a nonbasic land has an ability that causes it to enter the battlefield tapped, it will lose that ability before it can apply. The same is true of any other abilities that modify how a land enters the battlefield or apply 'as' a land enters. Blood Moon's continuous effect applies as the land enters, stripping its abilities before they can function.",
+    "rule_refs": [
+      "613.1d",
+      "603.6d"
+    ],
+    "cards_ref": [
+      "Blood Moon"
+    ],
+    "tags": [
+      "type-changing",
+      "enters-tapped",
+      "land-types"
+    ]
+  },
+  {
+    "id": 304,
+    "difficulty": "edge_cases",
+    "question": "A player controls Blood Moon (\"Nonbasic lands are Mountains.\"). They also control a nonbasic land that has an enters-the-battlefield triggered ability (\"When this land enters, scry 1.\"). Does the trigger fire when a new copy of that land enters?",
+    "answer": "No. Blood Moon removes the triggered ability before it can trigger. The land enters as a Mountain without the ability.",
+    "explanation": "Per the Blood Moon rulings, if a nonbasic land has an ability that triggers 'when' it enters the battlefield, it will lose that ability before it can trigger. Blood Moon's continuous effect applies immediately as the land enters, stripping all abilities. The ETB trigger never exists on the permanent.",
+    "rule_refs": [
+      "613.1d",
+      "603.6"
+    ],
+    "cards_ref": [
+      "Blood Moon"
+    ],
+    "tags": [
+      "type-changing",
+      "triggered-abilities",
+      "land-types"
+    ]
+  },
+  {
+    "id": 305,
+    "difficulty": "edge_cases",
+    "question": "Blood Moon (\"Nonbasic lands are Mountains.\") is on the battlefield. Does it change the names or supertypes of nonbasic lands? For example, does a legendary nonbasic land stop being legendary?",
+    "answer": "No. Blood Moon doesn't affect names or supertypes. A legendary nonbasic land remains legendary and keeps its original name. It won't be named 'Mountain' and won't become a basic land.",
+    "explanation": "Per the Blood Moon rulings, the effect doesn't affect names or supertypes. It won't turn any land into a basic land or remove the legendary supertype from a legendary land, and the lands won't be named 'Mountain.' Blood Moon only changes land types (subtypes) and removes associated abilities.",
+    "rule_refs": [
+      "613.1d"
+    ],
+    "cards_ref": [
+      "Blood Moon"
+    ],
+    "tags": [
+      "type-changing",
+      "supertypes",
+      "names",
+      "land-types"
+    ]
+  },
+  {
+    "id": 306,
+    "difficulty": "edge_cases",
+    "question": "Opalescence (\"Each other non-Aura enchantment is a creature in addition to its other types and has base power and base toughness each equal to its mana value.\") and Humility (\"All creatures lose all abilities and have base power and toughness 1/1.\") are both on the battlefield. Opalescence entered FIRST, then Humility entered. What are Humility's power and toughness?",
+    "answer": "Humility is a 1/1 creature with no abilities. In layer 4, Opalescence makes Humility a creature. In layer 6, Humility removes all creature abilities (including its own). In layer 7b, Opalescence sets Humility to 4/4, then Humility sets it to 1/1 (later timestamp wins within the same sublayer).",
+    "explanation": "Per the official Humility + Opalescence ruling: When Opalescence entered first, Layer 4: Humility becomes a creature (Opalescence). Layer 6: Humility loses all abilities (Humility). Layer 7b: Opalescence sets Humility to 4/4, then Humility sets it to 1/1 (Humility has the later timestamp). Even though Humility lost its ability in layer 6, the effect continues applying in later layers per rule 613.6.",
+    "rule_refs": [
+      "613.1d",
+      "613.1f",
+      "613.4b",
+      "613.6"
+    ],
+    "cards_ref": [
+      "Opalescence",
+      "Humility"
+    ],
+    "tags": [
+      "layers",
+      "timestamp",
+      "type-changing",
+      "ability-removal",
+      "power-toughness"
+    ]
+  },
+  {
+    "id": 307,
+    "difficulty": "edge_cases",
+    "question": "Opalescence (\"Each other non-Aura enchantment is a creature in addition to its other types and has base power and base toughness each equal to its mana value.\") and Humility (\"All creatures lose all abilities and have base power and toughness 1/1.\") are both on the battlefield. Humility entered FIRST, then Opalescence entered. What are Humility's power and toughness?",
+    "answer": "Humility is a 4/4 creature with no abilities. The result changes because Opalescence now has the later timestamp in layer 7b, so its 4/4 setting overrides Humility's 1/1 setting.",
+    "explanation": "Per the official ruling: When Humility entered first, Layer 4: Humility becomes a creature (Opalescence). Layer 6: Humility loses its abilities (Humility). Layer 7b: Humility sets itself to 1/1, then Opalescence sets it to 4/4 (Opalescence has the later timestamp). The later timestamp wins within the same sublayer.",
+    "rule_refs": [
+      "613.1d",
+      "613.1f",
+      "613.4b",
+      "613.7"
+    ],
+    "cards_ref": [
+      "Humility",
+      "Opalescence"
+    ],
+    "tags": [
+      "layers",
+      "timestamp",
+      "type-changing",
+      "power-toughness"
+    ]
+  },
+  {
+    "id": 308,
+    "difficulty": "fundamentals",
+    "question": "A player casts Clone (\"You may have this creature enter as a copy of any creature on the battlefield.\") copying an opponent's creature that has three +1/+1 counters on it and is equipped with an Equipment. What does Clone copy?",
+    "answer": "Clone copies only what was printed on the original creature (its base characteristics). It does NOT copy the +1/+1 counters, the Equipment, whether it's tapped, or any non-copy effects that changed its characteristics. Clone enters as a fresh copy of the printed card.",
+    "explanation": "Per the Clone rulings, it copies exactly what was printed on the original creature and nothing else. It doesn't copy whether that creature is tapped or untapped, whether it has any counters on it or Auras and Equipment attached to it, or any non-copy effects that have changed its power, toughness, types, color, or so on.",
+    "rule_refs": [
+      "707.2"
+    ],
+    "cards_ref": [
+      "Clone"
+    ],
+    "tags": [
+      "copying",
+      "copiable-values",
+      "counters",
+      "equipment"
+    ]
+  },
+  {
+    "id": 309,
+    "difficulty": "edge_cases",
+    "question": "A player casts Spark Double (\"You may have this creature enter as a copy of a creature or planeswalker you control, except it enters with an additional +1/+1 counter on it if it's a creature, it enters with an additional loyalty counter on it if it's a planeswalker, and it isn't legendary.\") copying their legendary creature. Is the copy legendary? Does the legend rule apply?",
+    "answer": "No, Spark Double is not legendary — its copy effect explicitly makes it 'not legendary.' The legend rule doesn't apply because only one permanent has the legendary supertype. The player keeps both.",
+    "explanation": "Per the Spark Double rulings, Spark Double isn't legendary if it copies a legendary permanent, and this exception is copiable. If something else copies Spark Double later, that copy also won't be legendary. Since only the original has the legendary supertype, the legend rule (rule 704.5j) doesn't apply.",
+    "rule_refs": [
+      "707.9b",
+      "704.5j"
+    ],
+    "cards_ref": [
+      "Spark Double"
+    ],
+    "tags": [
+      "copying",
+      "legendary",
+      "legend-rule",
+      "copiable-values"
+    ]
+  },
+  {
+    "id": 310,
+    "difficulty": "edge_cases",
+    "question": "A player controls Sakashima of a Thousand Faces (\"The 'legend rule' doesn't apply to permanents you control.\") and copies their own commander with Sakashima. They now control two legendary permanents with the same name. What happens?",
+    "answer": "Nothing — both permanents stay on the battlefield. Sakashima's ability suspends the legend rule for all permanents that player controls, so duplicate legends are allowed.",
+    "explanation": "Per the Sakashima rulings, while Sakashima is on the battlefield, the legend rule doesn't apply to permanents you control. You can control any number of legendary permanents with the same name. However, if Sakashima leaves the battlefield, the legend rule immediately applies again and you must comply.",
+    "rule_refs": [
+      "704.5j"
+    ],
+    "cards_ref": [
+      "Sakashima of a Thousand Faces"
+    ],
+    "tags": [
+      "legend-rule",
+      "copying",
+      "commander"
+    ]
+  },
+  {
+    "id": 311,
+    "difficulty": "edge_cases",
+    "question": "A player controls Phantasmal Image (\"You may have this creature enter as a copy of any creature on the battlefield, except it's an Illusion in addition to its other types and it has 'When this creature becomes the target of a spell or ability, sacrifice it.'\") that copied a creature. Another player casts Clone (\"You may have this creature enter as a copy of any creature on the battlefield.\") copying the Phantasmal Image. Does the Clone have the Illusion type and sacrifice ability?",
+    "answer": "Yes. The Illusion type and sacrifice ability are part of Phantasmal Image's copiable values. Clone copies the copiable values, which include those modifications.",
+    "explanation": "Per the Phantasmal Image rulings, the Illusion creature type and the triggered ability that Phantasmal Image gains as part of its copy effect are both copiable values that other effects may copy. Rule 707.9a states that abilities gained as part of the copying process become part of the copiable values. So Clone copying Phantasmal Image gets the Illusion type and sacrifice trigger.",
+    "rule_refs": [
+      "707.9a",
+      "707.3"
+    ],
+    "cards_ref": [
+      "Phantasmal Image",
+      "Clone"
+    ],
+    "tags": [
+      "copying",
+      "copiable-values",
+      "copy-of-a-copy"
+    ]
+  },
+  {
+    "id": 312,
+    "difficulty": "edge_cases",
+    "question": "A player controls Imprisoned in the Moon (\"Enchant creature, land, or planeswalker. Enchanted permanent is a colorless land with '{T}: Add {C}' and loses all other card types and abilities.\") on a creature. Does the creature retain its name? Does it retain supertypes like legendary?",
+    "answer": "Yes to both. The permanent keeps its name and all supertypes (including legendary). It loses all card types except land and all abilities except '{T}: Add {C}.'",
+    "explanation": "Per the Imprisoned in the Moon rulings, the permanent will keep any supertypes it previously had. Notably, if Imprisoned in the Moon is enchanting a legendary permanent, that permanent will continue to be legendary. The name also doesn't change. Only card types and abilities are affected.",
+    "rule_refs": [
+      "613.1d",
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Imprisoned in the Moon"
+    ],
+    "tags": [
+      "type-changing",
+      "ability-removal",
+      "supertypes",
+      "names"
+    ]
+  },
+  {
+    "id": 313,
+    "difficulty": "edge_cases",
+    "question": "A player controls Song of the Dryads (\"Enchant permanent. Enchanted permanent is a colorless Forest land.\") on an opponent's commander. The commander is now a Forest land. Can the opponent still deal commander damage with it? Can it still be cast from the command zone if it goes there?",
+    "answer": "It can't deal commander damage because it's not a creature (it's a land). It retains its commander designation and can be cast from the command zone if moved there, since commander designation is an attribute of the card, not a characteristic.",
+    "explanation": "Song of the Dryads makes the permanent a Forest land, removing all other card types. Since it's no longer a creature, it can't attack or deal combat damage. Per rule 903.3, commander designation is an attribute of the card itself, not a characteristic, so it's unaffected by type-changing effects. Commander tax still applies.",
+    "rule_refs": [
+      "903.3",
+      "613.1d"
+    ],
+    "cards_ref": [
+      "Song of the Dryads"
+    ],
+    "tags": [
+      "type-changing",
+      "commander",
+      "commander-damage",
+      "land"
+    ]
+  },
+  {
+    "id": 314,
+    "difficulty": "edge_cases",
+    "question": "A player controls Spreading Seas (\"Enchant land. Enchanted land is an Island.\") on an opponent's land that is a Plains. The Plains is now an Island. Can it still tap for white mana?",
+    "answer": "No. Spreading Seas changes the land type to Island, which removes the Plains type. The land loses '{T}: Add {W}' and gains '{T}: Add {U}.' It's just an Island now.",
+    "explanation": "Per the Spreading Seas rulings, the enchanted land loses its existing land types and any abilities printed on it. It now has the land type Island and the ability to tap for {U}. It doesn't change the land's name or whether it's legendary, basic, or snow — only the type and associated mana ability.",
+    "rule_refs": [
+      "613.1d",
+      "305.7"
+    ],
+    "cards_ref": [
+      "Spreading Seas"
+    ],
+    "tags": [
+      "type-changing",
+      "land-types",
+      "mana-abilities"
+    ]
+  },
+  {
+    "id": 315,
+    "difficulty": "edge_cases",
+    "question": "A player controls Painter's Servant (\"As this creature enters, choose a color. All cards that aren't on the battlefield, spells, and permanents are the chosen color in addition to their other colors.\") choosing blue. They cast a spell that says 'Destroy target blue permanent.' Can they now destroy any permanent?",
+    "answer": "Yes. Painter's Servant makes all permanents blue in addition to their other colors, so any permanent is a legal target for 'destroy target blue permanent.'",
+    "explanation": "Painter's Servant makes everything the chosen color in addition to existing colors. Per the rulings, it adds a color — it doesn't overwrite existing colors. Every permanent, spell, and card (in all zones) gains the chosen color. This enables powerful combos with color-specific hate cards.",
+    "rule_refs": [
+      "613.1e"
+    ],
+    "cards_ref": [
+      "Painter's Servant"
+    ],
+    "tags": [
+      "color-changing",
+      "combo",
+      "targeting"
+    ]
+  },
+  {
+    "id": 316,
+    "difficulty": "edge_cases",
+    "question": "Dress Down (\"Flash. When this enchantment enters, draw a card. Creatures lose all abilities. At the beginning of the end step, sacrifice this enchantment.\") is on the battlefield. An effect turns Dress Down into a creature (for example, Opalescence). What happens?",
+    "answer": "Dress Down becomes a creature, then immediately loses all its own abilities (because its own effect says 'Creatures lose all abilities'). It loses the triggered ability to sacrifice itself at end step, so it stays on the battlefield indefinitely — until removed by other means.",
+    "explanation": "Per the Dress Down rulings, if an effect causes Dress Down to become a creature, it will lose its own abilities along with all other creatures. This includes the triggered ability that causes it to be sacrificed at the beginning of the end step. Since it no longer has the sacrifice trigger, it remains on the battlefield.",
+    "rule_refs": [
+      "613.1f",
+      "613.6"
+    ],
+    "cards_ref": [
+      "Dress Down"
+    ],
+    "tags": [
+      "ability-removal",
+      "self-reference",
+      "type-changing",
+      "infinite-duration"
+    ]
+  },
+  {
+    "id": 317,
+    "difficulty": "edge_cases",
+    "question": "Humility (\"All creatures lose all abilities and have base power and toughness 1/1.\") is on the battlefield. A player controls an animated land (a land that became a creature through an effect). Can that animated land still tap for mana?",
+    "answer": "No. Humility removes all creature abilities, including mana abilities. Since the animated land is a creature, it loses its mana ability and can't tap for mana.",
+    "explanation": "Per the Humility rulings, it removes all creature abilities, including mana abilities. Animated lands will also lose the ability to tap for mana. This is a common edge case in Commander — Humility shuts down mana dorks AND animated lands.",
+    "rule_refs": [
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Humility"
+    ],
+    "tags": [
+      "ability-removal",
+      "mana-abilities",
+      "animated-lands"
+    ]
+  },
+  {
+    "id": 318,
+    "difficulty": "edge_cases",
+    "question": "A player controls Dryad Arbor (a card that is both a Forest land and a 1/1 green Dryad creature). Humility (\"All creatures lose all abilities and have base power and toughness 1/1.\") is on the battlefield. Can Dryad Arbor tap for green mana?",
+    "answer": "No. Dryad Arbor is a creature, so Humility removes all its abilities — including its mana ability to tap for {G}. It's a 1/1 creature with no abilities.",
+    "explanation": "Humility removes all abilities from all creatures. Dryad Arbor is a creature (as well as a land), so it loses all abilities. Its inherent Forest mana ability ('{T}: Add {G}') is removed by Humility. Per the Humility rulings, animated lands lose the ability to tap for mana, and Dryad Arbor is permanently both a land and a creature.",
+    "rule_refs": [
+      "613.1f"
+    ],
+    "cards_ref": [
+      "Humility",
+      "Dryad Arbor"
+    ],
+    "tags": [
+      "ability-removal",
+      "mana-abilities",
+      "creature-land"
+    ]
+  },
+  {
+    "id": 319,
+    "difficulty": "edge_cases",
+    "question": "A player controls Dress Down (\"Creatures lose all abilities.\") and a creature with undying that has no +1/+1 counters. The creature is destroyed. Does undying trigger?",
+    "answer": "No. Dress Down removes all abilities from creatures. The creature doesn't have undying while Dress Down is on the battlefield, so it simply goes to the graveyard without triggering undying.",
+    "explanation": "Dress Down's effect is a layer 6 continuous effect that removes all abilities from creatures on the battlefield. The creature doesn't have undying at the time it dies. Since undying is a triggered ability that needs to exist on the creature as it leaves the battlefield (it looks back in time per rule 603.10a), and the creature had no abilities, it won't trigger.",
+    "rule_refs": [
+      "613.1f",
+      "603.10a"
+    ],
+    "cards_ref": [
+      "Dress Down"
+    ],
+    "tags": [
+      "ability-removal",
+      "undying",
+      "dies-trigger",
+      "looks-back"
+    ]
+  },
+  {
+    "id": 320,
+    "difficulty": "edge_cases",
+    "question": "A Clone (\"You may have this creature enter as a copy of any creature on the battlefield.\") is copying a 5/5 creature. The Clone has been given +2/+2 by an Aura. Another player casts a second Clone copying the first Clone. What is the second Clone?",
+    "answer": "The second Clone is a 5/5 — a copy of the original 5/5 creature. It does NOT get the +2/+2 from the Aura. Copy effects copy only the copiable values (what's printed or from other copy effects), not non-copy effects like Aura bonuses.",
+    "explanation": "Per rule 707.2, a copy acquires the copiable values of the object it's copying. The first Clone's copiable values are those of the original 5/5 creature (since Clone copies what's printed on the original). The Aura's +2/+2 is a non-copy effect and not part of the copiable values. The second Clone copies the copiable values of the first Clone, which are the original 5/5's values.",
+    "rule_refs": [
+      "707.2",
+      "707.3"
+    ],
+    "cards_ref": [
+      "Clone"
+    ],
+    "tags": [
+      "copying",
+      "copiable-values",
+      "non-copy-effects",
+      "auras"
+    ]
+  },
+  {
+    "id": 321,
+    "difficulty": "edge_cases",
+    "question": "A player controls a creature that's a copy of another creature (created by Clone). The copy effect set its characteristics to match the original. Later, an effect changes the copy's color to red. Then a third player casts Clone copying the modified creature. Is the third Clone red?",
+    "answer": "No. The third Clone copies the copiable values, which are the original creature's printed characteristics (as modified by the copy effect). The color change was a non-copy effect and is not part of the copiable values. The third Clone has the original creature's printed color.",
+    "explanation": "Rule 707.2b states that once an object has been copied, changing the copiable values of the original won't cause the copy to change. More importantly, non-copy effects (like a color-changing spell) don't become part of the copiable values. When something copies a copy, it gets the copiable values — which trace back to the original printed card, plus any copy-effect modifications.",
+    "rule_refs": [
+      "707.2",
+      "707.2b",
+      "707.3"
+    ],
+    "cards_ref": [
+      "Clone"
+    ],
+    "tags": [
+      "copying",
+      "copiable-values",
+      "color-changing",
+      "non-copy-effects"
+    ]
+  },
+  {
+    "id": 322,
+    "difficulty": "edge_cases",
+    "question": "A player activates Mindslaver (\"{4}, {T}, Sacrifice Mindslaver: You control target player during that player's next turn.\") targeting an opponent. During the controlled turn, can the Mindslaver player force the opponent to concede?",
+    "answer": "No. You can't make the affected player concede. That player may choose to concede at any time, even while you're controlling that player — but it's always their choice, not yours.",
+    "explanation": "Per the Mindslaver rulings, you can't make the affected player concede. Concession is a special action that only the player themselves can take. You also can't make any choices or decisions for the player that would be called for by tournament rules (such as calling a judge or taking an intentional draw).",
+    "rule_refs": [
+      "717.6"
+    ],
+    "cards_ref": [
+      "Mindslaver"
+    ],
+    "tags": [
+      "player-control",
+      "concession",
+      "limitations"
+    ]
+  },
+  {
+    "id": 323,
+    "difficulty": "edge_cases",
+    "question": "A player activates Mindslaver (\"{4}, {T}, Sacrifice Mindslaver: You control target player during that player's next turn.\") targeting an opponent. During the controlled turn, can the Mindslaver player use their OWN mana to pay for the opponent's spells?",
+    "answer": "No. You can only use the affected player's resources (cards, mana, etc.) to pay that player's costs. You can't use your own resources for their costs, and you can't use their resources for your costs.",
+    "explanation": "Per the Mindslaver rulings, you can use only the affected player's resources (cards, mana, and so on) to pay costs for that player; you can't use your own. Similarly, you can use the affected player's resources only to pay that player's costs. Resources remain strictly separated even during control.",
+    "rule_refs": [
+      "717.6"
+    ],
+    "cards_ref": [
+      "Mindslaver"
+    ],
+    "tags": [
+      "player-control",
+      "resources",
+      "mana"
+    ]
+  },
+  {
+    "id": 325,
+    "difficulty": "edge_cases",
+    "question": "A player controls Possibility Storm (\"Whenever a player casts a spell from their hand, that player exiles it, then exiles cards from the top of their library until they exile a card that shares a card type with it. That player may cast that card without paying its mana cost.\"). An opponent casts a creature spell from their hand. What happens?",
+    "answer": "The original creature spell is exiled. The opponent reveals cards from the top of their library until they find another creature card. They may cast that creature without paying its mana cost. Then all exiled cards (including the original) go to the bottom of their library in a random order.",
+    "explanation": "Possibility Storm replaces any spell cast from hand with a random spell of the same type from the library. The original spell is exiled (it never resolves). If the replacement spell has X in its cost, X must be 0. The player can choose not to cast the found card. All exiled cards go to the bottom of the library.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Possibility Storm"
+    ],
+    "tags": [
+      "chaos",
+      "casting-replacement",
+      "from-hand"
+    ]
+  },
+  {
+    "id": 327,
+    "difficulty": "edge_cases",
+    "question": "A player controls Leyline of Singularity (\"All nonland permanents are legendary.\") and creates three 1/1 creature tokens with the same name. What happens?",
+    "answer": "All three tokens enter the battlefield as legendary permanents with the same name. The legend rule immediately applies — the player must choose one to keep and the other two are put into the graveyard.",
+    "explanation": "Per the Leyline of Singularity rulings, if you control Leyline and two or more creature tokens with the same name, only one is allowed to remain. The legend rule (rule 704.5j) applies to all legendary permanents with the same name controlled by the same player. The player chooses which single token survives.",
+    "rule_refs": [
+      "704.5j",
+      "613.1d"
+    ],
+    "cards_ref": [
+      "Leyline of Singularity"
+    ],
+    "tags": [
+      "legend-rule",
+      "tokens",
+      "type-changing"
+    ]
+  },
+  {
+    "id": 328,
+    "difficulty": "edge_cases",
+    "question": "A player casts Teferi's Protection (\"Until your next turn, your life total can't change and you gain protection from everything. All permanents you control phase out.\"). Their permanents phase out. An opponent casts a board wipe that destroys all creatures. What happens to the phased-out creatures?",
+    "answer": "Nothing. Phased-out permanents are treated as though they don't exist. They're unaffected by the board wipe. They'll phase back in during the Teferi's Protection caster's next untap step.",
+    "explanation": "Rule 702.26d states that while a permanent is phased out, it's treated as though it doesn't exist. It can't be affected by anything that affects permanents on the battlefield. It maintains its status (tapped/untapped, counters, attachments) and phases back in during its controller's untap step.",
+    "rule_refs": [
+      "702.26d"
+    ],
+    "cards_ref": [
+      "Teferi's Protection"
+    ],
+    "tags": [
+      "phasing",
+      "protection",
+      "board-wipe",
+      "treated-as-nonexistent"
+    ]
+  },
+  {
+    "id": 329,
+    "difficulty": "edge_cases",
+    "question": "A player casts Teferi's Protection (\"Until your next turn, your life total can't change and you gain protection from everything.\"). An opponent casts a spell that says 'Each player loses 5 life.' What happens to the Teferi's Protection player?",
+    "answer": "Their life total doesn't change. Teferi's Protection prevents any change to the player's life total — they can't gain or lose life, and effects that would set their life total have no effect.",
+    "explanation": "Teferi's Protection says 'your life total can't change.' This prevents all life gain, life loss, and life total setting effects. The player is effectively immune to life-total-based win conditions (like Exsanguinate) and loss conditions until their next turn.",
+    "rule_refs": [
+      "614.17"
+    ],
+    "cards_ref": [
+      "Teferi's Protection"
+    ],
+    "tags": [
+      "protection",
+      "life-total",
+      "cant-change"
+    ]
+  },
+  {
+    "id": 330,
+    "difficulty": "edge_cases",
+    "question": "A player controls Muraganda Petroglyphs (\"Creatures with no abilities get +2/+2.\"). They also control a vanilla 2/2 creature with no abilities. An opponent casts a spell giving that creature flying. Does Muraganda Petroglyphs still apply?",
+    "answer": "No. Once the creature gains flying, it has an ability and no longer qualifies for Muraganda Petroglyphs' bonus. It loses the +2/+2 and becomes a 2/2 with flying.",
+    "explanation": "Muraganda Petroglyphs applies only to creatures with NO abilities. The moment a creature gains any ability (flying, lifelink, etc.), it no longer qualifies. Per the rulings, if an effect says a creature 'has' or 'gains' an ability, the Petroglyphs won't apply. Note that effects stating something is true (like 'can't be blocked') without granting an ability don't disqualify a creature.",
+    "rule_refs": [
+      "613.4c"
+    ],
+    "cards_ref": [
+      "Muraganda Petroglyphs"
+    ],
+    "tags": [
+      "no-abilities",
+      "power-toughness",
+      "conditional-bonus"
+    ]
+  },
+  {
+    "id": 331,
+    "difficulty": "edge_cases",
+    "question": "A player controls Muraganda Petroglyphs (\"Creatures with no abilities get +2/+2.\") and an animated basic Forest (which became a creature through another effect). The Forest inherently has '{T}: Add {G}.' Does the Petroglyphs bonus apply to it?",
+    "answer": "No. The Forest has an intrinsic mana ability ('{T}: Add {G}'), so it has an ability. Muraganda Petroglyphs doesn't apply to creatures with any abilities, including mana abilities.",
+    "explanation": "Per the Muraganda Petroglyphs rulings, if a land with a basic land type becomes a creature, the intrinsic mana ability it has stops Muraganda Petroglyphs from applying to it. Any ability — including mana abilities and text on the card — disqualifies a creature.",
+    "rule_refs": [
+      "613.4c"
+    ],
+    "cards_ref": [
+      "Muraganda Petroglyphs"
+    ],
+    "tags": [
+      "no-abilities",
+      "mana-abilities",
+      "animated-lands"
+    ]
+  },
+  {
+    "id": 332,
+    "difficulty": "edge_cases",
+    "question": "A player casts Ixidron (\"As this creature enters, turn all other nontoken creatures face down. They're 2/2 creatures.\"). An opponent controls a creature with morph. What are the face-down creatures' characteristics?",
+    "answer": "All face-down creatures (whether they have morph or not) are 2/2 creatures with no text, no name, no subtypes, no expansion symbol, and no mana cost. They are all identical regardless of what they were before.",
+    "explanation": "Per the Ixidron rulings, creatures turned face down are 2/2 creatures with no text, no name, no subtypes, no expansion symbol, and no mana cost. These values are copiable. The controller of each face-down creature can look at it at any time, even if it doesn't have morph. However, only creatures with morph (or similar) can be turned face up using that ability.",
+    "rule_refs": [
+      "707.2",
+      "708.2"
+    ],
+    "cards_ref": [
+      "Ixidron"
+    ],
+    "tags": [
+      "face-down",
+      "characteristics",
+      "morph"
+    ]
+  },
+  {
+    "id": 333,
+    "difficulty": "edge_cases",
+    "question": "A player controls Perplexing Chimera (\"Whenever an opponent casts a spell, you may exchange control of this creature and that spell. If you do, you may choose new targets for the spell.\"). An opponent casts Lightning Bolt targeting the Chimera's controller. The controller exchanges. Who controls Lightning Bolt now and can they change its target?",
+    "answer": "The Chimera's controller gains control of Lightning Bolt. They may choose new targets for it — for example, redirecting it at the opponent who originally cast it. The opponent gains control of Perplexing Chimera.",
+    "explanation": "Per the Perplexing Chimera rulings, after the exchange, you control the spell. Any instance of 'you' in the spell now refers to you. You may change any of the spell's targets to legal ones. The Chimera's controller can redirect the Lightning Bolt at the original caster or any other legal target. Meanwhile, the opponent now controls Perplexing Chimera.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Perplexing Chimera"
+    ],
+    "tags": [
+      "control-exchange",
+      "spell-control",
+      "retargeting"
+    ]
+  },
+  {
+    "id": 334,
+    "difficulty": "stack_triggers",
+    "question": "A player casts Sudden Substitution (\"Split second. Exchange control of target noncreature spell and target creature. Then the spell's controller may choose new targets for it.\"). Can the opponent respond by casting an instant?",
+    "answer": "No. Split second prevents players from casting spells or activating abilities (other than mana abilities) while Sudden Substitution is on the stack. However, triggered abilities can still trigger and go on the stack.",
+    "explanation": "Split second means as long as the spell is on the stack, players can't cast spells or activate non-mana abilities. Per the rulings, players still get priority but their options are limited. Triggered abilities still trigger normally. After Sudden Substitution resolves, normal spell-casting resumes.",
+    "rule_refs": [
+      "702.61"
+    ],
+    "cards_ref": [
+      "Sudden Substitution"
+    ],
+    "tags": [
+      "split-second",
+      "control-exchange",
+      "spell-on-stack"
+    ]
+  },
+  {
+    "id": 335,
+    "difficulty": "edge_cases",
+    "question": "A player casts Panglacial Wurm (\"While you're searching your library, you may cast this card from your library.\") while searching their library from a Rampant Growth effect. They cast Panglacial Wurm and pay its mana cost. What happens to the search?",
+    "answer": "After casting Panglacial Wurm (which goes on the stack), the player picks up the search where they left off. When the search finishes resolving, the active player gets priority with Panglacial Wurm on the stack waiting to resolve.",
+    "explanation": "Per the Panglacial Wurm rulings, casting it while searching follows normal casting rules except for timing and zone. After casting, the search resumes. The Wurm can't be found by the search effect that's still in progress. Note: you must cast it before finding cards with the search effect.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Panglacial Wurm"
+    ],
+    "tags": [
+      "search",
+      "casting-from-library",
+      "timing"
+    ]
+  },
+  {
+    "id": 336,
+    "difficulty": "edge_cases",
+    "question": "Knowledge Pool (\"When this artifact enters, each player exiles the top three cards of their library. Whenever a player casts a spell from their hand, that player exiles it. If the player does, they may cast a spell from among other cards exiled with this artifact without paying its mana cost.\") is on the battlefield. A player casts an instant from their hand. The instant is exiled. Can the player cast a sorcery from the exiled cards?",
+    "answer": "Yes. Timing restrictions based on card type are ignored when casting from Knowledge Pool. The player can cast an exiled sorcery even though it's not their main phase.",
+    "explanation": "Per the Knowledge Pool rulings, timing restrictions based on the card's type are ignored. You can cast an exiled creature card, sorcery, or any other card type regardless of normal timing. Other restrictions (like 'cast only during combat') still apply. If the exiled card has X in its cost, X must be 0.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Knowledge Pool"
+    ],
+    "tags": [
+      "chaos",
+      "timing-override",
+      "free-casting"
+    ]
+  },
+  {
+    "id": 337,
+    "difficulty": "edge_cases",
+    "question": "A player controls both Possibility Storm (\"Whenever a player casts a spell from their hand...\") and Knowledge Pool (\"Whenever a player casts a spell from their hand...\"). An opponent casts a spell from their hand. Both trigger. What happens?",
+    "answer": "Both trigger simultaneously. The opponent (or controller, depending on APNAP) chooses the order. The first trigger to resolve exiles the spell. The second trigger does nothing because the spell has already been exiled — there's no spell to exile again. The opponent gets the benefit of whichever resolved first.",
+    "explanation": "Per the Knowledge Pool rulings, if the original spell isn't exiled by a Knowledge Pool's ability (because it's already been exiled), the rest of that ability does nothing. So whichever trigger resolves first gets the spell, and the other fizzles. In practice, only one of the two chaos effects actually fires.",
+    "rule_refs": [
+      "603.3",
+      "405.3"
+    ],
+    "cards_ref": [
+      "Possibility Storm",
+      "Knowledge Pool"
+    ],
+    "tags": [
+      "chaos",
+      "competing-triggers",
+      "exile"
+    ]
+  },
+  {
+    "id": 338,
+    "difficulty": "edge_cases",
+    "question": "A player casts Clone (\"You may have this creature enter as a copy of any creature on the battlefield.\"). Clone enters the battlefield at the same time as another creature (for example, both are put onto the battlefield simultaneously by a spell). Can Clone copy the creature that entered at the same time?",
+    "answer": "No. Clone can only copy a creature that's ALREADY on the battlefield. If another creature enters simultaneously, Clone can't copy it. The player may choose a different creature already there, or enter as a 0/0 (and die).",
+    "explanation": "Per the Clone rulings, if Clone somehow enters the battlefield at the same time as another creature, Clone can't become a copy of that creature. You may choose only a creature that's already on the battlefield. This applies to all copy creatures (Phantasmal Image, Spark Double, etc.).",
+    "rule_refs": [
+      "707.2"
+    ],
+    "cards_ref": [
+      "Clone"
+    ],
+    "tags": [
+      "copying",
+      "simultaneous-entry",
+      "timing"
+    ]
+  },
+  {
+    "id": 339,
+    "difficulty": "edge_cases",
+    "question": "A player casts Clone (\"You may have this creature enter as a copy of any creature on the battlefield.\") choosing to copy a creature that is itself a Clone copying something else. What does the new Clone become?",
+    "answer": "The new Clone becomes a copy of whatever the first Clone is currently copying — it copies the copiable values, which are those of the original creature the first Clone copied. It does NOT become 'a Clone.'",
+    "explanation": "Per the Clone rulings, if the copied creature is copying something else (for example, if the copied creature is another Clone), then Clone enters the battlefield as whatever that creature copied. Copiable values trace back through the copy chain to the original source. The new Clone becomes a fresh copy of the ultimate original.",
+    "rule_refs": [
+      "707.2",
+      "707.3"
+    ],
+    "cards_ref": [
+      "Clone"
+    ],
+    "tags": [
+      "copying",
+      "copy-of-a-copy",
+      "copiable-values"
+    ]
+  },
+  {
+    "id": 340,
+    "difficulty": "edge_cases",
+    "question": "Humility (\"All creatures lose all abilities and have base power and toughness 1/1.\") is on the battlefield. A player casts a creature that has an enters-the-battlefield triggered ability. Does the ETB trigger?",
+    "answer": "No. The creature enters the battlefield as a 1/1 with no abilities (due to Humility). Since it never has the ETB ability while on the battlefield, the ability never triggers.",
+    "explanation": "Humility's continuous effect applies the moment the creature is on the battlefield (rule 603.6b). The creature enters as a 1/1 with no abilities — it's never on the battlefield with its printed abilities. Since the ETB ability doesn't exist on the creature as it enters, it can't trigger. Rule 603.6d distinguishes this from 'enters with' static abilities.",
+    "rule_refs": [
+      "613.1f",
+      "603.6b"
+    ],
+    "cards_ref": [
+      "Humility"
+    ],
+    "tags": [
+      "ability-removal",
+      "enters-the-battlefield",
+      "continuous-effects"
+    ]
+  },
+  {
+    "id": 341,
+    "difficulty": "edge_cases",
+    "question": "Mycosynth Lattice (\"All permanents are artifacts in addition to their other types.\") and March of the Machines (\"Each noncreature artifact is an artifact creature with power and toughness each equal to its mana value.\") are both on the battlefield. What happens to all enchantments, planeswalkers, and other noncreature permanents?",
+    "answer": "They all become artifact creatures with P/T equal to their mana value. Permanents with mana value 0 (like tokens with no mana cost) become 0/0 and die. All lands become 0/0 creatures and are immediately destroyed (lands have mana value 0).",
+    "explanation": "Mycosynth Lattice makes everything an artifact. March of the Machines makes every noncreature artifact into an artifact creature with P/T = mana value. Since all permanents are now artifacts, all noncreature permanents become creatures. Lands (mana value 0) become 0/0 and die as a state-based action (704.5f). This is a well-known combo to destroy all lands.",
+    "rule_refs": [
+      "613.1d",
+      "704.5f"
+    ],
+    "cards_ref": [
+      "Mycosynth Lattice",
+      "March of the Machines"
+    ],
+    "tags": [
+      "type-changing",
+      "combo",
+      "land-destruction",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 342,
+    "difficulty": "edge_cases",
+    "question": "A player controls Platinum Angel (\"Flying. You can't lose the game and your opponents can't win the game.\"). The player's life total is -5 and they have 12 poison counters. What happens?",
+    "answer": "Nothing — the player keeps playing. Platinum Angel prevents them from losing the game for any reason (0 or less life, 10+ poison, empty library draw, etc.). The game continues until Platinum Angel is removed.",
+    "explanation": "Per the Platinum Angel rulings, no game effect can cause you to lose the game while you control it. It doesn't matter whether you have 0 or less life, are forced to draw from an empty library, have 10+ poison counters, or even are dealt combat damage by Phage. You keep playing. However, you can still concede voluntarily.",
+    "rule_refs": [
+      "704.5a",
+      "704.5c"
+    ],
+    "cards_ref": [
+      "Platinum Angel"
+    ],
+    "tags": [
+      "cant-lose",
+      "state-based-actions",
+      "override"
+    ]
+  },
+  {
+    "id": 343,
+    "difficulty": "edge_cases",
+    "question": "A player controls Abyssal Persecutor (\"Flying, trample. You can't win the game and your opponents can't lose the game.\"). The opponent has -3 life. The player destroys their own Abyssal Persecutor. What happens to the opponent?",
+    "answer": "The opponent immediately loses the game. Once Abyssal Persecutor leaves the battlefield, state-based actions are checked and the opponent loses for having 0 or less life. No player can respond between the Persecutor leaving and the opponent losing.",
+    "explanation": "Per the Abyssal Persecutor rulings, if it leaves the battlefield while an opponent has 0 or less life, that opponent will lose the game as a state-based action. No player can respond between Abyssal Persecutor leaving and the state-based action causing the loss.",
+    "rule_refs": [
+      "704.5a"
+    ],
+    "cards_ref": [
+      "Abyssal Persecutor"
+    ],
+    "tags": [
+      "cant-win-lose",
+      "state-based-actions",
+      "removal-triggers-loss"
+    ]
+  },
+  {
+    "id": 344,
+    "difficulty": "edge_cases",
+    "question": "A player controls both Platinum Angel (\"You can't lose the game and your opponents can't win the game.\") and Abyssal Persecutor (\"You can't win the game and your opponents can't lose the game.\"). An opponent has 0 life. What happens?",
+    "answer": "The game continues in a bizarre state. The Platinum Angel player can't lose AND can't win. The opponent can't lose (Persecutor) AND can't win (Platinum Angel). No one can win or lose until one of these permanents is removed.",
+    "explanation": "Both 'can't lose' and 'can't win' effects coexist. The opponent has 0 life but can't lose (Persecutor says opponents can't lose). The Platinum Angel player can't lose either. Neither player can win. The game is essentially frozen until one of the permanents is removed, breaking the deadlock.",
+    "rule_refs": [
+      "704.5a"
+    ],
+    "cards_ref": [
+      "Platinum Angel",
+      "Abyssal Persecutor"
+    ],
+    "tags": [
+      "cant-win-lose",
+      "deadlock",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 345,
+    "difficulty": "edge_cases",
+    "question": "A player controls Phage the Untouchable (\"When Phage enters, if you didn't cast it from your hand, you lose the game.\") as their commander. They cast Phage from the command zone. Do they lose the game?",
+    "answer": "Yes. The command zone is not your hand. Since Phage was not cast from the player's hand, the triggered ability fires and the player loses the game.",
+    "explanation": "Per the Phage rulings, in a Commander game where Phage is your commander, casting it from the command zone does not count as casting it from your hand. The enters-the-battlefield trigger fires and the player loses. To use Phage as a commander, you need another effect (like Torpor Orb or Command Beacon) to avoid the trigger.",
+    "rule_refs": [
+      "903.8"
+    ],
+    "cards_ref": [
+      "Phage the Untouchable"
+    ],
+    "tags": [
+      "commander",
+      "enters-the-battlefield",
+      "lose-the-game"
+    ]
+  },
+  {
+    "id": 347,
+    "difficulty": "edge_cases",
+    "question": "A player casts Demonic Consultation (\"Choose a card name. Exile the top six cards of your library, then reveal cards from the top of your library until you reveal a card with the chosen name. Put that card into your hand and exile all other cards revealed this way.\") naming a card that isn't in their deck. What happens?",
+    "answer": "The player exiles the top six cards, then reveals and exiles their entire remaining library. They don't find the named card. They don't lose immediately, but will lose the next time they're instructed to draw a card (from an empty library).",
+    "explanation": "Per the Demonic Consultation rulings, if you don't reveal the named card (perhaps because it was in the top six or isn't in the deck), you'll end up exiling your entire library. You don't lose the game at that point — you lose the next time you're instructed to draw a card from your now-empty library.",
+    "rule_refs": [
+      "704.5b"
+    ],
+    "cards_ref": [
+      "Demonic Consultation"
+    ],
+    "tags": [
+      "exile-library",
+      "empty-library",
+      "self-destruction"
+    ]
+  },
+  {
+    "id": 348,
+    "difficulty": "edge_cases",
+    "question": "A player controls Laboratory Maniac (\"If you would draw a card while your library has no cards in it, you win the game instead.\") and their library is empty. They would draw a card. An opponent controls Angel's Grace-like effect that says 'you can't lose the game this turn.' Does the Laboratory Maniac player still win?",
+    "answer": "Per the Laboratory Maniac rulings, if for some reason you can't win the game, you won't lose either. The draw is replaced by the win attempt. Since you can't win but the draw was still replaced, you don't draw a card and don't lose for trying to draw from an empty library.",
+    "explanation": "Laboratory Maniac creates a replacement effect that replaces the draw with winning. If a 'can't win' effect is active, the win doesn't happen, but the draw was still replaced — so you don't actually try to draw from an empty library. You survive.",
+    "rule_refs": [
+      "614.6"
+    ],
+    "cards_ref": [
+      "Laboratory Maniac"
+    ],
+    "tags": [
+      "replacement-effects",
+      "win-condition",
+      "cant-win",
+      "empty-library"
+    ]
+  },
+  {
+    "id": 349,
+    "difficulty": "edge_cases",
+    "question": "A player controls Hive Mind (\"Whenever a player casts an instant or sorcery spell, each other player copies that spell. Each of those players may choose new targets for their copy.\"). An opponent casts Demonic Consultation (\"Choose a card name. Exile the top six cards of your library, then reveal cards from the top of your library until you reveal a card with the chosen name.\"). What happens to the other players?",
+    "answer": "Each other player gets a copy of Demonic Consultation and must name a card and resolve it — exiling the top 6 cards of THEIR OWN library, then searching for the named card. If they name a card not in their deck, they exile their entire library.",
+    "explanation": "Per the Hive Mind rulings, copies that say 'you' refer to the copy's controller. Each other player's copy of Demonic Consultation affects them — they exile from their own library. The copies aren't cast (they're created on the stack), so Hive Mind doesn't trigger again. Each player must resolve their copy independently.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Hive Mind",
+      "Demonic Consultation"
+    ],
+    "tags": [
+      "copy-spell",
+      "forced-copy",
+      "self-affecting",
+      "combo"
+    ]
+  },
+  {
+    "id": 350,
+    "difficulty": "edge_cases",
+    "question": "A player controls Worldgorger Dragon (\"When this creature enters, exile all other permanents you control. When this creature leaves the battlefield, return the exiled cards to the battlefield under their owners' control.\") and Animate Dead (\"Enchant creature card in a graveyard...\"). If Worldgorger Dragon dies and Animate Dead brings it back, what happens?",
+    "answer": "An infinite loop occurs. Worldgorger enters, exiling all your permanents including Animate Dead. Animate Dead leaving destroys Worldgorger. Worldgorger leaving returns everything including Animate Dead. Animate Dead returns Worldgorger. The loop repeats indefinitely — you must break it by choosing a different creature for Animate Dead.",
+    "explanation": "This is the famous Worldgorger Dragon combo. The loop creates infinite ETB/LTB triggers and infinite mana (if you tap lands between each cycle). However, if no other creature card is in any graveyard for Animate Dead to target, the loop can't be broken and the game is a draw.",
+    "rule_refs": [
+      "614.6",
+      "704.5m"
+    ],
+    "cards_ref": [
+      "Worldgorger Dragon",
+      "Animate Dead"
+    ],
+    "tags": [
+      "infinite-loop",
+      "exile-return",
+      "combo",
+      "mandatory-loop"
+    ]
+  },
+  {
+    "id": 351,
+    "difficulty": "edge_cases",
+    "question": "A player controls Endless Whispers (\"Each creature has 'When this creature dies, choose target opponent. That player puts this card from its owner's graveyard onto the battlefield under their control at the beginning of the next end step.'\"). A creature they control dies. Who chooses the target opponent?",
+    "answer": "The creature's controller (the player whose creature died) chooses the target opponent. The creature itself has the triggered ability, and the creature's controller controlled it when it died.",
+    "explanation": "Per the Endless Whispers rulings, the creatures have the triggered ability, so each creature's controller chooses one of their opponents to target. The controller who lost the creature picks which opponent gets it. This is a multiplayer-relevant political decision.",
+    "rule_refs": [
+      "603.3a"
+    ],
+    "cards_ref": [
+      "Endless Whispers"
+    ],
+    "tags": [
+      "dies-trigger",
+      "control-change",
+      "opponent-choice",
+      "political"
+    ]
+  },
+  {
+    "id": 352,
+    "difficulty": "edge_cases",
+    "question": "A player casts Confusion in the Ranks (\"Whenever an artifact, creature, or enchantment enters, its controller chooses target permanent another player controls that shares a card type with it. Exchange control of those permanents.\"). Confusion in the Ranks enters the battlefield. What happens?",
+    "answer": "Confusion in the Ranks triggers on itself entering. If an opponent controls an enchantment, the controller must exchange Confusion in the Ranks for that enchantment. The opponent then controls Confusion in the Ranks.",
+    "explanation": "Per the Confusion in the Ranks rulings, it triggers on itself entering. If an opponent controls an enchantment, exchange Confusion in the Ranks for that enchantment. The exchange is not optional — if there is a legal choice, you must make one. The new controller of Confusion in the Ranks now gets its future triggers.",
+    "rule_refs": [
+      "603.6a"
+    ],
+    "cards_ref": [
+      "Confusion in the Ranks"
+    ],
+    "tags": [
+      "enters-the-battlefield",
+      "control-exchange",
+      "self-triggering"
+    ]
+  },
+  {
+    "id": 353,
+    "difficulty": "edge_cases",
+    "question": "A player controls Zur's Weirding (\"Players play with their hands revealed. If a player would draw a card, they reveal it instead. Then any other player may pay 2 life. If a player does, put that card into its owner's graveyard.\"). Multiple players are at the table. An opponent would draw a card. They reveal it. Can multiple players each pay 2 life to ensure the card goes to the graveyard?",
+    "answer": "No, only one payment of 2 life is needed. Any other player may pay 2 life — if ANY player does, the card goes to the graveyard. Multiple players don't need to (and can't each separately) pay.",
+    "explanation": "Zur's Weirding says 'any other player may pay 2 life. If a player does, put that card into its owner's graveyard.' This is a single replacement — one payment of 2 life from any opponent is sufficient. If no one pays, the drawing player gets the card.",
+    "rule_refs": [
+      "614.1a"
+    ],
+    "cards_ref": [
+      "Zur's Weirding"
+    ],
+    "tags": [
+      "replacement-effects",
+      "life-payment",
+      "draw-replacement"
+    ]
+  },
+  {
+    "id": 354,
+    "difficulty": "edge_cases",
+    "question": "A player controls Hive Mind (\"Whenever a player casts an instant or sorcery spell, each other player copies that spell.\"). The copies Hive Mind creates — do they trigger Hive Mind again?",
+    "answer": "No. The copies are created on the stack, not 'cast.' Hive Mind triggers on casting a spell, not on putting a copy on the stack. The copies don't trigger Hive Mind again.",
+    "explanation": "Per the Hive Mind rulings, the copies that Hive Mind's ability creates are created on the stack, so they're not 'cast.' Abilities that trigger when a player casts a spell (like Hive Mind's ability itself) won't trigger from the copies. This prevents infinite loops.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Hive Mind"
+    ],
+    "tags": [
+      "copy-spell",
+      "cast-vs-copy",
+      "no-retrigger"
+    ]
+  },
+  {
+    "id": 355,
+    "difficulty": "edge_cases",
+    "question": "A player casts Warp World (\"Each player shuffles all permanents they own into their library, then reveals that many cards from the top of their library. Each player puts all artifact, creature, and land cards revealed this way onto the battlefield...\"). A player owns 10 permanents but one is a token. How many cards do they reveal?",
+    "answer": "10. Tokens count as permanents for determining how many cards to reveal. However, tokens aren't shuffled into the library (they cease to exist). The player still reveals 10 cards.",
+    "explanation": "Per the Warp World rulings, tokens are permanents but not cards. They count toward the number of permanents shuffled (determining how many cards to reveal), but they aren't actually shuffled into the library — they cease to exist. The count includes tokens.",
+    "rule_refs": [
+      "704.5d"
+    ],
+    "cards_ref": [
+      "Warp World"
+    ],
+    "tags": [
+      "tokens",
+      "permanents-vs-cards",
+      "shuffle",
+      "reveal"
+    ]
+  },
+  {
+    "id": 356,
+    "difficulty": "edge_cases",
+    "question": "In a Commander game, a player casts Warp World (\"Each player shuffles all permanents they own into their library, then reveals that many cards.\"). A player's commander would be shuffled into their library. Can they put it into the command zone instead?",
+    "answer": "Yes. Rule 903.9b says if a commander would be put into its owner's library, its owner may put it into the command zone instead. It's still counted toward the number of permanents shuffled, so the player reveals that many cards.",
+    "explanation": "Per the Warp World rulings, if a permanent leaves the battlefield this way but ends up in a zone other than a library (most likely because it's a commander), it's still counted to determine how many cards to reveal. So the commander goes to the command zone, but the card count stays the same.",
+    "rule_refs": [
+      "903.9b"
+    ],
+    "cards_ref": [
+      "Warp World"
+    ],
+    "tags": [
+      "commander",
+      "command-zone",
+      "replacement-effects",
+      "shuffle"
+    ]
+  },
+  {
+    "id": 357,
+    "difficulty": "edge_cases",
+    "question": "A player casts Scrambleverse (\"For each nonland permanent, choose a player at random. Then each player gains control of each permanent for which they were chosen.\"). After it resolves, some Auras are now controlled by players who don't control the permanent they enchant. What happens?",
+    "answer": "Auras can enchant permanents controlled by other players — they don't fall off. The Aura's controller changed, but the enchanted permanent may still be legal. If the Aura is now illegally attached (e.g., 'enchant creature you control'), it goes to the graveyard as a state-based action.",
+    "explanation": "Scrambleverse changes control of permanents but doesn't change what an Aura is attached to. If the Aura says 'enchant creature' (no controller restriction), it stays attached. If it says 'enchant creature you control' and you no longer control the enchanted creature, it becomes illegally attached and is put into its owner's graveyard (rule 704.5m).",
+    "rule_refs": [
+      "704.5m"
+    ],
+    "cards_ref": [
+      "Scrambleverse"
+    ],
+    "tags": [
+      "control-change",
+      "auras",
+      "state-based-actions",
+      "chaos"
+    ]
+  },
+  {
+    "id": 358,
+    "difficulty": "edge_cases",
+    "question": "Two players each control a Laboratory Maniac (\"If you would draw a card while your library has no cards in it, you win the game instead.\") and both have empty libraries. A spell instructs each player to draw a card. Who wins?",
+    "answer": "The player whose turn it is (the active player) wins. When multiple players would draw simultaneously, the active player draws first. Their Laboratory Maniac replaces the draw with winning, and the game ends immediately.",
+    "explanation": "Per the Laboratory Maniac rulings, if two or more players each control one and are instructed to draw, the active player draws first. If this causes them to win, the game is immediately over. The other player never gets to draw. Turn order determines the winner in this scenario.",
+    "rule_refs": [
+      "614.1a",
+      "101.4"
+    ],
+    "cards_ref": [
+      "Laboratory Maniac"
+    ],
+    "tags": [
+      "win-condition",
+      "simultaneous",
+      "active-player",
+      "APNAP"
+    ]
+  },
+  {
+    "id": 359,
+    "difficulty": "edge_cases",
+    "question": "A player controls Worldgorger Dragon (\"When this creature enters, exile all other permanents you control. When this creature leaves the battlefield, return the exiled cards to the battlefield under their owners' control.\"). The Worldgorger Dragon is destroyed before its enters-the-battlefield ability resolves. What happens?",
+    "answer": "The leaves-the-battlefield trigger fires first (returning nothing, since nothing was exiled yet). Then the enters-the-battlefield trigger resolves and exiles all other permanents the player controls — permanently. They never come back.",
+    "explanation": "Per the Worldgorger Dragon rulings, if it leaves the battlefield before its ETB ability resolves, the LTB ability triggers and resolves first, returning nothing. Then the ETB resolves and exiles everything else indefinitely, since the LTB trigger has already been used up.",
+    "rule_refs": [
+      "603.6a"
+    ],
+    "cards_ref": [
+      "Worldgorger Dragon"
+    ],
+    "tags": [
+      "enters-leaves-ordering",
+      "exile",
+      "permanent-exile",
+      "stack-order"
+    ]
+  },
+  {
+    "id": 360,
+    "difficulty": "edge_cases",
+    "question": "A player controls Necromancy (\"You may cast this spell as though it had flash. If you cast it any time a sorcery couldn't have been cast, the controller of the permanent it becomes sacrifices it at the beginning of the next cleanup step.\"). They cast Necromancy at instant speed during an opponent's turn, reanimating a creature. What happens during the cleanup step?",
+    "answer": "Necromancy is sacrificed at the beginning of the next cleanup step (since it was cast at a time a sorcery couldn't be cast). When Necromancy leaves, the reanimated creature's controller must sacrifice it. Both go away.",
+    "explanation": "Necromancy has a built-in 'flash drawback' — if cast outside sorcery timing, it's sacrificed during cleanup. When Necromancy leaves the battlefield, its leaves-the-battlefield ability triggers, forcing the sacrifice of the reanimated creature. This makes instant-speed Necromancy act like a temporary reanimation.",
+    "rule_refs": [
+      "514.3"
+    ],
+    "cards_ref": [
+      "Necromancy"
+    ],
+    "tags": [
+      "flash",
+      "cleanup-step",
+      "sacrifice",
+      "temporary-reanimation"
+    ]
+  },
+  {
+    "id": 361,
+    "difficulty": "edge_cases",
+    "question": "A player casts Hive Mind (\"Whenever a player casts an instant or sorcery spell, each other player copies that spell. Each of those players may choose new targets for their copy.\") is on the battlefield. A player casts a Pact spell (a spell that costs {0} but requires a payment during the next upkeep or you lose the game). What happens to the other players?",
+    "answer": "Each other player gets a copy of the Pact. The copies resolve like the original. However, each player who got a copy must pay the Pact's upkeep cost during their next upkeep or lose the game — even though they didn't choose to cast it.",
+    "explanation": "Per the Hive Mind rulings, a copy's controller can't choose to pay any additional costs, but effects based on the original spell's costs are copied. The Pact's delayed trigger ('pay or lose') applies to each copy's controller. If those players can't pay the Pact's upkeep cost (often in the wrong colors), they lose. This is a common Hive Mind combo.",
+    "rule_refs": [
+      "707.10c"
+    ],
+    "cards_ref": [
+      "Hive Mind"
+    ],
+    "tags": [
+      "copy-spell",
+      "pact",
+      "forced-payment",
+      "combo"
+    ]
   }
 ]
