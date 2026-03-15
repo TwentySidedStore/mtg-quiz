@@ -416,5 +416,698 @@
       "combat",
       "prevention"
     ]
+  },
+  {
+    "id": 27,
+    "difficulty": "stack_triggers",
+    "question": "A player controls two Soul Wardens (each reads: \"Whenever another creature enters, you gain 1 life.\"). A single creature enters the battlefield. How many times does the player gain life?",
+    "answer": "Two times — once for each Soul Warden. Each Soul Warden's ability triggers independently.",
+    "explanation": "Each triggered ability triggers independently when its trigger condition is met. Two permanents with the same trigger condition each see the event and each trigger separately. The controller puts both triggers on the stack in any order they choose.",
+    "rule_refs": [
+      "603.2",
+      "603.2c"
+    ],
+    "cards_ref": [
+      "Soul Warden"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "multiple_triggers"
+    ]
+  },
+  {
+    "id": 28,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Panharmonicon (\"If an artifact or creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\") and casts a creature with an enters-the-battlefield ability. The creature also enters with a +1/+1 counter. Does it get an extra counter from Panharmonicon?",
+    "answer": "No. Panharmonicon only affects triggered abilities, not replacement effects. Entering with counters is a replacement effect, not a triggered ability.",
+    "explanation": "Panharmonicon causes triggered abilities (which use 'when,' 'whenever,' or 'at') to trigger an additional time. Abilities that say 'enters with' are static abilities that create replacement effects, not triggered abilities. Panharmonicon doesn't affect them.",
+    "rule_refs": [
+      "603.1",
+      "603.6d"
+    ],
+    "cards_ref": [
+      "Panharmonicon"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "replacement_effects",
+      "etb"
+    ]
+  },
+  {
+    "id": 29,
+    "difficulty": "stack_triggers",
+    "question": "Player A controls Grave Pact (\"Whenever a creature you control dies, each other player sacrifices a creature of their choice.\"). Player A also controls Blood Artist (\"Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.\"). One of Player A's creatures dies. In what order do these abilities go on the stack?",
+    "answer": "Player A chooses the order. When multiple triggered abilities a player controls trigger simultaneously, that player chooses the order they go on the stack.",
+    "explanation": "When multiple triggered abilities controlled by the same player trigger at the same time, that player chooses the order they are placed on the stack. Since the stack resolves last-in-first-out, the ability placed on top resolves first. This means Player A can choose whether Grave Pact or Blood Artist resolves first.",
+    "rule_refs": [
+      "603.3b"
+    ],
+    "cards_ref": [
+      "Grave Pact",
+      "Blood Artist"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "stack_ordering",
+      "dies_triggers"
+    ]
+  },
+  {
+    "id": 30,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Oblivion Ring (\"When this enchantment enters, exile another target nonland permanent. When this enchantment leaves the battlefield, return the exiled card to the battlefield under its owner's control.\"). If Oblivion Ring leaves the battlefield before its enters-the-battlefield ability resolves, what happens?",
+    "answer": "The leaves-the-battlefield ability triggers and resolves first (doing nothing since nothing was exiled yet). Then the enters-the-battlefield ability resolves and exiles the target permanently — it never comes back.",
+    "explanation": "When Oblivion Ring leaves the battlefield before its first ability resolves, the second ability triggers and goes on top of the stack. It resolves first but does nothing (no card was exiled). Then the first ability resolves and exiles the target. Since the second ability already triggered and resolved, the exiled card stays exiled indefinitely.",
+    "rule_refs": [
+      "603.6c",
+      "603.3"
+    ],
+    "cards_ref": [
+      "Oblivion Ring"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "stack_ordering",
+      "etb",
+      "ltb"
+    ]
+  },
+  {
+    "id": 31,
+    "difficulty": "stack_triggers",
+    "question": "A triggered ability says \"Whenever a creature dies, draw a card.\" A spell destroys all creatures, killing five creatures at once. How many times does the ability trigger?",
+    "answer": "Five times — once for each creature that died.",
+    "explanation": "A triggered ability triggers once each time its trigger event occurs. When multiple creatures die simultaneously (such as from a board wipe), the event contains multiple occurrences of 'a creature dies,' so the ability triggers once for each creature.",
+    "rule_refs": [
+      "603.2c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered_abilities",
+      "multiple_triggers",
+      "dies_triggers"
+    ]
+  },
+  {
+    "id": 32,
+    "difficulty": "stack_triggers",
+    "question": "A player activates Strionic Resonator (\"Copy target triggered ability you control. You may choose new targets for the copy.\") targeting an enters-the-battlefield ability from Fiend Hunter (\"When this creature enters, you may exile another target creature.\"). What happens?",
+    "answer": "A copy of Fiend Hunter's triggered ability is created on the stack. The player may choose a new target for the copy. Both the original and the copy resolve separately, potentially exiling two creatures.",
+    "explanation": "Strionic Resonator creates a copy of the triggered ability on the stack. The copy is independent of the original. New targets may be chosen for the copy. Both the original and copy resolve separately. If Fiend Hunter later leaves the battlefield, both exiled creatures return.",
+    "rule_refs": [
+      "603.3"
+    ],
+    "cards_ref": [
+      "Strionic Resonator",
+      "Fiend Hunter"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "copy",
+      "stack"
+    ]
+  },
+  {
+    "id": 33,
+    "difficulty": "stack_triggers",
+    "question": "Player A casts a creature spell. Player B responds with Counterspell (\"Counter target spell.\"). Can Player A respond to the Counterspell before it resolves?",
+    "answer": "Yes. After Counterspell is placed on the stack, Player B gets priority first (as the caster). If Player B passes, Player A receives priority and may cast instants or activate abilities before Counterspell resolves.",
+    "explanation": "After any spell or ability is placed on the stack, the active player receives priority. Both players must pass in succession for the top item on the stack to resolve. Player A will get priority before Counterspell resolves and can respond.",
+    "rule_refs": [
+      "117.3c",
+      "117.4"
+    ],
+    "cards_ref": [
+      "Counterspell"
+    ],
+    "tags": [
+      "priority",
+      "stack",
+      "responding"
+    ]
+  },
+  {
+    "id": 34,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Teysa Karlov (\"If a creature dying causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\") and Zulaport Cutthroat (\"Whenever this creature or another creature you control dies, each opponent loses 1 life and you gain 1 life.\"). A creature they control dies. How many times does Zulaport Cutthroat's ability trigger?",
+    "answer": "Two times. Teysa Karlov causes the death trigger to trigger an additional time.",
+    "explanation": "Teysa Karlov causes triggered abilities that trigger from a creature dying to trigger an additional time. Zulaport Cutthroat's ability triggers when a creature you control dies, so Teysa causes it to trigger twice. Each instance goes on the stack separately, and each opponent loses 1 life twice (total 2 life lost).",
+    "rule_refs": [
+      "603.2d"
+    ],
+    "cards_ref": [
+      "Teysa Karlov",
+      "Zulaport Cutthroat"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "dies_triggers",
+      "doubling"
+    ]
+  },
+  {
+    "id": 35,
+    "difficulty": "stack_triggers",
+    "question": "A player casts Lightning Bolt (\"Lightning Bolt deals 3 damage to any target.\") targeting an opponent. In response, the opponent casts their own Lightning Bolt targeting the first player. Which Lightning Bolt resolves first?",
+    "answer": "The opponent's Lightning Bolt resolves first. The stack resolves last-in, first-out (LIFO).",
+    "explanation": "The stack uses last-in, first-out ordering. The opponent's Lightning Bolt was cast in response, so it is on top of the stack and resolves first. After it resolves, the original Lightning Bolt resolves.",
+    "rule_refs": [
+      "117.7",
+      "405.2"
+    ],
+    "cards_ref": [
+      "Lightning Bolt"
+    ],
+    "tags": [
+      "stack",
+      "lifo"
+    ]
+  },
+  {
+    "id": 36,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Impact Tremors (\"Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.\") and casts a spell that creates three 1/1 creature tokens simultaneously. How many times does Impact Tremors trigger?",
+    "answer": "Three times — once for each token that enters the battlefield.",
+    "explanation": "Each token entering the battlefield is a separate event that matches Impact Tremors' trigger condition. When three tokens enter simultaneously, the ability triggers three times. The controller puts all three triggers on the stack.",
+    "rule_refs": [
+      "603.2c"
+    ],
+    "cards_ref": [
+      "Impact Tremors"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "tokens",
+      "multiple_triggers"
+    ]
+  },
+  {
+    "id": 37,
+    "difficulty": "stack_triggers",
+    "question": "Can a player respond to a triggered ability? For example, if a creature with \"When this creature enters, destroy target artifact\" enters the battlefield, can the opponent activate an ability of the targeted artifact before it's destroyed?",
+    "answer": "Yes. Triggered abilities go on the stack and can be responded to just like spells. The opponent gets priority before the triggered ability resolves.",
+    "explanation": "Triggered abilities use the stack. When the ability is placed on the stack with a target, both players get priority before it resolves. The opponent can respond by activating abilities, casting instants, or even removing the source of the triggered ability (though removing the source doesn't counter the ability).",
+    "rule_refs": [
+      "603.3",
+      "117.3b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered_abilities",
+      "stack",
+      "priority",
+      "responding"
+    ]
+  },
+  {
+    "id": 39,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Yarok, the Desecrated (\"If a permanent entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\"). If Yarok itself enters the battlefield alongside another creature (e.g. both are returned from exile simultaneously), does Yarok double the other creature's enters-the-battlefield triggers?",
+    "answer": "Yes. If a permanent entering the battlefield at the same time as Yarok causes a triggered ability to trigger, that ability triggers an additional time.",
+    "explanation": "Yarok's ability applies to permanents that enter at the same time as Yarok, including Yarok itself. Both are on the battlefield simultaneously when triggers are checked, so Yarok's doubling effect applies.",
+    "rule_refs": [
+      "603.6a"
+    ],
+    "cards_ref": [
+      "Yarok",
+      "the Desecrated"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "etb",
+      "doubling"
+    ]
+  },
+  {
+    "id": 40,
+    "difficulty": "stack_triggers",
+    "question": "What is the difference between a triggered ability and an activated ability? How can you tell them apart on a card?",
+    "answer": "Triggered abilities use the words \"when,\" \"whenever,\" or \"at\" and trigger automatically. Activated abilities have a cost followed by a colon (:) and are activated by a player choosing to pay the cost.",
+    "explanation": "Triggered abilities are written as '[When/Whenever/At] [event], [effect]' and trigger automatically when their condition is met. Activated abilities are written as '[Cost]: [Effect]' and are only used when a player chooses to activate them by paying the cost.",
+    "rule_refs": [
+      "603.1",
+      "602.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered_abilities",
+      "activated_abilities",
+      "definitions"
+    ]
+  },
+  {
+    "id": 41,
+    "difficulty": "stack_triggers",
+    "question": "Two players each control a Dictate of Erebos (\"Whenever a creature you control dies, each opponent sacrifices a creature of their choice.\"). Player A's creature dies. What happens?",
+    "answer": "Player A's Dictate of Erebos triggers, because only Player A controlled the creature that died. Player B must sacrifice a creature. Player B's Dictate triggers causing Player A to sacrifice a creature. This continues.",
+    "explanation": "If you and an opponent each control a Dictate of Erebos and a creature dies, a chain reaction happens. First the ability of one player's Dictate of Erebos will trigger, causing each opponent to sacrifice a creature. That sacrifice causes the ability of the other player's Dictate of Erebos to trigger, and so on. ",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Dictate of Erebos"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "controller",
+      "dies_triggers"
+    ]
+  },
+  {
+    "id": 42,
+    "difficulty": "stack_triggers",
+    "question": "A player casts a spell. Before it resolves, they want to cast another instant spell. Can they do this without giving their opponent a chance to respond first?",
+    "answer": "Yes. After casting a spell, the caster retains priority. They can cast another instant or activate an ability before passing priority to their opponent.",
+    "explanation": "When a player casts a spell, they receive priority after it goes on the stack. They may cast additional instants or activate abilities. Only after they pass priority does the opponent get a chance to respond. However, nothing resolves until all players pass in succession.",
+    "rule_refs": [
+      "117.3c",
+      "117.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "stack",
+      "casting"
+    ]
+  },
+  {
+    "id": 43,
+    "difficulty": "stack_triggers",
+    "question": "A triggered ability has an \"intervening if\" clause: \"At the beginning of your upkeep, if you have no cards in hand, draw a card.\" The player has no cards in hand when their upkeep begins, so the ability triggers. Before it resolves, another effect causes them to draw a card. What happens when the triggered ability resolves?",
+    "answer": "The ability is removed from the stack and does nothing. The condition (having no cards in hand) is checked both when the ability triggers AND when it resolves. Since the player now has a card in hand, the condition is no longer true.",
+    "explanation": "An intervening 'if' clause is checked twice: once when the trigger event occurs (to determine if the ability triggers at all) and again when the ability resolves (to determine if it does anything). If the condition is false at resolution, the ability does nothing.",
+    "rule_refs": [
+      "603.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered_abilities",
+      "intervening_if"
+    ]
+  },
+  {
+    "id": 44,
+    "difficulty": "stack_triggers",
+    "question": "A creature has \"Whenever this creature becomes tapped, draw a card.\" It enters the battlefield tapped. Does the ability trigger?",
+    "answer": "No. \"Becomes tapped\" only triggers when the status changes from untapped to tapped. Entering the battlefield already tapped is not a change in state.",
+    "explanation": "Trigger events that use 'becomes' only trigger when the named event actually happens as a state change. A permanent entering the battlefield in a tapped state was never untapped, so no state change occurred. The ability does not trigger.",
+    "rule_refs": [
+      "603.2e"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered_abilities",
+      "becomes"
+    ]
+  },
+  {
+    "id": 45,
+    "difficulty": "stack_triggers",
+    "question": "An artifact has the ability \"Whenever a creature dies, you gain 1 life.\" A spell destroys all artifacts, creatures, and enchantments simultaneously. The artifact and three creatures are all destroyed. Does the artifact's ability trigger?",
+    "answer": "Yes, it triggers three times. Leaves-the-battlefield abilities 'look back in time' to check if they should trigger based on the game state immediately before the event.",
+    "explanation": "Some triggered abilities 'look back in time' to the game state immediately before the event to determine if they trigger. Leaves-the-battlefield abilities and abilities that trigger when a creature dies are among these exceptions. Even though the artifact was destroyed at the same time as the creatures, its ability triggers for each creature that died.",
+    "rule_refs": [
+      "603.10",
+      "603.10a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered_abilities",
+      "look_back",
+      "dies_triggers"
+    ]
+  },
+  {
+    "id": 46,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Purphoros, God of the Forge (\"Whenever another creature you control enters, Purphoros deals 2 damage to each opponent.\"). Their devotion to red is less than five, so Purphoros is not a creature. If a creature enters the battlefield, does Purphoros's ability still trigger?",
+    "answer": "Yes. Purphoros's triggered ability works regardless of whether Purphoros is currently a creature. It is still an enchantment permanent on the battlefield with that ability.",
+    "explanation": "Purphoros's conditional creature status is separate from its triggered ability. Even when it's not a creature (due to insufficient devotion), it's still an enchantment on the battlefield. All its abilities, including the triggered damage ability, still function.",
+    "rule_refs": [
+      "603.2",
+      "604.2"
+    ],
+    "cards_ref": [
+      "Purphoros",
+      "God of the Forge"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "gods",
+      "etb"
+    ]
+  },
+  {
+    "id": 47,
+    "difficulty": "stack_triggers",
+    "question": "What is a mana ability, and why does it matter for the stack?",
+    "answer": "A mana ability is an activated ability that produces mana and doesn't target (like tapping a land for mana). Mana abilities don't use the stack and can't be responded to.",
+    "explanation": "Mana abilities resolve immediately without using the stack. This means opponents can't respond to a player tapping lands for mana. This is why you can't 'destroy a land in response to them tapping it for mana' — by the time you have priority, the mana is already in their pool.",
+    "rule_refs": [
+      "605.1",
+      "605.3a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "mana_abilities",
+      "stack"
+    ]
+  },
+  {
+    "id": 48,
+    "difficulty": "stack_triggers",
+    "question": "Player A casts a creature spell. Player B casts Counterspell targeting it. Player A responds by casting another spell. While that spell is on the stack, can Player A cast yet another instant?",
+    "answer": "Yes. After casting a spell, the caster retains priority and can keep casting instants or activating abilities. Nothing resolves until all players pass in succession.",
+    "explanation": "Each time a player casts a spell or activates an ability, they retain priority afterward. They can continue to add spells and abilities to the stack. The stack only begins resolving (one item at a time) when all players pass priority in succession.",
+    "rule_refs": [
+      "117.3c",
+      "117.4"
+    ],
+    "cards_ref": [
+      "Counterspell"
+    ],
+    "tags": [
+      "priority",
+      "stack",
+      "responding"
+    ]
+  },
+  {
+    "id": 49,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Syr Konrad, the Grim (\"Whenever another creature dies, or a creature card is put into a graveyard from anywhere other than the battlefield, or a creature card leaves your graveyard, Syr Konrad deals 1 damage to each opponent.\"). An opponent casts a spell that exiles three creature cards from the Syr Konrad player's graveyard. How many times does Syr Konrad's ability trigger?",
+    "answer": "Three times — once for each creature card that leaves the graveyard.",
+    "explanation": "Syr Konrad triggers whenever a creature card leaves your graveyard, regardless of where it goes. Exiling three creature cards from the graveyard means three creature cards left the graveyard, so the ability triggers three times, dealing 1 damage to each opponent per trigger.",
+    "rule_refs": [
+      "603.2c"
+    ],
+    "cards_ref": [
+      "Syr Konrad",
+      "the Grim"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "graveyard",
+      "multiple_triggers"
+    ]
+  },
+  {
+    "id": 50,
+    "difficulty": "stack_triggers",
+    "question": "A triggered ability reads \"Whenever you cast a spell, draw a card.\" The player casts an instant. The triggered ability goes on the stack above the instant. In what order do these resolve?",
+    "answer": "The triggered ability (draw a card) resolves first, then the instant resolves. The stack is last-in, first-out.",
+    "explanation": "When a spell is cast, any triggered abilities that trigger from it being cast are placed on the stack on top of the spell. Since the stack resolves top-down (LIFO), the triggered ability resolves before the spell that caused it to trigger.",
+    "rule_refs": [
+      "117.7",
+      "603.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered_abilities",
+      "stack",
+      "lifo"
+    ]
+  },
+  {
+    "id": 51,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Restoration Angel (which has: \"When this creature enters, you may exile target non-Angel creature you control, then return that card to the battlefield under your control.\") and targets a creature with an enters-the-battlefield ability. In what order do things happen?",
+    "answer": "Restoration Angel's ability resolves: the creature is exiled, then immediately returned. The returned creature's enters-the-battlefield ability triggers and goes on the stack. Players get priority before it resolves.",
+    "explanation": "Restoration Angel's ability exiles and returns the creature as part of its resolution. The returned creature is a new object. Its enters-the-battlefield ability triggers but waits until Restoration Angel's ability finishes resolving. Then the new trigger is placed on the stack and players receive priority.",
+    "rule_refs": [
+      "603.6a",
+      "400.7"
+    ],
+    "cards_ref": [
+      "Restoration Angel"
+    ],
+    "tags": [
+      "triggered_abilities",
+      "etb",
+      "blink",
+      "stack"
+    ]
+  },
+  {
+    "id": 52,
+    "difficulty": "multiplayer",
+    "question": "In a four-player free-for-all game, Player A is eliminated. Player A owns an Aura that is attached to Player B's creature. What happens to that Aura?",
+    "answer": "The Aura leaves the game as a state-based action because its owner has left the game.",
+    "explanation": "When a player leaves a multiplayer game, all objects that player owns leave the game (rule 800.4a). This includes permanents, spells on the stack, cards in any zone, and so on. The Aura is owned by Player A, so it is removed from the game when Player A leaves the game, regardless of who controls it or what it's attached to.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "player-leaving",
+      "ownership",
+      "auras"
+    ]
+  },
+  {
+    "id": 53,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer game, Player A controls a creature they gained from Player B via a Control Magic effect. Player B is eliminated from the game. What happens to that creature?",
+    "answer": "The creature is exiled because its owner (Player B) has left the game.",
+    "explanation": "When a player leaves a multiplayer game, all objects owned by that player leave the game (rule 800.4a). Even though Player A controls the creature, Player B owns it. When Player B leaves, the creature is exiled along with all other objects Player B owns.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "player-leaving",
+      "ownership",
+      "control-change"
+    ]
+  },
+  {
+    "id": 54,
+    "difficulty": "multiplayer",
+    "question": "In a four-player free-for-all, Player A casts a spell that would create a token under the control of Player B, but Player B was eliminated earlier this turn. What happens?",
+    "answer": "No token is created.",
+    "explanation": "Rule 800.4b states that if a token would be created under the control of a player who has left the game, no token is created. Similarly, if an object would change to the control of a player who has left the game, it doesn't.",
+    "rule_refs": [
+      "800.4b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "player-leaving",
+      "tokens",
+      "control"
+    ]
+  },
+  {
+    "id": 55,
+    "difficulty": "multiplayer",
+    "question": "Player A is eliminated from a multiplayer game during their own turn. What happens to the rest of that turn?",
+    "answer": "The turn continues to its completion without an active player. Whenever the active player would receive priority, the next player in turn order receives priority instead (or the top object on the stack resolves, or the phase/step ends).",
+    "explanation": "Rule 800.4j specifies that if a player leaves the game during their turn, that turn continues to its completion without an active player. If the active player would receive priority, the next player in turn order receives it, the top stack object resolves, or the phase/step ends, whichever is appropriate.",
+    "rule_refs": [
+      "800.4j"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "player-leaving",
+      "turn-structure",
+      "priority"
+    ]
+  },
+  {
+    "id": 56,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer free-for-all game (not Two-Headed Giant), does the starting player skip the draw step of their first turn?",
+    "answer": "No. In multiplayer games other than Two-Headed Giant, the starting player does NOT skip the draw step of their first turn.",
+    "explanation": "Rule 800.7 states that in a multiplayer game other than a Two-Headed Giant game, the starting player doesn't skip the draw step of their first turn. This is different from two-player games where the starting player skips their first draw step.",
+    "rule_refs": [
+      "800.7"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "turn-structure",
+      "draw-step",
+      "first-turn"
+    ]
+  },
+  {
+    "id": 57,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer game, how does the first mulligan work differently compared to a two-player game?",
+    "answer": "The first mulligan doesn't count toward the number of cards put on the bottom of the library. A player's first mulligan in a multiplayer game is 'free' — they draw 7 again, and subsequent mulligans reduce the hand size as normal.",
+    "explanation": "Rule 800.6 provides that in a multiplayer game, the first mulligan a player takes doesn't count toward the number of cards that player will put on the bottom of their library or the number of mulligans that player may take. This is sometimes called the 'free mulligan' for multiplayer.",
+    "rule_refs": [
+      "800.6"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "mulligan",
+      "game-start"
+    ]
+  },
+  {
+    "id": 61,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer game using the Attack Multiple Players option, Player A attacks Player B with two creatures and Player C with one creature. When does Player C declare blockers?",
+    "answer": "Player B declares all their blocks first (in APNAP order), then Player C declares their blocks.",
+    "explanation": "Rule 802.4 states that if more than one player is being attacked, each defending player in APNAP (Active Player, Non-Active Player) order declares blockers as the declare blockers step begins. The first defending player declares all their blocks, then the second defending player, and so on. A defending player can only block creatures attacking them, a planeswalker they control, or a battle they protect (rule 802.4a).\n\nNote that in a typical multi-player game, this all just happens at once. But if there are specific triggers we need to think about, this could be relevant.",
+    "rule_refs": [
+      "802.4",
+      "802.4a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "attack-multiple-players",
+      "blockers",
+      "APNAP"
+    ]
+  },
+  {
+    "id": 64,
+    "difficulty": "multiplayer",
+    "question": "In a four-player free-for-all, Player A controls Grave Pact (\"Whenever a creature you control dies, each other player sacrifices a creature of their choice.\"). A creature Player A controls dies. Who has to sacrifice a creature?",
+    "answer": "Each other player (Players B, C, and D) must each sacrifice a creature of their choice.",
+    "explanation": "Grave Pact says 'each other player sacrifices a creature.' In a multiplayer game, 'each other player' means every player in the game other than the controller of Grave Pact. When the triggered ability resolves, first the player whose turn it is (if it isn't Player A's turn) chooses which creature to sacrifice, then each other player in turn order does the same, then all chosen creatures are sacrificed simultaneously.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Grave Pact"
+    ],
+    "tags": [
+      "sacrifice",
+      "multiplayer-targeting",
+      "each-other-player"
+    ]
+  },
+  {
+    "id": 65,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Exsanguinate (\"Each opponent loses X life. You gain life equal to the life lost this way.\") with X=5. Player B has 3 life, Player C has 10 life, and Player D has 8 life. How much life does Player A gain?",
+    "answer": "Player A gains 15 life (5 + 5 + 5 = 15 life lost total by all opponents).",
+    "explanation": "Each opponent loses 5 life regardless of their current life total — players can lose more life than they have. Player B goes to -2, Player C to 5, and Player D to 3. Player A gains life equal to the total life lost (5 + 5 + 5 = 15). Note that Player B still lost 5 life even though they only had 3; life totals can go negative.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Exsanguinate"
+    ],
+    "tags": [
+      "life-loss",
+      "life-gain",
+      "each-opponent",
+      "X-spells"
+    ]
+  },
+  {
+    "id": 66,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Torment of Hailfire (\"Repeat the following process X times. Each opponent loses 3 life unless that player sacrifices a nonland permanent of their choice or discards a card.\") with X=2. In what order do the opponents make their choices?",
+    "answer": "Each opponent in turn order makes their choice once, then all actions happen simultaneously. Then they repeat the process for the second iteration, again in turn order.",
+    "explanation": "Per the Torment of Hailfire rulings for multiplayer games: each opponent in turn order makes their choice once, then all of the actions occur simultaneously, then they repeat this process if it hasn't been done X times yet. Opponents will know choices made by earlier opponents when making their choices. State-based actions are not checked between repetitions.",
+    "rule_refs": [
+      "101.4"
+    ],
+    "cards_ref": [
+      "Torment of Hailfire"
+    ],
+    "tags": [
+      "APNAP",
+      "each-opponent",
+      "resolution-order"
+    ]
+  },
+  {
+    "id": 67,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A controls Rhystic Study (\"Whenever an opponent casts a spell, you may draw a card unless that player pays {1}.\"). Player B casts a spell. Does the opponent decide whether to pay {1} before or after Player A decides whether to draw?",
+    "answer": "The opponent (Player B) decides whether to pay {1} first, then Player A decides whether to draw a card.",
+    "explanation": "Per the Rhystic Study ruling, you don't have to decide whether or not to draw a card until after the player decides whether or not to pay. Rhystic Study's triggered ability resolves before the spell that caused it to trigger, and the opponent gets the option to pay when the triggered ability resolves.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Rhystic Study"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "may-abilities",
+      "payment"
+    ]
+  },
+  {
+    "id": 68,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Disrupt Decorum (\"Goad all creatures you don't control.\"). On Player B's next turn, Player B has a goaded creature. Player B must attack — but can Player B attack Player A with the goaded creature?",
+    "answer": "No, the goaded creature must attack a player other than Player A if able. However, if it can't attack any other player, it may attack Player A or a planeswalker/battle an opponent controls.",
+    "explanation": "Goad requires the creature to attack each combat if able and to attack a player other than the player who goaded it if able. The creature must attack an opponent other than Player A. Only if it cannot attack any other player is it allowed to attack Player A (or a planeswalker/battle an opponent controls).",
+    "rule_refs": [
+      "802.3"
+    ],
+    "cards_ref": [
+      "Disrupt Decorum"
+    ],
+    "tags": [
+      "goad",
+      "combat",
+      "attack-restrictions"
+    ]
+  },
+  {
+    "id": 69,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A controls Ghostly Prison (\"Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.\"). Player B also controls a Ghostly Prison. Player C wants to attack Player A with two creatures and Player B with one creature. How much mana must Player C pay?",
+    "answer": "Player C must pay {4} to attack Player A with two creatures (2 x {2}) and {2} to attack Player B with one creature, for a total of {6}.",
+    "explanation": "Each Ghostly Prison affects attacks against its controller independently. Player C must pay {2} per creature attacking Player A (2 creatures x {2} = {4}), and {2} per creature attacking Player B (1 creature x {2} = {2}). The costs are cumulative per player being attacked. The creature attacking Player B does not need to pay for Player A's Ghostly Prison, and vice versa.",
+    "rule_refs": [
+      "802.3"
+    ],
+    "cards_ref": [
+      "Ghostly Prison"
+    ],
+    "tags": [
+      "attack-costs",
+      "propaganda-effects",
+      "combat"
+    ]
+  },
+  {
+    "id": 70,
+    "difficulty": "multiplayer",
+    "question": "In a four-player free-for-all, Player A controls Purphoros, God of the Forge (\"Whenever another creature you control enters, Purphoros deals 2 damage to each opponent.\") with devotion to red less than five. Player A plays a creature. How much total damage does Purphoros deal?",
+    "answer": "Purphoros deals 2 damage to each of the three opponents, for 6 total damage.",
+    "explanation": "Purphoros's triggered ability says 'each opponent,' which in a four-player game means all three other players. The ability deals 2 damage to each of them. Importantly, Purphoros's abilities function regardless of whether it's a creature — its abilities work as long as it's on the battlefield (it's still an enchantment even when devotion is low).",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Purphoros",
+      "God of the Forge"
+    ],
+    "tags": [
+      "each-opponent",
+      "damage",
+      "triggered-abilities",
+      "devotion"
+    ]
+  },
+  {
+    "id": 71,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer game, Player A controls Wound Reflection (\"At the beginning of each end step, each opponent loses life equal to the life they lost this turn.\"). During a turn, Player B lost 4 life from combat damage and then gained 6 life. Does Wound Reflection's ability affect Player B?",
+    "answer": "Yes. Player B loses 4 additional life from Wound Reflection's ability, even though they gained more life than they lost during the turn.",
+    "explanation": "Wound Reflection checks only whether life was lost, not whether life was also gained. Even though Player B's net life change was positive (+2), they still lost 4 life during the turn. Wound Reflection causes them to lose an additional 4 life at the end step. Life gained and life lost are tracked separately.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Wound Reflection"
+    ],
+    "tags": [
+      "life-loss",
+      "end-step",
+      "each-opponent",
+      "triggered-abilities"
+    ]
   }
 ]
