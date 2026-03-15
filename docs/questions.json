@@ -1463,5 +1463,1744 @@
       "continuous-effects",
       "duration"
     ]
+  },
+  {
+    "id": 92,
+    "difficulty": "fundamentals",
+    "question": "A player casts Rampant Growth (\"Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.\"). Does this count as their land play for the turn?",
+    "answer": "No. Putting a land onto the battlefield via a spell or ability is not the same as playing a land and does not count toward the one-land-per-turn limit.",
+    "explanation": "Rule 305.4 states that effects which allow players to 'put' lands onto the battlefield are not the same as 'playing a land' and don't count as a land played during the current turn. The player may still play a land from their hand this turn.",
+    "rule_refs": [
+      "305.4"
+    ],
+    "cards_ref": [
+      "Rampant Growth"
+    ],
+    "tags": [
+      "lands",
+      "play-vs-put"
+    ]
+  },
+  {
+    "id": 93,
+    "difficulty": "fundamentals",
+    "question": "A player casts Explore (\"You may play an additional land this turn. Draw a card.\"). Do they get to play a land immediately as Explore resolves?",
+    "answer": "No. Explore fully resolves first (they draw the card), and then they may play their additional land later during their main phase following normal timing rules.",
+    "explanation": "Per the Explore rulings, the effect allows you to play an additional land during your main phase, but doing so follows the normal timing rules for playing lands. You don't get to play a land as Explore resolves — Explore fully resolves first and you draw a card, perhaps a land you'll play later.",
+    "rule_refs": [
+      "305.1",
+      "305.2"
+    ],
+    "cards_ref": [
+      "Explore"
+    ],
+    "tags": [
+      "lands",
+      "additional-land-plays"
+    ]
+  },
+  {
+    "id": 94,
+    "difficulty": "fundamentals",
+    "question": "A player controls a Pacifism (\"Enchant creature. Enchanted creature can't attack or block.\") on their opponent's creature. On their turn, the opponent casts Naturalize (\"Destroy target artifact or enchantment.\") targeting the Pacifism during their first main phase. Can they attack with that creature this combat?",
+    "answer": "Yes, as long as the creature doesn't have summoning sickness. Once Pacifism is destroyed, its effect no longer applies and the creature can attack normally.",
+    "explanation": "Pacifism's effect only applies while it is on the battlefield. Once Naturalize destroys it, the restriction on attacking and blocking is removed. If the creature has been under its controller's control since the beginning of their turn (no summoning sickness), it can attack that combat.",
+    "rule_refs": [
+      "302.6",
+      "508.1"
+    ],
+    "cards_ref": [
+      "Pacifism",
+      "Naturalize"
+    ],
+    "tags": [
+      "auras",
+      "attack-restrictions",
+      "removal"
+    ]
+  },
+  {
+    "id": 95,
+    "difficulty": "fundamentals",
+    "question": "A player casts Act of Treason (\"Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\") on their opponent's creature and attacks with it. At what point does the opponent regain control of the creature?",
+    "answer": "During the cleanup step, when 'until end of turn' effects expire.",
+    "explanation": "Rule 514.2 specifies that during the cleanup step, all 'until end of turn' and 'this turn' effects end. Act of Treason's control-changing effect lasts 'until end of turn,' so control reverts to the original controller during the cleanup step. This happens after the end step.",
+    "rule_refs": [
+      "514.2"
+    ],
+    "cards_ref": [
+      "Act of Treason"
+    ],
+    "tags": [
+      "control-change",
+      "cleanup-step",
+      "until-end-of-turn"
+    ]
+  },
+  {
+    "id": 96,
+    "difficulty": "fundamentals",
+    "question": "A player controls a creature that entered the battlefield this turn. Can they activate its ability that costs \"{T}: Draw a card\"?",
+    "answer": "No. A creature can't use activated abilities with the tap symbol in the cost unless it has been under its controller's control continuously since the beginning of their most recent turn (summoning sickness), unless it has haste.",
+    "explanation": "Rule 302.6 states that a creature's activated ability with the tap symbol in its activation cost can't be activated unless the creature has been under its controller's control continuously since their most recent turn began. This is the 'summoning sickness' rule. Haste would override this restriction.",
+    "rule_refs": [
+      "302.6"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "summoning-sickness",
+      "activated-abilities",
+      "tap-symbol"
+    ]
+  },
+  {
+    "id": 98,
+    "difficulty": "fundamentals",
+    "question": "Can a player play a land on their opponent's turn if an effect says they may play an additional land this turn?",
+    "answer": "No. A player can't play a land if it isn't their turn, regardless of any effects that grant additional land plays.",
+    "explanation": "Rule 305.3 states that a player can't play a land, for any reason, if it isn't their turn. Even if an effect would instruct a player to play a land during another player's turn, that part of the effect is ignored.",
+    "rule_refs": [
+      "305.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lands",
+      "timing"
+    ]
+  },
+  {
+    "id": 99,
+    "difficulty": "fundamentals",
+    "question": "A player casts Swords to Plowshares (\"Exile target creature. Its controller gains life equal to its power.\") targeting a 4/4 creature. In response, the opponent casts Giant Growth (\"Target creature gets +3/+3 until end of turn.\") on that creature. How much life does the creature's controller gain?",
+    "answer": "7 life. The creature is a 7/7 when Swords to Plowshares resolves, so its controller gains life equal to its current power (7).",
+    "explanation": "Swords to Plowshares uses the creature's power as it was last on the battlefield to determine the life gained. Since Giant Growth resolved first, the creature is 7/7 when Swords to Plowshares resolves and exiles it. The controller gains 7 life.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Swords to Plowshares",
+      "Giant Growth"
+    ],
+    "tags": [
+      "life-gain",
+      "stack",
+      "power-toughness",
+      "in-response"
+    ]
+  },
+  {
+    "id": 100,
+    "difficulty": "fundamentals",
+    "question": "A player casts Essence Scatter (\"Counter target creature spell.\"). Can they use it to counter an artifact creature spell?",
+    "answer": "Yes. A 'creature spell' is any spell with the creature type, even if it also has other types such as artifact or enchantment.",
+    "explanation": "Per the Essence Scatter rulings, a 'creature spell' includes any spell with the creature card type, regardless of additional types. An artifact creature is still a creature spell, so Essence Scatter can counter it.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Essence Scatter"
+    ],
+    "tags": [
+      "counterspells",
+      "card-types",
+      "creature-spells"
+    ]
+  },
+  {
+    "id": 101,
+    "difficulty": "fundamentals",
+    "question": "A player casts Negate (\"Counter target noncreature spell.\"). Can they use it to counter an artifact creature spell?",
+    "answer": "No. An artifact creature spell is a creature spell, so it is not a 'noncreature spell' and can't be targeted by Negate.",
+    "explanation": "Per the Negate rulings, a 'creature spell' is any spell with the creature type, even if it has other types. Since an artifact creature spell has the creature type, it is a creature spell, not a noncreature spell. Negate requires a noncreature spell as its target.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Negate"
+    ],
+    "tags": [
+      "counterspells",
+      "card-types",
+      "creature-spells"
+    ]
+  },
+  {
+    "id": 102,
+    "difficulty": "fundamentals",
+    "question": "A player controls Serra Angel (\"Flying, Vigilance\"). They declare Serra Angel as an attacker. After blockers are declared and combat damage is dealt, can the player use Serra Angel to block during the opponent's next combat?",
+    "answer": "Yes. Serra Angel has vigilance, so it doesn't tap when attacking. It will be untapped and available to block on the opponent's turn.",
+    "explanation": "Vigilance means attacking doesn't cause the creature to tap (rule 702.20). Since Serra Angel remains untapped after attacking, it is available to block during the opponent's combat phase. Without vigilance, a creature taps when declared as an attacker and would normally still be tapped during the opponent's turn.",
+    "rule_refs": [
+      "702.20",
+      "509.1"
+    ],
+    "cards_ref": [
+      "Serra Angel"
+    ],
+    "tags": [
+      "vigilance",
+      "combat",
+      "blocking"
+    ]
+  },
+  {
+    "id": 103,
+    "difficulty": "fundamentals",
+    "question": "During combat, a player attacks with a 2/2 creature. The defending player blocks with a 2/2 creature. Before combat damage, the attacking player casts Shock (\"Shock deals 2 damage to any target.\") targeting the blocking creature. Does the attacking creature still deal combat damage to the defending player?",
+    "answer": "No. Even though the blocker is destroyed before combat damage, the attacking creature is still considered blocked. A blocked creature doesn't deal combat damage to the defending player unless it has trample.",
+    "explanation": "Rule 509.1h states that an attacking creature with one or more blockers assigned to it is considered 'blocked.' Once a creature is blocked, removing the blocker doesn't change this. The attacking creature remains blocked and deals its combat damage to nothing (unless it has trample, in which case all damage would go to the defending player).",
+    "rule_refs": [
+      "509.1h",
+      "510.1"
+    ],
+    "cards_ref": [
+      "Shock"
+    ],
+    "tags": [
+      "combat",
+      "blocking",
+      "removal-before-damage"
+    ]
+  },
+  {
+    "id": 104,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between 'destroying' a creature and 'exiling' a creature?",
+    "answer": "A destroyed creature goes to its owner's graveyard. An exiled creature goes to exile. Destroyed creatures can be affected by indestructible and regeneration; exiled creatures cannot.",
+    "explanation": "When a creature is destroyed (e.g., by Murder), it is put into its owner's graveyard. Indestructible prevents destruction and regeneration can replace it. When a creature is exiled (e.g., by Swords to Plowshares), it goes to the exile zone. Indestructible does not prevent exile, and regeneration cannot replace it. Effects that trigger on a creature 'dying' (going to graveyard from the battlefield) won't trigger on exile.",
+    "rule_refs": [
+      "701.7",
+      "701.10"
+    ],
+    "cards_ref": [
+      "Murder",
+      "Swords to Plowshares"
+    ],
+    "tags": [
+      "destroy-vs-exile",
+      "zones",
+      "indestructible"
+    ]
+  },
+  {
+    "id": 105,
+    "difficulty": "fundamentals",
+    "question": "A player casts Doom Blade (\"Destroy target nonblack creature.\") targeting their opponent's creature. In response, the opponent casts Giant Growth (\"Target creature gets +3/+3 until end of turn.\") on that creature. Does Doom Blade still destroy the creature?",
+    "answer": "Yes. Giant Growth changes the creature's power and toughness but not its color. The creature is still nonblack, so Doom Blade's target is still legal and it is destroyed.",
+    "explanation": "Doom Blade checks whether the target is a nonblack creature. Giant Growth only modifies power and toughness — it doesn't change the creature's color. The creature remains a legal target for Doom Blade, so when Doom Blade resolves after Giant Growth, it destroys the now-larger creature.",
+    "rule_refs": [
+      "608.2",
+      "601.2"
+    ],
+    "cards_ref": [
+      "Doom Blade",
+      "Giant Growth"
+    ],
+    "tags": [
+      "targeting",
+      "stack",
+      "destroy",
+      "in-response"
+    ]
+  },
+  {
+    "id": 106,
+    "difficulty": "fundamentals",
+    "question": "A player casts Duress (\"Target opponent reveals their hand. You choose a noncreature, nonland card from it. That player discards that card.\") and sees their opponent has only creature cards and lands in hand. What happens?",
+    "answer": "Nothing further happens. The opponent reveals their hand, but since there are no noncreature, nonland cards to choose, no card is discarded. Duress still resolves; it just doesn't discard anything.",
+    "explanation": "Duress resolves and the opponent reveals their hand. The caster looks for a noncreature, nonland card to choose. If no such card exists, the choice can't be made and the spell finishes resolving without discarding anything. The spell is not countered — it simply has no valid card to select.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Duress"
+    ],
+    "tags": [
+      "discard",
+      "hand-disruption",
+      "resolution"
+    ]
+  },
+  {
+    "id": 107,
+    "difficulty": "fundamentals",
+    "question": "A player casts Act of Treason (\"Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\") targeting their opponent's untapped creature that just entered the battlefield this turn. Can they attack with it?",
+    "answer": "Yes. Act of Treason grants haste, which overrides summoning sickness. The creature can attack even though it hasn't been under the new controller's control since the beginning of their turn.",
+    "explanation": "Normally, a creature can't attack unless it has been under its controller's control continuously since their most recent turn began (rule 302.6). However, Act of Treason grants the creature haste, which removes this restriction. The creature can attack immediately.",
+    "rule_refs": [
+      "302.6",
+      "702.10"
+    ],
+    "cards_ref": [
+      "Act of Treason"
+    ],
+    "tags": [
+      "haste",
+      "summoning-sickness",
+      "control-change",
+      "combat"
+    ]
+  },
+  {
+    "id": 108,
+    "difficulty": "fundamentals",
+    "question": "During the upkeep step, which player receives priority first — the active player or the non-active player?",
+    "answer": "The active player (the player whose turn it is) receives priority first.",
+    "explanation": "Rule 117.3a states that the active player receives priority at the beginning of most steps and phases, after any turn-based actions have been dealt with and abilities that trigger at the beginning of that phase or step have been put on the stack. This applies to the upkeep step and most other steps where players receive priority.",
+    "rule_refs": [
+      "117.3a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "upkeep",
+      "active-player"
+    ]
+  },
+  {
+    "id": 109,
+    "difficulty": "fundamentals",
+    "question": "Can a player cast a sorcery during their second main phase (after combat)?",
+    "answer": "Yes. A player can cast sorcery-speed spells during either main phase, as long as they have priority and the stack is empty.",
+    "explanation": "Rule 505.1 identifies two main phases: precombat and postcombat. Both function identically for the purposes of casting spells. A player may cast a sorcery during either main phase when they have priority and the stack is empty (rule 117.1a).",
+    "rule_refs": [
+      "505.1",
+      "117.1a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "sorcery",
+      "main-phase",
+      "timing"
+    ]
+  },
+  {
+    "id": 110,
+    "difficulty": "fundamentals",
+    "question": "A player controls Llanowar Elves (\"{T}: Add {G}.\") that entered the battlefield this turn. The Llanowar Elves do not have haste. Can the player tap it for mana?",
+    "answer": "No. Summoning sickness prevents a creature from using activated abilities with the tap symbol in the cost until it has been under its controller's control since the beginning of their most recent turn.",
+    "explanation": "Rule 302.6 states that a creature's activated ability with the tap symbol in its activation cost can't be activated unless the creature has been under its controller's control continuously since their most recent turn began. This applies to Llanowar Elves' mana ability just like any other tap ability. Haste would override this restriction.",
+    "rule_refs": [
+      "302.6"
+    ],
+    "cards_ref": [
+      "Llanowar Elves"
+    ],
+    "tags": [
+      "summoning-sickness",
+      "mana-abilities",
+      "tap-symbol"
+    ]
+  },
+  {
+    "id": 111,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between a land's type (e.g., \"Forest\") and a land's supertype (e.g., \"basic\")? Is a nonbasic land that has the Forest subtype still a basic land?",
+    "answer": "No. A land is basic only if it has the supertype 'basic.' Having a basic land type like Forest does not make it a basic land. A nonbasic land with subtype Forest can still tap for green mana (due to its intrinsic mana ability) but is not a basic land.",
+    "explanation": "Rule 305.8 states that any land with the supertype 'basic' is a basic land, and any land without that supertype is a nonbasic land, even if it has a basic land type. For example, a Stomping Ground (which has the Forest subtype) is not a basic land because it lacks the 'basic' supertype.",
+    "rule_refs": [
+      "305.8",
+      "305.6"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lands",
+      "basic-vs-nonbasic",
+      "subtypes",
+      "supertypes"
+    ]
+  },
+  {
+    "id": 112,
+    "difficulty": "fundamentals",
+    "question": "A player controls an indestructible creature (e.g., one enchanted with Indestructibility: \"Enchanted permanent has indestructible.\"). The opponent casts Wrath of God (\"Destroy all creatures. They can't be regenerated.\"). What happens to the indestructible creature?",
+    "answer": "The indestructible creature survives. Effects that say 'destroy' don't destroy it.",
+    "explanation": "Indestructible means the permanent can't be destroyed by effects that say 'destroy' and can't be destroyed by lethal damage. Wrath of God says 'destroy,' so it doesn't affect an indestructible creature. Note that Wrath's 'can't be regenerated' clause is irrelevant since the creature isn't being destroyed in the first place.",
+    "rule_refs": [
+      "702.12"
+    ],
+    "cards_ref": [
+      "Indestructibility",
+      "Wrath of God"
+    ],
+    "tags": [
+      "indestructible",
+      "board-wipe",
+      "destroy"
+    ]
+  },
+  {
+    "id": 113,
+    "difficulty": "fundamentals",
+    "question": "A player controls an indestructible 3/3 creature. The opponent casts a spell that gives it -4/-4 until end of turn. Does the creature survive?",
+    "answer": "No. The creature dies as a state-based action because it has 0 or less toughness. Indestructible doesn't prevent this.",
+    "explanation": "Indestructible prevents destruction from effects that say 'destroy' and from lethal damage, but it does not prevent a creature from dying due to having 0 or less toughness. A creature with toughness reduced to 0 or less is put into its owner's graveyard as a state-based action (rule 704.5f), which is not 'destruction.'",
+    "rule_refs": [
+      "702.12",
+      "704.5f"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "indestructible",
+      "toughness",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 114,
+    "difficulty": "fundamentals",
+    "question": "A player casts Unsummon (\"Return target creature to its owner's hand.\") targeting a creature token. What happens to the token?",
+    "answer": "The token is returned to its owner's hand and then ceases to exist as a state-based action.",
+    "explanation": "Tokens can exist in zones other than the battlefield momentarily. Unsummon moves the token to its owner's hand, but rule 704.5d states that a token in a zone other than the battlefield ceases to exist as a state-based action. The token effectively disappears and cannot be cast again.",
+    "rule_refs": [
+      "704.5d"
+    ],
+    "cards_ref": [
+      "Unsummon"
+    ],
+    "tags": [
+      "tokens",
+      "bounce",
+      "state-based-actions"
+    ]
+  },
+  {
+    "id": 115,
+    "difficulty": "fundamentals",
+    "question": "A player casts Cultivate (\"Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.\"). They find only one basic land card. What happens?",
+    "answer": "They put that one land onto the battlefield tapped. They don't put a card into their hand from this effect.",
+    "explanation": "Per the Cultivate rulings, if you choose to find only one basic land card, you put it onto the battlefield tapped. The 'up to two' wording means finding fewer is allowed. Since there's no second card found, nothing goes to hand from this search.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Cultivate"
+    ],
+    "tags": [
+      "search",
+      "lands",
+      "up-to"
+    ]
+  },
+  {
+    "id": 116,
+    "difficulty": "fundamentals",
+    "question": "A player casts Prey Upon (\"Target creature you control fights target creature you don't control.\") targeting their 3/3 and the opponent's 2/2. What happens?",
+    "answer": "Each creature deals damage equal to its power to the other. The 3/3 deals 3 damage to the 2/2 (destroying it), and the 2/2 deals 2 damage to the 3/3 (which survives with 2 damage marked on it).",
+    "explanation": "Fight means each creature deals damage equal to its power to the other creature simultaneously. This is not combat damage — it's damage dealt by a spell's effect. Both creatures deal and receive damage. The 2/2 receives lethal damage and is destroyed; the 3/3 survives with 2 of its 3 toughness used up.",
+    "rule_refs": [
+      "701.12"
+    ],
+    "cards_ref": [
+      "Prey Upon"
+    ],
+    "tags": [
+      "fight",
+      "damage",
+      "non-combat-damage"
+    ]
+  },
+  {
+    "id": 117,
+    "difficulty": "fundamentals",
+    "question": "What is the difference between 'fight' and 'deals damage equal to its power'? A player casts Rabid Bite (\"Target creature you control deals damage equal to its power to target creature you don't control.\") with their 3/3 targeting the opponent's 4/4. Does the opponent's creature deal damage back?",
+    "answer": "No. Rabid Bite is not a fight — only the caster's creature deals damage. The opponent's 4/4 takes 3 damage but does not deal damage back to the 3/3.",
+    "explanation": "Fight (rule 701.12) means both creatures deal damage to each other simultaneously. Rabid Bite does NOT use the word 'fight' — it says one creature deals damage to the other, which is a one-directional effect. Only the controlled creature deals damage; the target creature does not deal damage back.",
+    "rule_refs": [
+      "701.12"
+    ],
+    "cards_ref": [
+      "Rabid Bite"
+    ],
+    "tags": [
+      "fight",
+      "damage",
+      "one-directional-damage"
+    ]
+  },
+  {
+    "id": 118,
+    "difficulty": "fundamentals",
+    "question": "A player casts Flametongue Kavu (\"When this creature enters, it deals 4 damage to target creature.\"). It's the only creature on the battlefield when its triggered ability goes on the stack. What must the player target?",
+    "answer": "Flametongue Kavu must target itself, since it's the only creature on the battlefield.",
+    "explanation": "Per the Flametongue Kavu rulings, its ability can target itself. If it's the only creature on the battlefield as its ability triggers, its ability must target itself. The ability requires a target creature, and since Flametongue Kavu is the only one available, it must be chosen. It will deal 4 damage to itself and be destroyed.",
+    "rule_refs": [
+      "603.3"
+    ],
+    "cards_ref": [
+      "Flametongue Kavu"
+    ],
+    "tags": [
+      "enters-the-battlefield",
+      "targeting",
+      "mandatory-targets"
+    ]
+  },
+  {
+    "id": 119,
+    "difficulty": "fundamentals",
+    "question": "A player casts Swan Song (\"Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.\") targeting a spell that can't be countered. What happens?",
+    "answer": "The spell is not countered, but its controller still creates a 2/2 blue Bird token with flying.",
+    "explanation": "Per the Swan Song rulings, Swan Song can target a spell that can't be countered. That spell won't be countered when Swan Song resolves, but its controller still gets the Bird token. Swan Song resolves and does as much as it can — the countering part fails, but the token creation still happens.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [
+      "Swan Song"
+    ],
+    "tags": [
+      "counterspells",
+      "cant-be-countered",
+      "tokens",
+      "partial-resolution"
+    ]
+  },
+  {
+    "id": 121,
+    "difficulty": "fundamentals",
+    "question": "A player casts Mana Tithe (\"Counter target spell unless its controller pays {1}.\") targeting the opponent's spell. The opponent has no untapped lands or mana sources. Is the spell countered?",
+    "answer": "Yes. The opponent can't pay {1}, so the spell is countered.",
+    "explanation": "Mana Tithe gives the opponent the option to pay {1} to prevent their spell from being countered. The payment is optional, but if they can't (or choose not to) pay, the spell is countered. Having no available mana means they can't pay, so the spell is countered.",
+    "rule_refs": [
+      "117.3"
+    ],
+    "cards_ref": [
+      "Mana Tithe"
+    ],
+    "tags": [
+      "counterspells",
+      "mana-payment",
+      "taxing"
+    ]
+  },
+  {
+    "id": 122,
+    "difficulty": "fundamentals",
+    "question": "A player controls Royal Assassin (\"{T}: Destroy target tapped creature.\"). The opponent attacks with a creature. During the declare attackers step, after the creature is tapped to attack, can the player activate Royal Assassin to destroy it before blockers are declared?",
+    "answer": "Yes. After attackers are declared, players receive priority. The player can activate Royal Assassin to destroy the tapped attacking creature before the declare blockers step.",
+    "explanation": "After attackers are declared in rule 508.1, players receive priority (rule 117.3a). The attacking creature is now tapped (from being declared as an attacker), making it a legal target for Royal Assassin's ability. The player can activate the ability to destroy it before moving to the declare blockers step.",
+    "rule_refs": [
+      "508.1",
+      "117.3a"
+    ],
+    "cards_ref": [
+      "Royal Assassin"
+    ],
+    "tags": [
+      "activated-abilities",
+      "combat",
+      "declare-attackers",
+      "timing"
+    ]
+  },
+  {
+    "id": 123,
+    "difficulty": "fundamentals",
+    "question": "A player casts Raise Dead (\"Return target creature card from your graveyard to your hand.\") targeting a creature card in their graveyard. Is the creature card now on the battlefield?",
+    "answer": "No. Raise Dead returns the card to the player's hand, not to the battlefield. The player would need to cast it again from their hand to put it onto the battlefield.",
+    "explanation": "Raise Dead says 'return to your hand,' not 'return to the battlefield.' The card goes from the graveyard zone to the hand zone. To get the creature onto the battlefield, the player must then cast it as a spell following normal timing rules and paying its mana cost.",
+    "rule_refs": [
+      "400.1"
+    ],
+    "cards_ref": [
+      "Raise Dead"
+    ],
+    "tags": [
+      "zones",
+      "graveyard",
+      "hand",
+      "return-to-hand"
+    ]
+  },
+  {
+    "id": 124,
+    "difficulty": "fundamentals",
+    "question": "A player controls a Wall of Omens (\"Defender. When this creature enters, draw a card.\"). Can the player attack with it?",
+    "answer": "No. Defender means the creature can't attack.",
+    "explanation": "Defender is a keyword ability that means the creature can't be declared as an attacker (rule 702.3). It can still block normally. The creature has no restriction on blocking — defender only prevents attacking.",
+    "rule_refs": [
+      "702.3"
+    ],
+    "cards_ref": [
+      "Wall of Omens"
+    ],
+    "tags": [
+      "defender",
+      "combat",
+      "keywords"
+    ]
+  },
+  {
+    "id": 125,
+    "difficulty": "fundamentals",
+    "question": "A creature with flying attacks. Can a creature without flying or reach block it?",
+    "answer": "No. A creature with flying can only be blocked by creatures with flying or reach.",
+    "explanation": "Flying is an evasion ability (rule 702.9). A creature with flying can't be blocked except by creatures with flying or reach. If the defending player controls no creatures with flying or reach, the flying creature is unblockable by their creatures.",
+    "rule_refs": [
+      "702.9"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "flying",
+      "evasion",
+      "blocking",
+      "keywords"
+    ]
+  },
+  {
+    "id": 126,
+    "difficulty": "fundamentals",
+    "question": "A player controls a 3/3 creature with lifelink. It deals 3 combat damage to the opponent. How much life does the creature's controller gain?",
+    "answer": "3 life. Lifelink causes the controller to gain life equal to the damage dealt.",
+    "explanation": "Lifelink means that damage dealt by the creature also causes its controller to gain that much life (rule 702.15). The creature dealt 3 damage, so its controller gains 3 life. This happens simultaneously with the damage being dealt.",
+    "rule_refs": [
+      "702.15"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "lifelink",
+      "combat-damage",
+      "life-gain",
+      "keywords"
+    ]
+  },
+  {
+    "id": 127,
+    "difficulty": "fundamentals",
+    "question": "A player casts Disenchant (\"Destroy target artifact or enchantment.\") targeting a permanent that is both an artifact and an enchantment. The permanent's type later changes so it's only an artifact. Does Disenchant still destroy it?",
+    "answer": "Yes. Per the Disenchant ruling, this is not modal — if the target changes from an artifact to an enchantment or vice versa, it still destroys it, as long as the target is still at least one of those types.",
+    "explanation": "Disenchant says 'target artifact or enchantment' — this is not a modal choice. It targets any permanent that is an artifact, an enchantment, or both. As long as the target is still a legal target (an artifact or an enchantment) when Disenchant resolves, it is destroyed.",
+    "rule_refs": [
+      "601.2",
+      "608.2"
+    ],
+    "cards_ref": [
+      "Disenchant"
+    ],
+    "tags": [
+      "targeting",
+      "artifact",
+      "enchantment",
+      "legality-on-resolution"
+    ]
+  },
+  {
+    "id": 128,
+    "difficulty": "fundamentals",
+    "question": "A player casts Firebolt (\"Firebolt deals 2 damage to any target. Flashback {4}{R}\") from their hand. Later in the game, they want to cast it from their graveyard using flashback. What happens to the card after it resolves from the graveyard?",
+    "answer": "The card is exiled. When a spell cast with flashback would be put anywhere else after resolving, it is exiled instead.",
+    "explanation": "Flashback allows a player to cast a card from their graveyard for its flashback cost. After the spell resolves (or is countered, or leaves the stack in any way), it is exiled instead of going anywhere else. It does not return to the graveyard — it is removed from the game.",
+    "rule_refs": [
+      "702.33"
+    ],
+    "cards_ref": [
+      "Firebolt"
+    ],
+    "tags": [
+      "flashback",
+      "graveyard",
+      "exile",
+      "alternative-costs"
+    ]
+  },
+  {
+    "id": 129,
+    "difficulty": "fundamentals",
+    "question": "A player casts Festering Goblin (\"When this creature dies, target creature gets -1/-1 until end of turn.\"). When it dies, can the player target their own creature with the ability?",
+    "answer": "Yes. The ability says 'target creature' without any restriction on controller. The player can target any creature, including their own.",
+    "explanation": "Festering Goblin's triggered ability says 'target creature' — not 'target creature an opponent controls' or 'target creature you don't control.' Without such a restriction, any creature on the battlefield is a legal target, including those controlled by the ability's controller.",
+    "rule_refs": [
+      "603.2",
+      "601.2"
+    ],
+    "cards_ref": [
+      "Festering Goblin"
+    ],
+    "tags": [
+      "targeting",
+      "dies-trigger",
+      "any-target"
+    ]
+  },
+  {
+    "id": 130,
+    "difficulty": "fundamentals",
+    "question": "During a player's declare blockers step, can the defending player block one attacking creature with multiple creatures?",
+    "answer": "Yes. A defending player may assign any number of creatures they control as blockers for a single attacking creature.",
+    "explanation": "Rule 509.1a allows a defending player to declare any number of creatures as blockers for each attacking creature. When multiple creatures block a single attacker, the attacking player orders the blocking creatures during the declare blockers step. Combat damage is then assigned to blockers in that order.",
+    "rule_refs": [
+      "509.1a",
+      "509.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "blocking",
+      "multiple-blockers",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 131,
+    "difficulty": "fundamentals",
+    "question": "A player casts Banishing Light (\"When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.\") targeting a token creature. If Banishing Light is later destroyed, does the token return?",
+    "answer": "No. A token that is exiled ceases to exist and cannot return to the battlefield.",
+    "explanation": "Per the Banishing Light rulings, if a token is exiled this way, it will cease to exist and won't return to the battlefield. Tokens only exist on the battlefield (and briefly in other zones before state-based actions remove them). Once exiled, the token ceases to exist permanently.",
+    "rule_refs": [
+      "704.5d"
+    ],
+    "cards_ref": [
+      "Banishing Light"
+    ],
+    "tags": [
+      "tokens",
+      "exile",
+      "leaves-the-battlefield"
+    ]
+  },
+  {
+    "id": 132,
+    "difficulty": "fundamentals",
+    "question": "A 5/5 creature attacks and is blocked by a 2/3 and a 3/3. The attacking player chooses to assign 3 damage to the 2/3 and 2 damage to the 3/3. Is this a legal damage assignment?",
+    "answer": "Yes. When two or more creatures block a single attacker, the attacking player divides combat damage among them as they choose (rule 510.1c). Any distribution that totals the attacker's power is legal.",
+    "explanation": "Rule 510.1c states that if two or more creatures are blocking an attacking creature, the attacker assigns its combat damage divided as its controller chooses among the blocking creatures. The attacking player has complete freedom in how to split the damage — they can assign 3 to the 2/3 and 2 to the 3/3, or any other split that totals 5.",
+    "rule_refs": [
+      "510.1c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 133,
+    "difficulty": "fundamentals",
+    "question": "A 4/4 creature attacks and is blocked by two 3/3 creatures. Can the attacking player assign all 4 damage to just one of the blockers and 0 to the other?",
+    "answer": "Yes. The attacking player may divide combat damage among the blocking creatures however they choose. They can assign all damage to one blocker and none to the other.",
+    "explanation": "Rule 510.1c allows the attacking player to divide damage as they choose among blocking creatures. There is no requirement to assign damage to every blocker. Assigning 4 to one and 0 to the other is a legal assignment — this kills one 3/3 (4 >= 3 toughness) while leaving the other unharmed.",
+    "rule_refs": [
+      "510.1c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 134,
+    "difficulty": "fundamentals",
+    "question": "A 6/6 creature with trample attacks and is blocked by a 1/1 and a 2/2. How much damage can be assigned to the defending player via trample?",
+    "answer": "3 damage. The attacking player must assign at least lethal damage to all blockers (1 to the 1/1 and 2 to the 2/2 = 3 total), then the remaining 3 can trample through to the defending player.",
+    "explanation": "Trample allows an attacking creature to assign excess combat damage to the defending player after assigning lethal damage to all blocking creatures. The attacker must assign at least 1 damage to the 1/1 (its toughness) and at least 2 damage to the 2/2 (its toughness). That's 3 damage accounted for, leaving 3 of the 6 power to trample through.",
+    "rule_refs": [
+      "510.1c",
+      "702.19"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "trample",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 135,
+    "difficulty": "fundamentals",
+    "question": "A 7/7 creature with trample attacks and is blocked by a 2/2, a 2/2, and a 1/1 (triple block). The attacking player wants to maximize trample damage. What is the minimum damage they must assign to blockers, and how much tramples through?",
+    "answer": "Minimum 5 damage to blockers (2 + 2 + 1), leaving 2 damage to trample through to the defending player.",
+    "explanation": "With trample, the attacker must assign at least lethal damage to each blocking creature before assigning excess to the defending player. Lethal damage for each blocker equals its toughness (assuming no prior damage). The minimum is 2 + 2 + 1 = 5 damage to blockers, leaving 7 - 5 = 2 damage that tramples through.",
+    "rule_refs": [
+      "510.1c",
+      "702.19"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "triple-block",
+      "trample",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 136,
+    "difficulty": "fundamentals",
+    "question": "A 5/5 creature attacks and is blocked by a 2/2 and a 4/4. Before combat damage, the defending player casts Murder (\"Destroy target creature.\") on the 2/2 blocker. How does the attacker assign combat damage now?",
+    "answer": "The attacker assigns all 5 damage to the remaining 4/4 blocker (killing it). The destroyed 2/2 is no longer blocking, so no damage is assigned to it.",
+    "explanation": "Rule 510.1c says a blocked creature assigns damage to the creatures currently blocking it. The 2/2 was destroyed before combat damage, so it's no longer in combat. Only the 4/4 remains as a blocker, so all 5 damage is assigned there. The attacking creature is still blocked (rule 509.1h) so it doesn't deal damage to the defending player (unless it has trample).",
+    "rule_refs": [
+      "510.1c",
+      "509.1h"
+    ],
+    "cards_ref": [
+      "Murder"
+    ],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "removal-before-damage",
+      "blocked-creature"
+    ]
+  },
+  {
+    "id": 137,
+    "difficulty": "fundamentals",
+    "question": "A 5/5 creature attacks and is double-blocked by a 3/3 and a 3/3. Before combat damage, both blockers are destroyed by removal spells. Does the 5/5 attacker deal damage to the defending player?",
+    "answer": "No (unless it has trample). The creature is still 'blocked' even though all blockers were removed. A blocked creature without trample assigns no combat damage if no blockers remain.",
+    "explanation": "Rule 509.1h states that once a creature is blocked, it remains blocked even if all blockers are removed from combat. Rule 510.1c says if no creatures are currently blocking it, the blocked creature assigns no combat damage. Only trample would allow excess damage to go to the defending player.",
+    "rule_refs": [
+      "509.1h",
+      "510.1c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "blocked-creature",
+      "removal-before-damage"
+    ]
+  },
+  {
+    "id": 138,
+    "difficulty": "fundamentals",
+    "question": "A 3/3 creature is double-blocked by a 2/2 and a 2/2. How much total combat damage do the two blockers deal to the attacker?",
+    "answer": "4 damage total (2 from each blocker). Both blockers deal damage simultaneously to the creature they're blocking.",
+    "explanation": "Rule 510.1d says each blocking creature assigns combat damage to the creature it's blocking. Each 2/2 assigns 2 damage to the attacking 3/3, for a total of 4 damage. Since 4 >= 3 (the attacker's toughness), the attacker is destroyed. All combat damage is dealt simultaneously (rule 510.2).",
+    "rule_refs": [
+      "510.1d",
+      "510.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "damage-assignment",
+      "simultaneous-damage"
+    ]
+  },
+  {
+    "id": 139,
+    "difficulty": "fundamentals",
+    "question": "A 4/4 creature with deathtouch attacks and is blocked by a 5/5 and a 3/3. The attacker assigns 1 damage to the 5/5 and 3 damage to the 3/3. Is the 5/5 destroyed?",
+    "answer": "Yes. Deathtouch means any amount of damage dealt by the source is enough to destroy a creature, so even 1 damage from the deathtouch creature is lethal to the 5/5.",
+    "explanation": "Deathtouch (rule 702.2) means any nonzero amount of damage dealt to a creature by a source with deathtouch is considered lethal damage for state-based action purposes. Even though 1 damage is normally not enough to destroy a 5/5, deathtouch makes it sufficient. Both blockers are destroyed.",
+    "rule_refs": [
+      "702.2",
+      "510.1c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "deathtouch",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 140,
+    "difficulty": "fundamentals",
+    "question": "A creature with menace (\"can't be blocked except by two or more creatures\") attacks. The defending player has only one untapped creature. Can they block?",
+    "answer": "No. Menace requires at least two creatures to block, so a single creature cannot block a creature with menace.",
+    "explanation": "Menace (rule 702.110) means the creature can't be blocked except by two or more creatures. If the defending player has only one creature available to block, they cannot form a legal block against the menace creature, and it will be unblocked.",
+    "rule_refs": [
+      "702.110"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "menace",
+      "blocking",
+      "keywords"
+    ]
+  },
+  {
+    "id": 141,
+    "difficulty": "fundamentals",
+    "question": "A player controls Goblin War Drums (\"Creatures you control have menace.\"). They attack with three creatures. The opponent has four untapped creatures. Can the opponent block all three attackers?",
+    "answer": "No. Each attacking creature requires at least two blockers due to menace, so blocking all three would require at least six creatures. With only four creatures, the opponent can fully block at most two of the three attackers.",
+    "explanation": "Menace requires two or more creatures to form a legal block against each attacker. Three menace attackers need a minimum of six blockers total (2 per attacker). With four creatures, the defending player can assign two blockers to two attackers (using all four), leaving the third attacker unblocked.",
+    "rule_refs": [
+      "702.110",
+      "509.1"
+    ],
+    "cards_ref": [
+      "Goblin War Drums"
+    ],
+    "tags": [
+      "combat",
+      "menace",
+      "multiple-attackers",
+      "blocking"
+    ]
+  },
+  {
+    "id": 142,
+    "difficulty": "fundamentals",
+    "question": "A creature with double strike attacks and is blocked by a single 4/4. The double strike creature is a 3/3. What happens during combat damage?",
+    "answer": "In the first combat damage step, the 3/3 deals 3 first-strike damage to the 4/4 (marking 3 damage on it). In the regular combat damage step, both deal damage simultaneously: the 3/3 deals 3 more to the 4/4 (total 6, destroying it) and the 4/4 deals 4 to the 3/3 (destroying it).",
+    "explanation": "Double strike means the creature deals both first-strike combat damage and regular combat damage (rule 702.4). In the first combat damage step, only the double strike creature deals damage (3 to the 4/4). In the second combat damage step, both creatures deal damage: the 3/3 deals another 3 (total 6 on the 4/4, destroying it) and the 4/4 deals 4 to the 3/3 (destroying it). Both die.",
+    "rule_refs": [
+      "702.4",
+      "510.1"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "double-strike",
+      "first-strike-damage",
+      "blocking"
+    ]
+  },
+  {
+    "id": 143,
+    "difficulty": "fundamentals",
+    "question": "A 3/3 creature with double strike attacks and is double-blocked by a 2/2 and a 2/2. The attacker assigns 2 first-strike damage to the first 2/2, destroying it. In the regular combat damage step, must the attacker assign all 3 remaining damage to the surviving 2/2?",
+    "answer": "Yes. During the regular combat damage step, the only remaining blocker is the second 2/2, so all 3 damage is assigned to it.",
+    "explanation": "In the first combat damage step, the 3/3 with double strike assigns damage. The attacker puts 2 on the first 2/2 (destroying it) and 1 on the second. In the regular combat damage step, the destroyed 2/2 is no longer in combat. The attacker assigns its 3 damage to the remaining blocker. Meanwhile, the surviving 2/2 (with 1 damage already on it) deals 2 damage back to the attacker.",
+    "rule_refs": [
+      "702.4",
+      "510.1c"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "double-strike",
+      "multiple-blockers",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 144,
+    "difficulty": "fundamentals",
+    "question": "A player casts Lure (\"Enchant creature. All creatures able to block enchanted creature do so.\") on their 1/1 creature and attacks with it alongside a 5/5 creature. The opponent controls three 2/2 creatures. How must the opponent block?",
+    "answer": "All three 2/2 creatures must block the creature enchanted with Lure. The 5/5 is unblocked.",
+    "explanation": "Lure forces all creatures able to block the enchanted creature to do so. Since all three 2/2 creatures can block the Lure creature, they must. This leaves no creatures available to block the 5/5, which gets through unblocked. Note: Lure doesn't give creatures the ability to block — it just forces those already able to block to do so.",
+    "rule_refs": [
+      "509.1c"
+    ],
+    "cards_ref": [
+      "Lure"
+    ],
+    "tags": [
+      "combat",
+      "must-block",
+      "evasion",
+      "multiple-blockers"
+    ]
+  },
+  {
+    "id": 145,
+    "difficulty": "fundamentals",
+    "question": "A player casts Righteousness (\"Target blocking creature gets +7/+7 until end of turn.\") during the declare attackers step. Is this legal?",
+    "answer": "No. There are no blocking creatures during the declare attackers step — blockers haven't been declared yet. Righteousness has no legal targets at this point.",
+    "explanation": "Righteousness targets a 'blocking creature,' which is a creature that has been declared as a blocker during the declare blockers step (rule 509.1g). During the declare attackers step, no blockers have been declared, so there are no legal targets for Righteousness. The player would need to wait until after blockers are declared.",
+    "rule_refs": [
+      "509.1g",
+      "508.1"
+    ],
+    "cards_ref": [
+      "Righteousness"
+    ],
+    "tags": [
+      "combat",
+      "blocking",
+      "targeting",
+      "timing"
+    ]
+  },
+  {
+    "id": 146,
+    "difficulty": "fundamentals",
+    "question": "A 4/4 creature with trample attacks and is blocked by a single 1/1 with deathtouch. How is combat damage assigned and what happens?",
+    "answer": "The attacker assigns at least 1 damage to the 1/1 blocker (killing it) and can trample the remaining 3 through to the defending player. However, the 1 damage from the deathtouch blocker destroys the 4/4 attacker. Both creatures die, but the defending player still takes 3 trample damage.",
+    "explanation": "The trample creature must assign at least lethal damage (1, equal to the blocker's toughness) to the 1/1 before assigning excess to the defending player. It can assign up to 3 to the defending player. The 1/1 with deathtouch deals 1 damage to the 4/4, and deathtouch makes any damage lethal, so the 4/4 is destroyed. All combat damage is dealt simultaneously (rule 510.2).",
+    "rule_refs": [
+      "702.19",
+      "702.2",
+      "510.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "trample",
+      "deathtouch",
+      "simultaneous-damage"
+    ]
+  },
+  {
+    "id": 147,
+    "difficulty": "fundamentals",
+    "question": "A player controls Cosmotronic Wave and casts it (\"Cosmotronic Wave deals 1 damage to each creature your opponents control. Creatures your opponents control can't block this turn.\"). After it resolves, a new creature enters the battlefield under the opponent's control. Can that new creature block?",
+    "answer": "No. The blocking restriction applies to all creatures opponents control for the rest of the turn, including ones that enter later.",
+    "explanation": "Per the Cosmotronic Wave rulings, the set of creatures affected by its blocking restriction is constantly updated — it applies to all creatures opponents control, not just the ones that were on the battlefield when it resolved. Any creature that comes under an opponent's control later in the turn also can't block.",
+    "rule_refs": [
+      "509.1b"
+    ],
+    "cards_ref": [
+      "Cosmotronic Wave"
+    ],
+    "tags": [
+      "combat",
+      "cant-block",
+      "continuous-effect"
+    ]
+  },
+  {
+    "id": 148,
+    "difficulty": "fundamentals",
+    "question": "In combat, the defending player declares two 1/1 creatures as blockers for a single attacking 3/3. The defending player then casts a spell that gives one of their blockers +3/+3. How much total damage do the two blockers deal to the 3/3 attacker?",
+    "answer": "5 damage total — 1 from the unbuffed 1/1 and 4 from the pumped 4/4. The 3/3 attacker is destroyed.",
+    "explanation": "Each blocking creature assigns combat damage equal to its power to the creature it's blocking (rule 510.1d). The unbuffed 1/1 deals 1 damage and the buffed creature (now 4/4) deals 4 damage, for a total of 5 damage on the 3/3 attacker. Since 5 >= 3 toughness, the attacker is destroyed.",
+    "rule_refs": [
+      "510.1d",
+      "510.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "multiple-blockers",
+      "pump-spell",
+      "damage-assignment"
+    ]
+  },
+  {
+    "id": 149,
+    "difficulty": "fundamentals",
+    "question": "A player attacks with a creature. Before blockers are declared, can the defending player cast an instant?",
+    "answer": "Yes. After attackers are declared, the active player gets priority, then passes it. Before moving to the declare blockers step, both players must pass priority with an empty stack.",
+    "explanation": "After the declare attackers step's turn-based action (declaring attackers), the active player receives priority (rule 508.1). Players can cast instants and activate abilities. Both players must pass priority in succession with an empty stack before the game moves to the declare blockers step (rule 500.2).",
+    "rule_refs": [
+      "508.1",
+      "500.2",
+      "117.3a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "priority",
+      "declare-attackers",
+      "timing"
+    ]
+  },
+  {
+    "id": 150,
+    "difficulty": "fundamentals",
+    "question": "A 2/2 creature attacks. The defending player blocks with a 2/2. Before combat damage, the attacking player casts Giant Growth (\"Target creature gets +3/+3 until end of turn.\") on their attacker, making it 5/5. How does combat damage resolve?",
+    "answer": "The 5/5 attacker deals 5 damage to the 2/2 blocker (destroying it), and the 2/2 blocker deals 2 damage to the 5/5 attacker (which survives with 2 damage marked on it).",
+    "explanation": "Combat damage is dealt simultaneously (rule 510.2). Each creature assigns damage equal to its current power. The pumped attacker is now 5/5 and deals 5 to the 2/2 (destroying it). The 2/2 blocker deals 2 to the 5/5 (which has 5 toughness, so it survives). Giant Growth was cast after blockers but before damage, which is a common combat trick.",
+    "rule_refs": [
+      "510.1",
+      "510.2"
+    ],
+    "cards_ref": [
+      "Giant Growth"
+    ],
+    "tags": [
+      "combat",
+      "pump-spell",
+      "combat-trick",
+      "timing"
+    ]
+  },
+  {
+    "id": 151,
+    "difficulty": "fundamentals",
+    "question": "A player attacks with a 6/6 creature. The defending player triple-blocks with a 1/1, a 2/2, and a 3/3. The attacker assigns 1 to the 1/1, 2 to the 2/2, and 3 to the 3/3. How much damage does the attacker take?",
+    "answer": "6 damage total (1 + 2 + 3). All three blockers deal combat damage simultaneously to the attacking creature, and the 6/6 is destroyed.",
+    "explanation": "Each blocking creature assigns its combat damage to the creature it's blocking (rule 510.1d). The 1/1 deals 1, the 2/2 deals 2, and the 3/3 deals 3, for 6 total damage on the 6/6 attacker. Since 6 >= 6 toughness, the attacker is destroyed. All three blockers also die since each received lethal damage. All damage is dealt simultaneously (rule 510.2).",
+    "rule_refs": [
+      "510.1d",
+      "510.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "combat",
+      "triple-block",
+      "damage-assignment",
+      "simultaneous-damage"
+    ]
+  },
+  {
+    "id": 152,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Torpor Orb (\"Creatures entering don't cause abilities to trigger.\"). They cast a creature that enters the battlefield with a +1/+1 counter on it (e.g., it says \"This creature enters with a +1/+1 counter\"). Does the creature get the counter?",
+    "answer": "Yes. 'Enters with' is a replacement effect (static ability), not a triggered ability. Torpor Orb only stops triggered abilities (those using 'when,' 'whenever,' or 'at').",
+    "explanation": "Per the Torpor Orb rulings, replacement effects are unaffected by its ability. A creature that enters the battlefield with one +1/+1 counter on it will still receive that counter. Torpor Orb only prevents triggered abilities (those that use 'when,' 'whenever,' or 'at') from triggering. 'Enters with' and 'As this enters' are static abilities, not triggers.",
+    "rule_refs": [
+      "603.6d",
+      "604.1"
+    ],
+    "cards_ref": [
+      "Torpor Orb"
+    ],
+    "tags": [
+      "triggered-vs-static",
+      "replacement-effects",
+      "enters-the-battlefield"
+    ]
+  },
+  {
+    "id": 153,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Hushbringer (\"Creatures entering or dying don't cause abilities to trigger.\"). An opponent sacrifices a creature. Another player controls an ability that says \"Whenever a creature is sacrificed, draw a card.\" Does that ability trigger?",
+    "answer": "Yes. Hushbringer stops abilities from triggering when creatures enter or die, but 'whenever you sacrifice a creature' triggers on the act of sacrificing, not on the creature dying. It still triggers.",
+    "explanation": "Per the Hushbringer rulings, an ability that triggers on an event that causes a creature to die — such as sacrificing — will still trigger. Hushbringer only stops abilities that trigger specifically on a creature entering or dying. 'Whenever you sacrifice a creature' is a different trigger event from 'whenever a creature dies.'",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Hushbringer"
+    ],
+    "tags": [
+      "trigger-prevention",
+      "sacrifice-vs-dies",
+      "enters-the-battlefield"
+    ]
+  },
+  {
+    "id": 154,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Young Pyromancer (\"Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.\"). They cast Lightning Bolt. In what order do things happen?",
+    "answer": "Young Pyromancer's ability triggers and goes on the stack above Lightning Bolt. The triggered ability resolves first, creating the Elemental token. Then Lightning Bolt resolves.",
+    "explanation": "Per the Young Pyromancer rulings, an ability that triggers when a player casts a spell resolves before the spell that caused it to trigger, but after targets have been chosen for that spell. It resolves even if that spell is countered. The trigger goes on the stack on top of the spell, so it resolves first.",
+    "rule_refs": [
+      "603.2",
+      "117.7"
+    ],
+    "cards_ref": [
+      "Young Pyromancer"
+    ],
+    "tags": [
+      "cast-triggers",
+      "stack-order",
+      "tokens"
+    ]
+  },
+  {
+    "id": 155,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Guttersnipe (\"Whenever you cast an instant or sorcery spell, this creature deals 2 damage to each opponent.\"). They cast an instant, and the opponent responds by destroying Guttersnipe before the triggered ability resolves. Does Guttersnipe's ability still deal damage?",
+    "answer": "Yes. The triggered ability is independent of its source once it's on the stack. Even though Guttersnipe has been destroyed, its triggered ability still resolves and deals 2 damage.",
+    "explanation": "Per rule 603.3, once a triggered ability is put on the stack, it exists independently as an object. Removing the source doesn't remove the triggered ability from the stack. Guttersnipe's ability resolves even though Guttersnipe is no longer on the battlefield. The Guttersnipe ruling confirms it resolves even if the spell that caused it is countered.",
+    "rule_refs": [
+      "603.3",
+      "608.2"
+    ],
+    "cards_ref": [
+      "Guttersnipe"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "stack-independence",
+      "source-removed"
+    ]
+  },
+  {
+    "id": 156,
+    "difficulty": "stack_triggers",
+    "question": "A player casts Stifle (\"Counter target activated or triggered ability.\") targeting an opponent's triggered ability. Can Stifle counter a mana ability?",
+    "answer": "No. Mana abilities can't be targeted by Stifle. Mana abilities don't use the stack and can't be targeted, countered, or responded to.",
+    "explanation": "Rule 605.3b states that activated mana abilities don't go on the stack, so they can't be targeted, countered, or otherwise responded to. Stifle's reminder text explicitly says '(Mana abilities can't be targeted.)' An activated ability is a mana ability if it doesn't require a target and could add mana (rule 605.1a).",
+    "rule_refs": [
+      "605.3b",
+      "605.1a"
+    ],
+    "cards_ref": [
+      "Stifle"
+    ],
+    "tags": [
+      "mana-abilities",
+      "counterspells",
+      "targeting"
+    ]
+  },
+  {
+    "id": 157,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Panharmonicon (\"If an artifact or creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\") and casts a creature with an enters-the-battlefield triggered ability. How many times does the ability trigger if there are two Panharmonicons?",
+    "answer": "With two Panharmonicons, the ability triggers three times total. Each Panharmonicon adds one additional trigger.",
+    "explanation": "Per the Panharmonicon rulings, if you control two Panharmonicons, an artifact or creature entering causes abilities to trigger three times, not four. A third causes four times, a fourth causes five times, and so on. Each additional Panharmonicon adds one more trigger linearly, not exponentially.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Panharmonicon"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "enters-the-battlefield",
+      "doubling"
+    ]
+  },
+  {
+    "id": 158,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Panharmonicon (\"If an artifact or creature entering causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\"). An enchantment enters the battlefield and has an enters-the-battlefield ability. Does Panharmonicon double it?",
+    "answer": "No. Panharmonicon only doubles triggers caused by an artifact or creature entering. An enchantment (that isn't also an artifact or creature) entering doesn't qualify.",
+    "explanation": "Panharmonicon's effect is specific: it doubles triggers caused by 'an artifact or creature entering.' If a non-artifact, non-creature enchantment enters the battlefield, Panharmonicon does not apply. Compare with Yarok, the Desecrated, which doubles triggers for any permanent entering.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Panharmonicon"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "enters-the-battlefield",
+      "card-types"
+    ]
+  },
+  {
+    "id": 159,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Teysa Karlov (\"If a creature dying causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\") and Blood Artist (\"Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.\"). A single creature dies. How many times does Blood Artist's ability trigger?",
+    "answer": "Twice. Teysa Karlov causes Blood Artist's death-triggered ability to trigger an additional time.",
+    "explanation": "Blood Artist's ability triggers whenever a creature dies — this is a triggered ability caused by a creature dying. Teysa Karlov causes such abilities to trigger an additional time. So Blood Artist's ability triggers twice: the original trigger plus one additional from Teysa. Each instance is put on the stack separately with its own target choice.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Teysa Karlov",
+      "Blood Artist"
+    ],
+    "tags": [
+      "dies-trigger",
+      "doubling",
+      "life-drain"
+    ]
+  },
+  {
+    "id": 160,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Teysa Karlov (\"If a creature dying causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\"). An ability says \"Whenever you sacrifice a creature, draw a card.\" The player sacrifices a creature. Does Teysa cause this to trigger twice?",
+    "answer": "No. Teysa only doubles abilities that trigger because a creature died. 'Whenever you sacrifice a creature' triggers on the sacrifice event, not on the creature dying. Teysa doesn't affect it.",
+    "explanation": "Per the Teysa Karlov rulings, an ability that triggers on an event that causes a creature to die doesn't trigger twice. For example, 'whenever you sacrifice a creature' triggers on the act of sacrificing, not on the creature dying. Only abilities that trigger specifically because a creature died (e.g., 'when this creature dies' or 'whenever a creature dies') are doubled.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Teysa Karlov"
+    ],
+    "tags": [
+      "dies-trigger",
+      "sacrifice-vs-dies",
+      "doubling"
+    ]
+  },
+  {
+    "id": 161,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Soul Warden (\"Whenever another creature enters, you gain 1 life.\"). Three creatures enter the battlefield simultaneously (e.g., from a spell that creates three tokens). How many times does Soul Warden trigger?",
+    "answer": "Three times — once for each creature that entered.",
+    "explanation": "Rule 603.2c states that an ability triggers once each time its trigger event occurs, but it can trigger repeatedly if one event contains multiple occurrences. Three creatures entering simultaneously means the trigger event occurs three times, so Soul Warden triggers three times, each gaining 1 life.",
+    "rule_refs": [
+      "603.2c"
+    ],
+    "cards_ref": [
+      "Soul Warden"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "simultaneous-events",
+      "enters-the-battlefield"
+    ]
+  },
+  {
+    "id": 162,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Cathars' Crusade (\"Whenever a creature you control enters, put a +1/+1 counter on each creature you control.\"). They create three creature tokens simultaneously. How many +1/+1 counters does each token end up with?",
+    "answer": "Each token gets 3 counters. Cathars' Crusade triggers three times (once per token entering). Each time one of those triggers resolves, every creature the player controls gets a +1/+1 counter.",
+    "explanation": "Three creatures enter simultaneously, so Cathars' Crusade triggers three times. Each trigger is put on the stack and resolves individually. When the first trigger resolves, all creatures (including all three tokens) get a counter. When the second resolves, all get another. When the third resolves, all get a third. Per the ruling, the creature that caused the trigger also gets the counter if still on the battlefield.",
+    "rule_refs": [
+      "603.2c"
+    ],
+    "cards_ref": [
+      "Cathars' Crusade"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "simultaneous-events",
+      "counters"
+    ]
+  },
+  {
+    "id": 163,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Sedgemoor Witch (\"Magecraft — Whenever you cast or copy an instant or sorcery spell, create a 1/1 black and green Pest creature token.\") and Young Pyromancer (\"Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.\"). They cast a single instant spell. Both abilities trigger. In what order do the triggers go on the stack?",
+    "answer": "The player who controls both triggers chooses the order they go on the stack. The last one placed on the stack resolves first.",
+    "explanation": "Rule 603.3 states that when multiple triggered abilities are waiting to be put on the stack, the active player puts all of theirs on the stack in any order they choose. Since both are controlled by the same player, that player decides the order. This matters because whichever resolves first creates a token before the other resolves.",
+    "rule_refs": [
+      "603.3"
+    ],
+    "cards_ref": [
+      "Sedgemoor Witch",
+      "Young Pyromancer"
+    ],
+    "tags": [
+      "triggered-abilities",
+      "ordering",
+      "simultaneous-triggers"
+    ]
+  },
+  {
+    "id": 164,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Eidolon of Rhetoric (\"Each player can't cast more than one spell each turn.\"). They cast Eidolon of Rhetoric as their first spell this turn. Can they cast a second spell this turn?",
+    "answer": "No. Eidolon of Rhetoric looks at the entire turn to see if a player has cast a spell, even if the Eidolon wasn't on the battlefield when that spell was cast. Since the player already cast one spell (the Eidolon itself), they can't cast another.\n\nIf the player did want to cast additional spells, they would likely want to change up their sequencing. Cast a spell, then cast Eidolon of Rhetoric last.",
+    "explanation": "Per the Eidolon of Rhetoric rulings, it looks at the entire turn to see if a player has cast a spell yet that turn, even if the Eidolon wasn't on the battlefield when that spell was cast. Casting Eidolon counts as a spell cast this turn, so once it's on the battlefield, the player has already used their one spell.",
+    "rule_refs": [
+      "604.2"
+    ],
+    "cards_ref": [
+      "Eidolon of Rhetoric"
+    ],
+    "tags": [
+      "static-abilities",
+      "casting-restrictions",
+      "timing"
+    ]
+  },
+  {
+    "id": 165,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Containment Priest (\"Flash. If a nontoken creature would enter and it wasn't cast, exile it instead.\"). The player uses a reanimation spell to return a creature from their graveyard to the battlefield. What happens?",
+    "answer": "The creature is exiled instead of entering the battlefield. Containment Priest's replacement effect applies because the creature wasn't cast — it was put onto the battlefield by a spell's effect.",
+    "explanation": "Containment Priest has a replacement effect (not a triggered ability) that exiles nontoken creatures that enter the battlefield without being cast. Reanimation puts a creature onto the battlefield from the graveyard — this is not casting. Per the rulings, it won't affect any creatures that were cast, including ones cast from unusual zones.",
+    "rule_refs": [
+      "604.2"
+    ],
+    "cards_ref": [
+      "Containment Priest"
+    ],
+    "tags": [
+      "replacement-effects",
+      "cast-vs-put",
+      "exile"
+    ]
+  },
+  {
+    "id": 166,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Containment Priest (\"If a nontoken creature would enter and it wasn't cast, exile it instead.\"). If Containment Priest enters the battlefield without being cast (for example, flickered by another effect), does it exile itself?",
+    "answer": "No. Per the Containment Priest ruling, if it enters the battlefield without being cast, its ability won't exile itself.",
+    "explanation": "Per the Containment Priest rulings, if Containment Priest enters the battlefield without being cast, its ability won't exile itself. This is because the replacement effect doesn't exist until Containment Priest is on the battlefield, and it can't apply to its own entry.",
+    "rule_refs": [
+      "604.2"
+    ],
+    "cards_ref": [
+      "Containment Priest"
+    ],
+    "tags": [
+      "replacement-effects",
+      "self-reference",
+      "enters-the-battlefield"
+    ]
+  },
+  {
+    "id": 167,
+    "difficulty": "stack_triggers",
+    "question": "A triggered ability has an 'intervening if' clause: \"At the beginning of your upkeep, if you control no creatures, draw a card.\" The player controls no creatures when the upkeep begins, so the ability triggers. Before it resolves, a creature enters the battlefield under that player's control. Does the ability still resolve and draw a card?",
+    "answer": "No. An intervening 'if' clause is checked both when the ability triggers AND when it resolves. Since the player now controls a creature, the condition is false and the ability does nothing.",
+    "explanation": "Rule 608.2a states that if a triggered ability has an intervening 'if' clause, it checks whether the clause's condition is true when it would resolve. If it isn't true, the ability is removed from the stack and does nothing. The condition is checked twice: once at trigger time (to see if it triggers) and once at resolution (to see if it resolves).",
+    "rule_refs": [
+      "608.2a",
+      "603.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "intervening-if",
+      "triggered-abilities",
+      "resolution"
+    ]
+  },
+  {
+    "id": 168,
+    "difficulty": "stack_triggers",
+    "question": "A triggered ability says \"When this creature enters, you may draw a card.\" The creature enters the battlefield and the ability triggers. Can the player decide whether to draw when the ability goes on the stack, or when it resolves?",
+    "answer": "When it resolves. The 'may' choice is made during resolution of the ability, not when it's put on the stack.",
+    "explanation": "Choices described in a triggered ability's effect (such as 'you may') are made when the ability resolves (rule 608.2). The ability goes on the stack, players may respond, and then when it resolves, the controller decides whether to draw. Targets are chosen when the ability goes on the stack, but 'may' choices are made on resolution.",
+    "rule_refs": [
+      "608.2"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "may-abilities",
+      "triggered-abilities",
+      "resolution-choices"
+    ]
+  },
+  {
+    "id": 169,
+    "difficulty": "stack_triggers",
+    "question": "A player casts a spell, and three different triggered abilities trigger simultaneously. Two are controlled by Player A (the active player) and one by Player B. In what order are they put on the stack?",
+    "answer": "Player A (the active player) puts their two triggered abilities on the stack in any order they choose. Then Player B puts their triggered ability on the stack. Player B's ability resolves first (since it's on top).",
+    "explanation": "Rule 603.3 says triggered abilities are put on the stack in APNAP (Active Player, Non-Active Player) order. The active player puts all of their triggers on the stack first (in any order they choose), then the non-active player does the same. Since the non-active player's ability goes on top, it resolves first.",
+    "rule_refs": [
+      "603.3"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "APNAP",
+      "triggered-abilities",
+      "stack-order"
+    ]
+  },
+  {
+    "id": 170,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Strionic Resonator (\"{2}, {T}: Copy target triggered ability you control. You may choose new targets for the copy.\") and a creature with \"When this creature enters, destroy target artifact.\" The creature enters and the triggered ability goes on the stack targeting an artifact. The player copies it with Strionic Resonator. Can the copy target a different artifact?",
+    "answer": "Yes. The copy is a separate instance of the triggered ability, and the player may choose new targets for it. They could target the same artifact or a different one.",
+    "explanation": "Per the Strionic Resonator rulings, it creates a copy of a triggered ability on the stack. The player may choose new targets for the copy. The copy is independent — modes, targets, and choices on resolution are separate. The source of the copy is the same as the source of the original ability.",
+    "rule_refs": [
+      "603.3"
+    ],
+    "cards_ref": [
+      "Strionic Resonator"
+    ],
+    "tags": [
+      "copy-ability",
+      "triggered-abilities",
+      "targeting"
+    ]
+  },
+  {
+    "id": 171,
+    "difficulty": "stack_triggers",
+    "question": "A triggered ability says \"Whenever a creature becomes tapped, draw a card.\" A creature enters the battlefield tapped. Does the ability trigger?",
+    "answer": "No. 'Becomes tapped' only triggers when a permanent changes from untapped to tapped. A permanent entering the battlefield already tapped doesn't 'become' tapped.",
+    "explanation": "Rule 603.2e states that triggers using the word 'becomes' only trigger at the time the named event happens — they don't trigger if that state already exists. An ability that triggers when a permanent 'becomes tapped' doesn't trigger if the permanent enters the battlefield in that state.",
+    "rule_refs": [
+      "603.2e"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "triggered-abilities",
+      "becomes",
+      "enters-tapped"
+    ]
+  },
+  {
+    "id": 172,
+    "difficulty": "fundamentals",
+    "question": "What is the stack? Where does it exist and what goes on it?",
+    "answer": "The stack is a zone that keeps track of the order spells and abilities were added to it. When a spell is cast, it goes on the stack. When an ability is activated or triggers, it goes on the stack (without a physical card). Objects resolve from top to bottom — last in, first out.",
+    "explanation": "Rule 405.1 states that when a spell is cast, the physical card is put on the stack. When an ability is activated or triggers, it goes on top of the stack without any card associated with it. Rule 405.2 says the stack keeps track of the order objects were added — each new object goes on top of all objects already there. Rule 405.5 says when all players pass in succession, the top object resolves.",
+    "rule_refs": [
+      "405.1",
+      "405.2",
+      "405.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "stack",
+      "definition",
+      "zones"
+    ]
+  },
+  {
+    "id": 173,
+    "difficulty": "stack_triggers",
+    "question": "Name at least four types of game actions that do NOT use the stack.",
+    "answer": "Mana abilities, static abilities, state-based actions, turn-based actions, special actions (like playing a land), and conceding the game. None of these use the stack.",
+    "explanation": "Rule 405.6 lists things that don't use the stack: effects themselves (405.6a), static abilities (405.6b), mana abilities (405.6c), special actions like playing a land (405.6d), turn-based actions like drawing for turn (405.6e), state-based actions like dying from lethal damage (405.6f), and conceding (405.6g).",
+    "rule_refs": [
+      "405.6",
+      "405.6a",
+      "405.6b",
+      "405.6c",
+      "405.6d",
+      "405.6e",
+      "405.6f",
+      "405.6g"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "stack",
+      "definition",
+      "doesnt-use-stack"
+    ]
+  },
+  {
+    "id": 174,
+    "difficulty": "stack_triggers",
+    "question": "When the stack is empty and all players pass priority in succession, what happens?",
+    "answer": "The current step or phase ends and the next one begins.",
+    "explanation": "Rule 405.5 states that when all players pass in succession, the top spell or ability on the stack resolves. If the stack is empty when all players pass, the current step or phase ends and the next begins. This is the fundamental mechanism that advances the game through its turn structure.",
+    "rule_refs": [
+      "405.5"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "stack",
+      "priority",
+      "phase-advancement"
+    ]
+  },
+  {
+    "id": 175,
+    "difficulty": "stack_triggers",
+    "question": "A player casts Lightning Bolt, and in response the opponent casts Counterspell targeting it. Can the first player cast another spell before Counterspell resolves?",
+    "answer": "Yes. After Counterspell is cast, the first player receives priority again. They can cast another instant or activate abilities before Counterspell resolves.",
+    "explanation": "Rule 117.3c states that if a player has priority when they cast a spell, they receive priority afterward. After the opponent casts Counterspell, priority returns to the first player. They can respond by casting another spell (like a second Lightning Bolt), which would go on top of the stack and resolve first.",
+    "rule_refs": [
+      "117.3c",
+      "405.2"
+    ],
+    "cards_ref": [
+      "Counterspell"
+    ],
+    "tags": [
+      "stack",
+      "priority",
+      "responding"
+    ]
+  },
+  {
+    "id": 176,
+    "difficulty": "stack_triggers",
+    "question": "In a four-player game, Player A casts a creature spell. This triggers abilities controlled by Players A, B, C, and D. In what order are these triggered abilities placed on the stack?",
+    "answer": "Player A (active player) places their triggers first, then Players B, C, and D in turn order. The last player's triggers go on top and resolve first.",
+    "explanation": "Rule 405.3 states that if an effect puts two or more objects on the stack at the same time, those controlled by the active player are put on lowest, followed by each other player's objects in APNAP order. Rule 101.4 defines APNAP as starting with the active player, then proceeding in turn order. Each player chooses the relative order of their own triggers.",
+    "rule_refs": [
+      "405.3",
+      "101.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "APNAP",
+      "multiplayer",
+      "triggered-abilities",
+      "stack-order"
+    ]
+  },
+  {
+    "id": 178,
+    "difficulty": "stack_triggers",
+    "question": "In a four-player game, a board wipe destroys all creatures. Player A (active player) controls Blood Artist (\"Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.\") and Player C also controls a Blood Artist. Multiple triggers fire simultaneously. In what order are they placed on the stack?",
+    "answer": "Player A puts all of their Blood Artist triggers on the stack first (in any order they choose), then Player C puts all of their Blood Artist triggers on top. Player C's triggers resolve first.",
+    "explanation": "When multiple triggered abilities trigger simultaneously, they go on the stack in APNAP order (rule 405.3). The active player (A) places all their triggers first, choosing their relative order. Then each non-active player in turn order does the same. Since Player C's triggers are placed on top, they resolve before Player A's triggers.",
+    "rule_refs": [
+      "405.3",
+      "101.4",
+      "603.3"
+    ],
+    "cards_ref": [
+      "Blood Artist"
+    ],
+    "tags": [
+      "APNAP",
+      "multiplayer",
+      "dies-trigger",
+      "stack-order"
+    ]
+  },
+  {
+    "id": 179,
+    "difficulty": "stack_triggers",
+    "question": "In a multiplayer game, when multiple players' triggered abilities need to go on the stack simultaneously, does each player know what order previous players chose before choosing their own?",
+    "answer": "Yes. Per APNAP order, a player knows the choices made by previous players when making their choice.",
+    "explanation": "Rule 101.4b states that a player knows the choices made by the previous players when making their choice. So in APNAP order, the second non-active player sees how the active player and first non-active player ordered their triggers before deciding the order of their own.",
+    "rule_refs": [
+      "101.4",
+      "101.4b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "APNAP",
+      "multiplayer",
+      "information",
+      "stack-order"
+    ]
+  },
+  {
+    "id": 180,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Krosan Grip (\"Split second. Destroy target artifact or enchantment.\") and casts it. While it's on the stack, can the opponent cast an instant in response?",
+    "answer": "No. While a spell with split second is on the stack, players can't cast spells or activate abilities that aren't mana abilities.",
+    "explanation": "Split second means that as long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities. However, triggered abilities can still trigger and go on the stack normally. Players also still get priority — their options are just severely limited. Once Krosan Grip resolves, normal spell-casting resumes.",
+    "rule_refs": [
+      "605.3b"
+    ],
+    "cards_ref": [
+      "Krosan Grip"
+    ],
+    "tags": [
+      "split-second",
+      "stack",
+      "casting-restrictions"
+    ]
+  },
+  {
+    "id": 181,
+    "difficulty": "stack_triggers",
+    "question": "A spell with split second (like Krosan Grip: \"Split second. Destroy target artifact or enchantment.\") is on the stack. A triggered ability triggers while the split second spell is on the stack. Does that triggered ability still go on the stack?",
+    "answer": "Yes. Split second doesn't stop triggered abilities from triggering or being placed on the stack. It only prevents players from casting spells and activating non-mana abilities.",
+    "explanation": "Per the Krosan Grip rulings, split second doesn't stop triggered abilities from triggering. If a triggered ability triggers, its controller puts it on the stack and chooses targets for it. That ability will resolve as normal. Split second only restricts voluntary actions (casting spells and activating abilities).",
+    "rule_refs": [
+      "603.2a"
+    ],
+    "cards_ref": [
+      "Krosan Grip"
+    ],
+    "tags": [
+      "split-second",
+      "triggered-abilities",
+      "stack"
+    ]
+  },
+  {
+    "id": 182,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Teferi, Mage of Zhalfir (\"Each opponent can cast spells only any time they could cast a sorcery.\"). During that player's turn, can the opponent cast an instant in response to a spell?",
+    "answer": "No. Teferi restricts opponents to casting spells only at sorcery speed — during their own main phase with an empty stack and priority. This means opponents effectively can't respond to anything with spells during the Teferi controller's turn.",
+    "explanation": "Per the Teferi ruling, the last ability means that for an opponent to cast a spell, it must be that opponent's turn, during a main phase, and the stack must be empty. This restriction applies even if another effect would allow them to cast spells at instant speed — Teferi's restriction takes precedence.",
+    "rule_refs": [
+      "117.1a"
+    ],
+    "cards_ref": [
+      "Teferi",
+      "Mage of Zhalfir"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "sorcery-speed",
+      "stack",
+      "priority"
+    ]
+  },
+  {
+    "id": 184,
+    "difficulty": "stack_triggers",
+    "question": "A player casts Silence (\"Your opponents can't cast spells this turn.\"). Can the opponent respond to Silence by casting an instant before it resolves?",
+    "answer": "Yes. Silence's restriction doesn't take effect until it resolves. Opponents can cast spells in response to Silence; they just can't cast spells after it resolves.",
+    "explanation": "Per the Silence rulings, it won't affect spells that opponents cast before Silence resolves, including spells cast in response to it. Silence's effect begins only when it finishes resolving. Until that point, opponents have normal priority and can cast any spells they are able to.",
+    "rule_refs": [
+      "608.2",
+      "117.7"
+    ],
+    "cards_ref": [
+      "Silence"
+    ],
+    "tags": [
+      "casting-restrictions",
+      "responding",
+      "resolution-timing"
+    ]
+  },
+  {
+    "id": 185,
+    "difficulty": "stack_triggers",
+    "question": "Two players in a multiplayer game each control a Consecrated Sphinx (\"Whenever an opponent draws a card, you may draw two cards.\"). Player C draws a card during their draw step. What happens?",
+    "answer": "Both Consecrated Sphinx abilities trigger. As each resolves and draws cards, the other player's Sphinx triggers again. This creates a loop that continues until one player chooses not to draw (the 'may' clause allows them to stop).",
+    "explanation": "Per the Consecrated Sphinx rulings, if each player controls one, their abilities will cause each other to trigger until one player chooses not to draw cards. Since the ability says 'you may draw two cards,' either player can stop the loop at any time by choosing not to draw. Without a choice to stop, this would loop indefinitely.",
+    "rule_refs": [
+      "603.2"
+    ],
+    "cards_ref": [
+      "Consecrated Sphinx"
+    ],
+    "tags": [
+      "multiplayer",
+      "triggered-abilities",
+      "loops",
+      "may-abilities"
+    ]
+  },
+  {
+    "id": 186,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Thalia, Guardian of Thraben (\"Noncreature spells cost {1} more to cast.\"). If a player wants to cast an instant that costs {U}, what is the total cost?",
+    "answer": "{1}{U}. Thalia adds {1} to the cost of all noncreature spells, including your own.",
+    "explanation": "Per the Thalia rulings, the ability affects each spell that's not a creature spell, including your own. To determine the total cost, start with the mana cost ({U}), add cost increases ({1} from Thalia), then apply cost reductions. The mana value of the spell remains unchanged at 1, regardless of the total cost paid.",
+    "rule_refs": [
+      "601.2"
+    ],
+    "cards_ref": [
+      "Thalia",
+      "Guardian of Thraben"
+    ],
+    "tags": [
+      "cost-increase",
+      "static-abilities",
+      "noncreature"
+    ]
+  },
+  {
+    "id": 187,
+    "difficulty": "stack_triggers",
+    "question": "A player casts Venser, Shaper Savant (\"Flash. When Venser enters, return target spell or permanent to its owner's hand.\"). Can Venser's ability target a spell on the stack?",
+    "answer": "Yes. Venser can target a spell on the stack (returning it to its owner's hand, which effectively counters it since it leaves the stack without resolving). It can also target a permanent on the battlefield.",
+    "explanation": "Venser's ability says 'target spell or permanent.' Spells exist on the stack, and permanents exist on the battlefield. Since the ability can target a spell, it can 'bounce' a spell back to its owner's hand from the stack. This removes the spell from the stack without it resolving — it's not technically 'countering' but has a similar effect.",
+    "rule_refs": [
+      "405.1",
+      "608.2"
+    ],
+    "cards_ref": [
+      "Venser",
+      "Shaper Savant"
+    ],
+    "tags": [
+      "stack",
+      "bounce",
+      "targeting-spells"
+    ]
+  },
+  {
+    "id": 188,
+    "difficulty": "stack_triggers",
+    "question": "A player controls Vedalken Orrery (\"You may cast spells as though they had flash.\"). Can they cast a sorcery during the opponent's turn?",
+    "answer": "Yes. Vedalken Orrery allows the controller to cast any spell at any time they could cast an instant, including during opponents' turns and during any step or phase.",
+    "explanation": "Per the Vedalken Orrery rulings, the controller can cast nonland artifact, creature, enchantment, and sorcery cards any time they could cast an instant. This includes on other players' turns and during the upkeep step, draw step, combat phase, and end step. However, this only applies to casting spells — it doesn't change timing for activated abilities that say 'any time you could cast a sorcery.'",
+    "rule_refs": [
+      "117.1a"
+    ],
+    "cards_ref": [
+      "Vedalken Orrery"
+    ],
+    "tags": [
+      "flash",
+      "casting-timing",
+      "stack"
+    ]
+  },
+  {
+    "id": 189,
+    "difficulty": "stack_triggers",
+    "question": "In a four-player game, Player A (active player) casts a board wipe that destroys all creatures. Players A, B, and C each control creatures with 'When this creature dies' abilities. Player D controls no creatures. In what order do the players put their death triggers on the stack, and whose resolve first?",
+    "answer": "Player A (active player) puts their death triggers on the stack first, then Player B, then Player C. Player C's triggers resolve first (they're on top), then Player B's, then Player A's.",
+    "explanation": "Rule 405.3 and 603.3 specify that when multiple players' triggered abilities need to be put on the stack simultaneously, APNAP order applies. The active player puts all of theirs on the stack first (bottom), then each non-active player in turn order. Since the stack is last-in-first-out, the last player's triggers (Player C) resolve first.",
+    "rule_refs": [
+      "405.3",
+      "603.3",
+      "101.4"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "APNAP",
+      "multiplayer",
+      "dies-trigger",
+      "stack-order",
+      "board-wipe"
+    ]
+  },
+  {
+    "id": 190,
+    "difficulty": "stack_triggers",
+    "question": "After a spell or ability resolves, who gets priority next?",
+    "answer": "The active player (the player whose turn it is) receives priority after a spell or ability resolves.",
+    "explanation": "Rule 117.3b states that the active player receives priority after a spell or ability (other than a mana ability) resolves. This is true regardless of who controlled the spell or ability that just resolved. The active player always gets first chance to act after each resolution.",
+    "rule_refs": [
+      "117.3b"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "priority",
+      "stack",
+      "resolution"
+    ]
   }
 ]
