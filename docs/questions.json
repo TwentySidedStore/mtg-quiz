@@ -1109,5 +1109,359 @@
       "each-opponent",
       "triggered-abilities"
     ]
+  },
+  {
+    "id": 72,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer game, the monarch is eliminated from the game during another player's turn. Who becomes the new monarch?",
+    "answer": "The player whose turn it is becomes the monarch. If the monarch leaves during their own turn, the next player in turn order becomes the monarch.",
+    "explanation": "Per the monarch rules, if the monarch leaves the game during another player's turn, that player becomes the monarch. If the monarch leaves the game during their own turn, the next player in turn order becomes the monarch. The game always has exactly one monarch once the mechanic has been introduced.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "monarch",
+      "player-leaving"
+    ]
+  },
+  {
+    "id": 73,
+    "difficulty": "multiplayer",
+    "question": "What are the two inherent triggered abilities that come with being the monarch in a multiplayer game?",
+    "answer": "1) At the beginning of the monarch's end step, that player draws a card. 2) Whenever a creature deals combat damage to the monarch, its controller becomes the monarch.",
+    "explanation": "Being the monarch carries two inherent triggered abilities that have no source. They are controlled by the player who was the monarch at the time the abilities triggered. Once an effect makes a player the monarch, the game will have exactly one monarch from that point forward.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "monarch",
+      "triggered-abilities",
+      "draw"
+    ]
+  },
+  {
+    "id": 74,
+    "difficulty": "multiplayer",
+    "question": "A creature deals lethal combat damage to the monarch, causing the monarch to lose the game. Does the controller of the attacking creature become the monarch?",
+    "answer": "No. The triggered ability that would make the attacking creature's controller the monarch doesn't resolve because the monarch has left the game. However, the attacking creature's controller usually becomes monarch anyway because it's most likely their turn.",
+    "explanation": "If combat damage dealt to the monarch causes that player to lose the game, the triggered ability that causes the controller of the attacking creature to become the monarch doesn't resolve. In most cases, the controller of the attacking creature will still become the monarch because it is likely their turn (and the monarch leaving during another player's turn makes that player the monarch).",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "monarch",
+      "combat-damage",
+      "player-leaving"
+    ]
+  },
+  {
+    "id": 75,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Council's Judgment (\"Will of the council — Starting with you, each player votes for a nonland permanent you don't control. Exile each permanent with the most votes or tied for most votes.\"). Player B votes for Permanent X. Can Player C see Player B's vote before making their own choice?",
+    "answer": "Yes. Votes are cast in turn order, and each player knows the votes of players who voted before them.",
+    "explanation": "Per the Council's Judgment rulings, votes are cast in turn order starting with the caster, and each player will know the votes of players who voted beforehand. No player votes until the spell resolves — responses must be made without knowing the vote outcome. Additionally, none of the permanents are targeted, so a permanent with hexproof or protection could still be exiled.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Council's Judgment"
+    ],
+    "tags": [
+      "voting",
+      "will-of-the-council",
+      "exile"
+    ]
+  },
+  {
+    "id": 76,
+    "difficulty": "multiplayer",
+    "question": "Player A casts Council's Judgment (\"Will of the council — Starting with you, each player votes for a nonland permanent you don't control. Exile each permanent with the most votes or tied for most votes.\"). An opponent controls a creature with hexproof. Can the players vote for that creature?",
+    "answer": "Yes. Council's Judgment doesn't target any permanent, so players can vote for permanents with hexproof, shroud, or protection.",
+    "explanation": "None of the candidate permanents are targeted by Council's Judgment. The card asks players to vote for a permanent, which is not the same as targeting. Because it doesn't target, hexproof, shroud, and protection are irrelevant — players may vote for any nonland permanent the caster doesn't control.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Council's Judgment"
+    ],
+    "tags": [
+      "voting",
+      "hexproof",
+      "targeting-vs-choosing"
+    ]
+  },
+  {
+    "id": 77,
+    "difficulty": "multiplayer",
+    "question": "Can a player abstain from voting when a card with a voting mechanic (like Expropriate) resolves?",
+    "answer": "No. Each player must vote for one of the available options. Players cannot abstain.",
+    "explanation": "The rules for voting cards specify that you must vote for one of the available options and you can't abstain. This applies to all voting cards, including will of the council and council's dilemma cards like Expropriate, Council's Judgment, and Capital Punishment.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Expropriate"
+    ],
+    "tags": [
+      "voting",
+      "mandatory"
+    ]
+  },
+  {
+    "id": 78,
+    "difficulty": "multiplayer",
+    "question": "Player A casts Capital Punishment (\"Council's dilemma — Starting with you, each player votes for death or taxes. Each opponent sacrifices a creature of their choice for each death vote and discards a card for each taxes vote.\"). In a four-player game, if two players vote death and two vote taxes, how many creatures does each opponent sacrifice and how many cards do they discard?",
+    "answer": "Each opponent sacrifices 2 creatures (one for each death vote) and discards 2 cards (one for each taxes vote).",
+    "explanation": "Unlike will of the council cards where only the majority option happens, council's dilemma cards have each vote add to the effect. Every death vote means each opponent sacrifices a creature, and every taxes vote means each opponent discards a card. With 2 death votes and 2 taxes votes, each opponent sacrifices 2 creatures AND discards 2 cards.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Capital Punishment"
+    ],
+    "tags": [
+      "voting",
+      "councils-dilemma",
+      "sacrifice",
+      "discard"
+    ]
+  },
+  {
+    "id": 79,
+    "difficulty": "multiplayer",
+    "question": "Player A casts Tempt with Discovery (\"Tempting offer — Search your library for a land card and put it onto the battlefield. Each opponent may search their library for a land card and put it onto the battlefield. For each opponent who searches a library this way, search your library for a land card and put it onto the battlefield.\"). In a four-player game, two opponents accept the offer and one declines. How many total lands does Player A put onto the battlefield?",
+    "answer": "Player A puts 3 lands total onto the battlefield — the initial one plus two more (one for each opponent who accepted).",
+    "explanation": "Player A gets the initial search regardless. Then each opponent decides in turn order whether to accept. Two opponents accepted, so Player A searches for 2 additional lands. The opponents decide in turn order (starting with the opponent to the caster's left), and each knows the decisions of previous opponents. After all decisions are made, the searches happen simultaneously for those who accepted, then Player A's bonus searches happen.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Tempt with Discovery"
+    ],
+    "tags": [
+      "tempting-offer",
+      "search",
+      "multiplayer-scaling"
+    ]
+  },
+  {
+    "id": 80,
+    "difficulty": "multiplayer",
+    "question": "Player A controls Curse of Opulence (\"Enchant player. Whenever enchanted player is attacked, create a Gold token. Each opponent attacking that player does the same.\") enchanting Player B. Player C attacks Player B with three creatures. How many Gold tokens does Player C create?",
+    "answer": "Player C creates 1 Gold token. The Curse triggers only once regardless of how many creatures attack the enchanted player.",
+    "explanation": "Each Curse's ability triggers only once, no matter how many creatures are attacking the enchanted player. Player C is an opponent attacking the enchanted player, so they create one Gold token. Player A (the Curse's controller) also creates one Gold token from the same trigger.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Curse of Opulence"
+    ],
+    "tags": [
+      "curses",
+      "tokens",
+      "attack-triggers"
+    ]
+  },
+  {
+    "id": 81,
+    "difficulty": "multiplayer",
+    "question": "Player A controls Curse of Verbosity (\"Enchant player. Whenever enchanted player is attacked, you draw a card. Each opponent attacking that player does the same.\") enchanting Player B. Player C attacks a planeswalker controlled by Player B but doesn't attack Player B directly. Does the Curse trigger?",
+    "answer": "No. The Curse's triggered ability doesn't trigger if only a planeswalker controlled by the enchanted player is attacked.",
+    "explanation": "Per the Curse rulings, the triggered ability of these Curses won't trigger if only a planeswalker controlled by the enchanted player is attacked. The enchanted player themselves must be attacked (i.e., a creature must be declared as attacking that player) for the Curse to trigger.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Curse of Verbosity"
+    ],
+    "tags": [
+      "curses",
+      "planeswalkers",
+      "attack-triggers"
+    ]
+  },
+  {
+    "id": 82,
+    "difficulty": "multiplayer",
+    "question": "Player A controls Rite of the Raging Storm (\"Creatures named Lightning Rager can't attack you or planeswalkers you control. At the beginning of each player's upkeep, that player creates a 5/1 red Elemental creature token named Lightning Rager.\"). If Rite of the Raging Storm is destroyed during Player B's upkeep after the token is created but before combat, can Player B's Lightning Rager token attack Player A?",
+    "answer": "Yes. If Rite of the Raging Storm leaves the battlefield before attackers are declared, creatures named Lightning Rager can attack Player A or planeswalkers Player A controls.",
+    "explanation": "The restriction preventing Lightning Rager from attacking Player A comes from Rite of the Raging Storm's static ability. This ability only functions while Rite of the Raging Storm is on the battlefield. If it's destroyed before the declare attackers step, the restriction no longer applies and Lightning Rager tokens can freely attack Player A.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Rite of the Raging Storm"
+    ],
+    "tags": [
+      "static-abilities",
+      "attack-restrictions",
+      "tokens"
+    ]
+  },
+  {
+    "id": 83,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Fractured Identity (\"Exile target nonland permanent. Each player other than its controller creates a token that's a copy of it.\") targeting Player B's Sol Ring ({T}: Add {C}{C}). How many Sol Ring tokens are created and who gets them?",
+    "answer": "Three Sol Ring tokens are created — one each for Player A, Player C, and Player D. Player B (the controller of the exiled Sol Ring) gets nothing.",
+    "explanation": "Fractured Identity exiles the targeted permanent, then each player OTHER than its controller creates a token copy. Since Player B controlled the Sol Ring, Players A, C, and D each create a token copy. The tokens copy exactly what was printed on the original permanent. In a four-player game, this means three copies are created.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Fractured Identity"
+    ],
+    "tags": [
+      "tokens",
+      "copying",
+      "each-other-player",
+      "exile"
+    ]
+  },
+  {
+    "id": 84,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Tragic Arrogance (\"For each player, you choose from among the permanents that player controls an artifact, a creature, an enchantment, and a planeswalker. Then each player sacrifices all other nonland permanents they control.\"). Player B controls an artifact creature. Can Player A choose that artifact creature as both the artifact and the creature Player B keeps?",
+    "answer": "Yes. If a permanent has more than one of the affected types, it can count for any of them. Player A could choose that artifact creature as both the artifact and the creature Player B keeps.",
+    "explanation": "Per the Tragic Arrogance rulings, if a permanent has more than one of the affected types, it can count for any of them. So an artifact creature could be chosen as the artifact, the creature, or both. This means Player B would only keep that one permanent rather than two separate ones.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Tragic Arrogance"
+    ],
+    "tags": [
+      "sacrifice",
+      "choosing",
+      "multi-type-permanents"
+    ]
+  },
+  {
+    "id": 85,
+    "difficulty": "multiplayer",
+    "question": "In a five-player game, there are 14 creatures on the battlefield total (spread across all players). Player A wants to cast Blasphemous Act (\"This spell costs {1} less to cast for each creature on the battlefield. Blasphemous Act deals 13 damage to each creature.\"). What is the total mana cost Player A must pay?",
+    "answer": "{R} (one red mana). The cost is reduced from {8}{R} by {14} (one per creature), but can't be reduced below {R}.",
+    "explanation": "Blasphemous Act has a mana cost of {8}{R} and costs {1} less for each creature on the battlefield. With 14 creatures, the reduction is {14}, but the total cost can't be reduced below {R}. All creatures on the battlefield count, not just your own — making this card extremely efficient in multiplayer where many creatures are typically in play.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Blasphemous Act"
+    ],
+    "tags": [
+      "cost-reduction",
+      "board-wipe",
+      "multiplayer-scaling"
+    ]
+  },
+  {
+    "id": 86,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Blatant Thievery (\"For each opponent, gain control of target permanent that player controls.\"). Player A targets one permanent from each of their three opponents. Before Blatant Thievery resolves, Player B gains control of one of the targeted permanents originally controlled by Player C. What happens?",
+    "answer": "Player A won't gain control of the permanent that changed controllers. If it's now controlled by Player B (from whom Player A already targeted a different permanent), the part targeting Player C's former permanent is unaffected — it still resolves, but Player A doesn't gain control of it because its controller changed.",
+    "explanation": "Per the Blatant Thievery rulings, if a permanent changes controller after being targeted but before the spell resolves, Player A won't gain control of that permanent. Player A gains control of only one permanent from each opponent, and targets are chosen as the spell is cast.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Blatant Thievery"
+    ],
+    "tags": [
+      "control-change",
+      "targeting",
+      "each-opponent"
+    ]
+  },
+  {
+    "id": 87,
+    "difficulty": "multiplayer",
+    "question": "Player A equips Assault Suit (\"Equipped creature gets +2/+2, has haste, can't attack you or planeswalkers you control, and can't be sacrificed.\") to their creature. An opponent casts a spell that says \"Each player sacrifices a creature.\" What happens to the equipped creature?",
+    "answer": "The equipped creature can't be sacrificed. If Player A controls other creatures, they must sacrifice one of those instead. If the equipped creature is their only creature, they simply don't sacrifice anything.",
+    "explanation": "Assault Suit prevents the equipped creature from being sacrificed for any reason. Per the rulings, if an effect instructs you to sacrifice a creature and you control any creatures other than the one equipped with Assault Suit, you must sacrifice one of them. You can't try to sacrifice the equipped creature, fail, and ignore the effect.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Assault Suit"
+    ],
+    "tags": [
+      "sacrifice",
+      "equipment",
+      "cant-be-sacrificed"
+    ]
+  },
+  {
+    "id": 88,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer game, Player A controls Crafty Cutpurse (\"Flash. When this creature enters, each token that would be created under an opponent's control this turn is created under your control instead.\"). Player B casts a spell that creates three 1/1 Soldier tokens. Who controls the Soldier tokens?",
+    "answer": "Player A controls all three Soldier tokens. Crafty Cutpurse's replacement effect redirects token creation from opponents to its controller.",
+    "explanation": "Crafty Cutpurse's triggered ability creates a replacement effect for the rest of the turn: each token that would be created under an opponent's control is created under Player A's control instead. This applies to all tokens any opponent would create for the rest of the turn. Importantly, Crafty Cutpurse's replacement effect is applied before any other replacement effects that would modify how the token enters.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Crafty Cutpurse"
+    ],
+    "tags": [
+      "tokens",
+      "replacement-effects",
+      "control"
+    ]
+  },
+  {
+    "id": 89,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Windfall (\"Each player discards their hand, then draws cards equal to the greatest number of cards a player discarded this way.\"). Player A has 2 cards, Player B has 5, Player C has 3, and Player D has 0 cards in hand. How many cards does each player draw?",
+    "answer": "Each player draws 5 cards (equal to the greatest number discarded, which was Player B's 5 cards). Player D discards nothing but still draws 5.",
+    "explanation": "Windfall has each player discard their hand simultaneously, then each player draws cards equal to the greatest number of cards any single player discarded. Player B discarded the most (5), so all four players draw 5 cards. Even Player D, who had no cards to discard, draws 5.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Windfall"
+    ],
+    "tags": [
+      "discard",
+      "draw",
+      "each-player",
+      "symmetrical-effects"
+    ]
+  },
+  {
+    "id": 90,
+    "difficulty": "multiplayer",
+    "question": "In a four-player game, Player A casts Insurrection (\"Untap all creatures and gain control of them until end of turn. They gain haste until end of turn.\"). Player A now controls all creatures on the battlefield. Player A attacks Player B with several creatures and eliminates Player B. What happens to Player B's creatures that Player A temporarily controls?",
+    "answer": "Player B's creatures are exiled when Player B leaves the game, because they are owned by Player B. Player A loses control of them immediately.",
+    "explanation": "When a player leaves a multiplayer game, all objects that player owns leave the game (rule 800.4a). Even though Player A controls Player B's creatures via Insurrection, Player B still owns them. When Player B is eliminated, all of Player B's owned objects (including these creatures) are exiled. Player A keeps control of creatures owned by the remaining players until end of turn.",
+    "rule_refs": [
+      "800.4a"
+    ],
+    "cards_ref": [
+      "Insurrection"
+    ],
+    "tags": [
+      "control-change",
+      "player-leaving",
+      "ownership",
+      "combat"
+    ]
+  },
+  {
+    "id": 91,
+    "difficulty": "multiplayer",
+    "question": "In a multiplayer game, Player A leaves the game. Player A had cast a spell earlier that turn that gave Player B's creatures -2/-2 \"until your next turn.\" What happens to that effect?",
+    "answer": "The effect lasts until Player A's next turn would have begun, then expires. It neither expires immediately nor lasts indefinitely.",
+    "explanation": "Rule 800.4m states that when a player leaves the game, any continuous effects with durations that last until that player's next turn or until a specific point in that turn will last until that turn would have begun. They neither expire immediately nor last indefinitely. So the -2/-2 effect continues until the point in the turn cycle where Player A's turn would have been.",
+    "rule_refs": [
+      "800.4m"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "player-leaving",
+      "continuous-effects",
+      "duration"
+    ]
   }
 ]
