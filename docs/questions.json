@@ -7081,7 +7081,7 @@
   },
   {
     "id": 404,
-    "difficulty": "fundamentals",
+    "difficulty": "event_procedures",
     "question": "When a player takes a mulligan, how does it work? They draw seven cards, then what?",
     "answer": "After drawing seven new cards, the player puts a number of cards from their hand on the bottom of their library equal to the number of times they have mulliganed. For example, after one mulligan, they put one card back (ending with six).",
     "explanation": "This is the 'London mulligan' system. Each mulligan draws a full seven, but the player puts back cards equal to their mulligan count. First mulligan: draw 7, put 1 back (keep 6). Second mulligan: draw 7, put 2 back (keep 5). And so on.",
