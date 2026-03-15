@@ -550,12 +550,19 @@ git push
 ```
 [ ] UX tweaks after real use
 [ ] Generate batches for remaining difficulty levels
-[ ] README.md
-    [ ] What this is — one paragraph (flashcard quiz for event staff)
-    [ ] Setup — Ruby version, bundle install, rake data:update
-    [ ] Generating questions — how to use Claude Code + /mtg-lookup, rake questions:import
-    [ ] Reviewing questions — rake review:start, how the review UI works
-    [ ] Exporting & deploying — rake export, git push, GitHub Pages
-    [ ] Using the quiz — link to live site, how the flashcard UI works (for staff)
-    [ ] Updating for a new set — the rake data:update → generate → review → export → push workflow
+    [ ] multiplayer
+    [ ] 2hg (~50 questions)
+    [ ] stack_triggers
+    [ ] interactions
+    [ ] edge_cases
+[x] README.md
+    [x] What this is + live quiz link
+    [x] Setup — Ruby version, bundle install, rake data:update
+    [x] Generating questions — Claude Code + /mtg-lookup workflow
+    [x] Reviewing questions — rake review:start, review UI usage
+    [x] Exporting & deploying — rake export, git push, GitHub Pages setup
+    [x] Using the quiz — step-by-step for staff
+    [x] Updating for a new set — full workflow
+    [x] Rake tasks reference table
+    [x] Project structure overview
 ```
