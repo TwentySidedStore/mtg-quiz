@@ -1,3 +1,8 @@
+---
+name: mtg-lookup
+description: Query MTGJSON for card oracle text, rulings, and legalities. Use when looking up MTG card data.
+---
+
 Query the MTGJSON AllPrintings.sqlite database at `data/AllPrintings.sqlite`.
 
 The user will provide a query — a card name, a keyword, a mechanic, or a request to find cards with many rulings. Run the appropriate SQL using the Bash tool with `sqlite3`.

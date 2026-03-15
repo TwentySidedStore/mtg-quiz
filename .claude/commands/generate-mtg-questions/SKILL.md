@@ -1,3 +1,8 @@
+---
+name: generate-mtg-questions
+description: Generate MTG rules quiz questions for a specified difficulty level. Use when the user wants to create new quiz questions.
+---
+
 Generate Magic: The Gathering rules quiz questions for the specified difficulty level.
 
 Usage: /generate-mtg-questions [level] [count]
