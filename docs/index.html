@@ -41,30 +41,26 @@
 
   <!-- Navbar -->
   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-    <div class="page-container" style="display:flex;align-items:stretch;width:100%;">
+    <div class="navbar-brand">
+      <span class="navbar-item has-text-weight-bold">MTG Rules Quiz</span>
+      <a role="button" class="navbar-burger" id="navbar-burger" aria-label="menu" aria-expanded="false"
+         data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
 
-      <div class="navbar-brand">
-        <span class="navbar-item has-text-weight-bold">MTG Rules Quiz</span>
-        <a role="button" class="navbar-burger" id="navbar-burger" aria-label="menu" aria-expanded="false"
-           data-target="navbar-menu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
+    <div class="navbar-menu" id="navbar-menu">
+      <div class="navbar-end" id="topic-tabs">
+        <a class="navbar-item" data-topic="fundamentals">Basics</a>
+        <a class="navbar-item" data-topic="event_procedures">Procedures</a>
+        <a class="navbar-item" data-topic="multiplayer">Multiplayer</a>
+        <a class="navbar-item" data-topic="2hg">2HG</a>
+        <a class="navbar-item" data-topic="stack_triggers">Stack</a>
+        <a class="navbar-item" data-topic="interactions">Interactions</a>
+        <a class="navbar-item" data-topic="edge_cases">Edge Cases</a>
       </div>
-
-      <div class="navbar-menu" id="navbar-menu">
-        <div class="navbar-end" id="topic-tabs">
-          <a class="navbar-item" data-topic="fundamentals">Basics</a>
-          <a class="navbar-item" data-topic="event_procedures">Procedures</a>
-          <a class="navbar-item" data-topic="multiplayer">Multiplayer</a>
-          <a class="navbar-item" data-topic="2hg">2HG</a>
-          <a class="navbar-item" data-topic="stack_triggers">Stack</a>
-          <a class="navbar-item" data-topic="interactions">Interactions</a>
-          <a class="navbar-item" data-topic="edge_cases">Edge Cases</a>
-        </div>
-      </div>
-
     </div>
   </nav>
 
