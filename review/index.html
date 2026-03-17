@@ -38,6 +38,18 @@
           <li role="tab"><a data-status="rejected">Rejected</a></li>
         </ul>
       </div>
+      <div class="tabs is-small is-toggle">
+        <ul id="category-tabs">
+          <li class="is-active"><a data-difficulty="">All</a></li>
+          <li><a data-difficulty="fundamentals">fundamentals</a></li>
+          <li><a data-difficulty="event_procedures">event_procedures</a></li>
+          <li><a data-difficulty="multiplayer">multiplayer</a></li>
+          <li><a data-difficulty="2hg">2hg</a></li>
+          <li><a data-difficulty="stack_triggers">stack_triggers</a></li>
+          <li><a data-difficulty="interactions">interactions</a></li>
+          <li><a data-difficulty="edge_cases">edge_cases</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -136,8 +148,10 @@
   <script>
     const state = {
       questions: [],
+      filtered: [],
       currentIndex: 0,
-      statusFilter: 'pending'
+      statusFilter: 'pending',
+      difficultyFilter: null
     };
 
     // --- API ---
@@ -170,11 +184,18 @@
       document.getElementById('stat-rejected').textContent = `Rejected: ${stats.rejected || 0}`;
     }
 
+    function applyFilter() {
+      state.filtered = state.difficultyFilter
+        ? state.questions.filter(q => q.difficulty === state.difficultyFilter)
+        : state.questions;
+      state.currentIndex = 0;
+    }
+
     function renderQuestion() {
       const card = document.getElementById('question-card');
       const empty = document.getElementById('empty-state');
 
-      if (state.questions.length === 0) {
+      if (state.filtered.length === 0) {
         card.classList.add('is-hidden');
         empty.classList.remove('is-hidden');
         return;
@@ -183,20 +204,18 @@
       card.classList.remove('is-hidden');
       empty.classList.add('is-hidden');
 
-      const q = state.questions[state.currentIndex];
+      const q = state.filtered[state.currentIndex];
 
       // Populate jump-to dropdown
       const selector = document.getElementById('question-selector');
-      if (selector.options.length !== state.questions.length) {
-        selector.innerHTML = '';
-        state.questions.forEach((sq, i) => {
-          const opt = document.createElement('option');
-          opt.value = i;
-          const preview = sq.question.length > 80 ? sq.question.slice(0, 80) + '...' : sq.question;
-          opt.textContent = `#${sq.id} — ${preview}`;
-          selector.appendChild(opt);
-        });
-      }
+      selector.innerHTML = '';
+      state.filtered.forEach((sq, i) => {
+        const opt = document.createElement('option');
+        opt.value = i;
+        const preview = sq.question.length > 80 ? sq.question.slice(0, 80) + '...' : sq.question;
+        opt.textContent = `#${sq.id} — ${preview}`;
+        selector.appendChild(opt);
+      });
       selector.value = state.currentIndex;
 
       document.getElementById('field-difficulty').value = q.difficulty;
@@ -208,7 +227,7 @@
       document.getElementById('field-tags').value = (q.tags || []).join(', ');
 
       document.getElementById('btn-prev').disabled = state.currentIndex === 0;
-      document.getElementById('btn-next').disabled = state.currentIndex >= state.questions.length - 1;
+      document.getElementById('btn-next').disabled = state.currentIndex >= state.filtered.length - 1;
     }
 
     function getEditedFields() {
@@ -229,7 +248,7 @@
 
     async function loadQuestions() {
       state.questions = await fetchQuestions(state.statusFilter);
-      state.currentIndex = 0;
+      applyFilter();
       renderQuestion();
 
       const stats = await fetchStats();
@@ -237,7 +256,7 @@
     }
 
     async function saveAndSetStatus(newStatus) {
-      const q = state.questions[state.currentIndex];
+      const q = state.filtered[state.currentIndex];
       if (!q) return;
 
       const fields = getEditedFields();
@@ -257,7 +276,7 @@
     });
 
     document.getElementById('btn-next').addEventListener('click', () => {
-      if (state.currentIndex < state.questions.length - 1) {
+      if (state.currentIndex < state.filtered.length - 1) {
         state.currentIndex++;
         renderQuestion();
       }
@@ -277,7 +296,22 @@
         document.querySelectorAll('#status-tabs li').forEach(li => li.classList.remove('is-active'));
         tab.parentElement.classList.add('is-active');
         state.statusFilter = tab.dataset.status;
+        // Reset category filter to All
+        state.difficultyFilter = null;
+        document.querySelectorAll('#category-tabs li').forEach(li => li.classList.remove('is-active'));
+        document.querySelector('#category-tabs li:first-child').classList.add('is-active');
         loadQuestions();
+      });
+    });
+
+    document.querySelectorAll('#category-tabs a').forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('#category-tabs li').forEach(li => li.classList.remove('is-active'));
+        tab.parentElement.classList.add('is-active');
+        state.difficultyFilter = tab.dataset.difficulty || null;
+        applyFilter();
+        renderQuestion();
       });
     });
 
