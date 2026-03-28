@@ -3,7 +3,7 @@
 Flashcard quiz for MTG event staff. Pipeline generates questions locally, frontend is static on GitHub Pages.
 
 ## Layout
-- `docs/` — GitHub Pages root (`index.html` + `questions.json` + `preview.png`). Nothing else goes here.
+- `docs/` — GitHub Pages root (`index.html` + `questions.json` + `og.png`). Nothing else goes here.
 - `planning/` — project plans, dev docs
 - `pipeline/` — review server, export logic (Ruby source files)
 - `review/` — local-only review UI

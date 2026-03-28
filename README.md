@@ -143,7 +143,7 @@ git add docs/questions.json && git commit && git push   # deploy
 ## Project structure
 
 ```
-docs/               → GitHub Pages (index.html + questions.json + preview.png) — deployed files
+docs/               → GitHub Pages (index.html + questions.json + og.png) — deployed files
 planning/           → Project plans, UI layouts, generation prompts
 pipeline/           → Review server (WEBrick)
 review/             → Local review UI
