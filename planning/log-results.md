@@ -1,7 +1,7 @@
 # Feature: Log Results
 
 > **Branch:** `log-results`
-> **Status:** In Progress (Stage 3/6)
+> **Status:** In Progress (Stage 4/6)
 
 ## Problem
 
@@ -157,7 +157,7 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 
 ### Stage 3: Local guard
 
-**Status:** Not Started
+**Status:** Complete
 **What:** A predicate that says whether the page should post.
 **Tests:**
 - `shouldLog({ hostname: 'localhost' })` is false.
@@ -168,8 +168,8 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 1. Write the three tests. Run them. They fail.
 2. Implement `shouldLog`. The tests pass.
 
-- [ ] Tests passing
-- [ ] No regressions
+- [x] Tests passing
+- [x] No regressions
 
 ---
 

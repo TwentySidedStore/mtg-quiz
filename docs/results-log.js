@@ -22,3 +22,9 @@ export function buildLogPayload({ name, topic, results }) {
     [ENTRY.missed]: missedIds(results)
   };
 }
+
+const LOCAL_HOSTS = ['localhost', '127.0.0.1'];
+
+export function shouldLog({ hostname }) {
+  return !LOCAL_HOSTS.includes(hostname);
+}
