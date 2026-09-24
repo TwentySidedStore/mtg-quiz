@@ -1,7 +1,7 @@
 # Feature: Log Results
 
 > **Branch:** `log-results`
-> **Status:** Draft
+> **Status:** Reviewed
 
 ## Problem
 
@@ -15,7 +15,7 @@ The page asks for a name on the topic-select screen. The Start button is disable
 
 The post uses `fetch` with `mode: 'no-cors'`. The browser cannot read the response. The page does not report success or failure.
 
-The page does not post when it runs on `localhost`, `127.0.0.1`, or a `file:` URL. This keeps local testing out of the sheet.
+The page does not post when it runs on `localhost` or `127.0.0.1`. This keeps local testing out of the sheet. A `file:` URL needs no guard. The page already fails on `file:` URLs because browsers block `fetch` there.
 
 Architectural choices:
 
@@ -77,7 +77,8 @@ Topic is the difficulty key, for example `fundamentals`. Missed is a comma-separ
 
 ### Failure & Recovery
 
-- `localStorage` can throw in private windows. Wrap access in `try`/`catch`. A failure reads as no name and the input starts empty.
+- `localStorage` can throw in private windows. Keep the `try`/`catch` in two small page functions, `readStoredName` and `saveName`, so the guard is in one place. A failure reads as no name and the input starts empty.
+- The page prefills the name once, at init. It does not prefill in `renderSelect`. Topic tab clicks call `renderSelect`, and a prefill there would replace a name the user typed but did not save.
 - The post can fail with no signal. The user sees nothing. The owner sees a missing row.
 - Google can change the endpoint or the form. No local test can catch this. Check the sheet after the first deploy.
 
@@ -96,6 +97,7 @@ Topic is the difficulty key, for example `fundamentals`. Missed is a comma-separ
 - [ ] The name is prefilled when the stored name is less than 8 hours old.
 - [ ] Completing a quiz on the live site adds one row to the sheet with name, topic, correct, total, missed ids.
 - [ ] Completing a quiz on `localhost` adds no row.
+- [ ] Switching topic keeps a typed name in the input.
 - [ ] "Back to Results" adds no row.
 - [ ] `rake test` runs the Ruby tests and the Node tests, and all pass.
 
@@ -117,7 +119,7 @@ Topic is the difficulty key, for example `fundamentals`. Missed is a comma-separ
 
 1. Write `test/results_log.test.mjs` with one test that imports `../docs/results-log.js`. Run `node --test`. It fails because the file is missing.
 2. Create `docs/results-log.js` as an empty ES module. The test passes.
-3. Add `sh "node --test"` to the `test` task in `Rakefile`.
+3. Add `sh "node --test"` at the top of the `test` task in `Rakefile`. The Ruby tests run at process exit. A Node failure stops the task before the Ruby tests load. This is accepted. `rake test` still fails.
 4. Add `results-log.js` to the `docs/` line in `CLAUDE.md`.
 
 - [ ] Tests passing
@@ -149,13 +151,12 @@ Topic is the difficulty key, for example `fundamentals`. Missed is a comma-separ
 **Status:** Not Started
 **What:** A predicate that says whether the page should post.
 **Tests:**
-- `shouldLog({ hostname: 'localhost', protocol: 'http:' })` is false.
-- `shouldLog` is false for `127.0.0.1`.
-- `shouldLog` is false for protocol `file:`.
-- `shouldLog` is true for `twentysidedstore.github.io` over `https:`.
+- `shouldLog({ hostname: 'localhost' })` is false.
+- `shouldLog({ hostname: '127.0.0.1' })` is false.
+- `shouldLog({ hostname: 'twentysidedstore.github.io' })` is true.
 **Steps:**
 
-1. Write the four tests. Run them. They fail.
+1. Write the three tests. Run them. They fail.
 2. Implement `shouldLog`. The tests pass.
 
 - [ ] Tests passing
@@ -183,19 +184,34 @@ Topic is the difficulty key, for example `fundamentals`. Missed is a comma-separ
 
 ---
 
-### Stage 5: Wire the page
+### Stage 5: Name input
 
 **Status:** Not Started
-**What:** Connect the module to `index.html`.
-**Tests:** Manual. Run the site on `localhost` and on the live site. Check the sheet.
+**What:** Add the name input to the page and connect it to storage.
+**Tests:** Manual. Check prefill, the disabled Start button, and that a topic switch keeps a typed name.
 **Steps:**
 
 1. Change `<script>` to `<script type="module">`. Add `import { buildLogPayload, shouldLog, storedName, rememberName, FORM_URL } from './results-log.js';`.
 2. Add a name input with id `staff-name` above the Start button in `view-select`. Use a Bulma `input`, `placeholder="Your name"`, `autocomplete="off"`.
-3. In `renderSelect`, set the input value from `storedName(localStorage, Date.now())` inside `try`/`catch`. Disable Start when the trimmed value is blank. Add an `input` listener that updates the disabled state.
-4. In `startQuiz`, call `rememberName(localStorage, name, Date.now())` inside `try`/`catch` and keep the name in `state.name`.
-5. Add `postResults()`. It returns early when `shouldLog(location)` is false. Otherwise it calls `fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(buildLogPayload(...)) })`.
-6. Call `postResults()` in `judgeAnswer` before `renderScore()`. Do not call it inside `renderScore`.
+3. Add `readStoredName()` and `saveName(name)`. Each wraps one `localStorage` call in `try`/`catch` and calls `storedName` or `rememberName` with `Date.now()`.
+4. In the init `.then`, after `renderSelect()`, set the input value from `readStoredName()`. Do not do this in `renderSelect`.
+5. Add `updateStartButton()`. It disables Start when the trimmed input is blank. Call it from `renderSelect` and from an `input` listener on the name field.
+6. In `startQuiz`, call `saveName(name)` and keep the name in `state.name`.
+
+- [ ] Manual checks passing
+- [ ] No regressions
+
+---
+
+### Stage 6: Post results
+
+**Status:** Not Started
+**What:** Post one row to the form when a quiz completes.
+**Tests:** Manual. Complete a quiz on `localhost` and check that no row appears. Complete one on the live site and check the sheet. Use "Back to Results" and check that no second row appears.
+**Steps:**
+
+1. Add `postResults()`. It returns early when `shouldLog(location)` is false. Otherwise it calls `fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(buildLogPayload(...)) })`.
+2. Call `postResults()` in `judgeAnswer` before `renderScore()`. Do not call it inside `renderScore`.
 
 - [ ] Manual checks passing
 - [ ] No regressions
@@ -208,4 +224,7 @@ _Updated by /review-feature. Don't delete — this is the audit trail._
 
 | Issue | Severity | Resolution |
 |-------|----------|------------|
-| | | |
+| M1. Prefill in `renderSelect` replaces a typed name on topic switch. | Medium | Prefill once at init. Stage 5 updated. |
+| M2. A Node test failure stops `rake test` before the Ruby tests load. | Medium | Accepted. `rake test` still fails. Noted in Stage 1. |
+| L1. The `file:` guard is dead. Browsers block `fetch` on `file:` URLs, so the page never runs there. | Low | Removed from Solution and Stage 3. |
+| L2. `try`/`catch` on `localStorage` conflicts with the no-overguard rule. | Low | Kept. Limited to `readStoredName` and `saveName`. |
