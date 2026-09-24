@@ -172,6 +172,7 @@ namespace :review do
 end
 
 task :test do
+  sh "node --test"
   Dir.glob("test/test_*.rb").each { |f| require_relative f }
 end
 

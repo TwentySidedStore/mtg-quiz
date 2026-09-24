@@ -1,7 +1,7 @@
 # Feature: Log Results
 
 > **Branch:** `log-results`
-> **Status:** Reviewed
+> **Status:** In Progress (Stage 1/6)
 
 ## Problem
 
@@ -120,7 +120,7 @@ The form is public, one page, and all five questions are Short answer with no re
 
 ### Stage 1: Test runner
 
-**Status:** Not Started
+**Status:** Complete
 **What:** Make `rake test` run Node tests.
 **Tests:** A placeholder test in `test/results_log.test.mjs` that imports `docs/results-log.js`.
 **Steps:**
@@ -130,8 +130,8 @@ The form is public, one page, and all five questions are Short answer with no re
 3. Add `sh "node --test"` at the top of the `test` task in `Rakefile`. The Ruby tests run at process exit. A Node failure stops the task before the Ruby tests load. This is accepted. `rake test` still fails.
 4. Add `results-log.js` to the `docs/` line in `CLAUDE.md`. Leave `favicon.png` alone.
 
-- [ ] Tests passing
-- [ ] No regressions
+- [x] Tests passing
+- [x] No regressions
 
 ---
 
