@@ -1,7 +1,7 @@
 # Feature: Log Results
 
 > **Branch:** `log-results`
-> **Status:** In Progress (Stage 1/6)
+> **Status:** In Progress (Stage 3/6)
 
 ## Problem
 
@@ -137,7 +137,7 @@ The form is public, one page, and all five questions are Short answer with no re
 
 ### Stage 2: Payload builder
 
-**Status:** Not Started
+**Status:** Complete
 **What:** A function that turns quiz results into the form fields.
 **Tests:**
 Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
@@ -150,8 +150,8 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 1. Write the four tests. Run them. They fail.
 2. Implement `buildLogPayload` and export `FORM_URL`. The tests pass.
 
-- [ ] Tests passing
-- [ ] No regressions
+- [x] Tests passing
+- [x] No regressions
 
 ---
 
