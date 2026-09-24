@@ -77,6 +77,16 @@ server.mount_proc("/api/questions") do |req, res|
       next
     end
 
+    if body.key?("status") && !VALID_STATUSES.include?(body["status"])
+      json_response(res, 400, { "error" => "Invalid status: #{body["status"]}" })
+      next
+    end
+
+    if body.key?("difficulty") && !VALID_DIFFICULTIES.include?(body["difficulty"])
+      json_response(res, 400, { "error" => "Invalid difficulty: #{body["difficulty"]}" })
+      next
+    end
+
     db = open_db
 
     existing = db.execute("SELECT * FROM questions WHERE id = ?", [id]).first
@@ -93,18 +103,6 @@ server.mount_proc("/api/questions") do |req, res|
     updatable_fields.each do |field|
       next unless body.key?(field)
       value = body[field]
-
-      if field == "status" && !VALID_STATUSES.include?(value)
-        db.close
-        json_response(res, 400, { "error" => "Invalid status: #{value}" })
-        next
-      end
-
-      if field == "difficulty" && !VALID_DIFFICULTIES.include?(value)
-        db.close
-        json_response(res, 400, { "error" => "Invalid difficulty: #{value}" })
-        next
-      end
 
       if %w[rule_refs cards_ref tags].include?(field) && value.is_a?(Array)
         value = JSON.generate(value)
