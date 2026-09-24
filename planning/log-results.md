@@ -217,7 +217,7 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 
 ### Stage 6: Post results
 
-**Status:** Not Started
+**Status:** Complete
 **What:** Post one row to the form when a quiz completes.
 **Tests:** Manual. Serve the site as in Stage 5. Complete a quiz on `localhost` and check that no row appears. Complete one on the live site and check the sheet. Use "Back to Results" and check that no second row appears.
 **Steps:**
@@ -233,8 +233,8 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
    ```
 2. Call `postResults()` in `judgeAnswer` before `renderScore()`. Do not call it inside `renderScore`.
 
-- [ ] Manual checks passing
-- [ ] No regressions
+- [ ] Manual checks in a real browser: no row on localhost, one row on the live site, no row from Back to Results
+- [x] No regressions
 
 ---
 

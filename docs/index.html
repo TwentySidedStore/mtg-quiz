@@ -434,6 +434,7 @@
       state.revealed = false;
 
       if (state.currentIndex >= state.questions.length) {
+        postResults();
         renderScore();
       } else {
         renderQuiz();
@@ -441,6 +442,16 @@
     }
 
     // --- Score Mode ---
+
+    function postResults() {
+      if (!shouldLog(location)) return;
+      fetch(FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        body: new URLSearchParams(buildLogPayload({ name: state.name, topic: state.topic, results: state.results }))
+      });
+    }
 
     function renderScore() {
       state.mode = 'score';
