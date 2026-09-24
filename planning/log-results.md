@@ -1,7 +1,7 @@
 # Feature: Log Results
 
 > **Branch:** `log-results`
-> **Status:** In Progress (Stage 6/6)
+> **Status:** Complete
 
 ## Problem
 
@@ -98,16 +98,16 @@ The form is public, one page, and all five questions are Short answer with no re
 
 ## Done When
 
-- [ ] The topic-select screen shows a name input above Start.
-- [ ] Start is disabled while the name is blank.
+- [x] The topic-select screen shows a name input above Start.
+- [x] Start is disabled while the name is blank.
 - [ ] The name is prefilled when the stored name is less than 8 hours old.
 - [ ] Completing a quiz on the live site adds one row to the sheet with name, topic, correct, total, missed ids.
 - [ ] Completing a quiz on `localhost` adds no row.
 - [ ] Switching topic keeps a typed name in the input.
 - [ ] "Back to Results" adds no row.
 - [ ] A topic with no questions keeps Start disabled when a name is entered.
-- [ ] `curl -sI` on the form `viewform` URL returns 200, not 302.
-- [ ] `rake test` runs the Ruby tests and the Node tests, and all pass.
+- [x] `curl -sI` on the form `viewform` URL returns 200, not 302.
+- [x] `rake test` runs the Ruby tests and the Node tests, and all pass.
 
 ---
 ## Open Questions
