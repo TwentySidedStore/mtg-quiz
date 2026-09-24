@@ -1,6 +1,6 @@
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildLogPayload, shouldLog } from '../docs/results-log.js';
+import { buildLogPayload, shouldLog, storedName, rememberName } from '../docs/results-log.js';
 
 function result(id, gotIt) {
   return { question: { id }, got_it: gotIt };
@@ -44,5 +44,52 @@ describe('shouldLog', () => {
 
   test('is true on the live site', () => {
     assert.equal(shouldLog({ hostname: 'twentysidedstore.github.io' }), true);
+  });
+});
+
+const HOUR_MS = 60 * 60 * 1000;
+const NOW = 1_727_000_000_000;
+
+function storageHolding(value) {
+  return { getItem: () => value, setItem: () => {} };
+}
+
+function savedHoursAgo(hours) {
+  return storageHolding(JSON.stringify({ name: 'Alex', savedAt: NOW - hours * HOUR_MS }));
+}
+
+describe('storedName', () => {
+  test('returns the name when saved 7 hours ago', () => {
+    assert.equal(storedName(savedHoursAgo(7), NOW), 'Alex');
+  });
+
+  test('returns empty when saved 9 hours ago', () => {
+    assert.equal(storedName(savedHoursAgo(9), NOW), '');
+  });
+
+  test('returns empty when saved exactly 8 hours ago', () => {
+    assert.equal(storedName(savedHoursAgo(8), NOW), '');
+  });
+
+  test('returns empty when nothing is stored', () => {
+    assert.equal(storedName(storageHolding(null), NOW), '');
+  });
+
+  test('returns empty when the stored string is null', () => {
+    assert.equal(storedName(storageHolding('null'), NOW), '');
+  });
+
+  test('returns empty on bad JSON', () => {
+    assert.equal(storedName(storageHolding('{not json'), NOW), '');
+  });
+});
+
+describe('rememberName', () => {
+  test('writes name and savedAt as JSON', () => {
+    const written = {};
+    const storage = { setItem: (key, value) => { written[key] = value; } };
+    rememberName(storage, 'Alex', NOW);
+    const [value] = Object.values(written);
+    assert.deepEqual(JSON.parse(value), { name: 'Alex', savedAt: NOW });
   });
 });

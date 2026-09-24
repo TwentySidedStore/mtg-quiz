@@ -1,7 +1,7 @@
 # Feature: Log Results
 
 > **Branch:** `log-results`
-> **Status:** In Progress (Stage 4/6)
+> **Status:** In Progress (Stage 5/6)
 
 ## Problem
 
@@ -175,7 +175,7 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 
 ### Stage 4: Name storage
 
-**Status:** Not Started
+**Status:** Complete
 **What:** Read and write the name with an 8-hour limit.
 **Tests:** Use a plain object with `getItem` and `setItem` as the storage.
 - `storedName(storage, now)` returns the name when `savedAt` is 7 hours before `now`.
@@ -190,8 +190,8 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 1. Write the seven tests. Run them. They fail.
 2. Implement `storedName`, `rememberName`, and export `NAME_TTL_MS`. `storedName` catches the `JSON.parse` error and checks the parsed shape. The tests pass.
 
-- [ ] Tests passing
-- [ ] No regressions
+- [x] Tests passing
+- [x] No regressions
 
 ---
 
