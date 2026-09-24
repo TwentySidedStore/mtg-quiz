@@ -93,6 +93,11 @@
             <h2 class="title is-4 mb-2" id="topic-title"></h2>
             <p class="subtitle is-6 has-text-grey mb-4" id="topic-description"></p>
             <p class="has-text-grey mb-4" id="topic-count"></p>
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" id="staff-name" placeholder="Your name" autocomplete="off">
+              </div>
+            </div>
             <button class="button is-primary is-large" id="btn-start">Start Quiz</button>
           </div>
         </div>
@@ -201,7 +206,9 @@
     </div>
   </section>
 
-  <script>
+  <script type="module">
+    import { buildLogPayload, shouldLog, storedName, rememberName, FORM_URL } from './results-log.js';
+
     const TOPICS = {
       fundamentals:     { label: 'Basics',        description: 'Turn structure, casting spells, card types, combat, and draft/sealed basics.' },
       event_procedures: { label: 'Procedures',   description: 'Regular REL event procedures: missed triggers, game errors, penalties, and judge calls.' },
@@ -231,7 +238,8 @@
       currentIndex: 0,
       results: [],
       revealed: false,
-      reviewIndex: 0
+      reviewIndex: 0,
+      name: ''
     };
 
     // --- Utils ---
@@ -247,6 +255,29 @@
 
     function questionsForTopic(topic) {
       return allQuestions.filter(q => q.difficulty === topic);
+    }
+
+    function nameInput() {
+      return document.getElementById('staff-name');
+    }
+
+    function typedName() {
+      return nameInput().value.trim();
+    }
+
+    function readStoredName() {
+      try {
+        return storedName(localStorage, Date.now());
+      } catch {
+        return '';
+      }
+    }
+
+    function saveName(name) {
+      try {
+        rememberName(localStorage, name, Date.now());
+      } catch {
+      }
     }
 
     function showView(name) {
@@ -349,14 +380,20 @@
         count === 1 ? '1 question available' : `${count} questions available`;
 
       const btn = document.getElementById('btn-start');
-      btn.disabled    = count === 0;
+      btn.disabled    = startDisabled(count);
       btn.textContent = count === 0 ? 'No questions yet' : 'Start Quiz';
+    }
+
+    function startDisabled(count) {
+      return count === 0 || typedName() === '';
     }
 
     // --- Quiz Mode ---
 
     function startQuiz() {
       state.mode = 'quiz';
+      state.name = typedName();
+      saveName(state.name);
       const pool = questionsForTopic(state.topic);
       state.questions    = shuffle(pool).slice(0, 10);
       state.currentIndex = 0;
@@ -508,6 +545,7 @@
     // --- Static event listeners ---
 
     document.getElementById('btn-start').addEventListener('click', startQuiz);
+    nameInput().addEventListener('input', updateTopicInfo);
     document.getElementById('btn-reveal').addEventListener('click', revealAnswer);
     document.getElementById('btn-got-it').addEventListener('click', () => judgeAnswer(true));
     document.getElementById('btn-missed').addEventListener('click', () => judgeAnswer(false));
@@ -538,6 +576,8 @@
           showView('empty');
         } else {
           renderSelect();
+          nameInput().value = readStoredName();
+          updateTopicInfo();
         }
       })
       .catch(() => {

@@ -1,7 +1,7 @@
 # Feature: Log Results
 
 > **Branch:** `log-results`
-> **Status:** In Progress (Stage 5/6)
+> **Status:** In Progress (Stage 6/6)
 
 ## Problem
 
@@ -197,7 +197,7 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 
 ### Stage 5: Name input
 
-**Status:** Not Started
+**Status:** Complete
 **What:** Add the name input to the page and connect it to storage.
 **Tests:** Manual. Serve the site with `ruby -run -e httpd docs -p 8000` and open `http://localhost:8000/`. Check prefill, the disabled Start button, a topic switch keeping a typed name, and an empty topic keeping Start disabled with a name entered.
 **Steps:**
@@ -209,8 +209,9 @@ Fixtures use the real result shape: `{ question: { id: 7 }, got_it: false }`.
 5. Add `startDisabled()`. It is true when the topic has no questions or the trimmed input is blank. Make `updateTopicInfo` the only writer of `btn-start.disabled`, using `startDisabled()`. Add an `input` listener on the name field that calls `updateTopicInfo`.
 6. In `startQuiz`, set `state.name` to the trimmed input value and call `saveName(state.name)`. The two "Try Again" buttons also call `startQuiz`. The input still holds the name, so no separate path is needed.
 
-- [ ] Manual checks passing
-- [ ] No regressions
+- [x] Headless Chrome: module loads, input renders, Start disabled with blank name
+- [ ] Manual checks in a real browser: prefill, topic switch keeps name, empty topic keeps Start disabled
+- [x] No regressions
 
 ---
 
