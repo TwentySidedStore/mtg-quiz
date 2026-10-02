@@ -13246,5 +13246,155 @@
       "additional-turns",
       "extra-turns"
     ]
+  },
+  {
+    "id": 747,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, pack two has just been opened. A player takes their first pick and passes the rest to their left, the same direction as pack one. The next player hasn't picked from it yet. What should the judge do?",
+    "answer": "Redirect the pack to the right. Pack one passes left, pack two passes right, and pack three passes left again. Since nobody has picked from the misdirected pack, it simply goes to the correct neighbor.",
+    "explanation": "The draft direction reverses with each booster. Catching a wrong-direction pass before anyone picks from the pack means no picks need to be undone. If picks had already been made from it, those cards are selected and can't be returned, so the judge would keep the draft going from where it is and make sure every player ends up with the right number of cards.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures",
+      "JAR: Common Issues (in-game errors)"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "pass-direction",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 748,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, a player accidentally puts two cards from one pack onto their drafted pile before passing. They notice right away and call a judge. Can they keep both?",
+    "answer": "No. A player takes exactly one card per pack. One of the two cards goes back into the pack before it's passed, so the pack has the correct number of cards for the next player.",
+    "explanation": "Each pick is a single card. A pack passed with one card too few would shortchange every player after it. The Judging at Regular document leaves the exact method to common sense, so the judge corrects the count, educates the player, and keeps the draft moving.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures",
+      "JAR: Common Issues (in-game errors)"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "extra-pick",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 749,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, a player opens their first booster, counts it face down, and finds 13 playable cards instead of the expected 14. What must they do?",
+    "answer": "Call a judge immediately, before drafting from it.",
+    "explanation": "The Tournament Rules require players who receive an erroneous number of cards at any time to notify a judge at once. Counting face down before the first pick exists to catch exactly this. Whether the pack is replaced is up to the Head Judge and the Tournament Organizer.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures",
+      "MTR 7.4 Abnormal Product"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "pack-count",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 750,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, a player opens a pack with no rare in it and demands a replacement pack. Are they entitled to one?",
+    "answer": "No. Neither Wizards nor the organizer guarantees a specific rarity distribution. The player must call a judge, and whether the pack is replaced is at the discretion of the Head Judge and the Tournament Organizer.",
+    "explanation": "The Tournament Rules say an unconventional distribution of rarities must be reported to a judge, but the decision to replace or allow the product belongs to the Head Judge and the organizer. A replacement is possible, not automatic.",
+    "rule_refs": [
+      "MTR 7.4 Abnormal Product"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "abnormal-product",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 751,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, a player is holding the pack they're picking from and starts flipping through their face-down drafted pile to check their colors. Another player objects. Who is right?",
+    "answer": "Technically the other player. At Regular REL, players may review their drafted cards between or during picks, but only while holding no other cards. They must put the pack down first.",
+    "explanation": "The Tournament Rules allow reviewing picks at Regular REL as long as the player isn't holding other cards at the same time. This prevents mixing pack cards and picks. The Head Judge may forbid reviewing picks entirely if it's announced before the first draft. Between packs there is always a review period.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "reviewing-picks",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 752,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, a player says loudly \"I'm in blue, nobody else take blue\" while passing a pack. A different player shows the table the double-faced card they just picked. Which of these is allowed?",
+    "answer": "Only showing the double-faced card. Telling other drafters what you're drafting or what you want them to pick is prohibited. Double-faced cards are the one exception and may be shown at any time during the draft.",
+    "explanation": "Players may not reveal hidden information about their own picks or try to influence others' picks. The Tournament Rules exempt double-faced cards because both faces are visible when the card is handled. At Regular REL, the talking player should be educated, and a Game Loss can follow if it continues.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures",
+      "JAR: General Unwanted Behaviors"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "communication",
+      "double-faced-cards"
+    ]
+  },
+  {
+    "id": 753,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, a player has to leave the table partway through pack two for a family emergency but says they'll be back in 20 minutes and still want to play the event. What happens to their draft?",
+    "answer": "They're suspended from drafting. Their picks are skipped for the rest of the draft, the pod continues with one fewer player, and they build a deck from whatever they've drafted so far.",
+    "explanation": "The Tournament Rules cover a player who is unable or unwilling to continue drafting but wants to remain in the tournament. The draft doesn't pause for them, and the packs simply skip their seat. They can add basic lands and play with what they have.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "leaving-the-draft",
+      "event-procedure"
+    ]
+  },
+  {
+    "id": 754,
+    "difficulty": "event_procedures",
+    "question": "At an untimed Regular REL draft, two players each refuse to make their pick until the other does, and the draft stalls. How does the judge break the standoff?",
+    "answer": "The player who is about to pass their pack to the other picks first. If they're equidistant, the player in the lower seat number picks first.",
+    "explanation": "The Tournament Rules give a tiebreaker for untimed drafts: the player closer to providing the other with a pack picks first, with seat number as the final tiebreak. Stalling on purpose to see what the other player takes is also taking unreasonable time, which is an unwanted behavior.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures",
+      "JAR: General Unwanted Behaviors"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "pick-order",
+      "untimed-draft"
+    ]
+  },
+  {
+    "id": 755,
+    "difficulty": "event_procedures",
+    "question": "At a Regular REL draft, a player regrets a pick they made two packs ago. Holding a new pack, they quietly swap a card from it with the card on their drafted pile. Is this allowed?",
+    "answer": "No. Once a card is placed on the drafted pile it is selected and can't be returned to any pack. Doing it knowingly is breaking tournament rules to gain an advantage, which is a Serious Problem.",
+    "explanation": "The Tournament Rules state that a card removed from a pack and placed on the drafted pile may not be returned. A deliberate swap also passes a card downstream that was never in that pack. The Judging at Regular document treats knowingly breaking rules for advantage as grounds for disqualification.",
+    "rule_refs": [
+      "MTR 7.7 Booster Draft Procedures",
+      "JAR: Serious Problems"
+    ],
+    "cards_ref": [],
+    "tags": [
+      "draft",
+      "selected-cards",
+      "serious-problem"
+    ]
   }
 ]
