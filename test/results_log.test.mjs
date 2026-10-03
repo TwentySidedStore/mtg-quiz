@@ -1,6 +1,6 @@
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildLogPayload, shouldLog, storedName, rememberName } from '../docs/results-log.js';
+import { buildLogPayload, shouldLog, storedName, rememberName, missedIdsFromSearch, questionsByIds, missedReviewUrl } from '../docs/results-log.js';
 
 function result(id, gotIt) {
   return { question: { id }, got_it: gotIt };
@@ -23,8 +23,8 @@ describe('buildLogPayload', () => {
     assert.equal(payload['entry.375375561'], '3');
   });
 
-  test('joins missed question ids with commas', () => {
-    assert.equal(payload['entry.784422944'], '8,9');
+  test('joins missed question ids with semicolons so Sheets keeps them as text', () => {
+    assert.equal(payload['entry.784422944'], '8;9');
   });
 
   test('missed is empty when nothing was missed', () => {
@@ -91,5 +91,48 @@ describe('rememberName', () => {
     rememberName(storage, 'Alex', NOW);
     const [value] = Object.values(written);
     assert.deepEqual(JSON.parse(value), { name: 'Alex', savedAt: NOW });
+  });
+});
+
+describe('missedIdsFromSearch', () => {
+  test('parses comma separated ids', () => {
+    assert.deepEqual(missedIdsFromSearch('?missed=388,347,577'), [388, 347, 577]);
+  });
+
+  test('parses semicolon separated ids', () => {
+    assert.deepEqual(missedIdsFromSearch('?missed=388;347'), [388, 347]);
+  });
+
+  test('ignores blanks and non numbers', () => {
+    assert.deepEqual(missedIdsFromSearch('?missed=388,,abc,12'), [388, 12]);
+  });
+
+  test('is empty without the parameter', () => {
+    assert.deepEqual(missedIdsFromSearch(''), []);
+  });
+});
+
+describe('questionsByIds', () => {
+  const questions = [{ id: 1 }, { id: 2 }, { id: 3 }];
+
+  test('returns questions in the requested order', () => {
+    assert.deepEqual(questionsByIds(questions, [3, 1]), [{ id: 3 }, { id: 1 }]);
+  });
+
+  test('skips unknown ids', () => {
+    assert.deepEqual(questionsByIds(questions, [2, 99]), [{ id: 2 }]);
+  });
+});
+
+describe('missedReviewUrl', () => {
+  const site = { origin: 'https://twentysidedstore.github.io', pathname: '/mtg-quiz/' };
+
+  test('links to the site with missed ids', () => {
+    const url = missedReviewUrl(site, [result(7, true), result(8, false), result(9, false)]);
+    assert.equal(url, 'https://twentysidedstore.github.io/mtg-quiz/?missed=8,9');
+  });
+
+  test('is empty when nothing was missed', () => {
+    assert.equal(missedReviewUrl(site, [result(1, true)]), '');
   });
 });

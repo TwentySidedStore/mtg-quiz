@@ -8,8 +8,12 @@ const ENTRY = {
   missed: 'entry.784422944'
 };
 
+const FORM_SEPARATOR = ';';
+const URL_SEPARATOR = ',';
+const MISSED_PARAM = 'missed';
+
 function missedIds(results) {
-  return results.filter(r => !r.got_it).map(r => r.question.id).join(',');
+  return results.filter(r => !r.got_it).map(r => r.question.id);
 }
 
 export function buildLogPayload({ name, topic, results }) {
@@ -19,8 +23,24 @@ export function buildLogPayload({ name, topic, results }) {
     [ENTRY.topic]: topic,
     [ENTRY.correct]: String(correct),
     [ENTRY.total]: String(results.length),
-    [ENTRY.missed]: missedIds(results)
+    [ENTRY.missed]: missedIds(results).join(FORM_SEPARATOR)
   };
+}
+
+export function missedIdsFromSearch(search) {
+  const raw = new URLSearchParams(search).get(MISSED_PARAM) ?? '';
+  return raw.split(/\D+/).filter(Boolean).map(Number);
+}
+
+export function questionsByIds(questions, ids) {
+  const byId = new Map(questions.map(q => [q.id, q]));
+  return ids.filter(id => byId.has(id)).map(id => byId.get(id));
+}
+
+export function missedReviewUrl({ origin, pathname }, results) {
+  const ids = missedIds(results);
+  if (ids.length === 0) return '';
+  return `${origin}${pathname}?${MISSED_PARAM}=${ids.join(URL_SEPARATOR)}`;
 }
 
 const LOCAL_HOSTS = ['localhost', '127.0.0.1'];
